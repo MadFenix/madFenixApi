@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['madfenix.com', '*.madfenix.com'],
+    'allowed_origins' => ['https://madfenix.com', 'https://*.madfenix.com'],
 
     'allowed_origins_patterns' => ['*'],
 
