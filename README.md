@@ -38,7 +38,7 @@ php artisan config:cache
 
 ## Vulnerabilidades de seguridad
 
-Si se descubre algún fallo de seguridad se puede enviar a iam@valintigamez.com con el asunto "Vulnerabilidad madFenixApi". Valentí Gàmez, el líder del proyecto, se compromete a responder y tratar cualquier situación constructiva.
+Si se descubre algún fallo de seguridad se puede enviar a iam@valentigamez.com con el asunto "Vulnerabilidad madFenixApi". Valentí Gàmez, el líder del proyecto, se compromete a responder y tratar cualquier situación constructiva.
 
 ## Licencia
 
