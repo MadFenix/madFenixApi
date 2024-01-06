@@ -227,7 +227,7 @@ class Api extends Controller
 
         $signature = new Ethsignature();
 
-        $is_valid = $signature->verify('Bienvenid@ a Radge!', $data['signature'], $data['address']);
+        $is_valid = $signature->verify('Bienvenid@ a Mad Fénix!', $data['signature'], $data['address']);
 
         $addressSaved = false;
         if ($is_valid) {
