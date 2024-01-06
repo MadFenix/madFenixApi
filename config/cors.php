@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', '/images/*', '/models/*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
@@ -26,12 +26,6 @@ return [
     'allowed_headers' => ['*'],
 
     'exposed_headers' => ['*'],
-
-    'supportedContentTypes' => [
-        'model/gltf-binary',
-        'application/json',
-        'text/html',
-    ],
 
     'max_age' => 0,
 
