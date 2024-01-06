@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['OPTIONS', 'GET', 'POST', 'DELETE'],
 
-    'allowed_origins' => ['dormantlands.com', '*.dormantlands.com'],
+    'allowed_origins' => ['madfenix.com', '*.madfenix.com'],
 
     'allowed_origins_patterns' => [],
 
