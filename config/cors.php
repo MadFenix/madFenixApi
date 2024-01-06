@@ -15,17 +15,23 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', '/images/*', '/models/*'],
 
-    'allowed_methods' => ['OPTIONS', 'GET', 'POST', 'DELETE'],
+    'allowed_methods' => ['*'],
 
     'allowed_origins' => ['madfenix.com', '*.madfenix.com'],
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => ['*'],
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => ['*'],
+
+    'supportedContentTypes' => [
+        'model/gltf-binary',
+        'application/json',
+        'text/html',
+    ],
 
     'max_age' => 0,
 
