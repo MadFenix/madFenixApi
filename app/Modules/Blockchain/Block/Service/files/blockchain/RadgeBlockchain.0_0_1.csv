@@ -1,0 +1,7 @@
+Version;CreationDate;PreviousHash;BlockHash;DataLength;Data
+0_0_1;2021-03-27T21:46:42;0000000000000000000000000000000000000000000000000000000000000000;115e8bbaed9a69350e02f3db6063a6f9339cd5353be709086de3f9c326d37425;15;"\"Genesis Block\""
+0_0_1;2021-03-27T21:49:25;115e8bbaed9a69350e02f3db6063a6f9339cd5353be709086de3f9c326d37425;706dd4b3c6d40bb7bcd76935ceb14b8c0ae13277de29d79a7cf31b44cf7fe5e3;8;"[\"test\"]"
+0_0_1;2021-04-02T16:10:20;706dd4b3c6d40bb7bcd76935ceb14b8c0ae13277de29d79a7cf31b44cf7fe5e3;0c4054510e320ca6c40ce264d0698fb4671a814f653b4b23d6fb17b3a9c34a1a;9;"[\"test2\"]"
+0_0_1;2021-04-02T17:23:49;0c4054510e320ca6c40ce264d0698fb4671a814f653b4b23d6fb17b3a9c34a1a;9f317d50cf0244d46c3cddfcb258731d2ee5c003658b9de623a7dac5c94e7104;119;"{\"user_id\":1,\"user_id_receiving_transfer\":5,\"amount\":\"5.25\",\"user_balance\":4.75,\"user_balance_receiving_transfer\":5.25}"
+0_0_1;2021-04-03T20:43:22;9f317d50cf0244d46c3cddfcb258731d2ee5c003658b9de623a7dac5c94e7104;68419cb72e9b5364140045e4f3a829fdf7af262ed27bf76e45698abef0c21165;116;"{\"user_id\":1,\"user_id_receiving_transfer\":1,\"amount\":\"2\",\"user_balance\":6.75,\"user_balance_receiving_transfer\":6.75}"
+0_0_1;2021-04-03T20:45:09;68419cb72e9b5364140045e4f3a829fdf7af262ed27bf76e45698abef0c21165;c966d8b855a229fd7f41f97eb4fd680332dbdf135789ee49495a83fa3d7ba2e8;116;"{\"user_id\":1,\"user_id_receiving_transfer\":5,\"amount\":\"2\",\"user_balance\":2.75,\"user_balance_receiving_transfer\":7.25}"

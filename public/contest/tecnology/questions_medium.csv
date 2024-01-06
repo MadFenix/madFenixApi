@@ -1,0 +1,251 @@
+Pregunta;Dificultad;Respuesta correcta;Respuesta incorrecta 1;Respuesta incorrecta 2;Respuesta incorrecta 3
+¿Qué lenguaje de programación fue desarrollado por Guido van Rossum?;Media;Python;Java;Ruby;C++
+¿Qué protocolo es utilizado para enviar correos electrónicos?;Media;SMTP;HTTP;FTP;TCP
+¿Quién fue el cofundador de Microsoft junto con Bill Gates?;Media;Paul Allen;Steve Wozniak;Jeff Bezos;Larry Page
+¿Qué significa la sigla 'CPU' en informática?;Media;Central Processing Unit;Central Programming Unit;Computer Processing Unit;Central Processor Unit
+¿En qué año se lanzó el primer iPhone?;Media;2007;2005;2008;2006
+¿Qué compañía desarrolló el sistema operativo Android?;Media;Google;Apple;Microsoft;Nokia
+¿Qué elemento de una base de datos relacional representa una colección de datos organizados en columnas y filas?;Media;Tabla;Celda;Archivo;Directorio
+¿Qué tecnología es crucial para la realización de videoconferencias?;Media;VoIP;FTP;NFC;SMTP
+¿Cuál es el nombre de la capa de transporte segura que se utiliza en combinación con HTTP para proporcionar seguridad en las comunicaciones en la web?;Media;HTTPS;SHTTP;SSH;HTTPSecure
+¿Qué estándar de comunicaciones inalámbricas es comúnmente utilizado para intercambiar datos entre dispositivos móviles a corta distancia?;Media;Bluetooth;Infrared;NFC;LiFi
+¿Qué lenguaje de marcado es utilizado para estructurar y presentar contenidos en la World Wide Web?;Media;HTML;XML;JSON;SQL
+¿Qué es un SSD en el contexto de almacenamiento de computadoras?;Media;Solid-State Drive;Secure Storage Device;Simple Storage Disk;Static State Disk
+¿Cuál es la finalidad principal de un firewall en una red de computadoras?;Media;Seguridad;Mejora del rendimiento;Filtrado de spam;Balanceo de carga
+¿Qué es la 'nube' en términos de computación y almacenamiento?;Media;Cloud Computing;Skynet;Space Storage;Aerial Server
+¿Qué nombre recibe un entorno de ejecución para desarrollar y ejecutar aplicaciones de software que incluye un compilador y una biblioteca de software?;Media;Framework;Terminal;Protocol;Console
+¿A qué se refiere la sigla 'GPU' en la informática?;Media;Graphics Processing Unit;General Processing Unit;Gaming Processor Unit;Global Processing Unit
+¿Cuál es el propósito del código de estado HTTP 404?;Media;Not Found;Forbidden;Internal Server Error;Bad Request
+¿El término 'pixel' es una abreviatura de qué dos palabras?;Media;Picture Element;Pixelated Image;Picture Line;Pixel Element
+¿Qué compañía desarrolló el sistema de bases de datos conocido como MySQL?;Media;MySQL AB;Microsoft;IBM;Oracle Corporation
+¿Qué algoritmo de cifrado es conocido por ser utilizado en redes Wi-Fi Protegidas (WPA2)?;Media;AES;RSA;Blowfish;DES
+¿Cuál es el propósito principal de un Sistema de Gestión de Bases de Datos (SGBD)?;Media;Administrar bases de datos;Procesamiento de texto;Gestionar conexiones de red;Controlar dispositivos externos
+¿Qué lenguaje de programación utiliza el framework Ruby on Rails?;Media;Ruby;Python;JavaScript;PHP
+¿Cuál de estos es un sistema operativo de código abierto?;Media;Linux;Windows;macOS;iOS
+¿Qué protocolo de Internet se utiliza principalmente para transferir archivos de un servidor a un cliente?;Media;FTP;SMTP;HTTP;IMAP
+¿Qué significa RAID en el contexto de almacenamiento de datos?;Media;Redundant Array of Independent Disks;Random Access of Indexed Disks;Rapid Action of Integrated Disks;Random Allocation of Infinite Data
+¿Cómo se llama la secuencia de comandos o instrucciones utilizadas para automatizar procesos en un sistema operativo?;Media;Script;Protocol;Algorithm;Application
+¿Qué tecnología se utiliza para crear una versión simulada de un sistema operativo dentro de otro, permitiendo la ejecución simultánea de diferentes sistemas operativos?;Media;Virtualización;Emulación;Multiplexación;Simulación
+¿Qué significa la 'P' en PHP?;Media;PHP: Hypertext Preprocessor;Personal Home Page;Programmable Hypertext Processor;Private Hosting Protocol
+¿Cuál de estas opciones NO es un lenguaje de programación?;Media;Adobe Flash;Python;C#;Java
+¿Qué es MongoDB?;Media;Base de datos NoSQL;Lenguaje de programación;Herramienta de virtualización;Sistema de archivos en red
+¿Qué es un 'commit' en el contexto del control de versiones?;Media;Confirmación de cambios;Envío de un email;Compilación de código;Ejecución de pruebas
+¿Qué tecnología usa 'tinta electrónica' para mostrar contenido en dispositivos móviles y lectores de libros electrónicos?;Media;E-Paper;LCD;OLED;Plasma
+¿Qué significan las siglas 'IoT'?;Media;Internet of Things;Interface of Transfers;Integration of Technology;Intranet of Tools
+¿Cuál es el nombre de un popular contenedor de virtualización en la nube?;Media;Docker;VirtualBox;Hyper-V;LXC
+¿Cuál es el puerto estándar para la transferencia de hipertexto (HTTP)?;Media;80;21;23;443
+¿Qué protocolo se utiliza para recibir mensajes de correo electrónico?;Media;IMAP;SMTP;SFTP;ICMP
+¿Qué lenguaje de programación fue diseñado originalmente por Netscape y es ampliamente utilizado para mejorar la interactividad de las páginas web?;Media;JavaScript;Perl;Cobol;Swift
+¿Qué herramienta de software se utiliza para rastrear los defectos o problemas en un producto de software?;Media;Bug Tracker;Task Manager;Performance Monitor;Error Logger
+¿Qué es Git?;Media;Sistema de control de versiones;Lenguaje de programación;Base de datos NoSQL;Plataforma de alojamiento web
+¿Cómo se llama el dispositivo que convierte señales digitales en sonidos audibles y viceversa durante una llamada telefónica?;Media;Módem;Router;Repetidor;Switch
+¿Qué lenguaje de consulta se utiliza comúnmente para manejar bases de datos relacionales?;Media;SQL;Python;JavaScript;HTML
+¿Qué protocolo de red se utiliza para asignar automáticamente una dirección IP a un dispositivo en una red?;Media;DHCP;TCP;UDP;ICMP
+¿Qué significa 'CSS' en diseño web?;Media;Cascading Style Sheets;Computer Style Syntax;Creative Style System;Compact Sheet Styles
+¿Qué es 'Raspberry Pi'?;Media;Computadora de placa única;Marca de tabletas;Sistema operativo;Protocolo de comunicación
+¿Cuál es la diferencia entre memoria RAM y memoria ROM?;Media;RAM es volátil, ROM no lo es;RAM es para almacenamiento, ROM para procesamiento;ROM es más rápida que RAM;RAM es más grande que ROM
+¿Qué es un framework JavaScript popular para el desarrollo de interfaces de usuario?;Media;React;Bootstrap;Laravel;JQuery
+¿Qué significa la sigla 'API' en desarrollo de software?;Media;Application Programming Interface;Automated Program Interaction;Advanced Peripheral Interface;Array of Programming Instructions
+¿Qué empresa es responsable de la creación del sistema operativo Windows?;Media;Microsoft;Apple;IBM;Google
+¿Qué lenguaje de programación es especialmente conocido por su uso en el desarrollo de sistemas operativos y software de sistemas?;Media;C;Python;JavaScript;Ruby
+¿En qué se diferencia el software de código abierto del software propietario?;Media;El código fuente está disponible públicamente;El código abierto es siempre gratuito;El software propietario no tiene licencia;El código abierto no puede ser modificado
+¿Qué es una 'Pull Request' en plataformas de control de versiones como GitHub?;Media;Solicitud para integrar cambios;Petición para extraer datos;Requerimiento de cambio de versión;Solicitud de funcionalidades nuevas
+¿Qué arquitectura de CPU es ampliamente utilizada en smartphones y tablets?;Media;ARM;x86;SPARC;PowerPC
+¿Qué es un 'applet' en Java?;Media;Pequeña aplicación;Tipo de variable;Conjunto de APIs;Editor de código
+¿Cuál es el principal lenguaje de scripting para desarrollo web en el lado del servidor?;Media;PHP;HTML;CSS;XML
+¿Qué significa el error '500 Internal Server Error'?;Media;Problema del lado del servidor;Error de cliente;Conexión fallida;Solicitud incorrecta
+¿Qué tecnología blockchain es conocida por su asociación con la criptomoneda Ether?;Media;Ethereum;Bitcoin;Litecoin;Ripple
+¿Qué ofrece el servicio AWS de Amazon?;Media;Computación en la nube;Venta al por menor;Motor de búsqueda web;Red social
+¿Cómo se denomina la práctica de dividir un trabajo en múltiples hilos de ejecución para mejorar el rendimiento?;Media;Multithreading;Multiplexing;Multiprocessing;Microtasking
+¿Qué algoritmo de enrutamiento es conocido por su simplicidad y se utiliza en Internet para el intercambio de datos de enrutamiento?;Media;BGP;OSPF;RIP;EIGRP
+¿Qué es Splunk en el ámbito de la tecnología de la información?;Media;Plataforma de análisis de datos;Lenguaje de programación;Tipo de base de datos;Antivirus
+¿Cuál es el nombre del algoritmo de búsqueda utilizado para trazar una ruta eficientemente entre dos nodos en un mapa?;Media;A*;Dijkstra;Bubble Sort;Binary Search
+¿Qué tipo de base de datos utiliza un esquema flexible, que puede almacenar datos no estructurados o semi-estructurados?;Media;NoSQL;SQL;NewSQL;XML Database
+¿Cuál es el propósito de un 'sandbox' en desarrollo de software?;Media;Entorno de prueba aislado;Compilación de código;Revisión de sintaxis;Control de versiones
+¿Qué significa 'REST' en el contexto de las API web?;Media;Representational State Transfer;Realtime Stream Transfer;Rapid Elastic Search Transformation;Relational SQL Transfer
+¿Qué es el 'código máquina'?;Media;Instrucciones ejecutables directamente por la CPU;Alto nivel de lenguaje de programación;Sistema operativo;Firmware de dispositivo
+¿Cómo se llama comúnmente al modelo de reparto de cargas de trabajo en múltiples computadoras para acelerar el procesamiento?;Media;Computación distribuida;Computación paralela;Autocomputación;Supercomputación
+¿Qué protocolo utiliza la capa de Enlace de Datos en el modelo OSI para el control de acceso al medio en redes WiFi?;Media;CSMA/CA;CSMA/CD;ARP;RARP
+¿Qué formato de archivo utiliza principalmente Markdown?;Media;.md;.mkd;.mdown;.markdown
+¿Qué es una 'cadena de bloques' en el contexto de la tecnología blockchain?;Media;Registro público descentralizado;Estructura de datos lineal;Secuencia criptográfica;Base de datos distribuida
+¿Qué es Selenium en el mundo del desarrollo de software?;Media;Herramienta de pruebas de software;Framework de desarrollo web;Sistema de gestión de bases de datos;Lenguaje de programación
+¿Qué tecnología se utiliza para registrar múltiples dominios de Internet en una sola dirección IP?;Media;Virtual Hosting;Dynamic DNS;Reverse Proxy;IP Forwarding
+¿Cuál es la principal diferencia entre XML y JSON?;Media;Formato de datos;Lenguaje de programación;Protocolo de comunicación;Codificación de caracteres
+¿Qué tipo de ataque de seguridad implica la inundación de una red o servicio con tráfico no deseado para causar una denegación de servicio?;Media;DDoS;Phishing;Spoofing;SQL Injection
+¿Cuál es la función del comando 'ping' en redes de computadoras?;Media;Verificar la conectividad de la red;Cambiar la configuración del enrutador;Descubrir dispositivos en la red;Monitorear el tráfico de la red
+¿Qué tecnología utiliza 'ondas de radio' para transferir datos a corta distancia entre dispositivos?;Media;RFID;Li-Fi;MIMO;UWB
+¿Qué característica única de la programación funcional se refiere a funciones que siempre producen el mismo resultado para las mismas entradas?;Media;Pureza;Objetividad;Recursividad;Concurrencia
+¿Qué herramienta de desarrollo proporciona entornos virtuales consistentes para la programación en Python?;Media;virtualenv;npm;Docker;Gem
+¿Cuál es el nombre del componente que, en bases de datos, garantiza que las transacciones se realicen de forma confiable y segura?;Media;ACID;BASE;CAP Theorem;NoSQL
+¿Para qué se usa el comando 'tracert' o 'traceroute' en sistemas operativos?;Media;Rastrear la ruta de paquetes;Transferir archivos entre hosts;Listar el contenido del directorio;Mostrar la configuración de red actual
+¿Qué es COBOL y para qué se utiliza principalmente?;Media;Lenguaje de programación para negocios;Protocolo de comunicación;Sistema de base de datos;Framework de desarrollo de aplicaciones
+¿Qué es una VPN y para qué se usa comúnmente?;Media;Virtual Private Network;seguridad y privacidad en línea;Velocity Protocol Network;aceleración de conexión a internet;Visual Programming Node;programación visual;Virtual Path Network;gestión de rutas de red
+¿Qué protocolo de red se utiliza para la asignación automática de direcciones IP a dispositivos en una red local?;Media;DHCP;HTTP;FTP;SMTP
+¿Cuál es la función principal de un compilador en el desarrollo de software?;Media;Traducir código fuente a código máquina;Comprimir archivos;Encriptar datos;Gestionar bases de datos
+¿Cuál es el término utilizado para describir un error en software o hardware que provoca una vulnerabilidad?;Media;Bug;Lag;Crash;Glitch
+¿Qué herramienta de línea de comandos se utiliza para controlar las versiones de paquetes en Python?;Media;pip;apt;npm;gem
+¿Qué representa la 'S' en HTTPS respecto a las transacciones web?;Media;Secure;Simple;Socket;Speed
+¿Qué lenguaje de programación es conocido por su lema 'There's more than one way to do it' y su mascota, el camello?;Media;Perl;Ruby;PHP;Python
+¿En qué difiere RAID 1 de RAID 0?;Media;Espejado de datos;ausencia de redundancia;Entrelazado de datos;rendimiento superior;Conjunto de discos;almacenamiento expandido;Paridad de datos;tolerancia a fallos
+¿Qué se entiende por 'overclocking' en el contexto del hardware del ordenador?;Media;Operar un componente a velocidades más altas que las especificadas;Actualizar el firmware;Enfriar los componentes;Aumentar la memoria del sistema
+¿Qué es Jenkins en el ámbito del desarrollo de software?;Media;Servidor de automatización;Lenguaje de programación;Sistema operativo;Protocolo de red
+¿Qué representa JSON en la computación?;Media;JavaScript Object Notation;Java Source Open Network;Joint Secure Operations Node;Just Simple Object Notation
+¿Qué tipo de base de datos se optimiza para recuperar datos rápidamente, a menudo a expensas de la consistencia de escritura?;Media;Base de datos NoSQL;Base de datos SQL;Base de datos NewSQL;Base de datos orientada a grafos
+¿En qué lenguaje de programación está escrito el núcleo (kernel) de Linux?;Media;C;C++;Python;Java
+¿Qué es un contenedor en el contexto del desarrollo de software?;Media;Entorno aislado que empaqueta y ejecuta aplicaciones;Elemento de diseño web;Mecanismo de cifrado de datos;Tipo de bucle de programación
+¿Cuál es la intención principal detrás del desarrollo orientado a pruebas (TDD)?;Media;Escribir pruebas antes del código de producción;Mejorar la interfaz de usuario;Optimizar las bases de datos;Acelerar la compilación del código
+¿Qué es Scrum en términos de gestión de proyectos de software?;Media;Metodología ágil;Herramienta de control de versiones;Lenguaje de programación;Sistema de seguimiento de errores
+¿Qué significa la sigla 'ORM' en programación?;Media;Object-Relational Mapping;Optical Recognition Mode;Operational Resource Management;Open Resource Monitoring
+¿Qué comando Linux se utiliza para ver el contenido actual de un directorio?;Media;ls;cat;echo;cp
+¿Qué es un app server o servidor de aplicaciones en el contexto de la informática?;Media;Plataforma que gestiona y aloja aplicaciones web;Servidor que almacena aplicaciones móviles;Dispositivo que ejecuta aplicaciones de escritorio;Herramienta para el desarrollo de aplicaciones móviles
+¿Cuál es el principal propósito de las hojas de estilo (CSS) en la creación de sitios web?;Media;Controlar la presentación visual;Escribir la lógica del negocio;Gestionar la base de datos;Ejecutar pruebas automáticas
+¿Qué tipo de estructura de datos suele utilizarse para la implementación de un sistema de autocompletado?;Media;Trie;Array;Linked List;Hash Map
+¿Cuál es el objetivo principal de una función hash en seguridad informática?;Media;Crear un valor de salida fijo a partir de una entrada;Descifrar información;Autenticar usuarios en una red;Crear una VPN
+¿Qué tecnología permite a diferentes sistemas operativos ejecutarse en una misma máquina física de forma simultánea?;Media;Virtualización;Compilación;Interpretación;Clusterización
+¿Qué lenguaje de programación fue diseñado con el propósito de tener una sintaxis limpia y fácil de leer?;Media;Python;Perl;Java;C++
+¿Qué es una clave foránea en el contexto de una base de datos relacional?;Media;Referencia a una clave primaria en otra tabla;Secuencia automática de enteros;Clave única dentro de la misma tabla;Un índice de texto completo
+¿Qué es un CDN en el contexto de la distribución de contenido en la web?;Media;Content Delivery Network;Central Data Network;Content Distribution Node;Central Delivery Node
+¿Qué algoritmo de ordenamiento es conocido por su sencillez y es un buen ejemplo de un algoritmo de división y conquista?;Media;QuickSort;BubbleSort;InsertionSort;HeapSort
+¿Cuál es la función de la directiva 'use strict' en JavaScript?;Media;Aplicar un modo más estricto de parseo y error checking;Habilitar funciones avanzadas;Optimizar el código para mejor rendimiento;Permitir el uso de tipos de datos estáticos
+¿Qué herramienta de línea de comandos se utiliza para copiar archivos y directorios en sistemas Unix/Linux?;Media;cp;mv;rm;touch
+¿Cuál es la ventaja de usar código asincrónico en programación?;Media;Evitar el bloqueo, permitiendo la multitarea;Aumentar la velocidad de procesamiento;Reducir el uso de recursos del sistema;Eliminar errores en el código
+¿Qué lenguaje de bases de datos es conocido por su rol en la manipulación y consulta de datos dentro de un RDBMS?;Media;SQL;Python;HTML;Bash
+¿Cómo se denomina el software que permite a los desarrolladores crear, probar, corregir y mantener aplicaciones en diversos dispositivos o sistemas operativos?;Media;Entorno de Desarrollo Integrado (IDE);Sistema de Control de Versiones (SCV);Interfaz de Programación de Aplicaciones (API);Gestor de Paquetes
+¿Cuál es el término usado para describir un error en la programación que permite a los atacantes ejecutar comandos maliciosos en una base de datos?;Media;Inyección SQL;Buffer overflow;Cross-site scripting (XSS);Fallo de segmentación
+¿Qué modelo de concurrencia utiliza el lenguaje de programación Go?;Media;Goroutines y canales;Procesos y semáforos;Hilos y mutex;Event loop y callbacks
+¿Qué es el 'Internet de las Cosas' (IoT)?;Media;Interconexión de dispositivos cotidianos a Internet;Nombre de una ISP prominente;Ley de gobernanza de Internet;Estrategia de marketing digital
+¿Qué sistema operativo está basado en el núcleo Linux y es conocido por su uso en servidores?;Media;GNU/Linux;Android;Chrome OS;Solaris
+¿En el contexto de las CI/CD, qué significa CI?;Media;Integración Continua;Interfaz de Código;Ingeniería Computacional;Identificador de Componentes
+¿Cuál es el principal lenguaje de programación utilizado para desarrollar aplicaciones nativas en Android?;Media;Kotlin;Swift;Objective-C;C#
+¿Qué tipo de arquitectura divide la lógica de una aplicación en presentación, aplicación y almacenamiento?;Media;Arquitectura de tres capas;Arquitectura peer-to-peer;Arquitectura de bus de servicio;Arquitectura MVC
+¿Qué herramienta de versionado de código fuente utiliza la terminología 'push', 'pull', 'commit' y 'branch'?;Media;Git;Subversion;Mercurial;CVS
+¿Qué tecnología de almacenamiento es conocida por su habilidad para ser borrada y reprogramada electrónicamente?;Media;EEPROM;CD-ROM;HDD;Tape Drive
+¿Qué protocolo de red esencial se utiliza para la resolución de direcciones IP en direcciones MAC?;Media;ARP;TCP;UDP;ICMP
+¿Cuál es la principal ventaja de utilizar contenedores Docker en desarrollo?;Media;Consistencia entre entornos;Velocidad de escritura de código;Cifrado de datos;Compresión de archivos
+¿Qué hace la directiva 'include' en muchos lenguajes de programación?;Media;Inserta el contenido de un archivo en otro;Optimiza el código;Crea un bucle;Genera un gráfico
+¿Qué es un ataque 'Man-in-the-Middle' (MitM)?;Media;Intercepción de la comunicación entre dos partes;Inyección de malware;Denegación de servicio;Spamming de correo electrónico
+¿En qué se diferencia el lenguaje de programación Java del lenguaje JavaScript?;Media;Son lenguajes con propósitos y usos distintos;Java es una versión más antigua de JavaScript;JavaScript es un subconjunto de Java;Java es solo para desarrollar aplicaciones web
+¿Qué tipo de malware se diseña para replicarse a sí mismo y extenderse a otros dispositivos?;Media;Virus;Adware;Spyware;Ransomware
+¿Qué concepto de desarrollo de software promueve el empaquetado de código y dependencias juntos en una forma estándar a lo largo de entornos de desarrollo y producción?;Media;Contenedores;Programación funcional;Máquinas Virtuales;Servidores dedicados
+¿Cuál es la función del comando 'chmod' en Unix/Linux?;Media;Cambiar los permisos de un archivo o directorio;Cambiar el propietario de un archivo o directorio;Cambiar la contraseña de un usuario;Compilar un programa
+¿Qué es un 'fork' en el contexto de desarrollo de software y control de versiones?;Media;Una copia de un repositorio de código que se puede modificar independientemente;Un tipo de error de software;Una característica de los lenguajes de programación;Un comando para parar procesos en un sistema operativo
+¿Qué lenguaje de programación es el principal usado para el desarrollo de aplicaciones de iOS y macOS?;Media;Swift;Kotlin;C#;Ruby
+¿Qué algoritmo de compresión sin pérdida se utiliza comúnmente para comprimir fotografías en el formato PNG?;Media;Deflate;LZW;JPEG;RLE
+¿Cuál es el significado de 'CLI' en el contexto de las interfaces informáticas?;Media;Command Line Interface;Client Line Interaction;Common Language Input;Computer-Linked Interface
+¿Qué protocolo de comunicaciones define cómo se transfieren las páginas web desde un servidor web a un navegador?;Media;HTTP;FTP;SMTP;RTP
+¿Qué tecnología de base de datos es conocida por almacenar información en tablas con filas y columnas?;Media;RDBMS (Sistema de Gestión de Bases de Datos Relacionales);NoSQL;NewSQL;OLAP
+¿Qué paradigma de programación se centra en usar funciones y evitar cambiar los estados y los datos mutables?;Media;Programación funcional;Programación orientada a objetos;Programación imperativa;Programación procedimental
+¿Qué representa el código de respuesta '200 OK' en el protocolo HTTP?;Media;La solicitud fue exitosa;La página solicitada no se encontró;La solicitud requiere autenticación de usuario;El servidor encontró un error interno
+¿Cómo se llama el proceso de seguir y gestionar cambios en el código fuente?;Media;Control de versiones;Compilación;Prueba de software;Integración continua
+¿Cuál es la principal diferencia entre el almacenamiento SSD y HDD?;Media;SSD usa memoria flash, HDD usa discos magnéticos rotativos;SSD tiene mayor capacidad;HDD es más rápido;SSD usa más energía
+¿Qué es una API web?;Media;Conjunto de definiciones y protocolos para construir y utilizar servicios web;Lenguaje de programación basado en web;Servicio de alojamiento de sitios web;Herramienta de análisis de tráfico web
+¿Qué lenguaje de marcado se utiliza principalmente para el diseño de páginas web?;Media;HTML;XML;SGML;JSON
+¿Qué representa la abreviación 'OS' en el contexto de la informática?;Media;Operating System;Open Software;Optical Sensor;Output Stream
+¿Qué es una dirección IP?;Media;Identificador numérico para dispositivos en una red;Secuencia de comandos;Tipo de virus informático;Código de autenticación
+¿Qué es un dominio de nivel superior (TLD)?;Media;Última parte de un nombre de dominio;Protocolo de transferencia de archivos;El nivel más alto de cifrado;Un tipo de arquitectura de red
+¿Qué es el 'caching'?;Media;Almacenamiento de datos para futuras solicitudes rápidas;Proceso de limpieza de virus;Actualización de software;Compresión de datos
+¿En qué se diferencia 'front-end' de 'back-end' en desarrollo web?;Media;Front-end es lo que ve el usuario, back-end es el servidor y la base de datos;Front-end es el sistema operativo, back-end es la aplicación;Front-end es el hardware, back-end es el software;Front-end es para programadores, back-end es para administradores de sistemas
+¿Qué significa la sigla 'GUI' en informática?;Media;Graphical User Interface;General Utility Interface;Global User Interaction;Gateway User Interface
+¿Cuál es el propósito de una base de datos?;Media;Organizar y facilitar el acceso a los datos;Ejecutar aplicaciones;Conectar computadoras en red;Almacenar páginas web
+¿Qué lenguaje de programación es conocido por su uso en la estadística y la minería de datos?;Media;R;Fortran;COBOL;Pascal
+¿Qué protocolo se utiliza para enviar páginas web encriptadas a través de Internet?;Media;HTTPS;FTP;SMTP;SNMP
+¿Qué herramienta de software se utiliza para aislar entornos de desarrollo y evitar conflictos entre dependencias?;Media;Contenedores;Compiladores;Interpretes;Desfragmentadores
+¿Qué estructura de datos es óptima para implementar una cola de prioridades?;Media;Montículo (Heap);Pila;Cola;Lista enlazada
+¿Qué comando git se utiliza para integrar los cambios desde otro repositorio?;Media;git merge;git add;git commit;git duplicate
+¿Qué término se utiliza para describir la recopilación de datos de usuarios sin su consentimiento?;Media;Data Mining;Data Analysis;Data Storage;Data Sharing
+¿Qué describe mejor 'la computación en el borde' o 'edge computing'?;Media;Procesamiento de datos cerca de la fuente de datos;Interconexión global de redes;Transmisión de datos a alta velocidad;Uso de microservicios
+¿Qué es una máquina virtual?;Media;Emulación de un sistema informático;Un lenguaje de programación;Un dispositivo de almacenamiento en la nube;Un tipo de software antivirus
+¿Qué es un Pixel Shader?;Media;Un programa utilizado para procesar efectos visuales en gráficos 3D;Un componente de un monitor;Un tipo de píxel en una imagen;Una aplicación de edición de gráficos
+¿Qué es el 'phishing'?;Media;Un tipo de ataque que intenta adquirir información sensible mediante engaño;Un protocolo de red;Una técnica de indexación de base de datos;Un modo de cifrado de archivos
+¿Qué indica un código de estado HTTP en el rango de 4xx?;Media;Error del cliente;Éxito de la solicitud;Error del servidor;Redirección necesaria
+¿Qué es un 'deadlock' en informática?;Media;Condición en la que múltiples procesos están bloqueados indefinidamente;Error de seguridad de datos;Terminación inesperada de una aplicación;Fallo en el arranque del sistema operativo
+¿Cuál es un lenguaje comúnmente utilizado para la programación de sistemas y controladores de dispositivos?;Media;C;Java;Ruby;Python
+¿Qué tipo de base de datos es mejor para manejar relaciones complejas entre los datos?;Media;Base de datos relacional;Base de datos de documentos;Base de datos clave-valor;Base de datos de series temporales
+¿Para qué se utiliza el protocolo SNMP en las redes informáticas?;Media;Gestión de la red;Transferencia de archivos;Encriptación de datos;Compresión de datos
+¿Qué término se refiere al código que se puede ejecutar o interpretar en múltiples sistemas operativos sin modificaciones?;Media;Portátil;Dependiente;Específico;Nativo
+¿Cómo se llama el error cometido cuando un programa accede a una parte de la memoria que no le corresponde?;Media;Desbordamiento de búfer;Fuga de memoria;Desbordamiento de pila;Violación de acceso
+¿Qué es una API de alto nivel que proporciona servicios de almacenamiento y recuperación de datos llave-valor?;Media;Base de datos NoSQL;Memcached;Modelo relacional;Sistema de archivos
+¿Qué paradigma de la seguridad informática se centra en la detección y prevención de amenazas antes de que ingresen a un sistema?;Media;Seguridad proactiva;Codificación segura;Seguridad reactiva;Antivirus
+¿Qué herramienta de colaboración en línea permite a los desarrolladores escribir y compartir fragmentos de código mientras trabajan en proyectos?;Media;GitHub Gist;Pastebin;CodePen;Slack
+¿Qué mecanismo utiliza Node.js para manejar operaciones de larga duración de forma eficiente?;Media;Asincronía basada en eventos;Multihilos;Bloqueo sincrónico;Pooling de conexiones
+¿Qué es un 'ledger' distribuido en el contexto de blockchain?;Media;Un registro de transacciones compartido;Un protocolo de encriptamiento;Un tipo de base de datos SQL;Una herramienta de virtualización
+¿Qué herramienta se utiliza para el control de versiones distribuido?;Media;Git;SVN;Mercurial;TFS
+¿Qué lenguaje de programación es frecuentemente utilizado para el análisis de datos y machine learning?;Media;Python;HTML;CSS;BASIC
+¿Cuál es la principal unidad de almacenamiento en la nube ofrecida por Amazon Web Services?;Media;Amazon S3;Amazon EC2;Amazon DynamoDB;Amazon RDS
+¿Qué tecnología permite a los navegadores web realizar conexiones en tiempo real con un servidor?;Media;WebSockets;HTTP Polling;AJAX;Flash
+¿Cuál es el tipo de malware que se presenta a sí mismo como software legítimo para engañar a los usuarios y obtener acceso a sus sistemas?;Media;Troyano;Adware;Rootkit;Spyware
+¿Qué plataforma es conocida por ser la base para la mayoría de servidores web a nivel global?;Media;Linux;Windows Server;MacOS Server;Solaris
+¿Cuál es el principal lenguaje de programación desarrollado por Microsoft y que forma parte de su plataforma .NET?;Media;C#;Java;Visual Basic;Delphi
+¿Qué servicio de mensajería instantánea utiliza una arquitectura descentralizada basada en blockchain?;Media;Signal;Telegram;WhatsApp;Messenger
+¿Qué término describe la parte de la memoria de un ordenador que es de rápido acceso y se borra cuando el sistema se apaga?;Media;RAM;EEPROM;Disco duro;Cache L1
+¿Qué herramienta se utiliza para inspeccionar y depurar el código de una página web en un navegador?;Media;Herramientas de desarrollador;Compilador;Bash Shell;Editor de texto
+¿Qué es un framework JavaScript utilizado para construir interfaces de usuario dinámicas?;Media;React;Laravel;Django;Rails
+¿Qué significa el acrónimo 'ROM' en informática?;Media;Read-Only Memory;Random Operation Memory;Run on Memory;Real-Time Memory
+¿Qué nombre se da al modelo conceptual que describe cómo se transmiten los datos desde las aplicaciones de software a través de las redes físicas?;Media;Modelo OSI;Modelo TCP/IP;Modelo Harvard;Modelo de Von Neumann
+¿Cómo se llama la eliminación de elementos no utilizados como variables, funciones y objetos en programación?;Media;Garbage Collection;Memory Scrubbing;Resource Recovery;Data Dismantling
+¿Qué se utiliza para describir un grupo de soluciones y prácticas destinadas a permitir la entrega rápida y eficiente de software y actualizaciones?;Media;DevOps;Agile;Waterfall;Scrum
+¿Qué tipo de ataque intenta hacer que una aplicación o red sea inaccesible, típicamente inundándola con tráfico de manera abrumadora?;Media;Denegación de servicio (DoS);Phishing;Spoofing;Eavesdropping
+¿Cuál es el lenguaje de scripting del lado del servidor que fue especialmente optimizado para trabajar con bases de datos HTML y SQL?;Media;PHP;ASP;JavaScript;Ruby
+¿Qué representa la 'M' en 'MVC', un patrón de diseño de software?;Media;Modelo;Modem;Mosaico;Módulo
+¿Qué es la 'latencia' en las redes de computadoras?;Media;Retraso en la transmisión de datos;Velocidad de la red;Pérdida de paquetes;Amplitud de banda
+¿En qué consisten las pruebas unitarias en desarrollo de software?;Media;Verificar el correcto funcionamiento de secciones individuales de código;Evaluación de la experiencia del usuario;Pruebas de seguridad de la red;Documentación del código
+¿Qué sistema de gestión de bases de datos es conocido por su modelo de base de datos orientado a documentos?;Media;MongoDB;Oracle;SQL Server;PostgreSQL
+¿Qué protocolo de seguridad es utilizado para cifrar la comunicación en una red inalámbrica?;Media;WPA2;WEP;PPP;SLIP
+¿Qué lenguaje de programación se utiliza principalmente para desarrollar aplicaciones Android?;Media;Kotlin;Swift;Objective-C;C++
+¿Qué tipo de arquitectura permite escalabilidad horizontal en aplicaciones distribuidas?;Media;Microservicios;Monolito;Cliente-servidor;Peer-to-peer
+¿Cuál es la principal función del ordenador BIOS?;Media;Inicializar y probar el hardware del sistema al arrancar;Comprensión de datos;Enrutamiento de tráfico de red;Gestión de bases de datos
+¿Qué describe mejor un 'dato mutable'?;Media;Un dato que puede ser modificado;Un dato almacenado en la nube;Un dato seguro contra el acceso no autorizado;Un dato transmitido por correo electrónico
+¿Cuál es el término para una forma de software malicioso encubierto diseñada para bloquear el acceso a un sistema informático hasta que se pague un rescate?;Media;Ransomware;Malware;Spyware;Worm
+¿Qué es 'Big Data'?;Media;Grandes conjuntos de datos que pueden ser analizados para revelar patrones y tendencias;Una gran base de datos relacional;Un término para el almacenamiento de datos en la nube;Un formato de archivo de datos especializado
+¿Qué tecnología se utiliza para crear máquinas virtuales?;Media;Hypervisor;Docker;VLAN;RAID
+¿Qué indica un código de estado HTTP 301?;Media;Movido permanentemente (redirección);OK (solicitud exitosa);No encontrado;Prohibido
+¿Cuál es la diferencia principal entre la memoria RAM y el disco duro en una computadora?;Media;RAM es volátil mientras que el disco duro es no volátil;El disco duro es más rápido que la RAM;La RAM es para almacenamiento a largo plazo;El disco duro es menos costoso por GB
+¿Qué es un algoritmo de hash criptográfico popularmente utilizado?;Media;SHA-256;Bubble-sort;Quick-sort;Round-robin
+¿Qué término se usa para el software que ayuda a los desarrolladores a probar o usar su código en condiciones específicas de sistema operativo o hardware sin necesidad de múltiples máquinas físicas?;Media;Máquina virtual;Compilador cruzado;Intérprete;Sandbox
+¿Qué es JSONP y para qué se utiliza?;Media;JSON con Padding, utilizado para solicitudes de dominio cruzado;Método de programación en JSON;Protocolo de encriptación basado en JSON;Formato JSON para impresión
+¿Qué modelo de datos utiliza Cassandra?;Media;Modelo de base de datos de columnas anchas;Modelo de base de datos relacional;Modelo de base de datos de documentos;Modelo de base de datos de grafo
+¿Qué lenguaje de programación fue creado por Microsoft y posee una sintaxis similar a C++?;Media;C#;Java;F#;Visual Basic .NET
+¿Qué significa ACID en el contexto de las transacciones de bases de datos?;Media;Atomicity, Consistency, Isolation, Durability;Accuracy, Completeness, Integrity, Dependability;Asynchronous, Concurrent, Indexed, Data-link;Access, Code, Identity, Decryption
+¿Qué tecnología web permite a los navegadores almacenar pares clave-valor dentro del navegador del cliente?;Media;Web Storage;Cookies;Web Sockets;Session
+¿Cuál es la extensión de archivo predeterminada para un archivo de hoja de estilo en cascada (CSS)?;Media;.css;.cst;.ssc;.cs
+¿Qué es un servidor proxy y para qué es comúnmente utilizado?;Media;Un intermediario entre el usuario e Internet utilizado para anonimato y seguridad;Un servidor que acelera la conexión a Internet;Un servidor especializado en procesamiento de datos;Un servidor que conecta una intranet con Internet
+¿Qué lenguaje de programación es conocido por su uso en la ciencia de datos y análisis estadístico?;Media;R;C++;Java;PHP
+¿Qué es una interfaz de línea de comandos?;Media;CLI;GUI;API;IDE
+¿Qué describe el término 'Internet de Banda Ancha'?;Media;Conexión rápida a Internet;Tecnología de cableado estructurado;Tecnología de Internet móvil;Nuevo protocolo de comunicaciones
+¿Qué es un applet de Java?;Media;Pequeña aplicación Java que se ejecuta en un navegador;Técnica de programación en Java;Sistema operativo basado en Java;Dispositivo móvil que ejecuta Java
+¿Qué es el 'firmware'?;Media;Software integrado dentro del hardware;Marca de computadoras;Método de transferencia de archivos;Nueva versión de un software
+¿Qué representa un código de respuesta HTTP 403?;Media;Prohibido;OK;Movido permanentemente;No encontrado
+¿Para qué se usa principalmente el lenguaje de marcado Markdown?;Media;Formateo de texto en plataformas que soportan texto plano;Programación de aplicaciones web;Creación de bases de datos complejas;Diseño gráfico
+¿Qué paradigma de desarrollo de software intenta reducir los tiempos de entrega mediante la entrega iterativa y colaborativa de productos?;Media;Agile;Waterfall;Spiral;V-Model
+¿Cuál es el nombre del proceso que transforma el código fuente en código ejecutable por la máquina?;Media;Compilación;Interpretación;Transpilación;Tokenización
+¿Qué herramienta de gestión de proyectos y seguimiento de problemas es comúnmente utilizada en entornos de desarrollo de software?;Media;JIRA;Asana;Trello;Monday
+¿Qué significa SQL?;Media;Structured Query Language;Simple Query Language;Standard Query Language;Sequential Query Language
+¿Qué tecnología se utiliza para crear un registro inmutable de transacciones que se puede extender pero no alterar o borrar?;Media;Blockchain;Cloud Storage;Database Mirroring;RAID
+¿Cuál es el propósito de un Captcha en un sitio web?;Media;Diferenciar entre los usuarios humanos y los bots automatizados;Mejorar la velocidad del sitio web;Recopilar datos de usuario;Proporcionar publicidad dirigida
+¿Qué es un IDE en el contexto de la programación?;Media;Integrated Development Environment;Independent Driver Equipment;Intelligent Document Exchange;Interactive Design Engine
+¿Qué lenguaje de programación se utiliza principalmente en la ciencia de los datos y la inteligencia artificial?;Media;Python;C#;JavaScript;HTML
+¿Qué es un 'commit' en el manejo de sistemas de control de versiones?;Media;Registro de un conjunto de cambios en el repositorio;Envío de un mensaje de correo electrónico;Capacitación en gestión de proyectos;Finalización de una tarea de programación
+¿Qué es Wi-Fi?;Media;Un estándar inalámbrico para redes de área local;Un protocolo para la transferencia segura de archivos en la web;Un sistema de navegación por satélite;Un tipo de malvado en informática
+¿Qué es un 'payload' en el contexto de la seguridad informática?;Media;Datos enviados a través de una red que es malintencionado;El peso que una infraestructura de red puede manejar;El rendimiento de un disco duro;La memoria usada por un proceso
+¿Qué sistema operativo es conocido por su kernel libre y código abierto?;Media;Linux;macOS;Windows;iOS
+¿Qué es la minería de datos?;Media;Proceso de descubrir patrones en grandes conjuntos de datos;Creación de visualizaciones de datos;Sincronización de datos entre dispositivos;Transformación de datos en bases de datos
+¿Qué lenguaje de programación es ampliamente considerado como el estándar para el desarrollo de aplicaciones Android?;Media;Kotlin;Ruby;Swift;C++
+¿Cómo se llama la máquina que realiza funciones lógicas y aritméticas en un ordenador y se considera el 'cerebro' del sistema?;Media;CPU;GPU;ALU;PSU
+¿Qué es un algoritmo de clasificación común que es eficaz para listas grandes?;Media;Merge Sort;Bubble Sort;Selection Sort;Insertion Sort
+¿Cómo se llama el proceso de diseño que enfatiza una participación extensiva del usuario en el ciclo rápido de diseño y prototipado?;Media;Design Thinking;Adaptive Design;Responsive Design;Agile Development
+¿Qué tipo de licencia de software permite a los usuarios estudiar, cambiar y distribuir el software a cualquier persona y para cualquier propósito?;Media;Open Source License;Commercial License;Private License;End-User License Agreement
+¿Qué protocolo se utiliza para cifrar y enviar datos de manera segura a través de Internet?;Media;TLS;FTP;SNMP;SMTP
+¿Qué es un 'branch' en un sistema de control de versiones?;Media;Una copia del código que diverge del código base principal;Una nueva versión de una aplicación;Un error en el código;Una característica de un lenguaje de programación
+¿Qué es SQLite?;Media;Un sistema de gestión de bases de datos relacional ligero;Una herramienta para automatizar scripts;Un lenguaje de programación;Un sistema de archivos de red
+¿Cuál es el término utilizado para describir la ocultación de datos dentro de una imagen, audio o video?;Media;Esteganografía;Cifrado;Compresión;Tokenización
+¿Qué tecnología se utiliza para verificar la integridad y el origen de los datos con una huella digital única?;Media;Cifrado de clave pública;Antivirus;Firewall;Balanceador de carga
+¿Qué framework front-end es conocido por facilitar el diseño de páginas web responsivas y móviles?;Media;Bootstrap;Foundation;Semantic UI;Materialize
+¿Qué hace el comando 'sudo' en sistemas Unix/Linux?;Media;Ejecuta comandos con privilegios de superusuario;Cambia el directorio actual;Lista los procesos en ejecución;Edita archivos de texto
+¿Para qué se utiliza la memoria caché L1 en una CPU?;Media;Para almacenamiento temporal de datos y acceso rápido;Para controlar las unidades de I/O;Para manejar interrupciones de software;Para el arranque del sistema
+¿Qué lenguaje de programación es conocido por su uso en el desarrollo web en el lado del cliente?;Media;JavaScript;PHP;C#;Java
+¿Qué es el Modelo-Vista-Controlador (MVC)?;Media;Patrón de arquitectura de software;Lenguaje de programación web;Protocolo de transferencia de archivos;Sistema de gestión de bases de datos
+¿Qué es una clave SSH y para qué se utiliza?;Media;Clave usada para acceso seguro a servidores remotas;Protocolo para la gestión de bases de datos;Sistema de cifrado para archivos personales;Herramienta para desarrollo móvil
+¿Qué es el cableado estructurado en una red empresarial?;Media;Sistema estandarizado para cablear una infraestructura de TI;Método de protección de datos en tránsito;Tipo de sistema operativo;Estructura de desarrollo de software
+¿Qué es un servidor DNS?;Media;Sistema que traduce nombres de dominio a direcciones IP;Dispositivo que maneja el tráfico de red;Protocolo para cifrado de correo electrónico;Software que optimiza consultas de base de datos
+¿Qué significa RAID en el contexto de sistemas de almacenamiento?;Media;Redundant Array of Independent Disks;Random Access and Index Data;Rapid Architecture for Data Integration;Resource Allocation and Internet Division
+¿Qué es el protocolo IMAP utilizado en el correo electrónico?;Media;Protocolo para acceder y administrar mensajes en un servidor de correo;Método para encryptar mensajes de correo;Protocolo de red para la transferencia de archivos;Sistema de base de datos para archivar correos

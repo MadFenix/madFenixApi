@@ -1,0 +1,46 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "nombre": "Espada de Acero",
+            "precio": 100,
+            "descripcion": "Una espada forjada con el mejor acero, ideal para guerreros principiantes.",
+            "tipo": "arma",
+            "atributos": {
+                "daño": 15,
+                "durabilidad": 100
+            }
+        },
+        {
+            "id": 2,
+            "nombre": "Poción de Salud",
+            "precio": 50,
+            "descripcion": "Recupera 50 puntos de salud al consumirla.",
+            "tipo": "consumible",
+            "atributos": {
+                "recuperacionSalud": 50
+            }
+        },
+        {
+            "id": 3,
+            "nombre": "Escudo de Bronce",
+            "precio": 75,
+            "descripcion": "Un escudo resistente que ofrece buena protección.",
+            "tipo": "defensa",
+            "atributos": {
+                "defensa": 10,
+                "durabilidad": 150
+            }
+        },
+        {
+            "id": 4,
+            "nombre": "Manto de Invisibilidad",
+            "precio": 200,
+            "descripcion": "Otorga invisibilidad temporal al usuario.",
+            "tipo": "artefacto",
+            "atributos": {
+                "duracion": "30 segundos"
+            }
+        }
+    ]
+}
