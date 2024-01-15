@@ -127,6 +127,7 @@ class ApiSeason extends ResourceController
             $newIntent->points =$ranking->points;
             $newIntent->user = $ranking->user_id;
             $newIntent->username = User::where('id', '=', $ranking->user_id)->first()->name;
+            $bestIntents[] = $newIntent;
         }
 
         return $bestIntents;
