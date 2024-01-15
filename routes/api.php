@@ -78,6 +78,9 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     Route::namespace('Game\\Ranking\\Infrastructure\\Controller')->group(function () {
         Route::post('ranking/addRanking', 'Api@addRanking');
         Route::get('ranking/getRanking', 'Api@getRanking');
+        Route::post('ranking/addSeasonRanking', 'ApiSeason@addRanking');
+        Route::get('ranking/getSeasonRankingPerTime', 'ApiSeason@getRankingPerTime');
+        Route::get('ranking/getSeasonRankingPerPoints', 'ApiSeason@getRankingPerPoints');
         Route::get('ranking/getSeasonUserClassificationPerTime', 'ApiSeason@getUserClassificationPerTime');
         Route::get('ranking/getSeasonUserClassificationPerPoints', 'ApiSeason@getUserClassificationPerPoints');
     });
