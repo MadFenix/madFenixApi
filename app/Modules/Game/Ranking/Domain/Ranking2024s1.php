@@ -3,7 +3,7 @@ namespace App\Modules\Game\Ranking\Domain;
 
 use App\Modules\Base\Domain\BaseDomain;
 
-class Rankings2024s1 extends BaseDomain
+class Ranking2024s1 extends BaseDomain
 {
     /**
      * The table associated with the model.
