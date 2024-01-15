@@ -3,8 +3,15 @@ namespace App\Modules\Game\Ranking\Domain;
 
 use App\Modules\Base\Domain\BaseDomain;
 
-class Ranking2024s1 extends BaseDomain
+class Rankings2024s1 extends BaseDomain
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'rankings2024s1';
+
     const VALIDATION_COTNEXT = [
         'user_id' => ['required', 'integer', 'exists:users,id'],
         'game' => ['required', 'string', 'min:4', 'max:255'],

@@ -31,6 +31,6 @@ class CreateRankings2024s1Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rankings2023s1');
+        Schema::dropIfExists('rankings2024s1');
     }
 }
