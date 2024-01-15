@@ -32,6 +32,10 @@ Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(fu
 Route::namespace('\\App\\Modules\\Game\\Ranking\\Infrastructure\\Controller')->group(function () {
     Route::get('ranking/getClassification', 'Api@getClassification');
     Route::get('ranking/getGameStarted', 'Api@getGameStarted');
+
+    Route::get('ranking/getSeasonClassificationPerTime', 'ApiSeason@getClassificationPerTime');
+    Route::get('ranking/getSeasonClassificationPerPoints', 'ApiSeason@getClassificationPerPoints');
+    Route::get('ranking/getSeasonGameStarted', 'ApiSeason@getGameStarted');
 });
 
 Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
@@ -74,6 +78,8 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     Route::namespace('Game\\Ranking\\Infrastructure\\Controller')->group(function () {
         Route::post('ranking/addRanking', 'Api@addRanking');
         Route::get('ranking/getRanking', 'Api@getRanking');
+        Route::get('ranking/getSeasonUserClassificationPerTime', 'ApiSeason@getUserClassificationPerTime');
+        Route::get('ranking/getSeasonUserClassificationPerPoints', 'ApiSeason@getUserClassificationPerPoints');
     });
     Route::namespace('Blockchain\\Wallet\\Infrastructure\\Controller')->group(function () {
         Route::post('wallet/transferZen', 'Api@transferZen');
