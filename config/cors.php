@@ -13,13 +13,14 @@ return [
     |
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
+    'https://madfenix.com', 'https://*.madfenix.com'
     */
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://madfenix.com', 'https://*.madfenix.com'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => ['*'],
 
