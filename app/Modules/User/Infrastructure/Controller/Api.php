@@ -5,6 +5,7 @@ namespace App\Modules\User\Infrastructure\Controller;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Blockchain\Wallet\Domain\Wallet;
+use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\PasswordReset;
@@ -79,6 +80,14 @@ class Api extends Controller
         $wallet->user_id = $user->id;
         $wallet->balance = 0;
         $wallet->save();
+
+        $profile = new Profile();
+        $profile->user_id = $user->id;
+        $profile->description = '';
+        $profile->details = '';
+        $profile->avatar = '';
+        $profile->plumas = 2;
+        $profile->save();
 
         return response()->json('User registered');
     }

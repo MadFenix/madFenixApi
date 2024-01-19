@@ -84,6 +84,9 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::get('ranking/getSeasonUserClassificationPerTime', 'ApiSeason@getUserClassificationPerTime');
         Route::get('ranking/getSeasonUserClassificationPerPoints', 'ApiSeason@getUserClassificationPerPoints');
     });
+    Route::namespace('Game\\Profile\\Infrastructure\\Controller')->group(function () {
+        Route::post('profile/addPlumas', 'Api@addPluma');
+    });
     Route::namespace('Blockchain\\Wallet\\Infrastructure\\Controller')->group(function () {
         Route::post('wallet/transferZen', 'Api@transferZen');
         Route::get('wallet/show', 'Api@show');

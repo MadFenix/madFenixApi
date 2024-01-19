@@ -6,18 +6,18 @@ use App\Modules\Base\Domain\BaseDomain;
 class Profile extends BaseDomain
 {
     const VALIDATION_COTNEXT = [
-        'creator_id' => ['required', 'integer', 'exists:users,id'],
+        'user_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'min:4', 'max:255'],
         'details' => ['required', 'string', 'min:8', 'max:2000'],
-        'plane_id' => ['required', 'integer', 'exists:planes,id'],
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
+        'plumas' => ['integer'],
     ];
 
     protected $fillable = [
         'description',
         'details',
-        'plane_id',
         'avatar',
+        'plumas',
         'creator_id'
     ];
 
@@ -30,14 +30,9 @@ class Profile extends BaseDomain
 
     // RELATIONS
 
-    public function creator()
+    public function user()
     {
-        return $this->belongsTo('App\Modules\User\Domain\User', 'creator_id');
-    }
-
-    public function plane()
-    {
-        return $this->belongsTo('App\Modules\Game\Plane\Domain\Plane', 'plane_id');
+        return $this->belongsTo('App\Modules\User\Domain\User', 'user_id');
     }
 
     // GETTERS
