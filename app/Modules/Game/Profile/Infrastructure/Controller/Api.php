@@ -44,7 +44,16 @@ class Api extends ResourceController
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
 
-        return response()->json(new ProfileTransformer($profile));
+        $returnProfile = new \stdClass();
+        $returnProfile->username = $user->name;
+        $returnProfile->email = $user->email;
+        $returnProfile->description = $profile->description;
+        $returnProfile->details = $profile->details;
+        $returnProfile->avatar = $profile->avatar;
+        $returnProfile->plumas = $profile->plumas;
+
+
+        return response()->json($returnProfile);
     }
 
     public function addPluma(Request $request)
