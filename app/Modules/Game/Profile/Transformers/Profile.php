@@ -26,7 +26,6 @@ class Profile extends BaseTransformer
             $this->merge(parent::toArray($request)),
             'details' => $this->details,
             'avatar' => $this->avatar,
-            'user' => new BaseTransformer($this->user),
             'plumas' => new BaseTransformer($this->plumas),
         ];
     }
