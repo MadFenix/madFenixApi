@@ -4,6 +4,7 @@
 namespace App\Modules\Game\Profile\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User;
 use Illuminate\Http\Request;
 
