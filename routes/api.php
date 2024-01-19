@@ -86,6 +86,8 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     });
     Route::namespace('Game\\Profile\\Infrastructure\\Controller')->group(function () {
         Route::post('profile/addPlumas', 'Api@addPluma');
+        Route::get('profile/getUserProfile', 'Api@getUserProfile');
+        Route::post('profile/subtractPlumaUser', 'Api@subtractPlumaUser');
     });
     Route::namespace('Blockchain\\Wallet\\Infrastructure\\Controller')->group(function () {
         Route::post('wallet/transferZen', 'Api@transferZen');

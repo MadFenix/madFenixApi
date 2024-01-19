@@ -3,7 +3,7 @@
 namespace App\Modules\Game\Profile\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
-use App\Modules\Game\Profile\Domain\Ranking as ProfileModel;
+use App\Modules\Game\Profile\Domain\Profile as ProfileModel;
 
 class Profile extends BaseTransformer
 {
@@ -26,8 +26,8 @@ class Profile extends BaseTransformer
             $this->merge(parent::toArray($request)),
             'details' => $this->details,
             'avatar' => $this->avatar,
-            'creator' => new BaseTransformer($this->creator),
-            'plane' => new BaseTransformer($this->plane),
+            'user' => new BaseTransformer($this->user),
+            'plumas' => new BaseTransformer($this->plumas),
         ];
     }
 }
