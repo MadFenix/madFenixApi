@@ -118,7 +118,7 @@ class ApiSeason extends ResourceController
 
     protected function getTop10IntentsPerTimeTournament(Tournament $tournament)
     {
-        $tournamentUsers = TournamentUser::where('tournament_id', '=', $tournament->id)->orderBy('max_time', 'asc')->limit(10)->get();
+        $tournamentUsers = TournamentUser::where('tournament_id', '=', $tournament->getId())->orderBy('max_time', 'asc')->limit(10)->get();
 
         $bestIntents = [];
         foreach ($tournamentUsers as $tournamentUser) {
@@ -154,7 +154,7 @@ class ApiSeason extends ResourceController
 
     protected function getTop10IntentsPerPointsTournament(Tournament $tournament)
     {
-        $tournamentUsers = TournamentUser::where('tournament_id', '=', $tournament->id)->orderBy('max_points', 'desc')->limit(10)->get();
+        $tournamentUsers = TournamentUser::where('tournament_id', '=', $tournament->getId())->orderBy('max_points', 'desc')->limit(10)->get();
 
         $bestIntents = [];
         foreach ($tournamentUsers as $tournamentUser) {
@@ -272,7 +272,7 @@ class ApiSeason extends ResourceController
             ->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
-            $activeTournamentsIds[] = $activeTournament->id;
+            $activeTournamentsIds[] = $activeTournament->getId();
         }
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
         foreach ($userTournaments as $userTournament) {
@@ -311,7 +311,7 @@ class ApiSeason extends ResourceController
             ->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
-            $activeTournamentsIds[] = $activeTournament->id;
+            $activeTournamentsIds[] = $activeTournament->getId();
         }
         var_dump($activeTournamentsIds);
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
@@ -354,7 +354,7 @@ class ApiSeason extends ResourceController
             ->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
-            $activeTournamentsIds[] = $activeTournament->id;
+            $activeTournamentsIds[] = $activeTournament->getId();
         }
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
         foreach ($userTournaments as $userTournament) {
