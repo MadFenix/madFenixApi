@@ -125,7 +125,7 @@ class ApiSeason extends ResourceController
             $newIntent = new \stdClass();
             $newIntent->record = $tournamentUser->max_time;
             $newIntent->user = $tournamentUser->user_id;
-            $newIntent->username = $tournamentUser->user()->name;
+            $newIntent->username = $tournamentUser->user->name;
             $bestIntents[] = $newIntent;
         }
 
@@ -161,7 +161,7 @@ class ApiSeason extends ResourceController
             $newIntent = new \stdClass();
             $newIntent->points = $tournamentUser->max_points;
             $newIntent->user = $tournamentUser->user_id;
-            $newIntent->username = $tournamentUser->user()->name;
+            $newIntent->username = $tournamentUser->user->name;
             $bestIntents[] = $newIntent;
         }
 
@@ -277,8 +277,8 @@ class ApiSeason extends ResourceController
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds)->get();
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
-            $newClassification->name = $userTournament->tournament()->name;
-            $newClassification->top10 = $this->getTop10IntentsPerTimeTournament($userTournament->tournament());
+            $newClassification->name = $userTournament->tournament->name;
+            $newClassification->top10 = $this->getTop10IntentsPerTimeTournament($userTournament->tournament);
             $classifications[] = $newClassification;
         }
         // END Active user tournaments top10
@@ -316,8 +316,8 @@ class ApiSeason extends ResourceController
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds)->get();
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
-            $newClassification->name = $userTournament->tournament()->name;
-            $newClassification->top10 = $this->getTop10IntentsPerPointsTournament($userTournament->tournament());
+            $newClassification->name = $userTournament->tournament->name;
+            $newClassification->top10 = $this->getTop10IntentsPerPointsTournament($userTournament->tournament);
             $classifications[] = $newClassification;
         }
         // END Active user tournaments top10
