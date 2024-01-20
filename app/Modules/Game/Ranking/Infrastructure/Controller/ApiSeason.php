@@ -307,8 +307,9 @@ class ApiSeason extends ResourceController
         $dateNow = Carbon::now();
         $activeTournaments = Tournament::where('game', '=', $data['game'])
             ->where('start_date', '<', $dateNow)
-            ->where('end_date', '>', $dateNow)
-            ->get();
+            ->where('end_date', '>', $dateNow);
+        var_dump($activeTournaments->toSql());
+        $activeTournaments = $activeTournaments->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
