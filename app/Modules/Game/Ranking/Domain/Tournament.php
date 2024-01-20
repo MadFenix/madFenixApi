@@ -13,6 +13,7 @@ class Tournament extends BaseDomain
     ];
 
     protected $fillable = [
+        'id',
         'game',
         'name',
         'start_date',

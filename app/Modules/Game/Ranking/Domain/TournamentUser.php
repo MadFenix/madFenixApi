@@ -13,6 +13,7 @@ class TournamentUser extends BaseDomain
     ];
 
     protected $fillable = [
+        'id',
         'tournament_id',
         'user_id',
         'max_points',
