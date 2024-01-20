@@ -274,7 +274,7 @@ class ApiSeason extends ResourceController
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
         }
-        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
+        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds)->get();
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
             $newClassification->name = $userTournament->tournament()->name;
@@ -313,8 +313,7 @@ class ApiSeason extends ResourceController
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
         }
-        var_dump($activeTournamentsIds);
-        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
+        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds)->get();
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
             $newClassification->name = $userTournament->tournament()->name;
@@ -356,7 +355,7 @@ class ApiSeason extends ResourceController
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
         }
-        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
+        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds)->get();
         foreach ($userTournaments as $userTournament) {
             if ($userTournament->max_points < $data['points']) {
                 $userTournament->max_points = $data['points'];
