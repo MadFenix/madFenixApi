@@ -19,7 +19,7 @@ class CreateRankings2024s1Table extends Migration
             $table->string('network_group');
             $table->string('game');
             $table->integer('fase');
-            $table->integer('points');
+            $table->bigInteger('points');
             $table->timestamps();
         });
     }

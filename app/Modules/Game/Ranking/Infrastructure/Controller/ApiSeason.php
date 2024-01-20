@@ -5,7 +5,10 @@ namespace App\Modules\Game\Ranking\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Game\Ranking\Domain\Ranking2024s1;
+use App\Modules\Game\Ranking\Domain\Tournament;
+use App\Modules\Game\Ranking\Domain\TournamentUser;
 use App\Modules\User\Domain\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -113,6 +116,22 @@ class ApiSeason extends ResourceController
         return $bestIntents;
     }
 
+    protected function getTop10IntentsPerTimeTournament(Tournament $tournament)
+    {
+        $tournamentUsers = TournamentUser::where('tournament_id', '=', $tournament->id)->orderBy('max_time', 'asc')->limit(10)->get();
+
+        $bestIntents = [];
+        foreach ($tournamentUsers as $tournamentUser) {
+            $newIntent = new \stdClass();
+            $newIntent->record = $tournamentUser->max_time;
+            $newIntent->user = $tournamentUser->user_id;
+            $newIntent->username = $tournamentUser->user()->name;
+            $bestIntents[] = $newIntent;
+        }
+
+        return $bestIntents;
+    }
+
     protected function get10BestIntentPerPoints($game, $user = null)
     {
         $rankings = Ranking2024s1::where('game', '=', $game)->where('fase', '=', 1);
@@ -127,6 +146,22 @@ class ApiSeason extends ResourceController
             $newIntent->points =$ranking->points;
             $newIntent->user = $ranking->user_id;
             $newIntent->username = User::where('id', '=', $ranking->user_id)->first()->name;
+            $bestIntents[] = $newIntent;
+        }
+
+        return $bestIntents;
+    }
+
+    protected function getTop10IntentsPerPointsTournament(Tournament $tournament)
+    {
+        $tournamentUsers = TournamentUser::where('tournament_id', '=', $tournament->id)->orderBy('max_points', 'desc')->limit(10)->get();
+
+        $bestIntents = [];
+        foreach ($tournamentUsers as $tournamentUser) {
+            $newIntent = new \stdClass();
+            $newIntent->points = $tournamentUser->max_points;
+            $newIntent->user = $tournamentUser->user_id;
+            $newIntent->username = $tournamentUser->user()->name;
             $bestIntents[] = $newIntent;
         }
 
@@ -222,10 +257,34 @@ class ApiSeason extends ResourceController
         /** @var User $user */
         $user = auth()->user();
 
-        $bestIntents = $this->get10BestIntentPerTime($data['game'], $user);
 
-        return $bestIntents
-            ? response()->json($bestIntents)
+        $classifications = [];
+        $newClassification = new \stdClass();
+        $newClassification->name = 'Personal';
+        $newClassification->top10 = $this->get10BestIntentPerTime($data['game'], $user);
+        $classifications[] = $newClassification;
+
+        // Active user tournaments top10
+        $dateNow = Carbon::now();
+        $activeTournaments = Tournament::where('game', '=', $data['game'])
+            ->where('start_date', '>', $dateNow->format('Y-m-d H:i:s'))
+            ->where('end_date', '<', $dateNow->format('Y-m-d H:i:s'))
+            ->get();
+        $activeTournamentsIds = [];
+        foreach ($activeTournaments as $activeTournament) {
+            $activeTournamentsIds[] = $activeTournament->id;
+        }
+        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
+        foreach ($userTournaments as $userTournament) {
+            $newClassification = new \stdClass();
+            $newClassification->name = $userTournament->tournament()->name;
+            $newClassification->top10 = $this->getTop10IntentsPerTimeTournament($userTournament->tournament());
+            $classifications[] = $newClassification;
+        }
+        // END Active user tournaments top10
+
+        return $classifications
+            ? response()->json($classifications)
             : response()->json('Error al establecer la clasificación', 500);
     }
 
@@ -238,10 +297,33 @@ class ApiSeason extends ResourceController
         /** @var User $user */
         $user = auth()->user();
 
-        $bestIntents = $this->get10BestIntentPerPoints($data['game'], $user);
+        $classifications = [];
+        $newClassification = new \stdClass();
+        $newClassification->name = 'Personal';
+        $newClassification->top10 = $this->get10BestIntentPerPoints($data['game'], $user);
+        $classifications[] = $newClassification;
 
-        return $bestIntents
-            ? response()->json($bestIntents)
+        // Active user tournaments top10
+        $dateNow = Carbon::now();
+        $activeTournaments = Tournament::where('game', '=', $data['game'])
+            ->where('start_date', '>', $dateNow->format('Y-m-d H:i:s'))
+            ->where('end_date', '<', $dateNow->format('Y-m-d H:i:s'))
+            ->get();
+        $activeTournamentsIds = [];
+        foreach ($activeTournaments as $activeTournament) {
+            $activeTournamentsIds[] = $activeTournament->id;
+        }
+        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
+        foreach ($userTournaments as $userTournament) {
+            $newClassification = new \stdClass();
+            $newClassification->name = $userTournament->tournament()->name;
+            $newClassification->top10 = $this->getTop10IntentsPerPointsTournament($userTournament->tournament());
+            $classifications[] = $newClassification;
+        }
+        // END Active user tournaments top10
+
+        return $classifications
+            ? response()->json($classifications)
             : response()->json('Error al establecer la clasificación', 500);
     }
 
@@ -262,6 +344,25 @@ class ApiSeason extends ResourceController
         $ranking->fase = (empty($data['fase']))? 1 : $data['fase'];
         $ranking->points = (empty($data['points']))? 0 : $data['points'];
         $rankingSaved = $ranking->save();
+
+        // Active user tournaments maxpoints update
+        $dateNow = Carbon::now();
+        $activeTournaments = Tournament::where('game', '=', $data['game'])
+            ->where('start_date', '>', $dateNow->format('Y-m-d H:i:s'))
+            ->where('end_date', '<', $dateNow->format('Y-m-d H:i:s'))
+            ->get();
+        $activeTournamentsIds = [];
+        foreach ($activeTournaments as $activeTournament) {
+            $activeTournamentsIds[] = $activeTournament->id;
+        }
+        $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
+        foreach ($userTournaments as $userTournament) {
+            if ($userTournament->max_points < $data['points']) {
+                $userTournament->max_points = $data['points'];
+                $userTournament->save();
+            }
+        }
+        // END Active user tournaments maxpoints update
 
         return $rankingSaved
             ? response()->json($ranking)

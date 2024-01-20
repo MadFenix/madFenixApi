@@ -38,42 +38,19 @@ Route::namespace('\\App\\Modules\\Game\\Ranking\\Infrastructure\\Controller')->g
     Route::get('ranking/getSeasonGameStarted', 'ApiSeason@getGameStarted');
 });
 
-Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
+/*Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
     Route::get('assistant/thred/getResponseFromAI', 'Api@getResponseFromAI');
     Route::post('assistant/thred/getAudioResponseFromAI', 'Api@getAudioResponseFromAI');
     Route::post('assistant/thred/getAudioResponseFromMixAI', 'Api@getAudioResponseFromMixAI');
     Route::post('assistant/thred/getClientCommandFromMixAI', 'Api@getClientCommandFromMixAI');
-});
-
-Route::namespace('\\App\\Modules\\Game\\State\\Infrastructure\\Controller')->group(function () {
-    Route::get('game/state/getState', 'Api@getState');
-});
+});*/
 
 // Usual routes authed
 Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function () {
     Route::namespace('User\\Infrastructure\\Controller')->group(function () {
-        Route::get('listUsers', 'Api@index');
         Route::post('linkWallet', 'Api@linkWallet');
         Route::post('setIP', 'Api@setIP');
         Route::post('getIP', 'Api@getIP');
-    });
-    Route::namespace('Event\\Infrastructure\\Controller')->group(function () {
-        Route::get('eventSummary', 'Api@eventSummary');
-        Route::resource('event', 'Api');
-    });
-    Route::namespace('Game\\Node\\Infrastructure\\Controller')->group(function () {
-        Route::resource('node', 'Api');
-    });
-    Route::namespace('Game\\Blueprint\\Infrastructure\\Controller')->group(function () {
-        Route::resource('blueprint', 'Api');
-        Route::post('addBlueprintToCraftUser', 'Api@addBlueprintToCraftUser');
-        Route::get('getBlueprintToCraftUser', 'Api@getBlueprintToCraftUser');
-    });
-    Route::namespace('Game\\Plane\\Infrastructure\\Controller')->group(function () {
-        Route::resource('plane', 'Api');
-    });
-    Route::namespace('Game\\Profile\\Infrastructure\\Controller')->group(function () {
-        Route::resource('profile', 'Api');
     });
     Route::namespace('Game\\Ranking\\Infrastructure\\Controller')->group(function () {
         Route::post('ranking/addRanking', 'Api@addRanking');
@@ -96,9 +73,6 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
 });
 
 // Public game routes
-Route::namespace('\\App\\Modules\\Game\\')->group(function () {
-    Route::get('material', 'Node\\Infrastructure\\Controller\\Api@nodeSummary');
-});
 Route::namespace('\\App\\Modules\\Blockchain\\')->group(function () {
-    Route::get('sorteo', 'Wallet\\Infrastructure\\Controller\\Api@sorteo');
+    // Route::get('sorteo', 'Wallet\\Infrastructure\\Controller\\Api@sorteo');
 });
