@@ -265,10 +265,10 @@ class ApiSeason extends ResourceController
         $classifications[] = $newClassification;
 
         // Active user tournaments top10
-        $dateNow = Carbon::now();
+        $dateNow = Carbon::today();
         $activeTournaments = Tournament::where('game', '=', $data['game'])
-            ->where('start_date', '<', $dateNow)
-            ->where('end_date', '>', $dateNow)
+            ->whereDate('start_date', '<', $dateNow)
+            ->whereDate('end_date', '>', $dateNow)
             ->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
@@ -304,16 +304,15 @@ class ApiSeason extends ResourceController
         $classifications[] = $newClassification;
 
         // Active user tournaments top10
-        $dateNow = Carbon::now();
+        $dateNow = Carbon::today();
         $activeTournaments = Tournament::where('game', '=', $data['game'])
-            ->where('start_date', '<', $dateNow)
-            ->where('end_date', '>', $dateNow)
+            ->whereDate('start_date', '<', $dateNow)
+            ->whereDate('end_date', '>', $dateNow)
             ->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
         }
-        var_dump($activeTournamentsIds);
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
