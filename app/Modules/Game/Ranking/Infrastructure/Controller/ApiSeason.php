@@ -311,7 +311,7 @@ class ApiSeason extends ResourceController
             ->get();
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
-            $activeTournamentsIds[] = $activeTournament->id;
+            $activeTournamentsIds[] = $activeTournament->gatId();
         }
         var_dump($activeTournamentsIds);
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
