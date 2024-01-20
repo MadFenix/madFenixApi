@@ -306,8 +306,8 @@ class ApiSeason extends ResourceController
         // Active user tournaments top10
         $dateNow = Carbon::now();
         $activeTournaments = Tournament::where('game', '=', $data['game'])
-            ->where('start_date', '<', $dateNow)
-            ->where('end_date', '>', $dateNow)
+            ->where('start_date', '<', $dateNow->format('Y-m-d H:i:s'))
+            ->where('end_date', '>', $dateNow->format('Y-m-d H:i:s'))
             ->get();
         var_dump($activeTournaments->count());
         $activeTournamentsIds = [];
