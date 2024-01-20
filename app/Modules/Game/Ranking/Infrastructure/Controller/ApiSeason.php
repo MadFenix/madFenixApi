@@ -313,6 +313,7 @@ class ApiSeason extends ResourceController
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
         }
+        var_dump($activeTournamentsIds);
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
