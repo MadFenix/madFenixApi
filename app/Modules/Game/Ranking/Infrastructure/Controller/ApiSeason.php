@@ -309,11 +309,11 @@ class ApiSeason extends ResourceController
             ->where('start_date', '<', $dateNow)
             ->where('end_date', '>', $dateNow)
             ->get();
+        var_dump($activeTournaments->count());
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
-            $activeTournamentsIds[] = $activeTournament->gatId();
+            $activeTournamentsIds[] = $activeTournament->id;
         }
-        var_dump($activeTournamentsIds);
         $userTournaments = TournamentUser::where('user_id', '=', $user->id)->whereIn('tournament_id', $activeTournamentsIds);
         foreach ($userTournaments as $userTournament) {
             $newClassification = new \stdClass();
