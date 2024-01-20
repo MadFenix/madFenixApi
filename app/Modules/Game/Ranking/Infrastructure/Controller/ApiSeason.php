@@ -309,7 +309,6 @@ class ApiSeason extends ResourceController
             ->where('start_date', '<', $dateNow->format('Y-m-d H:i:s'))
             ->where('end_date', '>', $dateNow->format('Y-m-d H:i:s'))
             ->get();
-        var_dump($activeTournaments->count());
         $activeTournamentsIds = [];
         foreach ($activeTournaments as $activeTournament) {
             $activeTournamentsIds[] = $activeTournament->id;
