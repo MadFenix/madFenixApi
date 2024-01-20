@@ -265,7 +265,7 @@ class ApiSeason extends ResourceController
         $classifications[] = $newClassification;
 
         // Active user tournaments top10
-        $dateNow = Carbon::today();
+        $dateNow = Carbon::now();
         $activeTournaments = Tournament::where('game', '=', $data['game'])
             ->whereDate('start_date', '<', $dateNow)
             ->whereDate('end_date', '>', $dateNow)
@@ -304,7 +304,7 @@ class ApiSeason extends ResourceController
         $classifications[] = $newClassification;
 
         // Active user tournaments top10
-        $dateNow = Carbon::today();
+        $dateNow = Carbon::now();
         $activeTournaments = Tournament::where('game', '=', $data['game'])
             ->whereDate('start_date', '<', $dateNow)
             ->whereDate('end_date', '>', $dateNow)
