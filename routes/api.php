@@ -24,7 +24,7 @@ Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(fu
     // TODO Route::post('/refreshToken', 'Api@refreshToken');
     Route::middleware('auth:sanctum')->post('/logout', 'Api@logout');
     Route::post('/forgotReset', 'Api@forgotReset');
-    Route::post('/forgotSendResetLinkEmail', 'Api@forgotSendResetLinkEmail');
+    Route::post('/forgotSendResetLinkEmail', 'Api@forgotSendResetLinkEmail')->name('password.reset');
     Route::post('/register', 'Api@register');
     Route::post('/verify', 'Api@verify');
 });
