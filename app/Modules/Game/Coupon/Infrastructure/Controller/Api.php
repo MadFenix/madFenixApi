@@ -4,8 +4,8 @@
 namespace App\Modules\Game\Coupon\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Game\Coupon\Domain\Coupon;
 use App\Modules\Game\Profile\Domain\Profile;
-use App\Modules\Game\Profile\Transformers\Profile as ProfileTransformer;
 use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
