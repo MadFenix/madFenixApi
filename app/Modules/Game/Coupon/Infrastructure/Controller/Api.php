@@ -19,7 +19,7 @@ class Api extends ResourceController
 
     public function usePlumasCoupon(Request $request)
     {
-        $data = $request->validate(['coupon' => 'required|integer']);
+        $data = $request->validate(['coupon' => 'required|string']);
         /** @var User $user */
         $user = auth()->user();
 
