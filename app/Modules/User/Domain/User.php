@@ -17,6 +17,7 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
         'name' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         'password' => ['required', 'string', 'min:8'],
+        'newsletter' => ['nullable', 'boolean'],
     ];
 
     /**
@@ -25,7 +26,7 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'eth_wallet', 'ip',
+        'name', 'email', 'password', 'newsletter', 'eth_wallet', 'ip',
     ];
 
     /**

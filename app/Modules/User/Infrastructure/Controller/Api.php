@@ -74,6 +74,7 @@ class Api extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'newsletter' => $data['newsletter'],
         ])));
 
         $wallet = new Wallet();
