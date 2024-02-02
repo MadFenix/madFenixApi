@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/test-ia', function () {
     return view('test-ia');
 });
@@ -26,3 +27,8 @@ Route::get('/test-ia-v2', function () {
 Route::get('/test-ia-v3', function () {
     return view('test-ia-v3');
 });
+*/
+
+Route::get('password-reset', function () {
+    return redirect(config('madfenix.spa_website'));
+})->name('password.reset');
