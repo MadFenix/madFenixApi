@@ -29,6 +29,10 @@ Route::get('/test-ia-v3', function () {
 });
 */
 
-Route::get('password-reset', function () {
-    return redirect(config('madfenix.spa_website') . '/recordar-password-formulario');
+Route::get('password-reset', function (\Illuminate\Http\Request $request) {
+    $data = $request->validate([
+        'token' => 'required',
+        'email' => 'required',
+    ]);
+    return redirect(config('madfenix.spa_website') . '/recordar-password-formulario?token=' . $data['token'] . '&email=' . $data['email']);
 })->name('password.reset');
