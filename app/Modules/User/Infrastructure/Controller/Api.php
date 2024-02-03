@@ -4,6 +4,7 @@
 namespace App\Modules\User\Infrastructure\Controller;
 
 use App\Http\Controllers\Controller;
+use App\Mail\DeleteAccount;
 use App\Modules\Blockchain\Wallet\Domain\Wallet;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User;
@@ -16,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -49,6 +51,34 @@ class Api extends Controller
         $return->token = $user->createToken($request->device_name)->plainTextToken;
 
         return response()->json($return);
+    }
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws
+     */
+    public function deleteAccount(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        /** @var User $user */
+        $user = User::where('email', $request->email)->first();
+
+        if (! $user || ! Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
+        }
+
+        $lastToken = $user->createToken("website")->plainTextToken;
+        $userToReportDeleteAccount = User::find(2);
+
+        Mail::to($userToReportDeleteAccount)->send(new DeleteAccount($user, $lastToken));
+
+        return response()->json("Cuenta en proceso de eliminación");
     }
 
     /**

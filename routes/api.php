@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(function () {
     Route::post('/login', 'Api@login');
+    Route::post('/deleteAccount', 'Api@deleteAccount');
     // TODO Route::post('/refreshToken', 'Api@refreshToken');
     Route::middleware('auth:sanctum')->post('/logout', 'Api@logout');
     Route::post('/forgotReset', 'Api@forgotReset');
