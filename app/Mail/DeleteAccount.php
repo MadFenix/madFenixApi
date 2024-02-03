@@ -2,11 +2,11 @@
 
 namespace App\Mail;
 
-use App\Models\Order;
 use App\Modules\User\Domain\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class DeleteAccount extends Mailable
@@ -22,12 +22,22 @@ class DeleteAccount extends Mailable
     ) {}
 
     /**
+     * Get the message envelope.
+     */
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: 'Mad Fénix delete account',
+        );
+    }
+
+    /**
      * Get the message content definition.
      */
     public function content(): Content
     {
         return new Content(
-            view: 'delete-account',
+            view: 'emails.deleteAccount',
             with: [
                 'userId' => $this->userToDelete->id,
                 'userName' => $this->userToDelete->name,
