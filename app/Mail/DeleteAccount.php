@@ -27,7 +27,7 @@ class DeleteAccount extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.delete-account',
+            view: 'delete-account',
             with: [
                 'userId' => $this->userToDelete->id,
                 'userName' => $this->userToDelete->name,
