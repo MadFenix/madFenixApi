@@ -43,24 +43,25 @@ class QueueHedera extends Command
                 $process->run(function ($type, $buffer):void {
                     if (Process::ERR === $type) {
                         $this->line('ERR > '.$buffer);
-                    } else {
-                        $this->line($buffer);
-                        $arguments = explode("\n", $buffer);
-                        if (count($arguments) >= 3 && $arguments[0] == 'SUCCESS') {
-                            $hederaQueue = HederaQueueDomain::find(trim($arguments[1]));
-                            $transactionId = trim($arguments[2]);
-                            $hederaQueue->transaction_id = $transactionId;
-                            $hederaQueue->done = true;
-                            $hederaQueue->save();
-                        } elseif (count($arguments) >= 3 && $arguments[0] == 'FAIL') {
-                            $hederaQueue = HederaQueueDomain::find(trim($arguments[1]));
-                            $transactionId = trim($arguments[2]);
-                            $hederaQueue->transaction_id = $transactionId;
-                            $hederaQueue->attempts += 1;
-                            $hederaQueue->save();
-                        }
                     }
                 });
+
+                $buffer = $process->getOutput();
+                $this->line($buffer);
+                $arguments = explode("\n", $buffer);
+                if (count($arguments) >= 3 && $arguments[0] == 'SUCCESS') {
+                    $hederaQueue = HederaQueueDomain::find(trim($arguments[1]));
+                    $transactionId = trim($arguments[2]);
+                    $hederaQueue->transaction_id = $transactionId;
+                    $hederaQueue->done = true;
+                    $hederaQueue->save();
+                } elseif (count($arguments) >= 3 && $arguments[0] == 'FAIL') {
+                    $hederaQueue = HederaQueueDomain::find(trim($arguments[1]));
+                    $transactionId = trim($arguments[2]);
+                    $hederaQueue->transaction_id = $transactionId;
+                    $hederaQueue->attempts += 1;
+                    $hederaQueue->save();
+                }
             }
         }
     }
