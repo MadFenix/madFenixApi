@@ -55,6 +55,7 @@ class Api
         $hederaQueue->user_id = $user->id;
         $hederaQueue->id_hedera = $data['id_hedera'];
         $hederaQueue->plumas = $data['plumas'];
+        $hederaQueue->done = false;
         $hederaQueueSaved = $hederaQueue->save();
         if (!$hederaQueueSaved) {
             return response()->json('No se ha podido guardar la cola para enviar a Hedera.', 500);
