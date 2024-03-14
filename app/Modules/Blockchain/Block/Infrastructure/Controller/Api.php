@@ -28,6 +28,7 @@ class Api
             'id_hedera'   => 'required',
             'plumas'      => 'required|min:1',
         ]);
+        $data['plumas'] = (int) $data['plumas'];
 
         $profile = Profile::where('user_id', '=', $user->id)->first();
         if (!$profile) {
