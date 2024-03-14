@@ -40,11 +40,16 @@ class QueueHedera extends Command
                 $this->line('Id hedera: ' . $messageQueueHedera->id_hedera);
                 $this->line('Plumas: ' . $messageQueueHedera->plumas);
                 $process = new Process([$node, base_path() . '/node_scripts/hedera_transfer_out.cjs', 'receiver_account_id=' . $messageQueueHedera->id_hedera, 'plumas=' . $messageQueueHedera->plumas, 'queue_hedera_id=' . $messageQueueHedera->id]);
-                $process->run(function ($type, $buffer):void {
-                    if (Process::ERR === $type) {
-                        $this->line('ERR > '.$buffer);
-                    }
-                });
+
+                try {
+                    $process->run(function ($type, $buffer):void {
+                        if (Process::ERR === $type) {
+                            $this->line('ERR > '.$buffer);
+                        }
+                    });
+                } catch (\Exception $e) {
+                    $this->line($e->getMessage());
+                }
 
                 $buffer = $process->getOutput();
                 $this->line($buffer);
