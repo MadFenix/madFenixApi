@@ -50,17 +50,20 @@ class QueueHedera extends Command
                 $this->line($buffer);
                 $arguments = explode("\n", $buffer);
                 if (count($arguments) >= 3 && $arguments[0] == 'SUCCESS') {
-                    $hederaQueue = HederaQueueDomain::find(trim($arguments[1]));
                     $transactionId = trim($arguments[2]);
-                    $hederaQueue->transaction_id = $transactionId;
-                    $hederaQueue->done = true;
-                    $hederaQueue->save();
+                    $messageQueueHedera->transaction_id = $transactionId;
+                    $messageQueueHedera->attempts += 1;
+                    $messageQueueHedera->done = true;
+                    $messageQueueHedera->save();
                 } elseif (count($arguments) >= 3 && $arguments[0] == 'FAIL') {
-                    $hederaQueue = HederaQueueDomain::find(trim($arguments[1]));
                     $transactionId = trim($arguments[2]);
-                    $hederaQueue->transaction_id = $transactionId;
-                    $hederaQueue->attempts += 1;
-                    $hederaQueue->save();
+                    $messageQueueHedera->transaction_id = $transactionId;
+                    $messageQueueHedera->attempts += 1;
+                    $messageQueueHedera->save();
+                } else {
+                    $messageQueueHedera->transaction_id = 'Error';
+                    $messageQueueHedera->attempts += 1;
+                    $messageQueueHedera->save();
                 }
             }
         }
