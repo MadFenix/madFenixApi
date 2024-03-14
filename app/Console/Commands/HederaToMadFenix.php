@@ -32,7 +32,7 @@ class HederaToMadFenix extends Command
         foreach ($hederaTransactions->transactions as $transaction) {
             $transactionMemo = strtolower(base64_decode($transaction->memo_base64));
             $transactionMemo = explode(':', $transactionMemo);
-            if (count($transactionMemo) == 2 && ($transactionMemo[0] == 'deposito' || $transactionMemo[0] == 'depósito')) {
+            if (count($transactionMemo) == 2 && (trim($transactionMemo[0]) == 'deposito' || trim($transactionMemo[0]) == 'depósito')) {
                 $plumasASumar = 0;
                 $totalTokens = 0;
                 foreach ($transaction->token_transfers as $token_transfer) {
@@ -51,7 +51,7 @@ class HederaToMadFenix extends Command
                         break;
                     }
 
-                    $profile = Profile::where('user_id', '=', $transactionMemo[1])->first();
+                    $profile = Profile::where('user_id', '=', trim($transactionMemo[1]))->first();
                     if ($profile) {
                         $profile->plumas += $plumasASumar;
                         $profile->save();
@@ -63,7 +63,7 @@ class HederaToMadFenix extends Command
                     $newBlockchainHistorical->memo = $transaction->transaction_id;
                     $newBlockchainHistorical->save();
 
-                    $this->line('Ingreso. Usuario: ' . $transactionMemo[1] . '. Plumas: ' . $plumasASumar);
+                    $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. Plumas: ' . $plumasASumar);
                 }
             }
             $transactionsExecuted++;
