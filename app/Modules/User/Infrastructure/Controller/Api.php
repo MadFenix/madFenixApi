@@ -5,6 +5,7 @@ namespace App\Modules\User\Infrastructure\Controller;
 
 use App\Http\Controllers\Controller;
 use App\Mail\DeleteAccount;
+use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Wallet\Domain\Wallet;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User;
@@ -119,6 +120,12 @@ class Api extends Controller
         $profile->avatar = '';
         $profile->plumas = 2;
         $profile->save();
+
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $user->id;
+        $newBlockchainHistorical->plumas = 2;
+        $newBlockchainHistorical->memo = "Register";
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
         return response()->json('User registered');
     }

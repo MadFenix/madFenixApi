@@ -4,6 +4,7 @@
 namespace App\Modules\Game\Profile\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Profile\Transformers\Profile as ProfileTransformer;
 use App\Modules\User\Domain\User;
@@ -29,7 +30,13 @@ class Api extends ResourceController
         $profile->plumas--;
         $profileSaved = $profile->save();
 
-        return $profileSaved
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $user->id;
+        $newBlockchainHistorical->plumas = -1;
+        $newBlockchainHistorical->memo = "Used";
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        return $profileSaved && $blockchainHistoricalSaved
             ? response()->json('Se ha restado la pluma del usuario.')
             : response()->json('Error al guardar el perfil.', 500);
     }
@@ -74,7 +81,13 @@ class Api extends ResourceController
         $profile->plumas += $data['plumas'];
         $profileSaved = $profile->save();
 
-        return $profileSaved
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $data['user_id'];
+        $newBlockchainHistorical->plumas = $data['plumas'];
+        $newBlockchainHistorical->memo = "Admin decision";
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        return $profileSaved && $blockchainHistoricalSaved
             ? response()->json('Se han sumado las plumas al usuario.')
             : response()->json('Error al guardar el perfil.', 500);
     }

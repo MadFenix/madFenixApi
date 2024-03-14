@@ -74,6 +74,9 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('wallet/transferZen', 'Api@transferZen');
         Route::get('wallet/show', 'Api@show');
     });
+    Route::namespace('Blockchain\\Block\\Infrastructure\\Controller')->group(function () {
+        Route::post('blockchain/transferPlumasToHedera', 'Api@transferPlumasToHedera');
+    });
 });
 
 // Public game routes

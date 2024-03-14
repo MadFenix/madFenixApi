@@ -4,6 +4,7 @@
 namespace App\Modules\Game\Coupon\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Game\Coupon\Domain\Coupon;
 use App\Modules\Game\Coupon\Domain\CouponUser;
 use App\Modules\Game\Profile\Domain\Profile;
@@ -57,7 +58,13 @@ class Api extends ResourceController
         $profile->plumas += $coupon->plumas;
         $profileSaved = $profile->save();
 
-        return $profileSaved
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $user->id;
+        $newBlockchainHistorical->plumas = $coupon->plumas;
+        $newBlockchainHistorical->memo = "Coupon";
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        return $profileSaved && $blockchainHistoricalSaved
             ? response()->json('Se han sumado las plumas al usuario.')
             : response()->json('Error al guardar el perfil.', 500);
     }
