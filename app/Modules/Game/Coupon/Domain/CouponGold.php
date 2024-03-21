@@ -5,6 +5,8 @@ use App\Modules\Base\Domain\BaseDomain;
 
 class CouponGold extends BaseDomain
 {
+    protected $table = 'coupon_golds';
+
     const VALIDATION_COTNEXT = [
         'coupon' => ['required', 'string', 'min:4', 'max:150'],
         'oro' => ['integer'],

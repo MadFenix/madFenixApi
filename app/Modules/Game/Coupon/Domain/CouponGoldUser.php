@@ -5,6 +5,8 @@ use App\Modules\Base\Domain\BaseDomain;
 
 class CouponGoldUser extends BaseDomain
 {
+    protected $table = 'coupon_gold_users';
+
     const VALIDATION_COTNEXT = [
         'coupon_id' => ['required', 'integer', 'exists:coupons,id'],
         'user_id' => ['required', 'integer', 'exists:users,id'],
