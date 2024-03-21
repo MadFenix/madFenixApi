@@ -99,7 +99,7 @@ class Api extends ResourceController
             return response()->json('Ya has usado este cupon con tu usuario.', 403);
         }
 
-        $couponUser = new CouponUser();
+        $couponUser = new CouponGoldUser();
         $couponUser->user_id = $user->id;
         $couponUser->coupon_id = $coupon->id;
         $couponUser->save();
