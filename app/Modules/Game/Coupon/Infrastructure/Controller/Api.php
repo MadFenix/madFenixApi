@@ -112,7 +112,7 @@ class Api extends ResourceController
 
         $newBlockchainHistorical = new BlockchainHistorical();
         $newBlockchainHistorical->user_id = $user->id;
-        $newBlockchainHistorical->piezas_de_oro_ft = $coupon->piezas_de_oro_ft;
+        $newBlockchainHistorical->piezas_de_oro_ft = $coupon->oro;
         $newBlockchainHistorical->memo = "Coupon";
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
