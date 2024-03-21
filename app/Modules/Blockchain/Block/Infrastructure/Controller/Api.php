@@ -37,6 +37,9 @@ class Api
         if ($profile->plumas < $data['plumas']) {
             return response()->json('No tienes suficientes plumas.', 400);
         }
+        if ($data['plumas'] < 1) {
+            return response()->json('Debes transfereir mínimo 1 pluma.', 400);
+        }
 
         $profile->plumas -= $data['plumas'];
         $profileSaved = $profile->save();
@@ -92,6 +95,9 @@ class Api
         }
         if ($profile->oro < $data['oro']) {
             return response()->json('No tienes suficiente oro.', 400);
+        }
+        if ($data['oro'] < 1) {
+            return response()->json('Debes transfereir mínimo 1 oro.', 400);
         }
 
         $profile->oro -= $data['oro'];
