@@ -73,7 +73,7 @@ class HederaToMadFenix extends Command
 
                     $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. Plumas: ' . $plumasASumar);
                 }
-                $oroASumar = (int) $oroASumar;
+                $oroASumar = (int) ($oroASumar / 1000);
                 if ($oroASumar > 0 && $totalTokens == 0) {
                     $blockchainHistorical = BlockchainHistorical::where('memo', '=', $transaction->transaction_id)->first();
                     if ($blockchainHistorical) {
