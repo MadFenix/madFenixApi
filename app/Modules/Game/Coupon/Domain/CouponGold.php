@@ -3,16 +3,24 @@ namespace App\Modules\Game\Coupon\Domain;
 
 use App\Modules\Base\Domain\BaseDomain;
 
-class CouponUser extends BaseDomain
+class CouponGold extends BaseDomain
 {
     const VALIDATION_COTNEXT = [
-        'coupon_id' => ['required', 'integer', 'exists:coupons,id'],
-        'user_id' => ['required', 'integer', 'exists:users,id'],
+        'coupon' => ['required', 'string', 'min:4', 'max:150'],
+        'oro' => ['integer'],
+        'uses' => ['integer'],
+        'max_uses' => ['integer'],
+        'start_date' => ['required', 'date'],
+        'end_date' => ['required', 'date'],
     ];
 
     protected $fillable = [
-        'coupon_id',
-        'user_id',
+        'coupon',
+        'oro',
+        'uses',
+        'max_uses',
+        'start_date',
+        'end_date'
     ];
 
     /**
@@ -20,19 +28,10 @@ class CouponUser extends BaseDomain
      *
      * @var array
      */
-    protected $casts = [];
-
-    // RELATIONS
-
-    public function coupon()
-    {
-        return $this->belongsTo('App\Modules\Game\Coupon\Domain\Coupon', 'coupon_id');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\Modules\User\Domain\User', 'user_id');
-    }
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+    ];
 
     // GETTERS
 

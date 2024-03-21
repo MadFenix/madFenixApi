@@ -27,6 +27,7 @@ class Profile extends BaseTransformer
             'details' => $this->details,
             'avatar' => $this->avatar,
             'plumas' => new BaseTransformer($this->plumas),
+            'oro' => new BaseTransformer($this->oro),
         ];
     }
 }

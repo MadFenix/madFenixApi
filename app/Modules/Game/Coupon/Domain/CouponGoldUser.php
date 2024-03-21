@@ -3,7 +3,7 @@ namespace App\Modules\Game\Coupon\Domain;
 
 use App\Modules\Base\Domain\BaseDomain;
 
-class CouponUser extends BaseDomain
+class CouponGoldUser extends BaseDomain
 {
     const VALIDATION_COTNEXT = [
         'coupon_id' => ['required', 'integer', 'exists:coupons,id'],
@@ -26,7 +26,7 @@ class CouponUser extends BaseDomain
 
     public function coupon()
     {
-        return $this->belongsTo('App\Modules\Game\Coupon\Domain\Coupon', 'coupon_id');
+        return $this->belongsTo('App\Modules\Game\Coupon\Domain\CouponGold', 'coupon_id');
     }
 
     public function user()

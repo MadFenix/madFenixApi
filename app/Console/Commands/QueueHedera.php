@@ -71,6 +71,44 @@ class QueueHedera extends Command
                     $messageQueueHedera->save();
                 }
             }
+
+            if ($messageQueueHedera->piezas_de_oro_ft > 0 && empty($messageQueueHedera->transaction_id)) {
+                $this->line('Run hedera transfer');
+                $this->line('User id: ' . $messageQueueHedera->user_id);
+                $this->line('Id hedera: ' . $messageQueueHedera->id_hedera);
+                $this->line('Oro: ' . $messageQueueHedera->piezas_de_oro_ft);
+                $process = new Process([$node, base_path() . '/node_scripts/hedera_transfer_oro_out.cjs', 'receiver_account_id=' . $messageQueueHedera->id_hedera, 'oro=' . $messageQueueHedera->piezas_de_oro_ft, 'queue_hedera_id=' . $messageQueueHedera->id]);
+
+                try {
+                    $process->run(function ($type, $buffer):void {
+                        if (Process::ERR === $type) {
+                            $this->line('ERR > '.$buffer);
+                        }
+                    });
+                } catch (\Exception $e) {
+                    $this->line($e->getMessage());
+                }
+
+                $buffer = $process->getOutput();
+                $this->line($buffer);
+                $arguments = explode("\n", $buffer);
+                if (count($arguments) >= 3 && $arguments[0] == 'SUCCESS') {
+                    $transactionId = trim($arguments[2]);
+                    $messageQueueHedera->transaction_id = $transactionId;
+                    $messageQueueHedera->attempts += 1;
+                    $messageQueueHedera->done = true;
+                    $messageQueueHedera->save();
+                } elseif (count($arguments) >= 3 && $arguments[0] == 'FAIL') {
+                    $transactionId = trim($arguments[2]);
+                    $messageQueueHedera->transaction_id = $transactionId;
+                    $messageQueueHedera->attempts += 1;
+                    $messageQueueHedera->save();
+                } else {
+                    $messageQueueHedera->transaction_id = 'Error';
+                    $messageQueueHedera->attempts += 1;
+                    $messageQueueHedera->save();
+                }
+            }
         }
     }
 }

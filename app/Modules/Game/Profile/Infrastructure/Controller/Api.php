@@ -41,6 +41,30 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    public function subtractOroUser()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+
+        $profile->oro--;
+        $profileSaved = $profile->save();
+
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $user->id;
+        $newBlockchainHistorical->piezas_de_oro_ft = -1;
+        $newBlockchainHistorical->memo = "Used";
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        return $profileSaved && $blockchainHistoricalSaved
+            ? response()->json('Se ha restado el oro del usuario.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
     public function getUserProfile()
     {
         /** @var User $user */
@@ -58,6 +82,7 @@ class Api extends ResourceController
         $returnProfile->details = $profile->details;
         $returnProfile->avatar = $profile->avatar;
         $returnProfile->plumas = $profile->plumas;
+        $returnProfile->oro = $profile->oro;
 
 
         return response()->json($returnProfile);
@@ -89,6 +114,35 @@ class Api extends ResourceController
 
         return $profileSaved && $blockchainHistoricalSaved
             ? response()->json('Se han sumado las plumas al usuario.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
+    public function addOro(Request $request)
+    {
+        $data = $request->validate(['user_id' => 'required|integer', 'oro' => 'required|integer']);
+        /** @var User $user */
+        $user = auth()->user();
+
+        if ($user->email != 'iam@valentigamez.com') {
+            return response()->json('Solo el administrador puede ejecutar esta función.', 403);
+        }
+
+        $profile = Profile::where('user_id', '=', $data['user_id'])->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+
+        $profile->oro += $data['oro'];
+        $profileSaved = $profile->save();
+
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $data['user_id'];
+        $newBlockchainHistorical->piezas_de_oro_ft = $data['piezas_de_oro_ft'];
+        $newBlockchainHistorical->memo = "Admin decision";
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        return $profileSaved && $blockchainHistoricalSaved
+            ? response()->json('Se ha sumado el oro al usuario.')
             : response()->json('Error al guardar el perfil.', 500);
     }
 

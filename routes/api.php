@@ -64,11 +64,14 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     });
     Route::namespace('Game\\Profile\\Infrastructure\\Controller')->group(function () {
         Route::post('profile/addPlumas', 'Api@addPluma');
+        Route::post('profile/addOro', 'Api@addOro');
         Route::post('profile/getUserProfile', 'Api@getUserProfile');
         Route::post('profile/subtractPlumaUser', 'Api@subtractPlumaUser');
+        Route::post('profile/subtractOroUser', 'Api@subtractOroUser');
     });
     Route::namespace('Game\\Coupon\\Infrastructure\\Controller')->group(function () {
         Route::post('coupon/usePlumasCoupon', 'Api@usePlumasCoupon');
+        Route::post('coupon/useOroCoupon', 'Api@useOroCoupon');
     });
     Route::namespace('Blockchain\\Wallet\\Infrastructure\\Controller')->group(function () {
         Route::post('wallet/transferZen', 'Api@transferZen');
@@ -76,6 +79,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     });
     Route::namespace('Blockchain\\Block\\Infrastructure\\Controller')->group(function () {
         Route::post('blockchain/transferPlumasToHedera', 'Api@transferPlumasToHedera');
+        Route::post('blockchain/transferOroToHedera', 'Api@transferOroToHedera');
     });
 });
 

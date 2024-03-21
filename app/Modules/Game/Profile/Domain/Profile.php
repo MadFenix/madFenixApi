@@ -11,6 +11,7 @@ class Profile extends BaseDomain
         'details' => ['required', 'string', 'min:8', 'max:2000'],
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
         'plumas' => ['integer'],
+        'oro' => ['integer'],
     ];
 
     protected $fillable = [
@@ -18,6 +19,7 @@ class Profile extends BaseDomain
         'details',
         'avatar',
         'plumas',
+        'oro',
         'creator_id'
     ];
 
