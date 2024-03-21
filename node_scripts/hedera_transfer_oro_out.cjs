@@ -56,7 +56,7 @@ const TOKEN_ID_ORO_NUMBER = process.env.HEDERA_TOKEN_ID_ORO_NUMBER;
 const MY_ACCOUNT_ID = AccountId.fromString(process.env.HEDERA_ACCOUNT_ID);
 const MY_PRIVATE_KEY = PrivateKey.fromStringED25519(process.env.HEDERA_PRIVATE_KEY);
 const RECEIVER_ACCOUNT_ID = AccountId.fromString(receiver_account_id);
-const ORO_TO_SEND = oro;
+const ORO_TO_SEND = parseInt(oro + '0000');
 const QUEUE_HEDERA_TO_RESOLVE = queue_hedera_id;
 
 // Pre-configured client for test network (testnet)
