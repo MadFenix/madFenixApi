@@ -119,6 +119,7 @@ class Api extends Controller
         $profile->details = '';
         $profile->avatar = '';
         $profile->plumas = 2;
+        $profile->oro = 0;
         $profile->save();
 
         $newBlockchainHistorical = new BlockchainHistorical();
