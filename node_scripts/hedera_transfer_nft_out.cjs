@@ -55,8 +55,8 @@ process.argv.forEach(function (val, index, array) {
     }
 });
 
-if (receiver_account_id == null || oro == null) {
-    console.log('Command must contain receiver_account_id and oro arguments.');
+if (receiver_account_id == null || queue_hedera_id == null || token_id_nft_props == null || token_id_nft_realm == null || token_id_nft_number == null || token_id_nft_identification == null) {
+    console.log('Command must contain receiver_account_id, queue_hedera_id, token_id_nft_props, token_id_nft_realm, token_id_nft_number, token_id_nft_identification arguments.');
 
     process.exit();
 }

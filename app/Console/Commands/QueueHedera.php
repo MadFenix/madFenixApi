@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Modules\Blockchain\Block\Domain\HederaQueue as HederaQueueDomain;
+use App\Modules\Blockchain\Block\Domain\Nft;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\ExecutableFinder;
 use Symfony\Component\Process\Process;
@@ -111,13 +112,13 @@ class QueueHedera extends Command
             }
 
             if ($messageQueueHedera->nft_identification_id > 0 && empty($messageQueueHedera->transaction_id)) {
-                $nftIdentification = $messageQueueHedera->nft_identification();
+                $nftIdentification = $messageQueueHedera->nft_identification;
                 if (empty($nftIdentification)) {
                     $messageQueueHedera->transaction_id = 'Error';
                     $messageQueueHedera->attempts += 1;
                     $messageQueueHedera->save();
                 }
-                $nft = $nftIdentification->nft();
+                $nft = $nftIdentification->nft;
                 if (empty($nft)) {
                     $messageQueueHedera->transaction_id = 'Error';
                     $messageQueueHedera->attempts += 1;
