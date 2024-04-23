@@ -7,6 +7,7 @@ class BlockchainHistorical extends BaseDomain
 {
     const VALIDATION_COTNEXT = [
         'user_id' => ['required', 'integer', 'exists:users,id'],
+        'nft_identification_id' => ['nullable', 'integer', 'exists:nft_identifications,id'],
         'plumas' => ['nullable', 'integer'],
         'piezas_de_oro_ft' => ['nullable', 'integer'],
         'piezas_de_oro_nft' => ['nullable', 'string'],
@@ -16,6 +17,7 @@ class BlockchainHistorical extends BaseDomain
 
     protected $fillable = [
         'user_id',
+        'nft_identification_id',
         'plumas',
         'piezas_de_oro_ft',
         'piezas_de_oro_nft',
@@ -35,6 +37,11 @@ class BlockchainHistorical extends BaseDomain
     public function user()
     {
         return $this->belongsTo('App\Modules\User\Domain\User', 'user_id');
+    }
+
+    public function nft_identification()
+    {
+        return $this->belongsTo('App\Modules\Blockchain\Block\Domain\NftIdentification', 'nft_identification_id');
     }
 
     // GETTERS

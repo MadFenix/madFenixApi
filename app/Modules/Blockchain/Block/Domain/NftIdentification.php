@@ -1,30 +1,26 @@
 <?php
-namespace App\Modules\Game\Profile\Domain;
+namespace App\Modules\Blockchain\Block\Domain;
 
 use App\Modules\Base\Domain\BaseDomain;
 
-class Profile extends BaseDomain
+class NftIdentification extends BaseDomain
 {
     const VALIDATION_COTNEXT = [
-        'user_id' => ['required', 'integer', 'exists:users,id'],
-        'description' => ['required', 'string', 'min:4', 'max:255'],
-        'details' => ['required', 'string', 'min:8', 'max:2000'],
-        'avatar' => ['required', 'string', 'min:4', 'max:255'],
-        'plumas' => ['integer'],
-        'season_level' => ['integer'],
-        'season_points' => ['integer'],
-        'oro' => ['integer'],
+        'name' => ['required', 'string'],
+        'description' => ['nullable', 'string'],
+        'image' => ['nullable', 'string'],
+        'nft_identification' => ['required', 'integer'],
+        'nft_id' => ['required', 'integer', 'exists:nfts,id'],
+        'user_id' => ['nullable', 'integer', 'exists:users,id'],
     ];
 
     protected $fillable = [
+        'name',
         'description',
-        'details',
-        'avatar',
-        'plumas',
-        'oro',
-        'season_level',
-        'season_points',
-        'creator_id'
+        'image',
+        'nft_identification',
+        'nft_id',
+        'user_id',
     ];
 
     /**
@@ -41,6 +37,11 @@ class Profile extends BaseDomain
         return $this->belongsTo('App\Modules\User\Domain\User', 'user_id');
     }
 
+    public function nft()
+    {
+        return $this->belongsTo('App\Modules\Blockchain\Block\Domain\Nft', 'nft_id');
+    }
+
     // GETTERS
 
     public function getValidationContext(): array
@@ -50,7 +51,7 @@ class Profile extends BaseDomain
 
     public function getIcon(): string
     {
-        return 'user';
+        return 'block';
     }
 
     // Others
