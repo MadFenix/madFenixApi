@@ -80,6 +80,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     Route::namespace('Blockchain\\Block\\Infrastructure\\Controller')->group(function () {
         Route::post('blockchain/transferPlumasToHedera', 'Api@transferPlumasToHedera');
         Route::post('blockchain/transferOroToHedera', 'Api@transferOroToHedera');
+        Route::post('blockchain/transferNftToHedera', 'Api@transferNftToHedera');
     });
 });
 

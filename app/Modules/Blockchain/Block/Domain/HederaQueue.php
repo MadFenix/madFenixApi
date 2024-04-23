@@ -11,6 +11,7 @@ class HederaQueue extends BaseDomain
         'piezas_de_oro_ft' => ['nullable', 'integer'],
         'piezas_de_oro_nft' => ['nullable', 'string'],
         'dragones_custodio' => ['nullable', 'string'],
+        'nft_identification_id' => ['nullable', 'integer', 'exists:nft_identifications,id'],
         'id_hedera' => ['required', 'string'],
         'attempts' => ['nullable', 'integer'],
         'done' => ['required'],
@@ -24,6 +25,7 @@ class HederaQueue extends BaseDomain
         'piezas_de_oro_ft',
         'piezas_de_oro_nft',
         'dragones_custodio',
+        'nft_identification_id',
         'id_hedera',
         'attempts',
         'done',
@@ -42,6 +44,11 @@ class HederaQueue extends BaseDomain
     public function user()
     {
         return $this->belongsTo('App\Modules\User\Domain\User', 'user_id');
+    }
+
+    public function nft_identification()
+    {
+        return $this->belongsTo('App\Modules\Blockchain\Block\Domain\NftIdentification', 'nft_identification_id');
     }
 
     // GETTERS

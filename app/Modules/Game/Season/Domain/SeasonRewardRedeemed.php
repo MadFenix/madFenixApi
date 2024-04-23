@@ -30,7 +30,7 @@ class SeasonRewardRedeemed extends BaseDomain
 
     public function nft_identification()
     {
-        return $this->belongsTo('App\Modules\Blockchain\Block\Domain\Nft', 'nft_identification_id');
+        return $this->belongsTo('App\Modules\Blockchain\Block\Domain\NftIdentification', 'nft_identification_id');
     }
 
     public function blockchain_historical()
