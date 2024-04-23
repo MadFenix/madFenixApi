@@ -48,7 +48,7 @@ class EnrollToTournament extends Command
             $newTournamentUser->user_id = $user->id;
             $newTournamentUser->max_points = 0;
             $newTournamentUser->max_time = 0;
-            $newTournamentUser->save();
+            //$newTournamentUser->save();
         }
     }
 }
