@@ -8,6 +8,8 @@ use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Ranking\Domain\Ranking2024s1;
 use App\Modules\Game\Ranking\Domain\Tournament;
 use App\Modules\Game\Ranking\Domain\TournamentUser;
+use App\Modules\Game\Season\Domain\Season;
+use App\Modules\Game\Season\Domain\SeasonReward;
 use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -373,6 +375,21 @@ class ApiSeason extends ResourceController
                 }
 
                 $profile->season_points += $pointsToSeason;
+
+                $dateNow = Carbon::now();
+                $activeSeason = Season::where('start_date', '<', $dateNow->format('Y-m-d H:i:s'))
+                    ->where('end_date', '>', $dateNow->format('Y-m-d H:i:s'))
+                    ->first();
+                if ($activeSeason) {
+                    $lastSeasonReward = SeasonReward::where('season_id', '=', $activeSeason->id)
+                        ->where('required_points', '<', $profile->season_points)
+                        ->orderByDesc('level')
+                        ->first();
+                    if ($lastSeasonReward) {
+                        $profile->season_level = $lastSeasonReward->level;
+                    }
+                }
+
                 $profile->save();
             }
         }
