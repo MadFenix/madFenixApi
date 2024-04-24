@@ -58,6 +58,7 @@ class Api extends ResourceController
         $seasonDetails->seasonRewards = [];
         foreach ($seasonRewards as $seasonReward) {
             $newSeasonReward = (object) $seasonReward->toArray();
+            $newSeasonReward->nft = null;
             if ($seasonReward->nft_id > 0) {
                 $nft = Nft::find($seasonReward->nft_id);
                 if ($nft) {
