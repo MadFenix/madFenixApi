@@ -44,6 +44,9 @@ class Api extends ResourceController
             return response()->json('No se ha encontrado la season.', 404);
         }
         $seasonDetails = (object) $activeSeason->toArray();
+        $seasonDetails->user_season_level = $profile->season_level;
+        $seasonDetails->user_season_points = $profile->season_points;
+        $seasonDetails->user_season_premium = $profile->season_premium;
 
         $seasonRewards = SeasonReward::where('season_id', '=', $activeSeason->id)
             ->orderBy('level')
