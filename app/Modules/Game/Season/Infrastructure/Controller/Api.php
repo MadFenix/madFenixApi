@@ -56,7 +56,6 @@ class Api extends ResourceController
         }
 
         $seasonDetails->seasonRewards = [];
-        $seasonRewardRedeemeds = [];
         foreach ($seasonRewards as $seasonReward) {
             $newSeasonReward = (object) $seasonReward->toArray();
             if ($seasonReward->nft_id > 0) {
@@ -65,17 +64,17 @@ class Api extends ResourceController
                     $newSeasonReward->nft = (object) $nft->toArray();
                 }
             }
-            $seasonDetails->seasonRewards[] = $newSeasonReward;
+            $newSeasonReward->redeemed = null;
             $seasonRewardRedeemed = SeasonRewardRedeemed::where('season_reward_id', '=', $seasonReward->id)
                 ->where('user_id', '=', $user->id)
                 ->first();
             if ($seasonRewardRedeemed) {
                 $newSeasonRewardRedeemed = (object) $seasonRewardRedeemed->toArray();
                 $newSeasonRewardRedeemed->level = $seasonReward->level;
-                $seasonRewardRedeemeds[] = $seasonRewardRedeemed;
+                $newSeasonReward->redeemed = $seasonRewardRedeemed;
             }
+            $seasonDetails->seasonRewards[] = $newSeasonReward;
         }
-        $seasonDetails->seasonRewardRedeemeds = $seasonRewardRedeemeds;
 
         return response()->json($seasonDetails);
     }
