@@ -4,6 +4,7 @@
 namespace App\Modules\Game\Ranking\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Ranking\Domain\Ranking2024s1;
 use App\Modules\Game\Ranking\Domain\Tournament;
 use App\Modules\Game\Ranking\Domain\TournamentUser;
@@ -344,6 +345,37 @@ class ApiSeason extends ResourceController
         $ranking->fase = (empty($data['fase']))? 1 : $data['fase'];
         $ranking->points = (empty($data['points']))? 0 : $data['points'];
         $rankingSaved = $ranking->save();
+
+        if ($data['game'] == '2Elevado') {
+            $profile = Profile::where('user_id', '=', $user->id)->first();
+            if ($profile) {
+                $pointsToSeason = 10000;
+                if ($ranking->points > 1000000) {
+                    $pointsToSeason = 15000;
+                }
+                if ($ranking->points > 10000000) {
+                    $pointsToSeason = 20000;
+                }
+                if ($ranking->points > 100000000) {
+                    $pointsToSeason = 25000;
+                }
+                if ($ranking->points > 1000000000) {
+                    $pointsToSeason = 30000;
+                }
+                if ($ranking->points > 10000000000) {
+                    $pointsToSeason = 35000;
+                }
+                if ($ranking->points > 50000000000) {
+                    $pointsToSeason = 40000;
+                }
+                if ($ranking->points > 80000000000) {
+                    $pointsToSeason = 45000;
+                }
+
+                $profile->season_points += $pointsToSeason;
+                $profile->save();
+            }
+        }
 
         // Active user tournaments maxpoints update
         $dateNow = Carbon::now();
