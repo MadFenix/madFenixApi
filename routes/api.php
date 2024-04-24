@@ -83,7 +83,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('blockchain/transferNftToHedera', 'Api@transferNftToHedera');
     });
     Route::namespace('Game\\Season\\Infrastructure\\Controller')->group(function () {
-        Route::post('season/seasonDetails', 'Api@seasonDetails');
+        Route::get('season/seasonDetails', 'Api@seasonDetails');
         Route::post('season/redeemSeasonLvl', 'Api@redeemSeasonLvl');
     });
 });
