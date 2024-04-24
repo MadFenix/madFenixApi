@@ -46,6 +46,7 @@ class Api extends ResourceController
         $seasonDetails = (object) $activeSeason->toArray();
 
         $seasonRewards = SeasonReward::where('season_id', '=', $activeSeason->id)
+            ->orderByAsc('level')
             ->get();
         if ($seasonRewards->count() <= 0) {
             return response()->json('No se ha encontrado las recompensas de la season.', 404);
