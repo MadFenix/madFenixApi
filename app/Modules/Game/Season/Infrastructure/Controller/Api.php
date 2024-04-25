@@ -178,7 +178,7 @@ class Api extends ResourceController
                 $newBlockchainHistorical->memo = "Season " . $activeSeason->id . ", reward lvl " . $seasonReward->level;
                 $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
-                if (!($profileSaved && $blockchainHistoricalSaved)) {
+                if (!($blockchainHistoricalSaved)) {
                     return response()->json('Error al canjear la recompensa.', 500);
                 }
             }
