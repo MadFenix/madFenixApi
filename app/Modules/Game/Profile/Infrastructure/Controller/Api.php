@@ -5,6 +5,8 @@ namespace App\Modules\Game\Profile\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
+use App\Modules\Blockchain\Block\Domain\Nft;
+use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Profile\Transformers\Profile as ProfileTransformer;
 use App\Modules\User\Domain\User;
@@ -75,6 +77,8 @@ class Api extends ResourceController
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
 
+        $nftIdentifications = NftIdentification::where('user_id', '=', $user->id)->get();
+
         $returnProfile = new \stdClass();
         $returnProfile->username = $user->name;
         $returnProfile->email = $user->email;
@@ -83,6 +87,13 @@ class Api extends ResourceController
         $returnProfile->avatar = $profile->avatar;
         $returnProfile->plumas = $profile->plumas;
         $returnProfile->oro = $profile->oro;
+        $returnProfile->nfts = [];
+        foreach ($nftIdentifications as $nftIdentification) {
+            $nft = Nft::find($nftIdentification->nft_id);
+            $newNft = (object) $nftIdentification->toArray();
+            $newNft->nft = (object) $nft->toArray();
+            $returnProfile->nfts[] = $newNft;
+        }
 
 
         return response()->json($returnProfile);
