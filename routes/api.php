@@ -39,7 +39,7 @@ Route::namespace('\\App\\Modules\\Game\\Ranking\\Infrastructure\\Controller')->g
     Route::get('ranking/getSeasonGameStarted', 'ApiSeason@getGameStarted');
 });
 
-Route::namespace('Twitch\\Infrastructure\\Controller')->group(function () {
+Route::namespace('\\App\\Modules\\Twitch\\Infrastructure\\Controller')->group(function () {
     Route::get('twitch/connectAccount', 'Api@connectTwitchAccount');
 });
 
