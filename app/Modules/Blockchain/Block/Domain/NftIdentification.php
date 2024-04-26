@@ -11,6 +11,7 @@ class NftIdentification extends BaseDomain
         'image' => ['nullable', 'string'],
         'nft_identification' => ['required', 'integer'],
         'nft_id' => ['required', 'integer', 'exists:nfts,id'],
+        'madfenix_ownership' => ['nullable'],
         'user_id' => ['nullable', 'integer', 'exists:users,id'],
     ];
 
@@ -20,6 +21,7 @@ class NftIdentification extends BaseDomain
         'image',
         'nft_identification',
         'nft_id',
+        'madfenix_ownership',
         'user_id',
     ];
 

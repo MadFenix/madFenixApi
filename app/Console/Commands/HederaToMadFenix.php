@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Block\Domain\HederaQueue as HederaQueueDomain;
+use App\Modules\Blockchain\Block\Domain\Nft;
+use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Profile\Domain\Profile;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\ExecutableFinder;
@@ -33,6 +35,11 @@ class HederaToMadFenix extends Command
             $transactionMemo = strtolower(base64_decode($transaction->memo_base64));
             $transactionMemo = explode(':', $transactionMemo);
             if (count($transactionMemo) == 2 && (trim($transactionMemo[0]) == 'deposito' || trim($transactionMemo[0]) == 'depósito')) {
+                $blockchainHistorical = BlockchainHistorical::where('memo', '=', $transaction->transaction_id)->first();
+                if ($blockchainHistorical) {
+                    break;
+                }
+
                 $plumasASumar = 0;
                 $oroASumar = 0;
                 $totalTokens = 0;
@@ -54,11 +61,6 @@ class HederaToMadFenix extends Command
                 }
                 $plumasASumar = (int) $plumasASumar;
                 if ($plumasASumar > 0 && $totalTokens == 0) {
-                    $blockchainHistorical = BlockchainHistorical::where('memo', '=', $transaction->transaction_id)->first();
-                    if ($blockchainHistorical) {
-                        break;
-                    }
-
                     $profile = Profile::where('user_id', '=', trim($transactionMemo[1]))->first();
                     if ($profile) {
                         $profile->plumas += $plumasASumar;
@@ -75,11 +77,6 @@ class HederaToMadFenix extends Command
                 }
                 $oroASumar = (int) ($oroASumar / 10000);
                 if ($oroASumar > 0 && $totalTokens == 0) {
-                    $blockchainHistorical = BlockchainHistorical::where('memo', '=', $transaction->transaction_id)->first();
-                    if ($blockchainHistorical) {
-                        break;
-                    }
-
                     $profile = Profile::where('user_id', '=', trim($transactionMemo[1]))->first();
                     if ($profile) {
                         $profile->oro += $oroASumar;
@@ -93,6 +90,37 @@ class HederaToMadFenix extends Command
                     $newBlockchainHistorical->save();
 
                     $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. Oro: ' . $oroASumar);
+                }
+
+                foreach ($transaction->nft_transfers as $nft_transfer) {
+                    $tokenIdArray = explode('.', $nft_transfer->token_id);
+                    if (count($tokenIdArray) < 3) {
+                        continue;
+                    }
+                    $nft = Nft::where('token_props', '=', trim($tokenIdArray[0]))
+                        ->where('token_realm', '=', trim($tokenIdArray[1]))
+                        ->where('token_number', '=', trim($tokenIdArray[2]))
+                        ->first();
+                    if (!$nft) {
+                        continue;
+                    }
+                    $nftIdentification = NftIdentification::where('nft_identification', '=', $nft_transfer->serial_number)
+                        ->where('nft_id', '=', $nft->id)
+                        ->first();
+                    if (!$nftIdentification) {
+                        continue;
+                    }
+                    $nftIdentification->user_id = $transactionMemo[1];
+                    $nftIdentification->madfenix_ownership = false;
+                    $nftIdentification->save();
+
+                    $newBlockchainHistorical = new BlockchainHistorical();
+                    $newBlockchainHistorical->user_id = $transactionMemo[1];
+                    $newBlockchainHistorical->nft_identification_id = $nftIdentification->id;
+                    $newBlockchainHistorical->memo = $transaction->transaction_id;
+                    $newBlockchainHistorical->save();
+
+                    $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
                 }
             }
             $transactionsExecuted++;
