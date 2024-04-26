@@ -143,6 +143,7 @@ class HederaToMadFenix extends Command
         }
 
         $transaction = json_decode(file_get_contents('https://mainnet-public.mirrornode.hedera.com/api/v1/transactions/' . $hederaTransactionNft->transactions[0]->transaction_id));
+        $transaction = $transaction->transactions[0];
 
         $transactionMemo = strtolower(base64_decode($transaction->memo_base64));
         $transactionMemo = explode(':', $transactionMemo);
