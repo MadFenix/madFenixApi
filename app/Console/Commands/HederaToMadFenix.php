@@ -131,6 +131,73 @@ class HederaToMadFenix extends Command
         }
     }
 
+    protected function consumePageFromHederaFindNftTransaction($url, $hederaNft, $nftIdentification, $nftTokenId, $accountId) {
+        $hederaTransactionNft = json_decode(file_get_contents($url));
+
+        if (
+            !isset($hederaTransactionNft->transactions) ||
+            count($hederaTransactionNft->transactions) < 1 ||
+            !isset($hederaTransactionNft->transactions[0]->transaction_id)
+        ) {
+            return false;
+        }
+
+        $transaction = json_decode(file_get_contents('https://mainnet-public.mirrornode.hedera.com/api/v1/transactions/' . $hederaTransactionNft->transactions[0]->transaction_id));
+
+        $transactionMemo = strtolower(base64_decode($transaction->memo_base64));
+        $transactionMemo = explode(':', $transactionMemo);
+        if (count($transactionMemo) == 2 && (trim($transactionMemo[0]) == 'deposito' || trim($transactionMemo[0]) == 'depósito')) {
+            $blockchainHistorical = BlockchainHistorical::where('memo', '=', $transaction->transaction_id)->first();
+            if ($blockchainHistorical) {
+                return false;
+            }
+
+            foreach ($transaction->nft_transfers as $nft_transfer) {
+                if ($nft_transfer->token_id != $nftTokenId) {
+                    continue;
+                }
+                if ($nft_transfer->serial_number != $nftIdentification->nft_identification) {
+                    continue;
+                }
+                $nftIdentification->user_id = $transactionMemo[1];
+                $nftIdentification->madfenix_ownership = false;
+                $nftIdentification->save();
+
+                $newBlockchainHistorical = new BlockchainHistorical();
+                $newBlockchainHistorical->user_id = $transactionMemo[1];
+                $newBlockchainHistorical->nft_identification_id = $nftIdentification->id;
+                $newBlockchainHistorical->memo = $transaction->transaction_id;
+                $newBlockchainHistorical->save();
+
+                $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
+            }
+        }
+    }
+
+    protected function consumePageFromHederaAccountListNft($url, $nftIdentifications, $nftTokenId, $accountId) {
+        $hederaNfts = json_decode(file_get_contents($url));
+
+        $nftsExecuted = 0;
+        foreach ($hederaNfts->nfts as $hederaNft) {
+            foreach ($nftIdentifications as $nftIdentification) {
+                if ($hederaNft->serial_number == $nftIdentification->nft_identification) {
+                    $this->consumePageFromHederaFindNftTransaction(
+                        'https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts/' . $nftIdentification->nft_identification . '/transactions?limit=1&order=desc',
+                        $hederaNft,
+                        $nftIdentification,
+                        $nftTokenId,
+                        $accountId
+                    );
+                }
+            }
+            $nftsExecuted++;
+        }
+
+        if ($nftsExecuted != count($hederaNfts->nfts) && !empty($hederaTransactions->links->next)) {
+            $this->consumePageFromHederaAccountListNft('https://mainnet-public.mirrornode.hedera.com' . $hederaTransactions->links->next, $nftIdentifications, $nftTokenId, $accountId);
+        }
+    }
+
     /**
      * Execute the console command.
      */
@@ -141,5 +208,21 @@ class HederaToMadFenix extends Command
         $tokenIdOro = env('HEDERA_TOKEN_ID_ORO_PROPS') . '.' . env('HEDERA_TOKEN_ID_ORO_REALM') . '.' . env('HEDERA_TOKEN_ID_ORO_NUMBER');
 
         $this->consumePageFromHederaAccountTransactions('https://mainnet-public.mirrornode.hedera.com/api/v1/transactions?account.id=' . $accountId . '&transactiontype=CRYPTOTRANSFER&result=success', $accountId, $tokenIdPlumas, $tokenIdOro);
+
+        $nfts = Nft::all();
+        foreach ($nfts as $nft) {
+            $nftTokenId = $nft->token_props . '.' . $nft->token_realm . '.' . $nft->token_number;
+            $nftIdentifications = NftIdentification::where('nft_id', '=', $nft->id)
+                ->whereNull('user_id')
+                ->where('madfenix_ownership', '=', '0')
+                ->get();
+
+            $this->consumePageFromHederaAccountListNft(
+                'https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?account.id=' . $accountId . '&limit=50',
+                $nftIdentifications,
+                $nftTokenId,
+                $accountId
+            );
+        }
     }
 }
