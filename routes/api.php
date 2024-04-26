@@ -39,6 +39,10 @@ Route::namespace('\\App\\Modules\\Game\\Ranking\\Infrastructure\\Controller')->g
     Route::get('ranking/getSeasonGameStarted', 'ApiSeason@getGameStarted');
 });
 
+Route::namespace('Twitch\\Infrastructure\\Controller')->group(function () {
+    Route::get('twitch/connectAccount', 'Api@connectTwitchAccount');
+});
+
 /*Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
     Route::get('assistant/thred/getResponseFromAI', 'Api@getResponseFromAI');
     Route::post('assistant/thred/getAudioResponseFromAI', 'Api@getAudioResponseFromAI');
