@@ -177,7 +177,6 @@ class HederaToMadFenix extends Command
     protected function consumePageFromHederaAccountListNft($url, $nftIdentifications, $nftTokenId, $accountId) {
         $hederaNfts = json_decode(file_get_contents($url));
 
-        $nftsExecuted = 0;
         foreach ($hederaNfts->nfts as $hederaNft) {
             foreach ($nftIdentifications as $nftIdentification) {
                 if ($hederaNft->serial_number == $nftIdentification->nft_identification) {
@@ -190,10 +189,9 @@ class HederaToMadFenix extends Command
                     );
                 }
             }
-            $nftsExecuted++;
         }
 
-        if ($nftsExecuted != count($hederaNfts->nfts) && !empty($hederaTransactions->links->next)) {
+        if (!empty($hederaTransactions->links->next)) {
             $this->consumePageFromHederaAccountListNft('https://mainnet-public.mirrornode.hedera.com' . $hederaTransactions->links->next, $nftIdentifications, $nftTokenId, $accountId);
         }
     }
@@ -218,7 +216,7 @@ class HederaToMadFenix extends Command
                 ->get();
 
             $this->consumePageFromHederaAccountListNft(
-                'https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?account.id=' . $accountId . '&limit=50',
+                'https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?account.id=' . $accountId . '&limit=100',
                 $nftIdentifications,
                 $nftTokenId,
                 $accountId
