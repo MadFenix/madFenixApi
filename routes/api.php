@@ -92,7 +92,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     });
 
     Route::namespace('Twitch\\Infrastructure\\Controller')->group(function () {
-        Route::get('twitch/disconnectTwitch', 'Api@disconnectTwitch');
+        Route::post('twitch/disconnectTwitch', 'Api@disconnectTwitch');
     });
 });
 
