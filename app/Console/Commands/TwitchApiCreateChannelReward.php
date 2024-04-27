@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Ranking\Domain\Tournament;
 use App\Modules\Game\Ranking\Domain\TournamentUser;
 use App\Modules\Twitch\Infrastructure\ApiHelix;
@@ -15,7 +16,7 @@ class TwitchApiCreateChannelReward extends Command
      *
      * @var string
      */
-    protected $signature = 'get-twitch-create-channel-reward {user_access_token?} {user_id?}';
+    protected $signature = 'get-twitch-create-channel-reward {profile_id?}';
 
     /**
      * The console command description.
@@ -29,17 +30,16 @@ class TwitchApiCreateChannelReward extends Command
      */
     public function handle(): void
     {
-        $userAccessToken = $this->argument('user_access_token');
-        $user_id = $this->argument('user_id');
+        $profileId = $this->argument('profile_id');
 
         $apiHelix = new ApiHelix();
 
-        if ($userAccessToken) {
-            $apiHelix->setTwitchAccessToken($userAccessToken);
-        }
-
-        if ($user_id) {
-            $apiHelix->setTwitchUserId($user_id);
+        if ($profileId) {
+            $profile = Profile::where('user_id', '=', $profileId)->first();
+            if (!$profile) {
+                throw new \Exception('Profile not found');
+            }
+            $apiHelix->setProfile($profile);
         }
 
         echo json_encode($apiHelix->createChannelReward());

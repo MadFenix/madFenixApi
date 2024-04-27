@@ -387,6 +387,12 @@ class ApiHelix
         $twitchRewards = TwitchReward::all();
 
         foreach ($twitchRewards as $twitchReward) {
+            $profile = Profile::where('user_id', '=', $twitchReward->user_id)->first();
+            if (!$profile) {
+                throw new \Exception('Profile not found');
+            }
+            $this->setProfile($profile);
+
             $curl = curl_init();
             $endpoint = 'channel_points/custom_rewards/redemptions?broadcaster_id=' . $this->twitchUserId .
                 '&reward_id=' . $twitchReward->twitch_api_reward_id .
