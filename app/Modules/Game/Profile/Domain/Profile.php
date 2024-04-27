@@ -14,6 +14,11 @@ class Profile extends BaseDomain
         'season_level' => ['integer'],
         'season_points' => ['integer'],
         'oro' => ['integer'],
+        'twitch_user_id' => ['string'],
+        'twitch_user_name' => ['string'],
+        'twitch_api_user_token' => ['string'],
+        'twitch_api_user_refresh_token' => ['string'],
+        'twitch_scope' => ['string'],
     ];
 
     protected $fillable = [
