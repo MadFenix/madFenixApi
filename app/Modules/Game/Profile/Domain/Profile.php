@@ -19,6 +19,8 @@ class Profile extends BaseDomain
         'twitch_api_user_token' => ['string'],
         'twitch_api_user_refresh_token' => ['string'],
         'twitch_scope' => ['string'],
+        'steam_user_id' => ['string'],
+        'steam_user_name' => ['string'],
     ];
 
     protected $fillable = [
@@ -29,6 +31,13 @@ class Profile extends BaseDomain
         'oro',
         'season_level',
         'season_points',
+        'twitch_user_id',
+        'twitch_user_name',
+        'twitch_api_user_token',
+        'twitch_api_user_refresh_token',
+        'twitch_scope',
+        'steam_user_id',
+        'steam_user_name',
         'creator_id'
     ];
 
