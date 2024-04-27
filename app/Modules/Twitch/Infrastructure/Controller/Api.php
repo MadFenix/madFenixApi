@@ -29,8 +29,8 @@ class Api extends Controller
         $apiHelix->setTwitchAccessToken($profile->twitch_api_user_token);
 
         $twitchUser = $apiHelix->getUserFromToken();
-        $profile->twitch_user_id = $twitchUser->data->id;
-        $profile->twitch_user_name = $twitchUser->data->login;
+        $profile->twitch_user_id = $twitchUser->data[0]->id;
+        $profile->twitch_user_name = $twitchUser->data[0]->login;
 
         $profileSaved = $profile->save();
 
