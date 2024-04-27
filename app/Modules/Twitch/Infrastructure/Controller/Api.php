@@ -35,7 +35,7 @@ class Api extends Controller
         $profileSaved = $profile->save();
 
         return $profileSaved
-            ? redirect(env('SPA_WEBSITE') . '/profile')
+            ? redirect(env('SPA_WEBSITE'))
             : response()->json('Error al guardar el perfil.', 500);
     }
 }
