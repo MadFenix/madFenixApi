@@ -43,6 +43,10 @@ Route::namespace('\\App\\Modules\\Twitch\\Infrastructure\\Controller')->group(fu
     Route::get('twitch/connectAccount', 'Api@connectTwitchAccount');
 });
 
+Route::namespace('\\App\\Modules\\Steam\\Infrastructure\\Controller')->group(function () {
+    Route::get('steam/connectAccount', 'Api@connectSteamAccount');
+});
+
 /*Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
     Route::get('assistant/thred/getResponseFromAI', 'Api@getResponseFromAI');
     Route::post('assistant/thred/getAudioResponseFromAI', 'Api@getAudioResponseFromAI');
@@ -93,6 +97,10 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
 
     Route::namespace('Twitch\\Infrastructure\\Controller')->group(function () {
         Route::post('twitch/disconnectTwitch', 'Api@disconnectTwitch');
+    });
+
+    Route::namespace('Steam\\Infrastructure\\Controller')->group(function () {
+        Route::post('steam/disconnectSteam', 'Api@disconnectSteam');
     });
 });
 
