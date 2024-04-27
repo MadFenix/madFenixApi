@@ -90,6 +90,10 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::get('season/seasonDetails', 'Api@seasonDetails');
         Route::post('season/redeemSeasonLvl', 'Api@redeemSeasonLvl');
     });
+
+    Route::namespace('Twitch\\Infrastructure\\Controller')->group(function () {
+        Route::get('twitch/disconnectTwitch', 'Api@disconnectTwitch');
+    });
 });
 
 // Public game routes
