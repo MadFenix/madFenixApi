@@ -48,7 +48,6 @@ Route::namespace('\\App\\Modules\\Steam\\Infrastructure\\Controller')->group(fun
 });
 
 Route::namespace('\\App\\Modules\\Store\\Infrastructure\\Controller')->group(function () {
-    Route::get('store/details', 'Api@getStoreDetails');
     Route::post('store/validateProductOrder', 'Api@validateProductOrder');
 });
 
@@ -109,6 +108,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     });
 
     Route::namespace('Store\\Infrastructure\\Controller')->group(function () {
+        Route::get('store/details', 'Api@getStoreDetails');
         Route::post('store/addProductToOrder', 'Api@addProductToOrder');
     });
 });
