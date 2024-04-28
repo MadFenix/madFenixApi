@@ -136,7 +136,7 @@ class Api extends Controller
                     }
                 }
 
-                if ($product->custom = 'Pase de temporada premium') {
+                if ($product->custom == 'Pase de temporada premium') {
                     $profile->season_premium = 1;
                     $profileSaved = $profile->save();
 
