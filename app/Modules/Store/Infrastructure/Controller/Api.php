@@ -21,10 +21,26 @@ class Api extends Controller
         /** @var User $user */
         $user = auth()->user();
 
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+        $product = Product::find($data['product_id']);
+        if (!$product) {
+            return response()->json('Producto no encontrado.', 404);
+        }
+        if ($product->price_oro > 0) {
+            if ($profile->oro < $product->price_oro) {
+                return response()->json('No tienes suficiente oro para comprar este producto.', 400);
+            }
+
+            $profile->oro -= $product->price_oro;
+            $profile->save();
+        }
+
         $productOrder = new ProductOrder();
         $productOrder->product_id = $data['product_id'];
         $productOrder->user_id = $user->id;
-        $productOrder->payment_validated = false;
         $productOrderSaved = $productOrder->save();
 
         return $productOrderSaved
@@ -37,7 +53,7 @@ class Api extends Controller
         $data = $request->validate(['product_order_id' => 'required']);
 
         $productOrder = ProductOrder::where('id', '=', $data['product_order_id'])
-            ->where('payment_validated', '=', '1')
+            ->whereNull('payment_validated')
             ->first();
         if (!$productOrder) {
             return response()->json('Pedido de producto no encontrado.', 404);
