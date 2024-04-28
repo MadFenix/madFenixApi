@@ -47,6 +47,11 @@ Route::namespace('\\App\\Modules\\Steam\\Infrastructure\\Controller')->group(fun
     Route::get('steam/connectAccount', 'Api@connectSteamAccount');
 });
 
+Route::namespace('\\App\\Modules\\Store\\Infrastructure\\Controller')->group(function () {
+    Route::get('store/details', 'Api@getStoreDetails');
+    Route::get('store/validateProductOrder', 'Api@validateProductOrder');
+});
+
 /*Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
     Route::get('assistant/thred/getResponseFromAI', 'Api@getResponseFromAI');
     Route::post('assistant/thred/getAudioResponseFromAI', 'Api@getAudioResponseFromAI');
@@ -101,6 +106,10 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
 
     Route::namespace('Steam\\Infrastructure\\Controller')->group(function () {
         Route::post('steam/disconnectSteam', 'Api@disconnectSteam');
+    });
+
+    Route::namespace('Store\\Infrastructure\\Controller')->group(function () {
+        Route::post('store/addProductToOrder', 'Api@addProductToOrder');
     });
 });
 
