@@ -100,7 +100,8 @@ class Api extends Controller
                 if (!$user) {
                     return response()->json('Usuario desconocido.', 404);
                 }
-                $product = Product::where('price_fiat', '=', number_format($invoice->total, 2, ',', ''))->first();
+                $priceFiat = substr($invoice->total, 0, -2) . ',' . substr($invoice->total, -2);
+                $product = Product::where('price_fiat', '=', $priceFiat)->first();
                 if (!$product) {
                     return response()->json('Producto desconocido.', 404);
                 }
@@ -108,7 +109,7 @@ class Api extends Controller
                 if (!$productOrder) {
                     return response()->json('El pedido no se ha podido crear.', 500);
                 }
-                return $productOrder->id;
+                return (int) $productOrder->id;
             default:
                 return response()->json('Evento desconocido.', 404);
         }
@@ -121,6 +122,10 @@ class Api extends Controller
         $sig_header = (isset($_SERVER['HTTP_STRIPE_SIGNATURE']))? $_SERVER['HTTP_STRIPE_SIGNATURE'] : null;
         if ($sig_header && !empty($sig_header)) {
             $productOrderId = $this->getProductOrderIdFromStripePaid($sig_header);
+
+            if (gettype($productOrderId) != 'integer') {
+                return response()->json('Pedido de producto no encontrado.', 404);
+            }
         } else {
             $data = $request->validate(['product_order_id' => 'required']);
             $productOrderId = $data['product_order_id'];
