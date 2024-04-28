@@ -94,13 +94,15 @@ class Api extends Controller
 
         // Handle the event
         switch ($event->type) {
-            case 'invoice.paid':
-                $invoice = $event->data->object;
-                $user = User::where('email', '=', $invoice->customer_email)->first();
+            case 'payment_intent.succeeded':
+                $paymentIntent = $event->data->object;
+                $user = User::where('email', '=', $paymentIntent->customer->email)->first();
                 if (!$user) {
                     return response()->json('Usuario desconocido.', 404);
                 }
-                $product = Product::where('price_fiat', '=', number_format($invoice->total, 2, ',', ''))->first();
+                $productPrice = substr($paymentIntent->amount, -2);
+                $productPrice = substr($paymentIntent->amount, 0, -2) . ',' . $productPrice;
+                $product = Product::where('price_fiat', '=', $productPrice)->first();
                 if (!$product) {
                     return response()->json('Producto desconocido.', 404);
                 }
