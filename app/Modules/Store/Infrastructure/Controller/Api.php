@@ -17,17 +17,13 @@ use Stripe\Webhook;
 
 class Api extends Controller
 {
-    public function addProductToOrder(Request $request) {
-        $data = $request->validate(['product_id' => 'required']);
-
-        /** @var User $user */
-        $user = auth()->user();
-
+    protected function saveProductOrder($productId, $user)
+    {
         $profile = Profile::where('user_id', '=', $user->id)->first();
         if (!$profile) {
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
-        $product = Product::find($data['product_id']);
+        $product = Product::find($productId);
         if (!$product) {
             return response()->json('Producto no encontrado.', 404);
         }
@@ -52,14 +48,23 @@ class Api extends Controller
         }
 
         $productOrder = new ProductOrder();
-        $productOrder->product_id = $data['product_id'];
+        $productOrder->product_id = $productId;
         $productOrder->user_id = $user->id;
         $productOrderSaved = $productOrder->save();
 
         $newBlockchainHistorical->memo = "Order " . $productOrder->id . $memoBase;
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
-        return ($productOrderSaved && $blockchainHistoricalSaved)
+        return ($productOrderSaved && $blockchainHistoricalSaved)? $productOrder : false;
+    }
+
+    public function addProductToOrder(Request $request) {
+        $data = $request->validate(['product_id' => 'required']);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        return ($productOrder = $this->saveProductOrder($data['product_id'], $user))
             ? response()->json($productOrder->toArray())
             : response()->json('Error al guardar el pedido de producto.', 500);
     }
@@ -90,7 +95,20 @@ class Api extends Controller
         // Handle the event
         switch ($event->type) {
             case 'invoice.paid':
-                return $event->data->object;
+                $invoice = $event->data->object;
+                $user = User::where('email', '=', $invoice->customer_email)->first();
+                if (!$user) {
+                    return response()->json('Usuario desconocido.', 404);
+                }
+                $product = Product::where('price_fiat', '=', number_format($invoice->total, 2, ',', ''))->first();
+                if (!$product) {
+                    return response()->json('Producto desconocido.', 404);
+                }
+                $productOrder = $this->saveProductOrder($product->id, $user);
+                if (!$productOrder) {
+                    return response()->json('El pedido no se ha podido crear.', 500);
+                }
+                return $productOrder->id;
             default:
                 return response()->json('Evento desconocido.', 404);
         }
@@ -103,8 +121,6 @@ class Api extends Controller
         $sig_header = (isset($_SERVER['HTTP_STRIPE_SIGNATURE']))? $_SERVER['HTTP_STRIPE_SIGNATURE'] : null;
         if ($sig_header && !empty($sig_header)) {
             $productOrderId = $this->getProductOrderIdFromStripePaid($sig_header);
-            file_put_contents(base_path() . '/test_webhook_stripe.json', json_encode($productOrderId));
-            return response()->json('Testing Stripe hooks.');
         } else {
             $data = $request->validate(['product_order_id' => 'required']);
             $productOrderId = $data['product_order_id'];
