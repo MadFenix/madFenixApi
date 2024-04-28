@@ -34,6 +34,7 @@ class Api extends Controller
 
         $newBlockchainHistorical = new BlockchainHistorical();
         $newBlockchainHistorical->user_id = $profile->user_id;
+        $memoBase = '';
 
         if ($product->price_oro > 0) {
             if ($profile->oro < $product->price_oro) {
@@ -46,12 +47,16 @@ class Api extends Controller
             $newBlockchainHistorical->piezas_de_oro_ft = -$product->price_oro;
         }
 
+        if ($product->price_fiat > 0) {
+            $memoBase = '. Paid ' . $product->price_fiat;
+        }
+
         $productOrder = new ProductOrder();
         $productOrder->product_id = $data['product_id'];
         $productOrder->user_id = $user->id;
         $productOrderSaved = $productOrder->save();
 
-        $newBlockchainHistorical->memo = "Order " . $productOrder->id;
+        $newBlockchainHistorical->memo = "Order " . $productOrder->id . $memoBase;
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
         return ($productOrderSaved && $blockchainHistoricalSaved)
