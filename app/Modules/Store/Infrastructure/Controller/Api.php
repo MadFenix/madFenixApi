@@ -29,6 +29,10 @@ class Api extends Controller
         if (!$product) {
             return response()->json('Producto no encontrado.', 404);
         }
+
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $profile->user_id;
+
         if ($product->price_oro > 0) {
             if ($profile->oro < $product->price_oro) {
                 return response()->json('No tienes suficiente oro para comprar este producto.', 400);
@@ -36,6 +40,8 @@ class Api extends Controller
 
             $profile->oro -= $product->price_oro;
             $profile->save();
+
+            $newBlockchainHistorical->piezas_de_oro_ft = -$product->price_oro;
         }
 
         $productOrder = new ProductOrder();
@@ -43,7 +49,10 @@ class Api extends Controller
         $productOrder->user_id = $user->id;
         $productOrderSaved = $productOrder->save();
 
-        return $productOrderSaved
+        $newBlockchainHistorical->memo = "Order " . $productOrder->id;
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        return ($productOrderSaved && $blockchainHistoricalSaved)
             ? response()->json(json_encode($productOrder->toArray()))
             : response()->json('Error al guardar el pedido de producto.', 500);
     }
@@ -81,7 +90,7 @@ class Api extends Controller
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
                     $newBlockchainHistorical->piezas_de_oro_ft = $product->oro;
-                    $newBlockchainHistorical->memo = "Pedido " . $productOrder->id . ", redeemed oro " . $product->oro;
+                    $newBlockchainHistorical->memo = "Order " . $productOrder->id . ", redeemed oro " . $product->oro;
                     $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
                     if (!($profileSaved && $blockchainHistoricalSaved)) {
@@ -96,7 +105,7 @@ class Api extends Controller
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
                     $newBlockchainHistorical->plumas = $product->plumas;
-                    $newBlockchainHistorical->memo = "Pedido " . $productOrder->id . ", redeemed plumas " . $product->plumas;
+                    $newBlockchainHistorical->memo = "Order " . $productOrder->id . ", redeemed plumas " . $product->plumas;
                     $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
                     if (!($profileSaved && $blockchainHistoricalSaved)) {
@@ -119,7 +128,7 @@ class Api extends Controller
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
                     $newBlockchainHistorical->nft_identification_id = $nftIdentificationToAssociate->id;
-                    $newBlockchainHistorical->memo = "Pedido " . $productOrder->id . ", redeemed nft " . $nftIdentificationToAssociate->id;
+                    $newBlockchainHistorical->memo = "Order " . $productOrder->id . ", redeemed nft " . $nftIdentificationToAssociate->id;
                     $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
                     if (!($nftIdentificationToAssociateSaved && $blockchainHistoricalSaved)) {
@@ -133,7 +142,7 @@ class Api extends Controller
 
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
-                    $newBlockchainHistorical->memo = "Pedido " . $productOrder->id . ", redeemed pase de temporada premium.";
+                    $newBlockchainHistorical->memo = "Order " . $productOrder->id . ", redeemed pase de temporada premium.";
                     $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
                     if (!($profileSaved && $blockchainHistoricalSaved)) {
