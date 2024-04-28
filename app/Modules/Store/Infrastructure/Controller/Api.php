@@ -12,6 +12,8 @@ use App\Modules\Store\Domain\Product;
 use App\Modules\Store\Domain\ProductOrder;
 use App\Modules\User\Domain\User;
 use Illuminate\Http\Request;
+use Stripe\StripeClient;
+use Stripe\Webhook;
 
 class Api extends Controller
 {
@@ -57,11 +59,53 @@ class Api extends Controller
             : response()->json('Error al guardar el pedido de producto.', 500);
     }
 
+    protected function getProductOrderIdFromStripePaid($sig_header)
+    {
+        // The library needs to be configured with your account's secret key.
+        // Ensure the key is kept out of any version control system you might be using.
+        $stripe = new StripeClient(env('STRIPE_ACCOUNT_SECRET'));
+
+        // This is your Stripe CLI webhook secret for testing your endpoint locally.
+        $endpoint_secret = env('STRIPE_CLIENT_WEBHOOK_SECRET');
+
+        $payload = @file_get_contents('php://input');
+
+        try {
+            $event = Webhook::constructEvent(
+                $payload, $sig_header, $endpoint_secret
+            );
+        } catch (\UnexpectedValueException $e) {
+            // Invalid payload
+            return response()->json('Parámetros inválidaos.', 404);
+        } catch (\Stripe\Exception\SignatureVerificationException $e) {
+            // Invalid signature
+            return response()->json('Signatura inválida.', 404);
+        }
+
+        // Handle the event
+        switch ($event->type) {
+            case 'invoice.paid':
+                return $event->data->object;
+            default:
+                return response()->json('Evento desconocido.', 404);
+        }
+
+        return false;
+    }
+
     public function validateProductOrder(Request $request)
     {
-        $data = $request->validate(['product_order_id' => 'required']);
+        $sig_header = (isset($_SERVER['HTTP_STRIPE_SIGNATURE']))? $_SERVER['HTTP_STRIPE_SIGNATURE'] : null;
+        if ($sig_header && !empty($sig_header)) {
+            $productOrderId = $this->getProductOrderIdFromStripePaid($sig_header);
+            file_put_contents(base_path() . '/test_webhook_stripe.json', json_encode($productOrderId));
+            return response()->json('Testing Stripe hooks.');
+        } else {
+            $data = $request->validate(['product_order_id' => 'required']);
+            $productOrderId = $data['product_order_id'];
+        }
 
-        $productOrder = ProductOrder::where('id', '=', $data['product_order_id'])
+        $productOrder = ProductOrder::where('id', '=', $productOrderId)
             ->whereNull('payment_validated')
             ->first();
         if (!$productOrder) {
