@@ -53,7 +53,7 @@ class Api extends Controller
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
         return ($productOrderSaved && $blockchainHistoricalSaved)
-            ? response()->json(json_encode($productOrder->toArray()))
+            ? response()->json($productOrder->toArray())
             : response()->json('Error al guardar el pedido de producto.', 500);
     }
 
