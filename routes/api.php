@@ -49,7 +49,7 @@ Route::namespace('\\App\\Modules\\Steam\\Infrastructure\\Controller')->group(fun
 
 Route::namespace('\\App\\Modules\\Store\\Infrastructure\\Controller')->group(function () {
     Route::get('store/details', 'Api@getStoreDetails');
-    Route::get('store/validateProductOrder', 'Api@validateProductOrder');
+    Route::post('store/validateProductOrder', 'Api@validateProductOrder');
 });
 
 /*Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
