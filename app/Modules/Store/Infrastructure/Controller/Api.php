@@ -44,7 +44,7 @@ class Api extends Controller
         $productOrderSaved = $productOrder->save();
 
         return $productOrderSaved
-            ? response()->json('Pedido de producto guardado.')
+            ? response()->json(json_encode($productOrder->toArray()))
             : response()->json('Error al guardar el pedido de producto.', 500);
     }
 
