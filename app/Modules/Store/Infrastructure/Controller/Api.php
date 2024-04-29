@@ -229,7 +229,7 @@ class Api extends Controller
 
     public function getStoreDetails()
     {
-        $products = Product::where('active', '=', '1')->get();
+        $products = Product::where('active', '=', '1')->orderBy('order', 'asc')->get();
 
         $returnStore = new \stdClass();
         $returnStore->products = [];
