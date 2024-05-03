@@ -41,6 +41,24 @@ class Api extends Controller
             $profile->save();
 
             $newBlockchainHistorical->piezas_de_oro_ft = -$product->price_oro;
+
+            if ($profile->referred_code_from) {
+                $profileWithSameReferredCode = Profile::where('referred_code', '=', $profile->referred_code_from)->first();
+                if ($profileWithSameReferredCode) {
+                    $oroToReferred = (int) ceil($product->price_oro / 10);
+
+                    if ($oroToReferred > 1) {
+                        $profileWithSameReferredCode->oro += $oroToReferred;
+                        $profileSaved2 = $profileWithSameReferredCode->save();
+
+                        $newBlockchainHistorical2 = new BlockchainHistorical();
+                        $newBlockchainHistorical2->user_id = $profileWithSameReferredCode->user_id;
+                        $newBlockchainHistorical2->piezas_de_oro_ft = $oroToReferred;
+                        $newBlockchainHistorical2->memo = "Referred buy. User " . $profile->user_id;
+                        $blockchainHistoricalSaved2 = $newBlockchainHistorical2->save();
+                    }
+                }
+            }
         }
 
         if ($product->price_fiat > 0) {

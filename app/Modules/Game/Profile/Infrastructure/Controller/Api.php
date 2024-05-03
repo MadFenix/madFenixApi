@@ -101,6 +101,77 @@ class Api extends ResourceController
         return response()->json($returnProfile);
     }
 
+    public function setUserProfileReferredCode(Request $request)
+    {
+        $data = $request->validate(['referred_code' => 'required|string']);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+
+        $profileWithSameReferredCode = Profile::where('referred_code', '=', $data['referred_code'])->first();
+        if ($profileWithSameReferredCode) {
+            return response()->json('Ya existe un usuario con este código de referido.', 400);
+        }
+
+        $profile->referred_code = $data['referred_code'];
+        $profileSaved = $profile->save();
+
+        return $profileSaved
+            ? response()->json('Se ha establecido tu código de referido.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
+    public function setUserProfileReferredCodeFrom(Request $request)
+    {
+        $data = $request->validate(['referred_code_from' => 'required|string']);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+        if ($profile->referred_code_from) {
+            return response()->json('Ya tienes un código de referido.', 400);
+        }
+
+        $profileWithSameReferredCode = Profile::where('referred_code', '=', $data['referred_code_from'])->first();
+        if (!$profileWithSameReferredCode) {
+            return response()->json('No existe ningún usuario con este código de referido.', 404);
+        }
+
+        $oroToReferred = 5;
+
+        $profile->referred_code_from = $data['referred_code_from'];
+        $profile->oro += $oroToReferred;
+        $profileSaved = $profile->save();
+
+        $newBlockchainHistorical = new BlockchainHistorical();
+        $newBlockchainHistorical->user_id = $data['user_id'];
+        $newBlockchainHistorical->piezas_de_oro_ft = $oroToReferred;
+        $newBlockchainHistorical->memo = "Attach referred code from. User " . $profileWithSameReferredCode->user_id;
+        $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        $profileWithSameReferredCode->oro += $oroToReferred;
+        $profileSaved2 = $profileWithSameReferredCode->save();
+
+        $newBlockchainHistorical2 = new BlockchainHistorical();
+        $newBlockchainHistorical2->user_id = $profileWithSameReferredCode->user_id;
+        $newBlockchainHistorical2->piezas_de_oro_ft = $oroToReferred;
+        $newBlockchainHistorical2->memo = "New referred. User " . $data['user_id'];
+        $blockchainHistoricalSaved2 = $newBlockchainHistorical2->save();
+
+        return $profileSaved && $profileSaved2 && $blockchainHistoricalSaved && $blockchainHistoricalSaved2
+            ? response()->json('Se ha establecido el código del usuario referido en tu perfil.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
     public function addPluma(Request $request)
     {
         $data = $request->validate(['user_id' => 'required|integer', 'plumas' => 'required|integer']);

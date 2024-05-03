@@ -80,6 +80,8 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('profile/getUserProfile', 'Api@getUserProfile');
         Route::post('profile/subtractPlumaUser', 'Api@subtractPlumaUser');
         Route::post('profile/subtractOroUser', 'Api@subtractOroUser');
+        Route::post('profile/setUserProfileReferredCode', 'Api@setUserProfileReferredCode');
+        Route::post('profile/setUserProfileReferredCodeFrom', 'Api@setUserProfileReferredCodeFrom');
     });
     Route::namespace('Game\\Coupon\\Infrastructure\\Controller')->group(function () {
         Route::post('coupon/usePlumasCoupon', 'Api@usePlumasCoupon');
