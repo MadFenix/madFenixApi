@@ -166,7 +166,7 @@ class Api extends ResourceController
         $newBlockchainHistorical2 = new BlockchainHistorical();
         $newBlockchainHistorical2->user_id = $profileWithSameReferredCode->user_id;
         $newBlockchainHistorical2->piezas_de_oro_ft = $oroToReferred;
-        $newBlockchainHistorical2->memo = "New referred. User " . $data['user_id'];
+        $newBlockchainHistorical2->memo = "New referred. User " . $profile->user_id;
         $blockchainHistoricalSaved2 = $newBlockchainHistorical2->save();
 
         return $profileSaved && $profileSaved2 && $blockchainHistoricalSaved && $blockchainHistoricalSaved2
