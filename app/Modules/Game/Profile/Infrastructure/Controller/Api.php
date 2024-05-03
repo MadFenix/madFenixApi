@@ -89,6 +89,8 @@ class Api extends ResourceController
         $returnProfile->oro = $profile->oro;
         $returnProfile->user_twitch = $profile->twitch_user_name;
         $returnProfile->user_steam = $profile->steam_user_name;
+        $returnProfile->referred_code = $profile->referred_code;
+        $returnProfile->referred_code_from = $profile->referred_code_from;
         $returnProfile->nfts = [];
         foreach ($nftIdentifications as $nftIdentification) {
             $nft = Nft::find($nftIdentification->nft_id);
