@@ -89,7 +89,7 @@ class Api extends ResourceController
         }
         $dateNow = Carbon::now();
         $dateNow->startOfDay();
-        $userHabitCompletes = HabitComplete::where('created_at', '<', $dateNow->format('Y-m-d H:i:s'))->whereIn('habit_id', $userHabitIds)->get();
+        $userHabitCompletes = HabitComplete::where('created_at', '>', $dateNow->format('Y-m-d H:i:s'))->whereIn('habit_id', $userHabitIds)->get();
         $userHabitCompletedIds = [];
         foreach ($userHabitCompletes as $userHabitComplete) {
             $userHabitCompletedIds[] = $userHabitComplete->habit_id;
