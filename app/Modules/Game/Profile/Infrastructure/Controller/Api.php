@@ -10,6 +10,7 @@ use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Profile\Transformers\Profile as ProfileTransformer;
 use App\Modules\Habit\Domain\Habit;
+use App\Modules\Habit\Domain\HabitComplete;
 use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -88,7 +89,7 @@ class Api extends ResourceController
         }
         $dateNow = Carbon::now();
         $dateNow->startOfDay();
-        $userHabitCompletes = Habit::where('created_at', '<', $dateNow->format('Y-m-d H:i:s'))->whereIn('habit_id', $userHabitIds)->get();
+        $userHabitCompletes = HabitComplete::where('created_at', '<', $dateNow->format('Y-m-d H:i:s'))->whereIn('habit_id', $userHabitIds)->get();
         $userHabitCompletedIds = [];
         foreach ($userHabitCompletes as $userHabitComplete) {
             $userHabitCompletedIds[] = $userHabitComplete->habit_id;
