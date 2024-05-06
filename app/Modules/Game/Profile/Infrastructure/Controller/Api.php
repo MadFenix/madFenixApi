@@ -9,7 +9,9 @@ use App\Modules\Blockchain\Block\Domain\Nft;
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Profile\Transformers\Profile as ProfileTransformer;
+use App\Modules\Habit\Domain\Habit;
 use App\Modules\User\Domain\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class Api extends ResourceController
@@ -79,6 +81,19 @@ class Api extends ResourceController
 
         $nftIdentifications = NftIdentification::where('user_id', '=', $user->id)->get();
 
+        $userHabits = Habit::where('user_id', '=', $user->id)->orderBy('order')->get();
+        $userHabitIds = [];
+        foreach ($userHabits as $userHabit) {
+            $userHabitIds[] = $userHabit->id;
+        }
+        $dateNow = Carbon::now();
+        $dateNow->startOfDay();
+        $userHabitCompletes = Habit::where('created_at', '<', $dateNow->format('Y-m-d H:i:s'))->whereIn('tournament_id', $userHabitIds)->get();
+        $userHabitCompletedIds = [];
+        foreach ($userHabitCompletes as $userHabitComplete) {
+            $userHabitCompletedIds[] = $userHabitComplete->habit_id;
+        }
+
         $returnProfile = new \stdClass();
         $returnProfile->username = $user->name;
         $returnProfile->email = $user->email;
@@ -97,6 +112,12 @@ class Api extends ResourceController
             $newNft = (object) $nftIdentification->toArray();
             $newNft->nft = (object) $nft->toArray();
             $returnProfile->nfts[] = $newNft;
+        }
+        $returnProfile->habits = [];
+        foreach ($userHabits as $userHabit) {
+            $newHabit = (object) $userHabit->toArray();
+            $newHabit->habit_completed = in_array($userHabit->id, $userHabitCompletedIds);
+            $returnProfile->habits[] = $newHabit;
         }
 
 

@@ -113,6 +113,11 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::get('store/details', 'Api@getStoreDetails');
         Route::post('store/addProductToOrder', 'Api@addProductToOrder');
     });
+
+    Route::namespace('Habit\\Infrastructure\\Controller')->group(function () {
+        Route::post('habit/post', 'Api@postHabit');
+        Route::post('habit/postComplete', 'Api@postHabitComplete');
+    });
 });
 
 // Public game routes
