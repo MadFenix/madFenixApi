@@ -289,7 +289,7 @@ class HederaToMadFenix extends Command
                     $nftIdentifications,
                     $nftTokenId,
                     $accountId,
-                    $profilesWithHederaWallet->user_id
+                    $profileWithHederaWallet->user_id
                 );
             }
         }
