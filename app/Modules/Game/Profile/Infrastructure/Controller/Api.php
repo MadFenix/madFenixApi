@@ -108,7 +108,9 @@ class Api extends ResourceController
         $returnProfile->user_steam = $profile->steam_user_name;
         $returnProfile->referred_code = $profile->referred_code;
         $returnProfile->referred_code_from = $profile->referred_code_from;
+        $returnProfile->hedera_wallet = $profile->hedera_wallet;
         $returnProfile->hedera_wallet_check = $profile->hedera_wallet_check;
+        $returnProfile->hedera_wallet_check_account = $profile->hedera_wallet_check_account;
         $returnProfile->nfts = [];
         $returnProfile->nfts_hedera = [];
         foreach ($nftIdentifications as $nftIdentification) {
