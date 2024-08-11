@@ -149,8 +149,6 @@ class HederaToMadFenix extends Command
                             }
                             $blockchainHistoricalsToUnlink = BlockchainHistorical::where('user_id_hedera', $profileToUnLink->user_id)->get();
                             foreach ($blockchainHistoricalsToUnlink as $blockchainHistoricalToUnlink) {
-                                $blockchainHistoricalToUnlink->user_id = null;
-                                $blockchainHistoricalToUnlink->user_id_hedera = null;
                                 $blockchainHistoricalToUnlink->memo = $blockchainHistoricalToUnlink->memo . '_unlinked';
                                 $blockchainHistoricalToUnlink->save();
                             }
