@@ -195,36 +195,43 @@ class HederaToMadFenix extends Command
                 return false;
             }
 
-            foreach ($transaction->nft_transfers as $nft_transfer) {
-                if ($nft_transfer->token_id != $nftTokenId) {
-                    continue;
-                }
-                if ($nft_transfer->serial_number != $nftIdentification->nft_identification) {
-                    continue;
-                }
-                if ($userIdHedera) {
-                    $nftIdentification->user_id_hedera = $userIdHedera;
-                    $nftIdentification->user_id = null;
-                } else {
-                    $nftIdentification->user_id = $transactionMemo[1];
-                    $nftIdentification->user_id_hedera = null;
-                }
+            if ($userIdHedera) {
+                $nftIdentification->user_id_hedera = $userIdHedera;
+                $nftIdentification->user_id = null;
                 $nftIdentification->madfenix_ownership = false;
                 $nftIdentification->save();
 
                 $newBlockchainHistorical = new BlockchainHistorical();
-                if ($userIdHedera) {
-                    $newBlockchainHistorical->user_id = $userIdHedera;
-                    $newBlockchainHistorical->user_id_hedera = $userIdHedera;
-                } else {
-                    $newBlockchainHistorical->user_id = $transactionMemo[1];
-                }
+                $newBlockchainHistorical->user_id = $userIdHedera;
+                $newBlockchainHistorical->user_id_hedera = $userIdHedera;
                 $newBlockchainHistorical->nft_identification_id = $nftIdentification->id;
                 $newBlockchainHistorical->memo = $transaction->transaction_id;
                 $newBlockchainHistorical->save();
 
-                $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
+                $this->line('Ingreso. Usuario: ' . trim($userIdHedera) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
+            } else {
+                foreach ($transaction->nft_transfers as $nft_transfer) {
+                    if ($nft_transfer->token_id != $nftTokenId) {
+                        continue;
+                    }
+                    if ($nft_transfer->serial_number != $nftIdentification->nft_identification) {
+                        continue;
+                    }
+                    $nftIdentification->user_id = $transactionMemo[1];
+                    $nftIdentification->user_id_hedera = null;
+                    $nftIdentification->madfenix_ownership = false;
+                    $nftIdentification->save();
+
+                    $newBlockchainHistorical = new BlockchainHistorical();
+                    $newBlockchainHistorical->user_id = $transactionMemo[1];
+                    $newBlockchainHistorical->nft_identification_id = $nftIdentification->id;
+                    $newBlockchainHistorical->memo = $transaction->transaction_id;
+                    $newBlockchainHistorical->save();
+
+                    $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
+                }
             }
+
         }
     }
 
