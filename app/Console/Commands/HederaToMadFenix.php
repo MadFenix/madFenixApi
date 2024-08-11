@@ -128,7 +128,7 @@ class HederaToMadFenix extends Command
                 foreach ($transaction->transfers as $transfer) {
                     if ($transfer->amount < 0) {
                         $accountToLink = $transfer->account;
-                        $totalTokens = $transfer->amount;
+                        $totalTokens = abs($transfer->amount);
                     }
                 }
                 if (!empty($accountToLink) && !empty($totalTokens) && !empty($transactionMemo[1])) {
