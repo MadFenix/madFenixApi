@@ -8,6 +8,7 @@ use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Block\Domain\HederaQueue;
 use App\Modules\Blockchain\Block\Domain\Nft;
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
+use App\Modules\Blockchain\Block\Infrastructure\Service\UserDragonCustodio;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Ranking\Domain\Tournament;
 use App\Modules\Game\Season\Domain\Season;
@@ -128,12 +129,13 @@ class Api extends ResourceController
         $seasonRewardRedeemed = new SeasonRewardRedeemed();
 
         if ($seasonReward->oro > 0) {
-            $profile->oro += $seasonReward->oro;
+            $oroToAdd = ceil($seasonReward->oro * UserDragonCustodio::tokenMultiplier($profile));
+            $profile->oro += $oroToAdd;
             $profileSaved = $profile->save();
 
             $newBlockchainHistorical = new BlockchainHistorical();
             $newBlockchainHistorical->user_id = $user->id;
-            $newBlockchainHistorical->piezas_de_oro_ft = $seasonReward->oro;
+            $newBlockchainHistorical->piezas_de_oro_ft = $oroToAdd;
             $newBlockchainHistorical->memo = "Season " . $activeSeason->id . ", reward lvl " . $seasonReward->level;
             $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
@@ -143,12 +145,13 @@ class Api extends ResourceController
         }
 
         if ($seasonReward->plumas > 0) {
-            $profile->plumas += $seasonReward->plumas;
+            $plumasToAdd = ceil($seasonReward->plumas * UserDragonCustodio::tokenMultiplier($profile));
+            $profile->plumas += $plumasToAdd;
             $profileSaved = $profile->save();
 
             $newBlockchainHistorical = new BlockchainHistorical();
             $newBlockchainHistorical->user_id = $user->id;
-            $newBlockchainHistorical->plumas = $seasonReward->plumas;
+            $newBlockchainHistorical->plumas = $plumasToAdd;
             $newBlockchainHistorical->memo = "Season " . $activeSeason->id . ", reward lvl " . $seasonReward->level;
             $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
