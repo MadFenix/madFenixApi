@@ -122,6 +122,46 @@ class HederaToMadFenix extends Command
 
                     $this->line('Ingreso. Usuario: ' . trim($transactionMemo[1]) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
                 }
+            } else if (count($transactionMemo) == 2 && trim($transactionMemo[0]) == 'vincular') {
+                $accountToLink = '';
+                $totalTokens = 0;
+                foreach ($transaction->transfers as $transfer) {
+                    if ($transfer->amount < 0) {
+                        $accountToLink = $transfer->account;
+                        $totalTokens = $transfer->amount;
+                    }
+                }
+                if (!empty($accountToLink) && !empty($totalTokens) && !empty($transactionMemo[1])) {
+                    $profile = Profile::where('user_id', $transactionMemo[1])
+                        ->where('hedera_wallet_check', $totalTokens)
+                        ->where('hedera_wallet_check_account', $accountToLink)
+                        ->first();
+                    if ($profile) {
+                        $profilesToUnLink = Profile::where('hedera_wallet', $accountToLink)->get();
+                        foreach ($profilesToUnLink as $profileToUnLink) {
+                            $nftIdentificationsToUnlink = NftIdentification::where('user_id_hedera', $profileToUnLink->user_id)->get();
+                            foreach ($nftIdentificationsToUnlink as $nftIdentificationToUnlink) {
+                                $nftIdentificationToUnlink->user_id = null;
+                                $nftIdentificationToUnlink->user_id_hedera = null;
+                                $nftIdentificationToUnlink->save();
+                            }
+                            $blockchainHistoricalsToUnlink = BlockchainHistorical::where('user_id_hedera', $profileToUnLink->user_id)->get();
+                            foreach ($blockchainHistoricalsToUnlink as $blockchainHistoricalToUnlink) {
+                                $blockchainHistoricalToUnlink->user_id = null;
+                                $blockchainHistoricalToUnlink->user_id_hedera = null;
+                                $blockchainHistoricalToUnlink->memo = $blockchainHistoricalToUnlink->memo . '_unlinked';
+                                $blockchainHistoricalToUnlink->save();
+                            }
+                            $profileToUnLink->hedera_wallet = null;
+                            $profileToUnLink->save();
+                        }
+
+                        $profile->hedera_wallet = $accountToLink;
+                        $profile->hedera_wallet_check = null;
+                        $profile->hedera_wallet_check_account = null;
+                        $profile->save();
+                    }
+                }
             }
             $transactionsExecuted++;
         }
@@ -131,7 +171,7 @@ class HederaToMadFenix extends Command
         }
     }
 
-    protected function consumePageFromHederaFindNftTransaction($url, $hederaNft, $nftIdentification, $nftTokenId, $accountId) {
+    protected function consumePageFromHederaFindNftTransaction($url, $hederaNft, $nftIdentification, $nftTokenId, $accountId, $userIdHedera = false) {
         $hederaTransactionNft = json_decode(file_get_contents($url));
 
         if (
@@ -147,7 +187,7 @@ class HederaToMadFenix extends Command
 
         $transactionMemo = strtolower(base64_decode($transaction->memo_base64));
         $transactionMemo = explode(':', $transactionMemo);
-        if (count($transactionMemo) == 2 && (trim($transactionMemo[0]) == 'deposito' || trim($transactionMemo[0]) == 'depósito')) {
+        if ($userIdHedera || (count($transactionMemo) == 2 && (trim($transactionMemo[0]) == 'deposito' || trim($transactionMemo[0]) == 'depósito'))) {
             $blockchainHistorical = BlockchainHistorical::where('memo', '=', $transaction->transaction_id)->first();
             if ($blockchainHistorical) {
                 return false;
@@ -160,12 +200,23 @@ class HederaToMadFenix extends Command
                 if ($nft_transfer->serial_number != $nftIdentification->nft_identification) {
                     continue;
                 }
-                $nftIdentification->user_id = $transactionMemo[1];
+                if ($userIdHedera) {
+                    $nftIdentification->user_id_hedera = $userIdHedera;
+                    $nftIdentification->user_id = null;
+                } else {
+                    $nftIdentification->user_id = $transactionMemo[1];
+                    $nftIdentification->user_id_hedera = null;
+                }
                 $nftIdentification->madfenix_ownership = false;
                 $nftIdentification->save();
 
                 $newBlockchainHistorical = new BlockchainHistorical();
-                $newBlockchainHistorical->user_id = $transactionMemo[1];
+                if ($userIdHedera) {
+                    $newBlockchainHistorical->user_id = $userIdHedera;
+                    $newBlockchainHistorical->user_id_hedera = $userIdHedera;
+                } else {
+                    $newBlockchainHistorical->user_id = $transactionMemo[1];
+                }
                 $newBlockchainHistorical->nft_identification_id = $nftIdentification->id;
                 $newBlockchainHistorical->memo = $transaction->transaction_id;
                 $newBlockchainHistorical->save();
@@ -175,7 +226,7 @@ class HederaToMadFenix extends Command
         }
     }
 
-    protected function consumePageFromHederaAccountListNft($url, $nftIdentifications, $nftTokenId, $accountId) {
+    protected function consumePageFromHederaAccountListNft($url, $nftIdentifications, $nftTokenId, $accountId, $userIdHedera = false) {
         $hederaNfts = json_decode(file_get_contents($url));
 
         foreach ($hederaNfts->nfts as $hederaNft) {
@@ -186,14 +237,15 @@ class HederaToMadFenix extends Command
                         $hederaNft,
                         $nftIdentification,
                         $nftTokenId,
-                        $accountId
+                        $accountId,
+                        $userIdHedera
                     );
                 }
             }
         }
 
         if (!empty($hederaTransactions->links->next)) {
-            $this->consumePageFromHederaAccountListNft('https://mainnet-public.mirrornode.hedera.com' . $hederaTransactions->links->next, $nftIdentifications, $nftTokenId, $accountId);
+            $this->consumePageFromHederaAccountListNft('https://mainnet-public.mirrornode.hedera.com' . $hederaTransactions->links->next, $nftIdentifications, $nftTokenId, $accountId, $userIdHedera);
         }
     }
 
@@ -222,6 +274,22 @@ class HederaToMadFenix extends Command
                 $nftTokenId,
                 $accountId
             );
+
+            $profilesWithHederaWallet = Profile::whereNotNull('hedera_wallet')->get();
+            foreach ($profilesWithHederaWallet as $profileWithHederaWallet) {
+                $accountId = $profileWithHederaWallet->hedera_wallet;
+                if (empty($accountId)) {
+                    continue;
+                }
+
+                $this->consumePageFromHederaAccountListNft(
+                    'https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?account.id=' . $accountId . '&limit=100',
+                    $nftIdentifications,
+                    $nftTokenId,
+                    $accountId,
+                    $profilesWithHederaWallet->user_id
+                );
+            }
         }
     }
 }

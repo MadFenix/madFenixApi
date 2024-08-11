@@ -81,6 +81,7 @@ class Api extends ResourceController
         }
 
         $nftIdentifications = NftIdentification::where('user_id', '=', $user->id)->get();
+        $nftIdentificationsHedera = NftIdentification::where('user_id_hedera', '=', $user->id)->get();
 
         $userHabits = Habit::where('user_id', '=', $user->id)->orderBy('order')->get();
         $userHabitIds = [];
@@ -107,12 +108,20 @@ class Api extends ResourceController
         $returnProfile->user_steam = $profile->steam_user_name;
         $returnProfile->referred_code = $profile->referred_code;
         $returnProfile->referred_code_from = $profile->referred_code_from;
+        $returnProfile->hedera_wallet_check = $profile->hedera_wallet_check;
         $returnProfile->nfts = [];
+        $returnProfile->nfts_hedera = [];
         foreach ($nftIdentifications as $nftIdentification) {
             $nft = Nft::find($nftIdentification->nft_id);
             $newNft = (object) $nftIdentification->toArray();
             $newNft->nft = (object) $nft->toArray();
             $returnProfile->nfts[] = $newNft;
+        }
+        foreach ($nftIdentificationsHedera as $nftIdentification) {
+            $nft = Nft::find($nftIdentification->nft_id);
+            $newNft = (object) $nftIdentification->toArray();
+            $newNft->nft = (object) $nft->toArray();
+            $returnProfile->nfts_hedera[] = $newNft;
         }
         $returnProfile->habits = [];
         foreach ($userHabits as $userHabit) {
@@ -147,6 +156,31 @@ class Api extends ResourceController
 
         return $profileSaved
             ? response()->json('Se ha establecido tu código de referido.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
+    public function setUserProfileHederaWalletCheck(Request $request)
+    {
+        $data = $request->validate(['account' => 'required|string']);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+
+        if (!empty($profile->hedera_wallet_check)) {
+            return response()->json('Ya existe un decimal de comprobación para validar la wallet de hedera.', 400);
+        }
+
+        $profile->hedera_wallet_check = rand(22994698, 85874456);
+        $profile->hedera_wallet_check_account = $data['account'];
+        $profileSaved = $profile->save();
+
+        return $profileSaved
+            ? response()->json($profile->hedera_wallet_check)
             : response()->json('Error al guardar el perfil.', 500);
     }
 

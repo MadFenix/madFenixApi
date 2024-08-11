@@ -13,6 +13,7 @@ class NftIdentification extends BaseDomain
         'nft_id' => ['required', 'integer', 'exists:nfts,id'],
         'madfenix_ownership' => ['nullable'],
         'user_id' => ['nullable', 'integer', 'exists:users,id'],
+        'user_id_hedera' => ['nullable', 'integer', 'exists:users,id'],
     ];
 
     protected $fillable = [
@@ -23,6 +24,7 @@ class NftIdentification extends BaseDomain
         'nft_id',
         'madfenix_ownership',
         'user_id',
+        'user_id_hedera',
     ];
 
     /**
@@ -37,6 +39,11 @@ class NftIdentification extends BaseDomain
     public function user()
     {
         return $this->belongsTo('App\Modules\User\Domain\User', 'user_id');
+    }
+
+    public function user_hedera()
+    {
+        return $this->belongsTo('App\Modules\User\Domain\User', 'user_id_hedera');
     }
 
     public function nft()
