@@ -5,6 +5,7 @@ namespace App\Modules\Game\Coupon\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
+use App\Modules\Blockchain\Block\Infrastructure\Service\UserDragonCustodio;
 use App\Modules\Game\Coupon\Domain\Coupon;
 use App\Modules\Game\Coupon\Domain\CouponGold;
 use App\Modules\Game\Coupon\Domain\CouponGoldUser;
@@ -57,12 +58,14 @@ class Api extends ResourceController
         $coupon->uses++;
         $coupon->save();
 
-        $profile->plumas += $coupon->plumas;
+        $plumasToAdd = ceil($coupon->plumas * UserDragonCustodio::tokenMultiplier($profile));
+
+        $profile->plumas += $plumasToAdd;
         $profileSaved = $profile->save();
 
         $newBlockchainHistorical = new BlockchainHistorical();
         $newBlockchainHistorical->user_id = $user->id;
-        $newBlockchainHistorical->plumas = $coupon->plumas;
+        $newBlockchainHistorical->plumas = $plumasToAdd;
         $newBlockchainHistorical->memo = "Coupon";
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
@@ -107,12 +110,14 @@ class Api extends ResourceController
         $coupon->uses++;
         $coupon->save();
 
-        $profile->oro += $coupon->oro;
+        $oroToAdd = ceil($coupon->oro * UserDragonCustodio::tokenMultiplier($profile));
+
+        $profile->oro += $oroToAdd;
         $profileSaved = $profile->save();
 
         $newBlockchainHistorical = new BlockchainHistorical();
         $newBlockchainHistorical->user_id = $user->id;
-        $newBlockchainHistorical->piezas_de_oro_ft = $coupon->oro;
+        $newBlockchainHistorical->piezas_de_oro_ft = $oroToAdd;
         $newBlockchainHistorical->memo = "Coupon";
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 

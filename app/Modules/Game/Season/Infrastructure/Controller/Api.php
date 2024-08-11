@@ -13,6 +13,7 @@ use App\Modules\Game\Ranking\Domain\Tournament;
 use App\Modules\Game\Season\Domain\Season;
 use App\Modules\Game\Season\Domain\SeasonReward;
 use App\Modules\Game\Season\Domain\SeasonRewardRedeemed;
+use App\Modules\Game\Season\Infrastructure\Service\UserSeasonPremium;
 use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
@@ -46,7 +47,7 @@ class Api extends ResourceController
         $seasonDetails = (object) $activeSeason->toArray();
         $seasonDetails->user_season_level = $profile->season_level;
         $seasonDetails->user_season_points = $profile->season_points;
-        $seasonDetails->user_season_premium = $profile->season_premium;
+        $seasonDetails->user_season_premium = UserSeasonPremium::isUserSeasonPremium($profile);
 
         $seasonRewards = SeasonReward::where('season_id', '=', $activeSeason->id)
             ->orderBy('level')
@@ -94,7 +95,7 @@ class Api extends ResourceController
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
 
-        if (!($profile->season_premium > 0) && !($data['level'] == 1 || $data['level'] == 5 || $data['level'] == 10 || $data['level'] == 15 || $data['level'] == 20)) {
+        if (!(UserSeasonPremium::isUserSeasonPremium($profile) == true) && !($data['level'] == 1 || $data['level'] == 5 || $data['level'] == 10 || $data['level'] == 15 || $data['level'] == 20)) {
             return response()->json('No puedes canjear este nivel sin el pase de temporada premium.', 400);
         }
 
