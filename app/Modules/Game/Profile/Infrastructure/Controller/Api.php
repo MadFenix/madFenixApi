@@ -113,6 +113,7 @@ class Api extends ResourceController
         $returnProfile->hedera_wallet_check_account = $profile->hedera_wallet_check_account;
         $returnProfile->nfts = [];
         $returnProfile->nfts_hedera = [];
+        $returnProfile->fighter_minimum_version = '0.1';
         foreach ($nftIdentifications as $nftIdentification) {
             $nft = Nft::find($nftIdentification->nft_id);
             $newNft = (object) $nftIdentification->toArray();
