@@ -84,6 +84,16 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('profile/setUserProfileReferredCodeFrom', 'Api@setUserProfileReferredCodeFrom');
         Route::post('profile/setUserProfileHederaWalletCheck', 'Api@setUserProfileHederaWalletCheck');
     });
+    Route::namespace('Game\\Fighter\\Infrastructure\\Controller')->group(function () {
+        Route::get('fighter/getFighterUser', 'Api@getFighterUser');
+        Route::post('fighter/setFighterUserDecks', 'Api@setFighterUserDecks');
+        Route::get('fighter/getFighterFriends', 'Api@getFighterFriends');
+        Route::post('fighter/findFighterFriend', 'Api@findFighterFriend');
+        Route::post('fighter/requestFighterFriend', 'Api@requestFighterFriend');
+        Route::get('fighter/getFighterFriendRequests', 'Api@getFighterFriendRequests');
+        Route::post('fighter/approveFighterFriendRequest', 'Api@approveFighterFriendRequest');
+        Route::get('fighter/getRanking', 'Api@getRanking');
+    });
     Route::namespace('Game\\Coupon\\Infrastructure\\Controller')->group(function () {
         Route::post('coupon/usePlumasCoupon', 'Api@usePlumasCoupon');
         Route::post('coupon/useOroCoupon', 'Api@useOroCoupon');
