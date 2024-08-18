@@ -1,3 +1,6 @@
 *
 !public/
+!luchador/
+!luchador/*
+!luchador/metadata/*
 !.gitignore
