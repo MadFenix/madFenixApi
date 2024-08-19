@@ -88,7 +88,7 @@ class Api extends ResourceController
 
     public function setFighterUserDecks(Request $request)
     {
-        $data = $request->validate(['deck' => 'required|integer', 'deck_number' => 'required|string']);
+        $data = $request->validate(['deck_number' => 'required|integer', 'deck' => 'required|string']);
 
         /** @var User $user */
         $user = auth()->user();
