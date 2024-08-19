@@ -14,16 +14,16 @@ class UpdateFightersTable extends Migration
     public function up()
     {
         Schema::table('fighter_users', function (Blueprint $table) {
-            $table->text('deck_1')->change();
-            $table->text('deck_2')->change();
-            $table->text('deck_3')->change();
-            $table->text('deck_4')->change();
-            $table->text('deck_5')->change();
-            $table->text('deck_6')->change();
-            $table->text('deck_7')->change();
-            $table->text('deck_8')->change();
-            $table->text('deck_9')->change();
-            $table->text('deck_10')->change();
+            $table->text('deck_1')->nullable()->change();
+            $table->text('deck_2')->nullable()->change();
+            $table->text('deck_3')->nullable()->change();
+            $table->text('deck_4')->nullable()->change();
+            $table->text('deck_5')->nullable()->change();
+            $table->text('deck_6')->nullable()->change();
+            $table->text('deck_7')->nullable()->change();
+            $table->text('deck_8')->nullable()->change();
+            $table->text('deck_9')->nullable()->change();
+            $table->text('deck_10')->nullable()->change();
         });
     }
 
@@ -35,16 +35,16 @@ class UpdateFightersTable extends Migration
     public function down()
     {
         Schema::table('fighter_users', function (Blueprint $table) {
-            $table->string('deck_1')->change();
-            $table->string('deck_2')->change();
-            $table->string('deck_3')->change();
-            $table->string('deck_4')->change();
-            $table->string('deck_5')->change();
-            $table->string('deck_6')->change();
-            $table->string('deck_7')->change();
-            $table->string('deck_8')->change();
-            $table->string('deck_9')->change();
-            $table->string('deck_10')->change();
+            $table->string('deck_1')->nullable()->change();
+            $table->string('deck_2')->nullable()->change();
+            $table->string('deck_3')->nullable()->change();
+            $table->string('deck_4')->nullable()->change();
+            $table->string('deck_5')->nullable()->change();
+            $table->string('deck_6')->nullable()->change();
+            $table->string('deck_7')->nullable()->change();
+            $table->string('deck_8')->nullable()->change();
+            $table->string('deck_9')->nullable()->change();
+            $table->string('deck_10')->nullable()->change();
         });
     }
 }
