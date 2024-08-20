@@ -3,6 +3,7 @@
 namespace App\Modules\Game\Fighter\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Fighter\Domain\FighterFriend;
 use App\Modules\Game\Fighter\Domain\FighterUser;
 use App\Modules\User\Domain\User;
@@ -50,8 +51,23 @@ class Api extends ResourceController
         if (!$fighterUser) {
             $fighterUser = $this->createFighterUser($user);
         }
+        $fighterNFTsExtra = NftIdentification::
+            where(function ($query) use($user) {
+                $query->where('user_id', '=', $user->id)
+                ->orWhere('user_id_hedera', '=', $user->id);
+            })
+            ->where('nft_id', '=', 2)
+            ->get();
+        $fighterNFTsExtraString = '';
+        foreach ($fighterNFTsExtra as $fighterNFTExtra) {
+            $fighterNFTsExtraString .= $fighterNFTExtra->nft_identification . ',';
+        }
+        if ($fighterNFTsExtraString) {
+            $fighterNFTsExtraString = substr($fighterNFTsExtraString, 0, -1);
+        }
 
         $returnFighterUser = new \stdClass();
+        $returnFighterUser->ownership_cards = $fighterNFTsExtraString;
         $returnFighterUser->avatar_image = $fighterUser->avatar_image;
         $returnFighterUser->avatar_frame = $fighterUser->avatar_frame;
         $returnFighterUser->action_frame = $fighterUser->action_frame;
