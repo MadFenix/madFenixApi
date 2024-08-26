@@ -263,6 +263,29 @@ class Api extends ResourceController
             : response()->json('Error al guardar tu petición de amistad.', 500);
     }
 
+    public function cancelFighterFriendRequest(Request $request)
+    {
+        $data = $request->validate(['user_id' => 'required|integer']);
+
+        /** @var User $user */
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json('Login required.', 403);
+        }
+
+        $fighterFriend = FighterFriend::where('user_id', '=', $user->id)->where('user_id_friend', '=', $data['user_id'])->first();
+
+        if (!$fighterFriend) {
+            return response()->json('No existe la petición de amistad.', 404);
+        }
+
+        $fighterFriendsRemoved = $fighterFriend->remove();
+
+        return $fighterFriendsRemoved
+            ? response()->json('Se ha eliminado tu petición de amistad.')
+            : response()->json('Error al eliminar tu petición de amistad.', 500);
+    }
+
     public function getRanking()
     {
         /** @var User $user */
