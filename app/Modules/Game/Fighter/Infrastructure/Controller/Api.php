@@ -277,7 +277,7 @@ class Api extends ResourceController
         $fighterFriend->approved = true;
         $fighterFriendsSaved = $fighterFriend->save();
 
-        $fighterFriendReverse = FighterFriend::where('user_id_friend', '=', $user->id)->where('user_id', '=', $data['user_id'])->first();
+        $fighterFriendReverse = FighterFriend::where('user_id', '=', $user->id)->where('user_id_friend', '=', $data['user_id'])->first();
         if ($fighterFriendReverse) {
             $fighterFriendReverse->remove();
         }
