@@ -246,11 +246,11 @@ class Api extends ResourceController
 
         $returnFighterFriends = [];
         foreach ($fighterFriends as $fighterFriend) {
-            $user = User::where('id', $fighterFriend->user_id_friend)->first();
+            $userFighterFriend = User::where('id', $fighterFriend->user_id_friend)->first();
             $newFighterFriend = new \stdClass();
 
-            $newFighterFriend->user_id = $user->id;
-            $newFighterFriend->name = $user->name;
+            $newFighterFriend->user_id = $userFighterFriend->id;
+            $newFighterFriend->name = $userFighterFriend->name;
 
             $returnFighterFriends[] = $newFighterFriend;
         }
