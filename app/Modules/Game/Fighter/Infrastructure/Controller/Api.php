@@ -242,7 +242,7 @@ class Api extends ResourceController
             return response()->json('Login required.', 403);
         }
 
-        $fighterFriends = FighterFriend::where('user_id', '=', $user->id)->where('approved', '=', false)->get();
+        $fighterFriends = FighterFriend::where('user_id_friend', '=', $user->id)->where('approved', '=', false)->get();
 
         $returnFighterFriends = [];
         foreach ($fighterFriends as $fighterFriend) {
