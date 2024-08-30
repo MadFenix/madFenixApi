@@ -150,9 +150,9 @@ class Api extends ResourceController
         $returnFighterFriends = [];
         foreach ($fighterFriends as $fighterFriend) {
             if ($fighterFriend->user_id_friend == $user->id) {
-                $userFriend = User::where('id', '=', $fighterFriend->user_id);
+                $userFriend = User::where('id', '=', $fighterFriend->user_id)->first();
             } else {
-                $userFriend = User::where('id', '=', $fighterFriend->user_id_friend);
+                $userFriend = User::where('id', '=', $fighterFriend->user_id_friend)->first();
             }
             $fighterUser = FighterUser::where('user_id', '=', $userFriend->id)->first();
 
