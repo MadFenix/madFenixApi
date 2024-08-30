@@ -181,7 +181,7 @@ class Api extends ResourceController
             return response()->json('Debes saber almenos 3 carácteres del usuario.', 404);
         }
 
-        $users = User::where('name', 'like', '%' . $data['name'] . '%')->limit(5);
+        $users = User::where('name', 'like', $data['name'])->limit(5);
 
         $returnFighterFriends = [];
         foreach ($users as $user) {
@@ -266,6 +266,11 @@ class Api extends ResourceController
 
         $fighterFriend->approved = true;
         $fighterFriendsSaved = $fighterFriend->save();
+
+        $fighterFriendReverse = FighterFriend::where('user_id_friend', '=', $user->id)->where('user_id', '=', $data['user_id'])->first();
+        if ($fighterFriendReverse) {
+            $fighterFriendReverse->remove();
+        }
 
         return $fighterFriendsSaved
             ? response()->json('Se ha guardado tu petición de amistad.')
