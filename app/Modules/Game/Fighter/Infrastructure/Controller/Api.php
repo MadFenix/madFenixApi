@@ -181,7 +181,27 @@ class Api extends ResourceController
             return response()->json('Debes saber almenos 3 carácteres del usuario.', 404);
         }
 
-        $users = User::where('name', 'like', '%' . $data['name'] . '%')->limit(5)->get();
+        $fighterFriends = FighterFriend::
+        where(function ($query) use($user) {
+            $query->where('user_id', '=', $user->id)
+                ->orWhere('user_id_friend', '=', $user->id);
+        })
+            ->where('approved', '=', true)->get();
+
+        $fighterFriendsUserIds = [$user->id];
+        foreach ($fighterFriends as $fighterFriend) {
+            if ($fighterFriend->user_id_friend == $user->id) {
+                $fighterFriendsUserIds[] = $fighterFriend->user_id;
+            } else {
+                $fighterFriendsUserIds[] = $fighterFriend->user_id_friend;
+            }
+        }
+
+        $users = User::
+            where('name', 'like', '%' . $data['name'] . '%')
+            ->whereNotIn('id', $fighterFriendsUserIds)
+            ->limit(5)
+            ->get();
 
         $returnFighterFriends = [];
         foreach ($users as $user) {
