@@ -268,7 +268,7 @@ class Api extends ResourceController
             return response()->json('Login required.', 403);
         }
 
-        $fighterFriend = FighterFriend::where('user_id', '=', $user->id)->where('user_id_friend', '=', $data['user_id'])->first();
+        $fighterFriend = FighterFriend::where('user_id', '=', $data['user_id'])->where('user_id_friend', '=', $user->id)->first();
 
         if (!$fighterFriend) {
             return response()->json('No existe la petición de amistad.', 404);
