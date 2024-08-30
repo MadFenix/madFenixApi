@@ -181,7 +181,7 @@ class Api extends ResourceController
             return response()->json('Debes saber almenos 3 carácteres del usuario.', 404);
         }
 
-        $users = User::where('name', 'like', $data['name'])->limit(5);
+        $users = User::where('name', 'like', '%' . $data['name'] . '%')->limit(5)->get();
 
         $returnFighterFriends = [];
         foreach ($users as $user) {
