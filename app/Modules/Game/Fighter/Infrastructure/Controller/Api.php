@@ -185,10 +185,20 @@ class Api extends ResourceController
 
         $returnFighterFriends = [];
         foreach ($users as $user) {
+            $fighterUser = FighterUser::where('user_id', '=', $user->id)->get();
+            $cups = 0;
+            $rank = 'iron';
+            if ($fighterUser) {
+                $cups = $fighterUser->cups;
+                $rank = $fighterUser->rank;
+            }
+
             $newFighterFriend = new \stdClass();
 
             $newFighterFriend->user_id = $user->id;
             $newFighterFriend->name = $user->name;
+            $newFighterFriend->cups = $cups;
+            $newFighterFriend->rank = $rank;
 
             $returnFighterFriends[] = $newFighterFriend;
         }
