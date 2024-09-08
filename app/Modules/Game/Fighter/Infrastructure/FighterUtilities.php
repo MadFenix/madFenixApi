@@ -64,6 +64,9 @@ class FighterUtilities
         $returnFighterUser->playing_card_left = $fighterUser->playing_card_left;
         $returnFighterUser->playing_card_center = $fighterUser->playing_card_center;
         $returnFighterUser->playing_card_right = $fighterUser->playing_card_right;
+        $returnFighterUser->playing_card_left_back = $fighterUser->playing_card_left_back;
+        $returnFighterUser->playing_card_center_back = $fighterUser->playing_card_center_back;
+        $returnFighterUser->playing_card_right_back = $fighterUser->playing_card_right_back;
 
         return $returnFighterUser;
     }

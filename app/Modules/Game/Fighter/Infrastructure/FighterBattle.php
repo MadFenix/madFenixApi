@@ -5,6 +5,7 @@ use App\Modules\Game\Fighter\Domain\FighterPast;
 use App\Modules\Game\Fighter\Domain\FighterUser;
 use App\Modules\User\Domain\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class FighterBattle
 {
@@ -77,17 +78,18 @@ class FighterBattle
         $fighterPast->playing_card_left = $fighterUser1->playing_card_left;
         $fighterPast->playing_card_center = $fighterUser1->playing_card_center;
         $fighterPast->playing_card_right = $fighterUser1->playing_card_right;
+        $fighterPast->playing_card_left_back = $fighterUser1->playing_card_left_back;
+        $fighterPast->playing_card_center_back = $fighterUser1->playing_card_center_back;
+        $fighterPast->playing_card_right_back = $fighterUser1->playing_card_right_back;
 
         return $fighterPast->save();
     }
 
     static function prepareFighterUserToBattle(FighterUser $fighterUser1, FighterUser $fighterUser2, $gameHash)
     {
-        $user2 = User::where('id', $fighterUser2->user_id)->first();
-
         $deckNumber = 'deck_' . $fighterUser1->deck_current;
 
-        $fighterUser1->playing_with_user = $user2->id;
+        $fighterUser1->playing_with_user = $fighterUser2->user_id;
         $fighterUser1->playing_deck = $fighterUser1->$deckNumber;
         $fighterUser1->playing_hand = '';
         $fighterUser1->playing_shift = 1;
@@ -193,12 +195,15 @@ class FighterBattle
 
         $fighterUser->playing_shift += 1;
         if (!empty($dataPlayedCards['card_left'])) {
+            $fighterUser->playing_card_left_back = $fighterUser->playing_card_left;
             $fighterUser->playing_card_left = $dataPlayedCards['card_left'];
         }
         if (!empty($dataPlayedCards['card_center'])) {
+            $fighterUser->playing_card_center_back = $fighterUser->playing_card_center;
             $fighterUser->playing_card_center = $dataPlayedCards['card_center'];
         }
         if (!empty($dataPlayedCards['card_right'])) {
+            $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
             $fighterUser->playing_card_right = $dataPlayedCards['card_right'];
         }
 
@@ -317,118 +322,169 @@ class FighterBattle
         return true;
     }
 
-    static function AbilityWithout(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function resolveLineDamage($fighterUser1, $lane, $contentCard, $onlyModificators, &$currentActionPoints, &$damgePoints, $abilityModificator, $damageModificator, $lineDiscardEffect, $discardEffect)
+    {
+        if ($lineDiscardEffect || $discardEffect) {
+            $abilityModificator = 0;
+            $damageModificator = 0;
+        }
+        if (!$onlyModificators) {
+            if ($currentActionPoints < ((int) $contentCard->action_points - $abilityModificator)) {
+                if ($lane == 'left') {
+                    $fighterUser1->playing_card_left = $fighterUser1->playing_card_left_back;
+                }
+                if ($lane == 'center') {
+                    $fighterUser1->playing_card_center = $fighterUser1->playing_card_center_back;
+                }
+                if ($lane == 'right') {
+                    $fighterUser1->playing_card_right = $fighterUser1->playing_card_right_back;
+                }
+                return false;
+            }
+            $currentActionPoints -= (int) $contentCard->action_points - $abilityModificator;
+            $damgePoints += (int) $contentCard->damage + $damageModificator;
+        }
+
+        return true;
+    }
+
+    static function AbilityWithout($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
+    {
+        return false;
+    }
+
+    static function AbilityAdjacentDamagePlusOne($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
+    {
+        if ($onlyModificators) {
+            if ($lane == 'left') {
+                $centerDamageModificator += 1;
+            }
+            if ($lane == 'center') {
+                $leftDamageModificator += 1;
+                $rightDamageModificator += 1;
+            }
+            if ($lane == 'right') {
+                $centerDamageModificator += 1;
+            }
+        }
+
+        if (!$onlyModificators) {
+            if ($lane == 'left') {
+                return FighterBattle::resolveLineDamage($fighterUser1, $lane, $contentCard, $onlyModificators, $currentActionPoints, $damgePoints, $leftAbilityModificator, $leftDamageModificator, $leftDiscardOppentEffect, $discardOpponentEffects);
+            }
+            if ($lane == 'center') {
+                return FighterBattle::resolveLineDamage($fighterUser1, $lane, $contentCard, $onlyModificators, $currentActionPoints, $damgePoints, $centerAbilityModificator, $centerDamageModificator, $centerDiscardOppentEffect, $discardOpponentEffects);
+            }
+            if ($lane == 'right') {
+                return FighterBattle::resolveLineDamage($fighterUser1, $lane, $contentCard, $onlyModificators, $currentActionPoints, $damgePoints, $rightAbilityModificator, $rightDamageModificator, $rightDiscardOppentEffect, $discardOpponentEffects);
+            }
+        }
+
+        return true;
+    }
+
+    static function AbilityAdjacentActionMinusOne($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityAdjacentDamagePlusOne(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilitySaveOne($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityAdjacentActionMinusOne(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityMinusOneToOpponent($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilitySaveOne(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscard2CardsOpponentDeck($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityMinusOneToOpponent(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDrawTwoCards($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscard2CardsOpponentDeck(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscardEffectOpponentLane($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDrawTwoCards(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilitySeeNext5Cards($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscardEffectOpponentLane(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilitySaveTwo($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilitySeeNext5Cards(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityMinusTwoToOpponent($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilitySaveTwo(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscard3CardsOpponentDeck($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityMinusTwoToOpponent(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscardEffectOpponent($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscard3CardsOpponentDeck(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscardOpponentHand($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscardEffectOpponent(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscardOpponentHandOneCardOnw($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscardOpponentHand(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDrawThreeCards($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscardOpponentHandOneCardOnw(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityAdjacentDamagePlusTwo($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDrawThreeCards(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityAdjacentActionMinusTwo($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityAdjacentDamagePlusTwo(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscard4CardsOpponentDeck($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityAdjacentActionMinusTwo(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscardOpponentHandCardTwo($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscard4CardsOpponentDeck(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityInvulnerable($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
-    static function AbilityDiscardOpponentHandCardTwo(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
-    {
-
-    }
-
-    static function AbilityInvulnerable(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
-    {
-
-    }
-
-    static function AbilityDiscardDecks(FighterUser $fighterUser1, FighterUser $fighterUser2, $lane)
+    static function AbilityDiscardDecks($contentCard, FighterUser $fighterUser1, FighterUser $fighterUser2, $lane, &$damgePoints, &$leftDamageModificator, &$centerDamageModificator, &$rightDamageModificator, &$leftAbilityModificator, &$centerAbilityModificator, &$rightAbilityModificator, &$leftDiscardOppentEffect, &$centerDiscardOppentEffect, &$rightDiscardOppentEffect, &$discardOpponentEffects, &$currentActionPoints, &$currentActionPointsModificator,  $onlyModificators)
     {
 
     }
 
 
-    static function resolveFighterUserBattleTurn(FighterUser $fighterUser1, FighterUser $fighterUser2)
+    static function resolveFighterUserBattleTurn(FighterUser $fighterUser1, FighterUser $fighterUser2, FighterPast $fighterPast1, FighterPast $fighterPast2)
     {
         $abilities = [
             [
@@ -464,6 +520,160 @@ class FighterBattle
                 "DiscardDecks" // => "Descartas tu mazo y el del rival"
             ]
         ];
+
+        $damage = 0;
+        $leftDamageModificator = 0;
+        $centerDamageModificator = 0;
+        $rightDamageModificator = 0;
+        $leftPAModificator = 0;
+        $centerPAModificator = 0;
+        $rightPAModificator = 0;
+        $leftDiscardOppentEffect = false;
+        $centerDiscardOppentEffect = false;
+        $rightDiscardOppentEffect = false;
+        $discardOpponentEffects = false;
+        $currentActionPointsModificator = $fighterUser1->playing_pa;
+        $currentActionPoints = $fighterUser1->playing_pa;
+        $errorPa = false;
+
+        $damage2 = 0;
+        $leftDamageModificator2 = 0;
+        $centerDamageModificator2 = 0;
+        $rightDamageModificator2 = 0;
+        $leftPAModificator2 = 0;
+        $centerPAModificator2 = 0;
+        $rightPAModificator2 = 0;
+        $leftDiscardOppentEffect2 = false;
+        $centerDiscardOppentEffect2 = false;
+        $rightDiscardOppentEffect2 = false;
+        $discardOpponentEffects2 = false;
+        $currentActionPointsModificator2 = $fighterUser2->playing_pa;
+        $currentActionPoints2 = $fighterUser2->playing_pa;
+        $errorPa2 = false;
+
+        $leftContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_left . '.json');
+        $leftContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_left . '.json');
+        $abilityIndexArray = explode('_', $leftContentCard->ability);
+        $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
+        if (count($abilityIndexArray) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
+            FighterBattle::$abilityFunction($leftContentCard, $fighterUser1, $fighterUser2, 'left', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $discardOpponentEffects, $currentActionPoints, $currentActionPointsModificator,  true);
+        }
+        if (count($abilityIndexArray2) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray2[0]][$abilityIndexArray2[1]];
+            FighterBattle::$abilityFunction($leftContentCard2, $fighterUser2, $fighterUser1, 'left', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $discardOpponentEffects2, $currentActionPoints2, $currentActionPointsModificator2,  true);
+        }
+
+        $centerContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_center . '.json');
+        $centerContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_center . '.json');
+        $abilityIndexArray = explode('_', $centerContentCard->ability);
+        $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
+        if (count($abilityIndexArray) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
+            FighterBattle::$abilityFunction($centerContentCard, $fighterUser1, $fighterUser2, 'center', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $discardOpponentEffects, $currentActionPoints, $currentActionPointsModificator,  true);
+        }
+        if (count($abilityIndexArray2) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray2[0]][$abilityIndexArray2[1]];
+            FighterBattle::$abilityFunction($centerContentCard2, $fighterUser2, $fighterUser1, 'center', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $discardOpponentEffects2, $currentActionPoints2, $currentActionPointsModificator2,  true);
+        }
+
+        $rightContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_right . '.json');
+        $rightContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_right . '.json');
+        $abilityIndexArray = explode('_', $rightContentCard->ability);
+        $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
+        if (count($abilityIndexArray) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
+            FighterBattle::$abilityFunction($rightContentCard, $fighterUser1, $fighterUser2, 'right', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $discardOpponentEffects, $currentActionPoints, $currentActionPointsModificator,  true);
+        }
+        if (count($abilityIndexArray2) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray2[0]][$abilityIndexArray2[1]];
+            FighterBattle::$abilityFunction($rightContentCard2, $fighterUser2, $fighterUser1, 'right', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $discardOpponentEffects2, $currentActionPoints2, $currentActionPointsModificator2,  true);
+        }
+
+        $abilityIndexArray = explode('_', $leftContentCard->ability);
+        $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
+        if (count($abilityIndexArray) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
+            $resultAbility = FighterBattle::$abilityFunction($leftContentCard, $fighterUser1, $fighterUser2, 'left', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $discardOpponentEffects2, $currentActionPoints, $currentActionPointsModificator,  false);
+            if (!$resultAbility) {
+                $errorPa = true;
+            }
+        }
+        if (count($abilityIndexArray2) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray2[0]][$abilityIndexArray2[1]];
+            $resultAbility = FighterBattle::$abilityFunction($leftContentCard2, $fighterUser2, $fighterUser1, 'left', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $discardOpponentEffects, $currentActionPoints2, $currentActionPointsModificator2,  false);
+            if (!$resultAbility) {
+                $errorPa2 = true;
+            }
+        }
+
+        $abilityIndexArray = explode('_', $centerContentCard->ability);
+        $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
+        if (count($abilityIndexArray) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
+            $resultAbility = FighterBattle::$abilityFunction($centerContentCard, $fighterUser1, $fighterUser2, 'center', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $discardOpponentEffects2, $currentActionPoints, $currentActionPointsModificator,  false);
+            if (!$resultAbility) {
+                $errorPa = true;
+            }
+        }
+        if (count($abilityIndexArray2) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray2[0]][$abilityIndexArray2[1]];
+            $resultAbility = FighterBattle::$abilityFunction($centerContentCard2, $fighterUser2, $fighterUser1, 'center', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $discardOpponentEffects, $currentActionPoints2, $currentActionPointsModificator2,  false);
+            if (!$resultAbility) {
+                $errorPa2 = true;
+            }
+        }
+
+        $abilityIndexArray = explode('_', $rightContentCard->ability);
+        $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
+        if (count($abilityIndexArray) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
+            $resultAbility = FighterBattle::$abilityFunction($rightContentCard, $fighterUser1, $fighterUser2, 'right', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $discardOpponentEffects2, $currentActionPoints, $currentActionPointsModificator,  false);
+            if (!$resultAbility) {
+                $errorPa = true;
+            }
+        }
+        if (count($abilityIndexArray2) >= 2) {
+            $abilityFunction = 'Ability' . $abilities[$abilityIndexArray2[0]][$abilityIndexArray2[1]];
+            $resultAbility = FighterBattle::$abilityFunction($rightContentCard2, $fighterUser2, $fighterUser1, 'right', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $discardOpponentEffects, $currentActionPoints2, $currentActionPointsModificator2,  false);
+            if (!$resultAbility) {
+                $errorPa2 = true;
+            }
+        }
+
+        // El errorPa y errorPa2 ya están aplicados en el damage y los puntos de acción restantes de cada oponente.
+        // Por tanto no requiere de ninguna acción adicional.
+
+        if ($damage2 > $fighterUser1->playing_hp) {
+            $fighterUser1->playing_hp = 0;
+            $fighterPast1->playing_hp = 0;
+        } else {
+            $fighterUser1->playing_hp -= $damage2;
+            $fighterPast1->playing_hp -= $damage2;
+        }
+        $fighterPast1->playing_pa = $currentActionPoints;
+        $fighterPast1->playing_card_left = $fighterUser1->playing_card_left;
+        $fighterPast1->playing_card_center = $fighterUser1->playing_card_center;
+        $fighterPast1->playing_card_right = $fighterUser1->playing_card_right;
+
+        if ($damage > $fighterUser2->playing_hp) {
+            $fighterUser2->playing_hp = 0;
+            $fighterPast2->playing_hp = 0;
+        } else {
+            $fighterUser2->playing_hp -= $damage;
+            $fighterPast2->playing_hp -= $damage;
+        }
+        $fighterPast2->playing_pa = $currentActionPoints2;
+        $fighterPast2->playing_card_left = $fighterUser2->playing_card_left;
+        $fighterPast2->playing_card_center = $fighterUser2->playing_card_center;
+        $fighterPast2->playing_card_right = $fighterUser2->playing_card_right;
+
+        $fighterUser1Save = $fighterUser1->save();
+        $fighterPast1Save = $fighterPast1->save();
+        $fighterUser2Save = $fighterUser2->save();
+        $fighterPast2Save = $fighterPast2->save();
+
+        return $fighterUser1Save && $fighterPast1Save && $fighterUser2Save && $fighterPast2Save;
     }
 
     static function resolveFighterUsersBattleTurn(FighterUser $fighterUser1)
@@ -495,5 +705,6 @@ class FighterBattle
             return false;
         }
 
+        FighterBattle::resolveFighterUserBattleTurn($fighterUser1, $fighterUser2, $fighterPast1, $fighterPast2);
     }
 }

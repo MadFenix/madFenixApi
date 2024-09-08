@@ -25,6 +25,9 @@ class FighterPast extends BaseDomain
         'playing_card_left' => ['string'],
         'playing_card_center' => ['string'],
         'playing_card_right' => ['string'],
+        'playing_card_left_back' => ['string'],
+        'playing_card_center_back' => ['string'],
+        'playing_card_right_back' => ['string'],
     ];
 
     protected $fillable = [
@@ -46,6 +49,9 @@ class FighterPast extends BaseDomain
         'playing_card_left',
         'playing_card_center',
         'playing_card_right',
+        'playing_card_left_back',
+        'playing_card_center_back',
+        'playing_card_right_back',
     ];
 
     /**
