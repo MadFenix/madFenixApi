@@ -96,6 +96,8 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::get('fighter/getRanking', 'Api@getRanking');
         Route::post('fighter/findFighterUserBattle', 'Api@findFighterUserBattle');
         Route::post('fighter/saveFighterUserBattleTurn', 'Api@saveFighterUserBattleTurn');
+        Route::post('fighter/resolveFighterUsersBattleTurn', 'Api@resolveFighterUsersBattleTurn');
+        Route::get('fighter/getFighterUserBattle', 'Api@getFighterUserBattle');
     });
     Route::namespace('Game\\Coupon\\Infrastructure\\Controller')->group(function () {
         Route::post('coupon/usePlumasCoupon', 'Api@usePlumasCoupon');

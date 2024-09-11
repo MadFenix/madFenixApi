@@ -415,4 +415,34 @@ class Api extends ResourceController
             ? response()->json('Se ha guardado la resolución del turno.')
             : response()->json('No se ha guardado la resolución del turno.', 500);
     }
+
+
+
+    public function getFighterUserBattle()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json('Login required.', 403);
+        }
+
+        $fighterUser1 = FighterUser::where('user_id', '=', $user->id)->first();
+        if (!$fighterUser1 || !$fighterUser1->playing_with_user) {
+            return response()->json('Error al obtener el usuario.', 404);
+        }
+
+        $fighterUser2 = FighterUser::where('user_id', '=', $fighterUser1->playing_with_user)->first();
+        $user2 = User::where('id', '=', $fighterUser1->playing_with_user)->first();
+        if (!$fighterUser2 || !$user2) {
+            return response()->json('Error al obtener el usuario.', 404);
+        }
+
+        $returnFighterUser1 = FighterUtilities::getFighterUserTransformer($user, $fighterUser1);
+        $returnFighterUser2 = FighterUtilities::getFighterUserTransformer($user2, $fighterUser2);
+        $return = new \stdClass();
+        $return->fighter_user1 = $returnFighterUser1;
+        $return->fighter_user2 = $returnFighterUser2;
+
+        return response()->json($return);
+    }
 }
