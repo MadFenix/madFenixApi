@@ -6,6 +6,9 @@ use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Fighter\Domain\FighterFriend;
 use App\Modules\Game\Fighter\Domain\FighterUser;
+use App\Modules\Game\Profile\Domain\Profile;
+use App\Modules\Game\Season\Domain\Season;
+use App\Modules\Game\Season\Domain\SeasonReward;
 use App\Modules\Twitch\Infrastructure\FighterBattle;
 use App\Modules\Twitch\Infrastructure\FighterUtilities;
 use App\Modules\User\Domain\User;
@@ -389,6 +392,10 @@ class Api extends ResourceController
             return response()->json('Error al obtener el usuario.', 404);
         }
 
+        if (!$fighterUser->ready_to_play || empty($fighterUser->playing_with_user)) {
+            return response()->json('No hay ningún combate activo.');
+        }
+
         $fighterUserTurnSave = FighterBattle::saveFighterUserBattleTurn($fighterUser, $data);
 
         return $fighterUserTurnSave
@@ -409,6 +416,10 @@ class Api extends ResourceController
             return response()->json('Error al obtener el usuario.', 404);
         }
 
+        if (!$fighterUser->ready_to_play || empty($fighterUser->playing_with_user)) {
+            return response()->json('No hay ningún combate activo.');
+        }
+
         $fighterUsersBattleTurn = FighterBattle::resolveFighterUsersBattleTurn($fighterUser);
 
         return $fighterUsersBattleTurn
@@ -427,8 +438,12 @@ class Api extends ResourceController
         }
 
         $fighterUser1 = FighterUser::where('user_id', '=', $user->id)->first();
-        if (!$fighterUser1 || !$fighterUser1->playing_with_user) {
+        if (!$fighterUser1) {
             return response()->json('Error al obtener el usuario.', 404);
+        }
+
+        if (!$fighterUser1->ready_to_play || empty($fighterUser1->playing_with_user)) {
+            return response()->json('No hay ningún combate activo.');
         }
 
         $fighterUser2 = FighterUser::where('user_id', '=', $fighterUser1->playing_with_user)->first();
@@ -437,11 +452,113 @@ class Api extends ResourceController
             return response()->json('Error al obtener el usuario.', 404);
         }
 
+        $result = 'playing'; // playing, won, defeat, tied
+        $cups_won = 0;
+        $pointsToSeason = 0;
+        if (
+            empty($fighterUser1->playing_hp) || (empty($fighterUser1->playing_deck && empty($fighterUser1->playing_hand))) ||
+            empty($fighterUser2->playing_hp) || (empty($fighterUser2->playing_deck && empty($fighterUser2->playing_hand)))
+        ) {
+            $profile = Profile::where('user_id', '=', $user->id)->first();
+
+            $fighterUser1->ready_to_play = false;
+            $fighterUser1->playing_with_user = null;
+
+            $result = 'defeat';
+            if (empty($fighterUser2->playing_hp) && !empty($fighterUser1->playing_hp)) {
+                $result = 'won';
+            } else if (!empty($fighterUser2->playing_hp) && !empty($fighterUser1->playing_hp) && $fighterUser1->playing_hp < $fighterUser2->playing_hp) {
+                $result = 'won';
+            } else if ($fighterUser2->playing_hp == $fighterUser1->playing_hp) {
+                $result = 'tied';
+            }
+
+            if ($result == 'won') {
+                $cups_won = 11;
+                $pointsToSeason = 45000;
+            }
+            if ($result == 'tied') {
+                $cups_won = 5;
+                $pointsToSeason = 20000;
+            }
+            if ($result == 'defeat') {
+                $cups_won = 1;
+                $pointsToSeason = 10000;
+            }
+            $fighterUser1->cups += $cups_won;
+
+            $profile->season_points += $pointsToSeason;
+
+            $dateNow = Carbon::now();
+            $activeSeason = Season::where('start_date', '<', $dateNow->format('Y-m-d H:i:s'))
+                ->where('end_date', '>', $dateNow->format('Y-m-d H:i:s'))
+                ->first();
+            if ($activeSeason) {
+                $lastSeasonReward = SeasonReward::where('season_id', '=', $activeSeason->id)
+                    ->where('required_points', '<', $profile->season_points)
+                    ->orderByDesc('level')
+                    ->first();
+                if ($lastSeasonReward) {
+                    $profile->season_level = $lastSeasonReward->level;
+                }
+            }
+
+            $profile->save();
+
+            $fighterUsersWithMoreCups = FighterUser::where('cups', '>', $fighterUser1->cups)
+                ->where('user_id', '!=' , $fighterUser1->user_id)
+                ->orderBy('cups')
+                ->limit(10)
+                ->get();
+            if ($fighterUsersWithMoreCups->count() < 10) {
+                $fighterUser1->rank = 'legend';
+                $fighterUsersWithMoreCups = FighterUser::where('cups', '>', $fighterUser1->cups)
+                    ->orderBy('cups')
+                    ->limit(11)
+                    ->get();
+
+                if ($fighterUsersWithMoreCups->count() > 10) {
+                    if ($fighterUsersWithMoreCups[0]->cups >= 1500) {
+                        $fighterUsersWithMoreCups[0]->rank = 'gold';
+                    } else {
+                        $fighterUsersWithMoreCups[0]->rank = 'iron';
+                    }
+                    $fighterUsersWithMoreCups[0]->save();
+                }
+            } else if ($fighterUser1->cups >= 1500) {
+                $fighterUser1->rank = 'gold';
+            } else {
+                $fighterUser1->rank = 'iron';
+            }
+
+            $fighterUser1->playing_deck = null;
+            $fighterUser1->playing_hand = null;
+            $fighterUser1->playing_hp = null;
+            $fighterUser1->playing_pa = null;
+            $fighterUser1->playing_shift = null;
+            $fighterUser1->playing_card_left = null;
+            $fighterUser1->playing_card_center = null;
+            $fighterUser1->playing_card_right = null;
+            $fighterUser1->playing_card_left_back = null;
+            $fighterUser1->playing_card_center_back = null;
+            $fighterUser1->playing_card_right_back = null;
+
+            $fighterUser1->save();
+        }
+
         $returnFighterUser1 = FighterUtilities::getFighterUserTransformer($user, $fighterUser1);
         $returnFighterUser2 = FighterUtilities::getFighterUserTransformer($user2, $fighterUser2);
         $return = new \stdClass();
         $return->fighter_user1 = $returnFighterUser1;
         $return->fighter_user2 = $returnFighterUser2;
+        $return->result = $result;
+        if ($result == 'playing') {
+            $return->cups_won = false;
+            $return->season_points_won = false;
+        } else {
+            $return->cups_won = $cups_won;
+            $return->season_points_won = $pointsToSeason;
+        }
 
         return response()->json($return);
     }

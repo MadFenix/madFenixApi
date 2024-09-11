@@ -13,7 +13,7 @@ class FighterUser extends BaseDomain
         'card_frame' => ['string'],
         'game_arena' => ['string'],
         'cups' => ['integer'],
-        'rank' => ['string'],
+        'rank' => ['string'], // legend, gold (1500 cups), iron
         'decks_available' => ['integer'],
         'deck_current' => ['integer'],
         'deck_1' => ['string'],
@@ -49,6 +49,7 @@ class FighterUser extends BaseDomain
         'card_frame',
         'game_arena',
         'cups',
+        'rank',
         'decks_available',
         'deck_current',
         'deck_1',

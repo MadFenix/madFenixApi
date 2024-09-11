@@ -98,6 +98,9 @@ class FighterBattle
         $fighterUser1->playing_card_left = '0';
         $fighterUser1->playing_card_center = '0';
         $fighterUser1->playing_card_right = '0';
+        $fighterUser1->playing_card_left_back = '0';
+        $fighterUser1->playing_card_center_back = '0';
+        $fighterUser1->playing_card_right_back = '0';
 
         return FighterBattle::saveNewFighterPast($fighterUser1, $gameHash);
     }
