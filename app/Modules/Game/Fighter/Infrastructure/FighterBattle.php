@@ -93,6 +93,7 @@ class FighterBattle
         $fighterUser1->playing_deck = $fighterUser1->$deckNumber;
         $fighterUser1->playing_hand = '';
         $fighterUser1->playing_shift = 1;
+        $fighterUser1->playing_shift_resolved = 1;
         $fighterUser1->playing_hp = 37;
         $fighterUser1->playing_pa = 1;
         $fighterUser1->playing_card_left = '0';
@@ -1229,6 +1230,9 @@ class FighterBattle
         $fighterPast2->playing_card_center = $fighterUser2->playing_card_center;
         $fighterPast2->playing_card_right = $fighterUser2->playing_card_right;
 
+        $fighterUser1->playing_shift_resolved += 1;
+        $fighterUser2->playing_shift_resolved += 1;
+
         $fighterUser1Save = $fighterUser1->save();
         $fighterPast1Save = $fighterPast1->save();
         $fighterUser2Save = $fighterUser2->save();
@@ -1258,6 +1262,10 @@ class FighterBattle
 
         $fighterUser2 = FighterUser::where('user_id', '=', $fighterPast2->user_id)->first();
         if (!$fighterUser2) {
+            return false;
+        }
+
+        if ($fighterPast1->playing_shift <= $fighterUser1->playing_shift_resolved && $fighterPast2->playing_shift <= $fighterUser1->playing_shift_resolved) {
             return false;
         }
 

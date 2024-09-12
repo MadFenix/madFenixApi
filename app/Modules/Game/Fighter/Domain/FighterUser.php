@@ -32,6 +32,7 @@ class FighterUser extends BaseDomain
         'playing_deck' => ['string'],
         'playing_hand' => ['string'],
         'playing_shift' => ['integer'],
+        'playing_shift_resolved' => ['integer'],
         'playing_hp' => ['integer'],
         'playing_pa' => ['integer'],
         'playing_card_left' => ['string'],
