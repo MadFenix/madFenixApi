@@ -473,17 +473,32 @@ class Api extends ResourceController
                 $result = 'tied';
             }
 
-            if ($result == 'won') {
-                $cups_won = 11;
-                $pointsToSeason = 45000;
-            }
-            if ($result == 'tied') {
-                $cups_won = 5;
-                $pointsToSeason = 20000;
-            }
-            if ($result == 'defeat') {
-                $cups_won = 1;
-                $pointsToSeason = 10000;
+            if (in_array($user2->id, FighterUtilities::getUserIdBots())) {
+                if ($result == 'won') {
+                    $cups_won = 7;
+                    $pointsToSeason = 30000;
+                }
+                if ($result == 'tied') {
+                    $cups_won = 3;
+                    $pointsToSeason = 12000;
+                }
+                if ($result == 'defeat') {
+                    $cups_won = 1;
+                    $pointsToSeason = 6000;
+                }
+            } else {
+                if ($result == 'won') {
+                    $cups_won = 11;
+                    $pointsToSeason = 45000;
+                }
+                if ($result == 'tied') {
+                    $cups_won = 5;
+                    $pointsToSeason = 20000;
+                }
+                if ($result == 'defeat') {
+                    $cups_won = 1;
+                    $pointsToSeason = 10000;
+                }
             }
             $fighterUser1->cups += $cups_won;
 
@@ -544,6 +559,24 @@ class Api extends ResourceController
             $fighterUser1->playing_card_right_back = null;
 
             $fighterUser1->save();
+
+            if (in_array($user2->id, FighterUtilities::getUserIdBots())) {
+                $fighterUser2->ready_to_play = false;
+                $fighterUser2->playing_with_user = null;
+                $fighterUser2->playing_deck = null;
+                $fighterUser2->playing_hand = null;
+                $fighterUser2->playing_hp = null;
+                $fighterUser2->playing_pa = null;
+                $fighterUser2->playing_shift = null;
+                $fighterUser2->playing_card_left = null;
+                $fighterUser2->playing_card_center = null;
+                $fighterUser2->playing_card_right = null;
+                $fighterUser2->playing_card_left_back = null;
+                $fighterUser2->playing_card_center_back = null;
+                $fighterUser2->playing_card_right_back = null;
+
+                $fighterUser2->save();
+            }
         }
 
         $returnFighterUser1 = FighterUtilities::getFighterUserTransformer($user, $fighterUser1);
