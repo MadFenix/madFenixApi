@@ -279,6 +279,7 @@ class FighterBattle
     {
         $fighterPast = FighterPast::
             where('user_id', '=', $fighterUser->user_id)
+            ->where('playing_shift', '=', $fighterUser->playing_shift)
             ->whereDate('created_at', '<', Carbon::now()->subSeconds(8))
             ->orderBy('created_at', 'DESC')
             ->first();
