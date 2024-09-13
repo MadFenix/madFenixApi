@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\Twitch\Infrastructure;
+namespace App\Modules\Game\Fighter\Infrastructure;
 
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Game\Fighter\Domain\FighterUser;
