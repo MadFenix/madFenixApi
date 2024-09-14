@@ -122,6 +122,8 @@ class FighterBattle
         $gameHash = hash('sha256', $fighterUser1->user_id . '_' . $fighterUser2->user_id . '_' . $battleTime);
         $fighterPast1Save = FighterBattle::prepareFighterUserToBattle($fighterUser1, $fighterUser2, $gameHash);
         $fighterPast2Save = FighterBattle::prepareFighterUserToBattle($fighterUser2, $fighterUser1, $gameHash);
+        FighterBattle::drawCardsDeck($fighterUser1, 7);
+        FighterBattle::drawCardsDeck($fighterUser2, 7);
 
         return $fighterPast1Save && $fighterPast2Save;
     }
@@ -302,9 +304,7 @@ class FighterBattle
             return false;
         }
 
-        if ($fighterUser->playing_shift == 1) {
-            FighterBattle::drawCardsDeck($fighterUser, 7);
-        } else if ($fighterUser->playing_deck) {
+        if ($fighterUser->playing_deck) {
             if ($fighterUser->playing_shift >= 2 && $fighterUser->playing_shift <= 5) {
                 FighterBattle::drawCardsDeck($fighterUser, 2);
             } else if ($fighterUser->playing_shift >= 6) {
