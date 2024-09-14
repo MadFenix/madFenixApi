@@ -89,8 +89,18 @@ class FighterBattle
     {
         $deckNumber = 'deck_' . $fighterUser1->deck_current;
 
+        $currentDeckArray = explode(',', $fighterUser1->$deckNumber);
+        shuffle($currentDeckArray);
+        $currentDeck = '';
+        foreach ($currentDeckArray as $currentCard) {
+            $currentDeck .= array_shift($currentCard) . ',';
+        }
+        if ($currentDeck) {
+            $currentDeck = substr($currentDeck, 0, -1);
+        }
+
         $fighterUser1->playing_with_user = $fighterUser2->user_id;
-        $fighterUser1->playing_deck = $fighterUser1->$deckNumber;
+        $fighterUser1->playing_deck = $currentDeck;
         $fighterUser1->playing_hand = '';
         $fighterUser1->playing_shift = 1;
         $fighterUser1->playing_shift_resolved = 1;
