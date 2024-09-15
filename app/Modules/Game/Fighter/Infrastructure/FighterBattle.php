@@ -304,14 +304,6 @@ class FighterBattle
             return false;
         }
 
-        if ($fighterUser->playing_deck) {
-            if ($fighterUser->playing_shift >= 2 && $fighterUser->playing_shift <= 5) {
-                FighterBattle::drawCardsDeck($fighterUser, 2);
-            } else if ($fighterUser->playing_shift >= 6) {
-                FighterBattle::drawCardsDeck($fighterUser, 3);
-            }
-        }
-
         if ($fighterUser->playing_shift == 2) {
             $fighterUser->playing_pa = 2;
         }
@@ -321,17 +313,26 @@ class FighterBattle
         }
 
         $fighterUser->playing_shift += 1;
-        if (!empty($dataPlayedCards['card_left'])) {
+        $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
+        if (!empty($dataPlayedCards['card_left']) && in_array($dataPlayedCards['card_left'], $fighterUserHandArray)) {
             $fighterUser->playing_card_left_back = $fighterUser->playing_card_left;
             $fighterUser->playing_card_left = $dataPlayedCards['card_left'];
         }
-        if (!empty($dataPlayedCards['card_center'])) {
+        if (!empty($dataPlayedCards['card_center']) && in_array($dataPlayedCards['card_center'], $fighterUserHandArray)) {
             $fighterUser->playing_card_center_back = $fighterUser->playing_card_center;
             $fighterUser->playing_card_center = $dataPlayedCards['card_center'];
         }
-        if (!empty($dataPlayedCards['card_right'])) {
+        if (!empty($dataPlayedCards['card_right']) && in_array($dataPlayedCards['card_right'], $fighterUserHandArray)) {
             $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
             $fighterUser->playing_card_right = $dataPlayedCards['card_right'];
+        }
+
+        if ($fighterUser->playing_deck) {
+            if ($fighterUser->playing_shift >= 2 && $fighterUser->playing_shift <= 5) {
+                FighterBattle::drawCardsDeck($fighterUser, 2);
+            } else if ($fighterUser->playing_shift >= 6) {
+                FighterBattle::drawCardsDeck($fighterUser, 3);
+            }
         }
 
         $fighterUserSave = $fighterUser->save();
