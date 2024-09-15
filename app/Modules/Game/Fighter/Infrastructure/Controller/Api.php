@@ -351,6 +351,12 @@ class Api extends ResourceController
         if (!$fighterUser->playing_with_user && $fighterUser->ready_to_play_last < Carbon::now()->subSeconds(56)) {
             $fighterUser->ready_to_play = false;
             $fighterUser->playing_with_user = null;
+
+            $fighterUserSave = $fighterUser->save();
+
+            return $fighterUserSave
+                ? response()->json('Se ha cancelado la petición de batalla.')
+                : response()->json('Error al cancelar la petición de batalla.', 500);
         } else if (!$fighterUser->playing_with_user) {
             if ($fighterUser->ready_to_play_last < Carbon::now()->subSeconds(46) || $data['bot']) {
                 $fighterUserToBattle = FighterBattle::findFighterUserBotToBattle();
