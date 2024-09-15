@@ -316,8 +316,10 @@ class Api extends ResourceController
         return response()->json($returnFighterUsers);
     }
 
-    public function findFighterUserBattle()
+    public function findFighterUserBattle(Request $request)
     {
+        $data = $request->validate(['bot' => 'boolean']);
+
         /** @var User $user */
         $user = auth()->user();
         if (!$user) {
@@ -339,6 +341,10 @@ class Api extends ResourceController
             $fighterUser->ready_to_play = true;
             $fighterUser->playing_with_user = null;
             $fighterUser->ready_to_play_last = new Carbon();
+            $fighterUser->playing_bot = false;
+            if ($data['bot']) {
+                $fighterUser->playing_bot = true;
+            }
         }
 
 
@@ -346,7 +352,7 @@ class Api extends ResourceController
             $fighterUser->ready_to_play = false;
             $fighterUser->playing_with_user = null;
         } else if (!$fighterUser->playing_with_user) {
-            if ($fighterUser->ready_to_play_last < Carbon::now()->subSeconds(46)) {
+            if ($fighterUser->ready_to_play_last < Carbon::now()->subSeconds(46) || $data['bot']) {
                 $fighterUserToBattle = FighterBattle::findFighterUserBotToBattle();
             } else {
                 $fighterUserToBattle = FighterBattle::findFighterUserToBattle();
@@ -370,7 +376,11 @@ class Api extends ResourceController
             return response()->json('Se ha establecido un luchador oponente.');
         }
 
-        $fighterUserSave = $fighterUser->save();
+        if (empty($data['bot'])){
+            $fighterUserSave = $fighterUser->save();
+        } else {
+            $fighterUserSave = true;
+        }
 
         return $fighterUserSave
             ? response()->json('Se ha establecido una petición de batalla.')
@@ -472,8 +482,10 @@ class Api extends ResourceController
             } else if ($fighterUser2->playing_hp == $fighterUser1->playing_hp) {
                 $result = 'tied';
             }
-
-            if (in_array($user2->id, FighterUtilities::getUserIdBots())) {
+            if ($fighterUser1->playing_bot) {
+                $cups_won = 0;
+                $pointsToSeason = 3000;
+            } else if (in_array($user2->id, FighterUtilities::getUserIdBots())) {
                 if ($result == 'won') {
                     $cups_won = 7;
                     $pointsToSeason = 30000;
@@ -557,6 +569,7 @@ class Api extends ResourceController
             $fighterUser1->playing_card_left_back = null;
             $fighterUser1->playing_card_center_back = null;
             $fighterUser1->playing_card_right_back = null;
+            $fighterUser1->playing_bot = null;
 
             $fighterUser1->save();
 
@@ -574,6 +587,7 @@ class Api extends ResourceController
                 $fighterUser2->playing_card_left_back = null;
                 $fighterUser2->playing_card_center_back = null;
                 $fighterUser2->playing_card_right_back = null;
+                $fighterUser2->playing_bot = null;
 
                 $fighterUser2->save();
             }
