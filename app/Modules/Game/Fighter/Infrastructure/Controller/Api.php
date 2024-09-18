@@ -325,7 +325,7 @@ class Api extends ResourceController
             }
         }
 
-
+        return response()->json('Error al buscar un oponente.', 500);
         if (!$fighterUser->playing_with_user && $fighterUser->ready_to_play_last < Carbon::now()->subSeconds(56)) {
             $fighterUser->ready_to_play = false;
             $fighterUser->playing_with_user = null;
