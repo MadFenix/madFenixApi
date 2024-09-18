@@ -94,7 +94,7 @@ class FighterBattle
         shuffle($currentDeckArray);
         $currentDeck = '';
         foreach ($currentDeckArray as $currentCard) {
-            $currentDeck .= array_shift($currentCard) . ',';
+            $currentDeck .= $currentCard . ',';
         }
         if ($currentDeck) {
             $currentDeck = substr($currentDeck, 0, -1);
