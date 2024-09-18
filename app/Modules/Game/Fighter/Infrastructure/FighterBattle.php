@@ -34,10 +34,11 @@ class FighterBattle
         return $return;
     }
 
-    static function findFighterUserToBattle()
+    static function findFighterUserToBattle($user)
     {
         $fighterUserToBattle = FighterUser::
             where('ready_to_play', '=', true)
+            ->where('user_id', '!=', $user->id)
             ->whereNull('playing_with_user')
             ->whereDate('ready_to_play_last', '>', Carbon::now()->subSeconds(45))
             ->orderBy('ready_to_play_last', 'ASC')

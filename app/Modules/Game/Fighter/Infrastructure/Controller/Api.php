@@ -339,7 +339,7 @@ class Api extends ResourceController
             if ($fighterUser->ready_to_play_last < Carbon::now()->subSeconds(46) || $data['bot']) {
                 $fighterUserToBattle = FighterBattle::findFighterUserBotToBattle();
             } else {
-                $fighterUserToBattle = FighterBattle::findFighterUserToBattle();
+                $fighterUserToBattle = FighterBattle::findFighterUserToBattle($user);
             }
 
             if ($fighterUserToBattle) {
