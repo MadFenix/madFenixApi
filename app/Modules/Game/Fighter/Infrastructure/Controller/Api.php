@@ -296,9 +296,9 @@ class Api extends ResourceController
 
     public function findFighterUserBattle(Request $request)
     {
-        $data = $request->validate(['bot' => 'required|boolean']);
 
         return response()->json('Test.');
+        $data = $request->validate(['bot' => 'required|boolean']);
         /** @var User $user */
         $user = auth()->user();
         if (!$user) {
