@@ -85,7 +85,7 @@ class FighterBattle
         return $fighterPast->save();
     }
 
-    static function prepareFighterUserToBattle(FighterUser $fighterUser1, FighterUser $fighterUser2, $gameHash)
+    static function prepareFighterUserToBattle(FighterUser $fighterUser1, FighterUser $fighterUser2, $gameHash, Carbon $battleDate)
     {
         $deckNumber = 'deck_' . $fighterUser1->deck_current;
 
@@ -104,6 +104,7 @@ class FighterBattle
         $fighterUser1->playing_hand = '';
         $fighterUser1->playing_shift = 1;
         $fighterUser1->playing_shift_resolved = 1;
+        $fighterUser1->playing_shift_date = $battleDate;
         $fighterUser1->playing_hp = 37;
         $fighterUser1->playing_pa = 1;
         $fighterUser1->playing_card_left = '0';
@@ -119,9 +120,10 @@ class FighterBattle
     static function prepareFighterUsersToBattle(FighterUser $fighterUser1, FighterUser $fighterUser2)
     {
         $battleTime = time();
+        $battleDate = new Carbon();
         $gameHash = hash('sha256', $fighterUser1->user_id . '_' . $fighterUser2->user_id . '_' . $battleTime);
-        $fighterPast1Save = FighterBattle::prepareFighterUserToBattle($fighterUser1, $fighterUser2, $gameHash);
-        $fighterPast2Save = FighterBattle::prepareFighterUserToBattle($fighterUser2, $fighterUser1, $gameHash);
+        $fighterPast1Save = FighterBattle::prepareFighterUserToBattle($fighterUser1, $fighterUser2, $gameHash, $battleDate);
+        $fighterPast2Save = FighterBattle::prepareFighterUserToBattle($fighterUser2, $fighterUser1, $gameHash, $battleDate);
         FighterBattle::drawCardsDeck($fighterUser1, 7);
         FighterBattle::drawCardsDeck($fighterUser2, 7);
 
@@ -1242,8 +1244,11 @@ class FighterBattle
         $fighterPast2->playing_card_center = $fighterUser2->playing_card_center;
         $fighterPast2->playing_card_right = $fighterUser2->playing_card_right;
 
+        $shiftDate = new Carbon();
         $fighterUser1->playing_shift_resolved += 1;
+        $fighterUser1->playing_shift_date = $shiftDate;
         $fighterUser2->playing_shift_resolved += 1;
+        $fighterUser2->playing_shift_date = $shiftDate;
 
         $fighterUser1Save = $fighterUser1->save();
         $fighterPast1Save = $fighterPast1->save();

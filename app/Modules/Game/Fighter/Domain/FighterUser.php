@@ -33,6 +33,7 @@ class FighterUser extends BaseDomain
         'playing_hand' => ['string'],
         'playing_shift' => ['integer'],
         'playing_shift_resolved' => ['integer'],
+        'playing_shift_date' => ['date'],
         'playing_hp' => ['integer'],
         'playing_pa' => ['integer'],
         'playing_card_left' => ['string'],
@@ -69,6 +70,8 @@ class FighterUser extends BaseDomain
         'playing_deck',
         'playing_hand',
         'playing_shift',
+        'playing_shift_resolved',
+        'playing_shift_date',
         'playing_hp',
         'playing_pa',
         'playing_card_left',
@@ -86,6 +89,7 @@ class FighterUser extends BaseDomain
      */
     protected $casts = [
         'ready_to_play_last' => 'datetime',
+        'playing_shift_date' => 'datetime',
     ];
 
     // RELATIONS
