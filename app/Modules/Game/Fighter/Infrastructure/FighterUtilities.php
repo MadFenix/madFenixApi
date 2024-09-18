@@ -56,6 +56,7 @@ class FighterUtilities
 
         $returnFighterUser = new \stdClass();
         $returnFighterUser->ownership_cards = $fighterNFTsExtraString;
+        $returnFighterUser->user_id = $user->id;
         $returnFighterUser->username = $user->name;
         $returnFighterUser->avatar_image = $fighterUser->avatar_image;
         $returnFighterUser->avatar_frame = $fighterUser->avatar_frame;
