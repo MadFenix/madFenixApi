@@ -336,26 +336,31 @@ class Api extends ResourceController
                 ? response()->json('Se ha cancelado la petición de batalla.')
                 : response()->json('Error al cancelar la petición de batalla.', 500);
         } else if (!$fighterUser->playing_with_user) {
-            if ($fighterUser->ready_to_play_last < Carbon::now()->subSeconds(46) || $data['bot']) {
-                $fighterUserToBattle = FighterBattle::findFighterUserBotToBattle();
-            } else {
-                $fighterUserToBattle = FighterBattle::findFighterUserToBattle($user);
-            }
-
-            if ($fighterUserToBattle) {
-                $fighterPastsSave = FighterBattle::prepareFighterUsersToBattle($fighterUser, $fighterUserToBattle);
-
-                if ($fighterPastsSave) {
-                    $fighterUserSave = $fighterUser->save();
-                    $fighterUserToBattleSave = $fighterUserToBattle->save();
-
-                    return $fighterUserSave && $fighterUserToBattleSave
-                        ? response()->json('Se ha establecido un luchador oponente.')
-                        : response()->json('Error al establecer el luchador oponente.', 500);
+            try {
+                if ($fighterUser->ready_to_play_last < Carbon::now()->subSeconds(46) || $data['bot']) {
+                    $fighterUserToBattle = FighterBattle::findFighterUserBotToBattle();
+                } else {
+                    $fighterUserToBattle = FighterBattle::findFighterUserToBattle($user);
                 }
 
-                return response()->json('Error al establecer la batalla.', 500);
+                if ($fighterUserToBattle) {
+                    $fighterPastsSave = FighterBattle::prepareFighterUsersToBattle($fighterUser, $fighterUserToBattle);
+
+                    if ($fighterPastsSave) {
+                        $fighterUserSave = $fighterUser->save();
+                        $fighterUserToBattleSave = $fighterUserToBattle->save();
+
+                        return $fighterUserSave && $fighterUserToBattleSave
+                            ? response()->json('Se ha establecido un luchador oponente.')
+                            : response()->json('Error al establecer el luchador oponente.', 500);
+                    }
+
+                    return response()->json('Error al establecer la batalla.', 500);
+                }
+            }catch (\Exception $e) {
+                return response()->json('Error al buscar un oponente.', 500);
             }
+
         } else {
             return response()->json('Se ha establecido un luchador oponente.');
         }
