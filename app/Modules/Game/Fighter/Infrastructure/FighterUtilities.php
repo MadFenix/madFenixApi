@@ -8,6 +8,28 @@ use Carbon\Carbon;
 
 class FighterUtilities
 {
+    static function createFighterUser($userId)
+    {
+        $newFighterUser = new FighterUser();
+        $newFighterUser->user_id = $userId;
+        $newFighterUser->avatar_image = 'default';
+        $newFighterUser->avatar_frame = 'default';
+        $newFighterUser->action_frame = 'default';
+        $newFighterUser->card_frame = 'default';
+        $newFighterUser->game_arena = 'default';
+        $newFighterUser->cups = 0;
+        $newFighterUser->rank = 'iron';
+        $newFighterUser->decks_available = 3;
+        $newFighterUser->deck_current = 1;
+        $newFighterUser->deck_1 = '2003,2164,2197,2284,2334,2517,2747,2893,2954,3053,3091,3163,3204,3258,3326,3389,3469,3541,3813,3916,3950,4060,4132,4380,4524,4604,4766,4988,5261,5308';
+        $newFighterUser->deck_2 = '2003,2164,2197,2284,2334,2517,2747,2893,2954,3053,3091,3163,3204,3258,3326,3389,3469,3541,3813,3916,3950,4060,4132,4380,4524,4604,4766,4988,5261,5308';
+        $newFighterUser->deck_3 = '2003,2164,2197,2284,2334,2517,2747,2893,2954,3053,3091,3163,3204,3258,3326,3389,3469,3541,3813,3916,3950,4060,4132,4380,4524,4604,4766,4988,5261,5308';
+
+        $newFighterUser->save();
+
+        return $newFighterUser;
+    }
+
     static function getExtraNFTs(User $user): string
     {
         $fighterNFTsExtra = NftIdentification::
