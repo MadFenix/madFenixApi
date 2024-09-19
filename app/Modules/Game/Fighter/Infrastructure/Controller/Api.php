@@ -325,7 +325,12 @@ class Api extends ResourceController
             }
         }
 
-        if (!$fighterUser->playing_with_user && $fighterUser->ready_to_play_last < Carbon::now()->subSeconds(56)) {
+        if ($fighterUser->playing_with_user && $fighterUser->playing_shift_date < Carbon::now()->subSeconds(100)) {
+            $fighterUser->playing_hp = 0;
+            $this->getFighterUserBattleResult($user, $fighterUser);
+
+            return response()->json('Se ha cancelado la batalla activa.');
+        } else if (!$fighterUser->playing_with_user && $fighterUser->ready_to_play_last < Carbon::now()->subSeconds(56)) {
             $fighterUser->ready_to_play = false;
             $fighterUser->playing_with_user = null;
 
@@ -425,21 +430,7 @@ class Api extends ResourceController
             : response()->json('No se ha guardado la resolución del turno.', 500);
     }
 
-
-
-    public function getFighterUserBattle()
-    {
-        /** @var User $user */
-        $user = auth()->user();
-        if (!$user) {
-            return response()->json('Login required.', 403);
-        }
-
-        $fighterUser1 = FighterUser::where('user_id', '=', $user->id)->first();
-        if (!$fighterUser1) {
-            return response()->json('Error al obtener el usuario.', 404);
-        }
-
+    public function getFighterUserBattleResult($user, FighterUser $fighterUser1) {
         if (!$fighterUser1->ready_to_play || empty($fighterUser1->playing_with_user)) {
             return response()->json('No hay ningún combate activo.');
         }
@@ -596,5 +587,21 @@ class Api extends ResourceController
         }
 
         return response()->json($return);
+    }
+
+    public function getFighterUserBattle()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json('Login required.', 403);
+        }
+
+        $fighterUser1 = FighterUser::where('user_id', '=', $user->id)->first();
+        if (!$fighterUser1) {
+            return response()->json('Error al obtener el usuario.', 404);
+        }
+
+        return $this->getFighterUserBattleResult($user, $fighterUser1);
     }
 }
