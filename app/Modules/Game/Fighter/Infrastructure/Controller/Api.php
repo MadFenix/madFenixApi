@@ -327,7 +327,7 @@ class Api extends ResourceController
 
         if ($fighterUser->playing_with_user && $fighterUser->playing_shift_date < Carbon::now()->subSeconds(100)) {
             $fighterUser->playing_hp = 0;
-            $this->getFighterUserBattleResult($user, $fighterUser);
+            $this->getFighterUserBattleResult($user, $fighterUser, false);
 
             return response()->json('Se ha cancelado la batalla activa.');
         } else if (!$fighterUser->playing_with_user && $fighterUser->ready_to_play_last < Carbon::now()->subSeconds(56)) {
@@ -430,15 +430,23 @@ class Api extends ResourceController
             : response()->json('No se ha guardado la resolución del turno.', 500);
     }
 
-    public function getFighterUserBattleResult($user, FighterUser $fighterUser1) {
+    public function getFighterUserBattleResult($user, FighterUser $fighterUser1, $generateResponse = true) {
         if (!$fighterUser1->ready_to_play || empty($fighterUser1->playing_with_user)) {
-            return response()->json('No hay ningún combate activo.');
+            if ($generateResponse) {
+                return response()->json('No hay ningún combate activo.');
+            } else {
+                return true;
+            }
         }
 
         $fighterUser2 = FighterUser::where('user_id', '=', $fighterUser1->playing_with_user)->first();
         $user2 = User::where('id', '=', $fighterUser1->playing_with_user)->first();
         if (!$fighterUser2 || !$user2) {
-            return response()->json('Error al obtener el usuario.', 404);
+            if ($generateResponse) {
+                return response()->json('Error al obtener el usuario.', 404);
+            } else {
+                return false;
+            }
         }
 
         $result = 'playing'; // playing, won, defeat, tied
@@ -586,7 +594,11 @@ class Api extends ResourceController
             $return->season_points_won = $pointsToSeason;
         }
 
-        return response()->json($return);
+        if ($generateResponse) {
+            return response()->json($return);
+        } else {
+            return true;
+        }
     }
 
     public function getFighterUserBattle()
