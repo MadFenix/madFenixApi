@@ -319,6 +319,8 @@ class FighterBattle
             return false;
         }
 
+        $fighterUser->playing_shift += 1;
+
         if ($fighterUser->playing_shift == 2) {
             $fighterUser->playing_pa = 2;
         }
@@ -327,7 +329,6 @@ class FighterBattle
             $fighterUser->playing_pa = 3;
         }
 
-        $fighterUser->playing_shift += 1;
         $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
         if (!empty($dataPlayedCards['card_left']) && in_array($dataPlayedCards['card_left'], $fighterUserHandArray)) {
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
