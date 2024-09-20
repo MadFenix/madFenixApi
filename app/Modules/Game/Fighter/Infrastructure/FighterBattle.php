@@ -1148,9 +1148,16 @@ class FighterBattle
 
         $leftContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_left . '.json');
         $leftContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_left . '.json');
-        var_dump($leftContentCard);
-        $abilityIndexArray = explode('_', $leftContentCard->ability);
-        $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
+        if (empty($leftContentCard)) {
+            $abilityIndexArray = [];
+        } else {
+            $abilityIndexArray = explode('_', $leftContentCard->ability);
+        }
+        if (empty($leftContentCard2)) {
+            $abilityIndexArray2 = [];
+        } else {
+            $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
+        }
         if (count($abilityIndexArray) >= 2) {
             $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
             FighterBattle::$abilityFunction($leftContentCard, $fighterUser1, $fighterUser2, 'left', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $invulnerability, $discardOpponentEffects, $currentActionPoints, $currentActionPoints2, $currentActionPointsModificator,  true);
@@ -1162,8 +1169,16 @@ class FighterBattle
 
         $centerContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_center . '.json');
         $centerContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_center . '.json');
-        $abilityIndexArray = explode('_', $centerContentCard->ability);
-        $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
+        if (empty($centerContentCard)) {
+            $abilityIndexArray = [];
+        } else {
+            $abilityIndexArray = explode('_', $centerContentCard->ability);
+        }
+        if (empty($centerContentCard2)) {
+            $abilityIndexArray2 = [];
+        } else {
+            $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
+        }
         if (count($abilityIndexArray) >= 2) {
             $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
             FighterBattle::$abilityFunction($centerContentCard, $fighterUser1, $fighterUser2, 'center', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $invulnerability, $discardOpponentEffects, $currentActionPoints, $currentActionPoints2, $currentActionPointsModificator,  true);
@@ -1175,8 +1190,16 @@ class FighterBattle
 
         $rightContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_right . '.json');
         $rightContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_right . '.json');
-        $abilityIndexArray = explode('_', $rightContentCard->ability);
-        $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
+        if (empty($rightContentCard)) {
+            $abilityIndexArray = [];
+        } else {
+            $abilityIndexArray = explode('_', $rightContentCard->ability);
+        }
+        if (empty($rightContentCard2)) {
+            $abilityIndexArray2 = [];
+        } else {
+            $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
+        }
         if (count($abilityIndexArray) >= 2) {
             $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
             FighterBattle::$abilityFunction($rightContentCard, $fighterUser1, $fighterUser2, 'right', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect, $centerDiscardOppentEffect, $rightDiscardOppentEffect, $invulnerability, $discardOpponentEffects, $currentActionPoints, $currentActionPoints2, $currentActionPointsModificator,  true);
@@ -1186,8 +1209,16 @@ class FighterBattle
             FighterBattle::$abilityFunction($rightContentCard2, $fighterUser2, $fighterUser1, 'right', $damage2, $leftDamageModificator2, $centerDamageModificator2, $rightDamageModificator2, $leftPAModificator2, $centerPAModificator2, $rightPAModificator2, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $invulnerability2, $discardOpponentEffects2, $currentActionPoints2, $currentActionPoints, $currentActionPointsModificator2,  true);
         }
 
-        $abilityIndexArray = explode('_', $leftContentCard->ability);
-        $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
+        if (empty($leftContentCard)) {
+            $abilityIndexArray = [];
+        } else {
+            $abilityIndexArray = explode('_', $leftContentCard->ability);
+        }
+        if (empty($leftContentCard2)) {
+            $abilityIndexArray2 = [];
+        } else {
+            $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
+        }
         if (count($abilityIndexArray) >= 2) {
             $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
             $resultAbility = FighterBattle::$abilityFunction($leftContentCard, $fighterUser1, $fighterUser2, 'left', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $invulnerability, $discardOpponentEffects2, $currentActionPoints, $currentActionPoints2, $currentActionPointsModificator,  false);
@@ -1203,8 +1234,16 @@ class FighterBattle
             }
         }
 
-        $abilityIndexArray = explode('_', $centerContentCard->ability);
-        $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
+        if (empty($centerContentCard)) {
+            $abilityIndexArray = [];
+        } else {
+            $abilityIndexArray = explode('_', $centerContentCard->ability);
+        }
+        if (empty($centerContentCard2)) {
+            $abilityIndexArray2 = [];
+        } else {
+            $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
+        }
         if (count($abilityIndexArray) >= 2) {
             $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
             $resultAbility = FighterBattle::$abilityFunction($centerContentCard, $fighterUser1, $fighterUser2, 'center', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $invulnerability, $discardOpponentEffects2, $currentActionPoints, $currentActionPoints2, $currentActionPointsModificator,  false);
@@ -1220,8 +1259,16 @@ class FighterBattle
             }
         }
 
-        $abilityIndexArray = explode('_', $rightContentCard->ability);
-        $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
+        if (empty($rightContentCard)) {
+            $abilityIndexArray = [];
+        } else {
+            $abilityIndexArray = explode('_', $rightContentCard->ability);
+        }
+        if (empty($rightContentCard2)) {
+            $abilityIndexArray2 = [];
+        } else {
+            $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
+        }
         if (count($abilityIndexArray) >= 2) {
             $abilityFunction = 'Ability' . $abilities[$abilityIndexArray[0]][$abilityIndexArray[1]];
             $resultAbility = FighterBattle::$abilityFunction($rightContentCard, $fighterUser1, $fighterUser2, 'right', $damage, $leftDamageModificator, $centerDamageModificator, $rightDamageModificator, $leftPAModificator, $centerPAModificator, $rightPAModificator, $leftDiscardOppentEffect2, $centerDiscardOppentEffect2, $rightDiscardOppentEffect2, $invulnerability, $discardOpponentEffects2, $currentActionPoints, $currentActionPoints2, $currentActionPointsModificator,  false);
