@@ -170,6 +170,9 @@ class FighterBattle
         if ($quantityCards <= 0) {
             return;
         }
+        if ($currentHand) {
+            $currentHand = ',';
+        }
         for ($i = 0; $i < $quantityCards; $i++) {
             if (count($playingDeckArray) > 0) {
                 $currentHand .= array_shift($playingDeckArray) . ',';
