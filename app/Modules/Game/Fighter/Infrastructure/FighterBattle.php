@@ -348,8 +348,8 @@ class FighterBattle
                 $currentCardToCheck = array_shift($fighterUserHandCheckArray);
                 $contentCard = Storage::json('luchador/metadata/' . $currentCardToCheck . '.json');
                 if (!empty($contentCard)) {
-                    if ($playingPABot >= $contentCard->action_points) {
-                        $playingPABot -= $contentCard->action_points;
+                    if ($playingPABot >= $contentCard['action_points']) {
+                        $playingPABot -= $contentCard['action_points'];
                         shuffle($lineToAddArray);
                         if (empty($dataPlayedCards[$lineToAddArray[0]])) {
                             $dataPlayedCards[$lineToAddArray[0]] = $currentCardToCheck;
