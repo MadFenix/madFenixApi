@@ -115,6 +115,8 @@ class FighterBattle
         $fighterUser1->playing_card_center_back = '0';
         $fighterUser1->playing_card_right_back = '0';
 
+        FighterBattle::drawCardsDeck($fighterUser1, 7);
+
         return FighterBattle::saveNewFighterPast($fighterUser1, $gameHash);
     }
 
@@ -125,8 +127,6 @@ class FighterBattle
         $gameHash = hash('sha256', $fighterUser1->user_id . '_' . $fighterUser2->user_id . '_' . $battleTime);
         $fighterPast1Save = FighterBattle::prepareFighterUserToBattle($fighterUser1, $fighterUser2, $gameHash, $battleDate);
         $fighterPast2Save = FighterBattle::prepareFighterUserToBattle($fighterUser2, $fighterUser1, $gameHash, $battleDate);
-        FighterBattle::drawCardsDeck($fighterUser1, 7);
-        FighterBattle::drawCardsDeck($fighterUser2, 7);
 
         return $fighterPast1Save && $fighterPast2Save;
     }
