@@ -329,11 +329,13 @@ class FighterBattle
             $fighterUser->playing_pa = 3;
         }
 
+        $cuantityCardToDraw = 2;
         $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
         if (!empty($dataPlayedCards['card_left']) && in_array($dataPlayedCards['card_left'], $fighterUserHandArray)) {
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
                 if ($dataPlayedCards['card_left'] == $fighterUserCardHand) {
                     unset($fighterUserHandArray[$key]);
+                    $cuantityCardToDraw++;
                 }
             }
             $fighterUser->playing_card_left_back = $fighterUser->playing_card_left;
@@ -345,6 +347,7 @@ class FighterBattle
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
                 if ($dataPlayedCards['card_center'] == $fighterUserCardHand) {
                     unset($fighterUserHandArray[$key]);
+                    $cuantityCardToDraw++;
                 }
             }
             $fighterUser->playing_card_center_back = $fighterUser->playing_card_center;
@@ -356,6 +359,7 @@ class FighterBattle
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
                 if ($dataPlayedCards['card_right'] == $fighterUserCardHand) {
                     unset($fighterUserHandArray[$key]);
+                    $cuantityCardToDraw++;
                 }
             }
             $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
@@ -363,13 +367,17 @@ class FighterBattle
         } else {
             $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
         }
+        $playingHand = '';
+        foreach ($fighterUserHandArray as $cardHand) {
+            $playingHand .= $cardHand . ',';
+        }
+        if ($playingHand) {
+            $playingHand = substr($playingHand, 0, -1);
+        }
+        $fighterUser->playing_hand = $playingHand;
 
         if ($fighterUser->playing_deck) {
-            if ($fighterUser->playing_shift >= 2 && $fighterUser->playing_shift <= 5) {
-                FighterBattle::drawCardsDeck($fighterUser, 2);
-            } else if ($fighterUser->playing_shift >= 6) {
-                FighterBattle::drawCardsDeck($fighterUser, 3);
-            }
+            FighterBattle::drawCardsDeck($fighterUser, $cuantityCardToDraw);
         }
 
         $fighterUserSave = $fighterUser->save();
