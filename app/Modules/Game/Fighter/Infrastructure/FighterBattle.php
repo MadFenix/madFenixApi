@@ -171,7 +171,7 @@ class FighterBattle
             return;
         }
         if ($currentHand) {
-            $currentHand = ',';
+            $currentHand .= ',';
         }
         for ($i = 0; $i < $quantityCards; $i++) {
             if (count($playingDeckArray) > 0) {
@@ -1148,6 +1148,7 @@ class FighterBattle
 
         $leftContentCard = Storage::json('luchador/metadata/' . $fighterUser1->playing_card_left . '.json');
         $leftContentCard2 = Storage::json('luchador/metadata/' . $fighterUser2->playing_card_left . '.json');
+        var_dump($leftContentCard);
         $abilityIndexArray = explode('_', $leftContentCard->ability);
         $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
         if (count($abilityIndexArray) >= 2) {
