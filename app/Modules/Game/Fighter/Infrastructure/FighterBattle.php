@@ -106,7 +106,7 @@ class FighterBattle
         $fighterUser1->playing_shift = 1;
         $fighterUser1->playing_shift_resolved = 1;
         $fighterUser1->playing_shift_date = $battleDate;
-        $fighterUser1->playing_hp = 17;
+        $fighterUser1->playing_hp = 13;
         $fighterUser1->playing_pa = 1;
         $fighterUser1->playing_card_left = '0';
         $fighterUser1->playing_card_center = '0';
