@@ -556,7 +556,9 @@ class Api extends ResourceController
             $fighterUser1->playing_card_left_back = null;
             $fighterUser1->playing_card_center_back = null;
             $fighterUser1->playing_card_right_back = null;
+            $fighterUser1->playing_shift_resolved = null;
             $fighterUser1->playing_bot = null;
+            $fighterUser1->playing_shift_date = null;
 
             $fighterUser1->save();
 
@@ -574,7 +576,9 @@ class Api extends ResourceController
                 $fighterUser2->playing_card_left_back = null;
                 $fighterUser2->playing_card_center_back = null;
                 $fighterUser2->playing_card_right_back = null;
+                $fighterUser2->playing_shift_resolved = null;
                 $fighterUser2->playing_bot = null;
+                $fighterUser2->playing_shift_date = null;
 
                 $fighterUser2->save();
             }
