@@ -1151,11 +1151,13 @@ class FighterBattle
         if (empty($leftContentCard)) {
             $abilityIndexArray = [];
         } else {
+            $leftContentCard = (object) $leftContentCard;
             $abilityIndexArray = explode('_', $leftContentCard->ability);
         }
         if (empty($leftContentCard2)) {
             $abilityIndexArray2 = [];
         } else {
+            $leftContentCard2 = (object) $leftContentCard2;
             $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
         }
         if (count($abilityIndexArray) >= 2) {
@@ -1172,11 +1174,13 @@ class FighterBattle
         if (empty($centerContentCard)) {
             $abilityIndexArray = [];
         } else {
+            $centerContentCard = (object) $centerContentCard;
             $abilityIndexArray = explode('_', $centerContentCard->ability);
         }
         if (empty($centerContentCard2)) {
             $abilityIndexArray2 = [];
         } else {
+            $centerContentCard2 = (object) $centerContentCard2;
             $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
         }
         if (count($abilityIndexArray) >= 2) {
@@ -1193,11 +1197,13 @@ class FighterBattle
         if (empty($rightContentCard)) {
             $abilityIndexArray = [];
         } else {
+            $rightContentCard = (object) $rightContentCard;
             $abilityIndexArray = explode('_', $rightContentCard->ability);
         }
         if (empty($rightContentCard2)) {
             $abilityIndexArray2 = [];
         } else {
+            $rightContentCard2 = (object) $rightContentCard2;
             $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
         }
         if (count($abilityIndexArray) >= 2) {
@@ -1212,11 +1218,13 @@ class FighterBattle
         if (empty($leftContentCard)) {
             $abilityIndexArray = [];
         } else {
+            $leftContentCard = (object) $leftContentCard;
             $abilityIndexArray = explode('_', $leftContentCard->ability);
         }
         if (empty($leftContentCard2)) {
             $abilityIndexArray2 = [];
         } else {
+            $leftContentCard2 = (object) $leftContentCard2;
             $abilityIndexArray2 = explode('_', $leftContentCard2->ability);
         }
         if (count($abilityIndexArray) >= 2) {
@@ -1237,11 +1245,13 @@ class FighterBattle
         if (empty($centerContentCard)) {
             $abilityIndexArray = [];
         } else {
+            $centerContentCard = (object) $centerContentCard;
             $abilityIndexArray = explode('_', $centerContentCard->ability);
         }
         if (empty($centerContentCard2)) {
             $abilityIndexArray2 = [];
         } else {
+            $centerContentCard2 = (object) $centerContentCard2;
             $abilityIndexArray2 = explode('_', $centerContentCard2->ability);
         }
         if (count($abilityIndexArray) >= 2) {
@@ -1262,11 +1272,13 @@ class FighterBattle
         if (empty($rightContentCard)) {
             $abilityIndexArray = [];
         } else {
+            $rightContentCard = (object) $rightContentCard;
             $abilityIndexArray = explode('_', $rightContentCard->ability);
         }
         if (empty($rightContentCard2)) {
             $abilityIndexArray2 = [];
         } else {
+            $rightContentCard2 = (object) $rightContentCard2;
             $abilityIndexArray2 = explode('_', $rightContentCard2->ability);
         }
         if (count($abilityIndexArray) >= 2) {
