@@ -323,18 +323,6 @@ class FighterBattle
             return false;
         }
 
-        $fighterUser->playing_shift += 1;
-
-        if ($fighterUser->playing_shift == 2) {
-            $fighterUser->playing_pa = 2;
-        }
-
-        if ($fighterUser->playing_shift >= 3) {
-            $fighterUser->playing_pa = 3;
-        }
-
-        $cuantityCardToDraw = 2;
-        $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
         if (in_array($fighterUser->user_id, FighterUtilities::getUserIdBots())) {
             $fighterUserHandCheckArray = explode(',', $fighterUser->playing_hand);
             shuffle($fighterUserHandCheckArray);
@@ -362,6 +350,19 @@ class FighterBattle
                 }
             }
         }
+
+        $fighterUser->playing_shift += 1;
+
+        if ($fighterUser->playing_shift == 2) {
+            $fighterUser->playing_pa = 2;
+        }
+
+        if ($fighterUser->playing_shift >= 3) {
+            $fighterUser->playing_pa = 3;
+        }
+
+        $cuantityCardToDraw = 2;
+        $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
         if (!empty($dataPlayedCards['card_left']) && in_array($dataPlayedCards['card_left'], $fighterUserHandArray)) {
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
                 if ($dataPlayedCards['card_left'] == $fighterUserCardHand) {
