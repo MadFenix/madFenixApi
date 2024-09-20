@@ -352,11 +352,11 @@ class FighterBattle
                         $playingPABot -= $contentCard->action_points;
                         shuffle($lineToAddArray);
                         if (empty($dataPlayedCards[$lineToAddArray[0]])) {
-                            $dataPlayedCards[$lineToAddArray[0]] = (int) $currentCardToCheck;
+                            $dataPlayedCards[$lineToAddArray[0]] = $currentCardToCheck;
                         } else if (empty($dataPlayedCards[$lineToAddArray[1]])) {
-                            $dataPlayedCards[$lineToAddArray[1]] = (int) $currentCardToCheck;
+                            $dataPlayedCards[$lineToAddArray[1]] = $currentCardToCheck;
                         } else if (empty($dataPlayedCards[$lineToAddArray[2]])) {
-                            $dataPlayedCards[$lineToAddArray[2]] = (int) $currentCardToCheck;
+                            $dataPlayedCards[$lineToAddArray[2]] = $currentCardToCheck;
                         }
                     }
                 }
