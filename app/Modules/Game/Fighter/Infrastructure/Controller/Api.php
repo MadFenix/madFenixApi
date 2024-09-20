@@ -453,8 +453,8 @@ class Api extends ResourceController
         $cups_won = 0;
         $pointsToSeason = 0;
         if (
-            empty($fighterUser1->playing_hp) || (empty($fighterUser1->playing_deck && empty($fighterUser1->playing_hand))) ||
-            empty($fighterUser2->playing_hp) || (empty($fighterUser2->playing_deck && empty($fighterUser2->playing_hand)))
+            empty($fighterUser1->playing_hp) || (empty($fighterUser1->playing_deck) && empty($fighterUser1->playing_hand)) ||
+            empty($fighterUser2->playing_hp) || (empty($fighterUser2->playing_deck) && empty($fighterUser2->playing_hand))
         ) {
             $profile = Profile::where('user_id', '=', $user->id)->first();
 
