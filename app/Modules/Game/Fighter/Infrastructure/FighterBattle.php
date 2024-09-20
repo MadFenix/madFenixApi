@@ -335,6 +335,33 @@ class FighterBattle
 
         $cuantityCardToDraw = 2;
         $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
+        if (in_array($fighterUser->user_id, FighterUtilities::getUserIdBots())) {
+            $fighterUserHandCheckArray = explode(',', $fighterUser->playing_hand);
+            shuffle($fighterUserHandCheckArray);
+            $playingPABot = $fighterUser->playing_pa;
+            $lineToAddArray = [
+                'card_left',
+                'card_center',
+                'card_right',
+            ];
+            while ($playingPABot > 0 && count($fighterUserHandCheckArray) > 0 && (empty($dataPlayedCards['card_left']) || empty($dataPlayedCards['card_center']) || empty($dataPlayedCards['card_right']))) {
+                $currentCardToCheck = array_shift($fighterUserHandCheckArray);
+                $contentCard = Storage::json('luchador/metadata/' . $currentCardToCheck . '.json');
+                if (!empty($contentCard)) {
+                    if ($playingPABot >= $contentCard->action_points) {
+                        $playingPABot -= $contentCard->action_points;
+                        shuffle($lineToAddArray);
+                        if (empty($dataPlayedCards[$lineToAddArray[0]])) {
+                            $dataPlayedCards[$lineToAddArray[0]] = (int) $currentCardToCheck;
+                        } else if (empty($dataPlayedCards[$lineToAddArray[1]])) {
+                            $dataPlayedCards[$lineToAddArray[1]] = (int) $currentCardToCheck;
+                        } else if (empty($dataPlayedCards[$lineToAddArray[2]])) {
+                            $dataPlayedCards[$lineToAddArray[2]] = (int) $currentCardToCheck;
+                        }
+                    }
+                }
+            }
+        }
         if (!empty($dataPlayedCards['card_left']) && in_array($dataPlayedCards['card_left'], $fighterUserHandArray)) {
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
                 if ($dataPlayedCards['card_left'] == $fighterUserCardHand) {
