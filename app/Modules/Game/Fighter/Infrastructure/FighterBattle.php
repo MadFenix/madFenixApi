@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class FighterBattle
 {
+    static function getMaxHP() {
+        return 11;
+    }
+
     static function checkFighterUserDeck(FighterUser $fighterUser, User $user): bool
     {
         $fighterUserInfo = FighterUtilities::getFighterUserTransformer($user, $fighterUser);
@@ -106,7 +110,7 @@ class FighterBattle
         $fighterUser1->playing_shift = 1;
         $fighterUser1->playing_shift_resolved = 1;
         $fighterUser1->playing_shift_date = $battleDate;
-        $fighterUser1->playing_hp = 13;
+        $fighterUser1->playing_hp = self::getMaxHP();
         $fighterUser1->playing_pa = 1;
         $fighterUser1->playing_card_left = '0';
         $fighterUser1->playing_card_center = '0';
@@ -525,7 +529,11 @@ class FighterBattle
                 $damgePoints += (int) $contentCard->damage + $damageModificator;
             }
             if ($save > 0) {
-                $fighterUser1->playing_hp += $save;
+                if ($fighterUser1->playing_hp + $save >= self::getMaxHP()) {
+                    $fighterUser1->playing_hp = self::getMaxHP();
+                } else {
+                    $fighterUser1->playing_hp += $save;
+                }
             }
         }
 

@@ -454,7 +454,8 @@ class Api extends ResourceController
         $pointsToSeason = 0;
         if (
             empty($fighterUser1->playing_hp) || (empty($fighterUser1->playing_deck) && empty($fighterUser1->playing_hand)) ||
-            empty($fighterUser2->playing_hp) || (empty($fighterUser2->playing_deck) && empty($fighterUser2->playing_hand))
+            empty($fighterUser2->playing_hp) || (empty($fighterUser2->playing_deck) && empty($fighterUser2->playing_hand)) ||
+            $fighterUser1->playing_shift >= 15
         ) {
             $profile = Profile::where('user_id', '=', $user->id)->first();
 
@@ -467,6 +468,8 @@ class Api extends ResourceController
             } else if (!empty($fighterUser2->playing_hp) && !empty($fighterUser1->playing_hp) && $fighterUser1->playing_hp < $fighterUser2->playing_hp) {
                 $result = 'won';
             } else if ($fighterUser2->playing_hp == $fighterUser1->playing_hp) {
+                $result = 'tied';
+            } else if ($fighterUser1->playing_shift >= 15) {
                 $result = 'tied';
             }
             if ($fighterUser1->playing_bot) {
