@@ -136,14 +136,23 @@ class FighterBattle
         $currentHand = $fighterUser->playing_hand;
         $currentHandArray = explode(',', $currentHand);
 
+        if ($dataPlayedCards['card_left'] == $fighterUser->playing_card_left) {
+            $dataPlayedCards['card_left'] = '0';
+        }
         if (!empty($dataPlayedCards['card_left']) && !in_array($dataPlayedCards['card_left'], $currentHandArray)) {
             return false;
         }
 
+        if ($dataPlayedCards['card_center'] == $fighterUser->playing_card_center) {
+            $dataPlayedCards['card_center'] = '0';
+        }
         if (!empty($dataPlayedCards['card_center']) && !in_array($dataPlayedCards['card_center'], $currentHandArray)) {
             return false;
         }
 
+        if ($dataPlayedCards['card_right'] == $fighterUser->playing_card_right) {
+            $dataPlayedCards['card_right'] = '0';
+        }
         if (!empty($dataPlayedCards['card_right']) && !in_array($dataPlayedCards['card_right'], $currentHandArray)) {
             return false;
         }
@@ -328,6 +337,8 @@ class FighterBattle
             }
             $fighterUser->playing_card_left_back = $fighterUser->playing_card_left;
             $fighterUser->playing_card_left = $dataPlayedCards['card_left'];
+        } else {
+            $fighterUser->playing_card_left_back = $fighterUser->playing_card_left;
         }
         if (!empty($dataPlayedCards['card_center']) && in_array($dataPlayedCards['card_center'], $fighterUserHandArray)) {
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
@@ -337,6 +348,8 @@ class FighterBattle
             }
             $fighterUser->playing_card_center_back = $fighterUser->playing_card_center;
             $fighterUser->playing_card_center = $dataPlayedCards['card_center'];
+        } else {
+            $fighterUser->playing_card_center_back = $fighterUser->playing_card_center;
         }
         if (!empty($dataPlayedCards['card_right']) && in_array($dataPlayedCards['card_right'], $fighterUserHandArray)) {
             foreach ($fighterUserHandArray as $key => $fighterUserCardHand) {
@@ -346,6 +359,8 @@ class FighterBattle
             }
             $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
             $fighterUser->playing_card_right = $dataPlayedCards['card_right'];
+        } else {
+            $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
         }
 
         if ($fighterUser->playing_deck) {
