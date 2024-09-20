@@ -54,6 +54,8 @@ class FighterUtilities
     {
         $fighterNFTsExtraString = FighterUtilities::getExtraNFTs($user);
 
+        $playingDeckArray = explode(',', $fighterUser->playing_deck);
+
         $returnFighterUser = new \stdClass();
         $returnFighterUser->ownership_cards = $fighterNFTsExtraString;
         $returnFighterUser->user_id = $user->id;
@@ -81,6 +83,7 @@ class FighterUtilities
         $returnFighterUser->ready_to_play_last = $fighterUser->ready_to_play_last;
         $returnFighterUser->playing_with_user = $fighterUser->playing_with_user;
         $returnFighterUser->playing_deck = $fighterUser->playing_deck;
+        $returnFighterUser->playing_deck_count = count($playingDeckArray);
         $returnFighterUser->playing_hand = $fighterUser->playing_hand;
         $returnFighterUser->playing_shift = $fighterUser->playing_shift;
         $returnFighterUser->playing_shift_date = ($fighterUser->playing_shift_date)? $fighterUser->playing_shift_date->timestamp : null;
