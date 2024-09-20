@@ -40,7 +40,7 @@ class FighterBattle
             where('ready_to_play', '=', true)
             ->where('user_id', '!=', $user->id)
             ->whereNull('playing_with_user')
-            ->whereDate('ready_to_play_last', '>', Carbon::now()->subSeconds(45))
+            ->where('ready_to_play_last', '>', Carbon::now()->subSeconds(45))
             ->orderBy('ready_to_play_last', 'ASC')
             ->first();
 
@@ -298,7 +298,7 @@ class FighterBattle
         $fighterPast = FighterPast::
             where('user_id', '=', $fighterUser->user_id)
             ->where('playing_shift', '=', $fighterUser->playing_shift)
-            ->whereDate('created_at', '<', Carbon::now()->subSeconds(8))
+            ->where('created_at', '<', Carbon::now()->subSeconds(8))
             ->orderBy('created_at', 'DESC')
             ->first();
 
