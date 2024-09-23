@@ -1427,7 +1427,7 @@ class FighterBattle
 
         $fighterPast2 = FighterPast::
             where('user_id', '!=', $fighterUser1->user_id)
-            ->where('game_hash', '!=', $fighterPast1->game_hash)
+            ->where('game_hash', '=', $fighterPast1->game_hash)
             ->orderBy('id', 'DESC')
             ->first();
         if (!$fighterPast2) {
