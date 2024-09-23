@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class FighterBattle
 {
     static function getMaxHP() {
-        return 11;
+        return 23;
     }
 
     static function checkFighterUserDeck(FighterUser $fighterUser, User $user): bool
@@ -361,7 +361,15 @@ class FighterBattle
             $fighterUser->playing_pa = 3;
         }
 
-        $cuantityCardToDraw = 2;
+        if ($fighterUser->playing_shift >= 5) {
+            $fighterUser->playing_pa = 4;
+        }
+
+        if ($fighterUser->playing_shift >= 7) {
+            $fighterUser->playing_pa = 5;
+        }
+
+        $cuantityCardToDraw = 1;
         $cuantityCardPlayed = 0;
         $fighterUserHandArray = explode(',', $fighterUser->playing_hand);
         if (!empty($dataPlayedCards['card_left']) && in_array($dataPlayedCards['card_left'], $fighterUserHandArray)) {
@@ -369,6 +377,7 @@ class FighterBattle
                 if ($dataPlayedCards['card_left'] == $fighterUserCardHand) {
                     unset($fighterUserHandArray[$key]);
                     $cuantityCardPlayed++;
+                    break;
                 }
             }
             $fighterUser->playing_card_left_back = $fighterUser->playing_card_left;
@@ -381,6 +390,7 @@ class FighterBattle
                 if ($dataPlayedCards['card_center'] == $fighterUserCardHand) {
                     unset($fighterUserHandArray[$key]);
                     $cuantityCardPlayed++;
+                    break;
                 }
             }
             $fighterUser->playing_card_center_back = $fighterUser->playing_card_center;
@@ -393,6 +403,7 @@ class FighterBattle
                 if ($dataPlayedCards['card_right'] == $fighterUserCardHand) {
                     unset($fighterUserHandArray[$key]);
                     $cuantityCardPlayed++;
+                    break;
                 }
             }
             $fighterUser->playing_card_right_back = $fighterUser->playing_card_right;
