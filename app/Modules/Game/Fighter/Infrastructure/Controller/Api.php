@@ -276,11 +276,15 @@ class Api extends ResourceController
             return response()->json('Login required.', 403);
         }
 
-        $fighterUsers = FighterUser::orderBy('cups', 'desc')->limit(100)->get();
+        $fighterUsers = FighterUser::orderBy('cups', 'desc')->limit(50)->get();
 
         $returnFighterUsers = [];
         foreach ($fighterUsers as $fighterUser) {
             $user = User::where('id', '=', $fighterUser->user_id)->first();
+            if (empty($user)) {
+                continue;
+            }
+
             $newFighterUser = new \stdClass();
 
             $newFighterUser->user_id = $user->id;
