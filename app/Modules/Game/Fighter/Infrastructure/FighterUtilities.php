@@ -86,7 +86,7 @@ class FighterUtilities
         $returnFighterUser->playing_deck_count = count($playingDeckArray);
         $returnFighterUser->playing_hand = $fighterUser->playing_hand;
         $returnFighterUser->playing_shift = $fighterUser->playing_shift;
-        $returnFighterUser->playing_shift_date = ($fighterUser->playing_shift_date)? $fighterUser->playing_shift_date->timestamp : null;
+        $returnFighterUser->playing_shift_date = ($fighterUser->playing_shift_date)? $fighterUser->playing_shift_date->timestamp : Carbon::now()->timestamp;
         $returnFighterUser->timestamp_now = Carbon::now()->timestamp;
         $returnFighterUser->playing_hp = $fighterUser->playing_hp;
         $returnFighterUser->playing_pa = $fighterUser->playing_pa;
