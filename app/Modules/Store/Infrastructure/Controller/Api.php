@@ -61,6 +61,17 @@ class Api extends Controller
             }
         }
 
+        if ($product->price_plumas > 0) {
+            if ($profile->plumas < $product->price_plumas) {
+                return response()->json('No tienes suficientes plumas para comprar este producto.', 400);
+            }
+
+            $profile->plumas -= $product->price_plumas;
+            $profile->save();
+
+            $newBlockchainHistorical->plumas = -$product->price_plumas;
+        }
+
         if ($product->price_fiat > 0) {
             $memoBase = '. Paid ' . $product->price_fiat;
         }
