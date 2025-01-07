@@ -174,12 +174,17 @@ class Api extends ResourceController
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
 
+        $hederaAccount = explode('-', $data['account']);
+        if (empty($hederaAccount[0])) {
+            return response()->json('La wallet de hedera no es válida.', 400);
+        }
+
         if (!empty($profile->hedera_wallet_check)) {
             return response()->json('Ya existe un decimal de comprobación para validar la wallet de hedera.', 400);
         }
 
-        $profile->hedera_wallet_check = rand(22994698, 85874456);
-        $profile->hedera_wallet_check_account = $data['account'];
+        $profile->hedera_wallet_check = rand(229, 858) . '00000';
+        $profile->hedera_wallet_check_account = $hederaAccount[0];
         $profileSaved = $profile->save();
 
         return $profileSaved
