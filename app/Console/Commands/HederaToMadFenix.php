@@ -125,13 +125,13 @@ class HederaToMadFenix extends Command
             } else if (count($transactionMemo) == 2 && trim($transactionMemo[0]) == 'vincular') {
                 $accountToLink = '';
                 $totalTokens = 0;
-                $transfer = array_pop($transaction->transfers);
-                $transfer = array_pop($transaction->transfers);
-                if ($transfer->amount > 0 && strlen($transfer->account) > 7) {
-                    $totalTokens = $transfer->amount;
-                }
-                if ($transfer->amount < 0 && strlen($transfer->account) > 7) {
-                    $accountToLink = $transfer->account;
+                foreach($transaction->transfers as $transfer) {
+                    if ($transfer->amount > 0 && strlen($transfer->account) > 7) {
+                        $totalTokens = $transfer->amount;
+                    }
+                    if ($transfer->amount < 0 && strlen($transfer->account) > 7) {
+                        $accountToLink = $transfer->account;
+                    }
                 }
                 if (!empty($accountToLink) && !empty($totalTokens) && !empty($transactionMemo[1])) {
                     $profile = Profile::where('user_id', $transactionMemo[1])
