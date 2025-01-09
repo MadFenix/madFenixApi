@@ -129,7 +129,6 @@ class HederaToMadFenix extends Command
                 if ($transfer->amount > 0 && strlen($transfer->account) > 7) {
                     $totalTokens = $transfer->amount;
                 }
-                $transfer = array_pop($transaction->transfers);
                 if ($transfer->amount < 0 && strlen($transfer->account) > 7) {
                     $accountToLink = $transfer->account;
                 }
