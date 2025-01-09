@@ -135,7 +135,7 @@ class HederaToMadFenix extends Command
                 }
                 if (!empty($accountToLink) && !empty($totalTokens) && !empty($transactionMemo[1])) {
                     $profile = Profile::where('user_id', $transactionMemo[1])
-                        ->where('hedera_wallet_check', $totalTokens)
+                        ->where('hedera_wallet_check', 'like', '%' . $totalTokens . '%')
                         ->where('hedera_wallet_check_account', $accountToLink)
                         ->first();
                     if ($profile) {
