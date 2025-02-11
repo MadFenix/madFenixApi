@@ -128,6 +128,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     Route::namespace('Store\\Infrastructure\\Controller')->group(function () {
         Route::get('store/details', 'Api@getStoreDetails');
         Route::post('store/addProductToOrder', 'Api@addProductToOrder');
+        Route::get('store/getLastProductOrders', 'Api@getLastProductOrders');
     });
 
     Route::namespace('Habit\\Infrastructure\\Controller')->group(function () {

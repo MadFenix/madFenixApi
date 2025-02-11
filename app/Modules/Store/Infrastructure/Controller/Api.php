@@ -11,6 +11,7 @@ use App\Modules\Game\Season\Domain\SeasonRewardRedeemed;
 use App\Modules\Store\Domain\Product;
 use App\Modules\Store\Domain\ProductOrder;
 use App\Modules\User\Domain\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Stripe\StripeClient;
 use Stripe\Webhook;
@@ -268,5 +269,29 @@ class Api extends Controller
         }
 
         return response()->json($returnStore);
+    }
+
+    public function getLastProductOrders()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+        if ($user->id != 2) {
+            return response()->json('Debes ser el administrador para acceder a aquí.', 403);
+        }
+
+        $productOrders = ProductOrder::orderBy('id', 'desc')
+            ->limit(20)
+            ->get();
+
+        $response = [];
+        foreach ($productOrders as $productOrder) {
+            $nowMinus30sec = Carbon::now();
+            $nowMinus30sec->subtract('1 minute');
+            if ($productOrder->created_at > $nowMinus30sec) {
+                $response[] = $productOrder->product->name . ' ' . $productOrder->user->name . '.';
+            }
+        }
+
+        return response()->json($response);
     }
 }
