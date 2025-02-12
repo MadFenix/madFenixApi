@@ -29,6 +29,15 @@ class Api extends Controller
             return response()->json('Producto no encontrado.', 404);
         }
 
+        if (in_array($product->id, [
+            23
+        ])) {
+            $productOrderOwner = ProductOrder::where('user_id', '=', $user->id)->andWhere('product_id', '=', $product->id)->get();
+            if ($productOrderOwner->count() > 0) {
+                return response()->json('Ya has comprado una vez este producto.', 404);
+            }
+        }
+
         $newBlockchainHistorical = new BlockchainHistorical();
         $newBlockchainHistorical->user_id = $profile->user_id;
         $memoBase = '';
@@ -219,6 +228,8 @@ class Api extends Controller
                         ->where('madfenix_ownership', '=', '1')
                         ->first();
                     if (!$nftIdentificationToAssociate) {
+                        $product->active = 0;
+                        $product->save();
                         return response()->json('No se ha encontrado el activo digital del pedido.', 404);
                     }
                     $nftIdentificationToAssociate->madfenix_ownership = false;
@@ -248,6 +259,14 @@ class Api extends Controller
                     if (!($profileSaved && $blockchainHistoricalSaved)) {
                         return response()->json('Error al canjear el pedido.', 500);
                     }
+                }
+
+                if (in_array($product->id, [
+                    21,
+                    22
+                ])) {
+                    $product->active = 0;
+                    $product->save();
                 }
             }
         }
