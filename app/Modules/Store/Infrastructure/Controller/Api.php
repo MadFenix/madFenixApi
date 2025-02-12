@@ -32,7 +32,7 @@ class Api extends Controller
         if (in_array($product->id, [
             23
         ])) {
-            $productOrderOwner = ProductOrder::where('user_id', '=', $user->id)->andWhere('product_id', '=', $product->id)->get();
+            $productOrderOwner = ProductOrder::where('user_id', '=', $user->id)->where('product_id', '=', $product->id)->get();
             if ($productOrderOwner->count() > 0) {
                 return response()->json('Ya has comprado una vez este producto.', 404);
             }
