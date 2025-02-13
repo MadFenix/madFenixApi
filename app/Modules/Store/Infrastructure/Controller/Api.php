@@ -263,7 +263,11 @@ class Api extends Controller
 
                 if (in_array($product->id, [
                     21,
-                    22
+                    22,
+                    24,
+                    25,
+                    26,
+                    27
                 ])) {
                     $product->active = 0;
                     $product->save();
