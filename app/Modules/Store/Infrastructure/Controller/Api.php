@@ -311,7 +311,7 @@ class Api extends Controller
             $nowMinus30sec = Carbon::now();
             $nowMinus30sec->subtract('1 minute');
             if ($productOrder->created_at > $nowMinus30sec) {
-                $response[] = $productOrder->product->name . ' ' . $productOrder->user->name . '.';
+                $response[] = $productOrder->product->name . ' por <span style="color: #FC9208">' . $productOrder->user->name . '</span>.';
             }
         }
 
