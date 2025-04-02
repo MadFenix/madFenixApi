@@ -285,8 +285,8 @@ class HederaToMadFenix extends Command
             }
         }
 
-        if (!empty($hederaTransactions->links->next)) {
-            $this->consumePageFromHederaNFTsInHedera('https://mainnet-public.mirrornode.hedera.com' . $hederaTransactions->links->next, $profilesWithHederaWallet, $nftIdentifications);
+        if (!empty($hederaNfts->links->next)) {
+            $this->consumePageFromHederaNFTsInHedera('https://mainnet-public.mirrornode.hedera.com' . $hederaNfts->links->next, $profilesWithHederaWallet, $nftIdentifications);
         }
     }
 
