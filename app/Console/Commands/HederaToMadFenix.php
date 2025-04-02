@@ -266,7 +266,7 @@ class HederaToMadFenix extends Command
             }
             foreach ($nftIdentifications as $nftIdentification) {
                 foreach ($hederaNfts->nfts as $hederaNft) {
-                    if ($hederaNft->serial_number == $nftIdentification->nft_identification && $hederaNft->account_id == $accountId) {
+                    if ($hederaNft->serial_number == $nftIdentification->nft_identification && $hederaNft->account_id == $accountId && $nftIdentification->user_id_hedera != $profileWithHederaWallet->user_id) {
                         $nftIdentification->user_id_hedera = $profileWithHederaWallet->user_id;
                         $nftIdentification->user_id = null;
                         $nftIdentification->madfenix_ownership = false;
