@@ -256,6 +256,40 @@ class HederaToMadFenix extends Command
         }
     }
 
+    protected function consumePageFromHederaNFTsInHedera($url, $profilesWithHederaWallet, $nftIdentifications) {
+        $hederaNfts = json_decode(file_get_contents($url));
+
+        foreach ($profilesWithHederaWallet as $profileWithHederaWallet) {
+            $accountId = $profileWithHederaWallet->hedera_wallet;
+            if (empty($accountId)) {
+                continue;
+            }
+            foreach ($nftIdentifications as $nftIdentification) {
+                foreach ($hederaNfts->nfts as $hederaNft) {
+                    if ($hederaNft->serial_number == $nftIdentification->nft_identification && $hederaNft->account_id == $accountId) {
+                        $nftIdentification->user_id_hedera = $profileWithHederaWallet->user_id;
+                        $nftIdentification->user_id = null;
+                        $nftIdentification->madfenix_ownership = false;
+                        $nftIdentification->save();
+
+                        $newBlockchainHistorical = new BlockchainHistorical();
+                        $newBlockchainHistorical->user_id = $profileWithHederaWallet->user_id;
+                        $newBlockchainHistorical->user_id_hedera = $profileWithHederaWallet->user_id;
+                        $newBlockchainHistorical->nft_identification_id = $nftIdentification->id;
+                        $newBlockchainHistorical->memo = '';
+                        $newBlockchainHistorical->save();
+
+                        $this->line('Ingreso. Usuario: ' . trim($profileWithHederaWallet->user_id) . '. NFT: ' . $nftIdentification->name . '. Serial: ' . $nftIdentification->nft_identification . '.');
+                    }
+                }
+            }
+        }
+
+        if (!empty($hederaTransactions->links->next)) {
+            $this->consumePageFromHederaNFTsInHedera('https://mainnet-public.mirrornode.hedera.com' . $hederaTransactions->links->next, $profilesWithHederaWallet, $nftIdentifications);
+        }
+    }
+
     /**
      * Execute the console command.
      */
@@ -283,20 +317,8 @@ class HederaToMadFenix extends Command
             );
 
             $profilesWithHederaWallet = Profile::whereNotNull('hedera_wallet')->get();
-            foreach ($profilesWithHederaWallet as $profileWithHederaWallet) {
-                $accountId = $profileWithHederaWallet->hedera_wallet;
-                if (empty($accountId)) {
-                    continue;
-                }
 
-                $this->consumePageFromHederaAccountListNft(
-                    'https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?account.id=' . $accountId . '&limit=100',
-                    $nftIdentifications,
-                    $nftTokenId,
-                    $accountId,
-                    $profileWithHederaWallet->user_id
-                );
-            }
+            $this->consumePageFromHederaNFTsInHedera('https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?limit=100', $profilesWithHederaWallet, $nftIdentifications);
         }
     }
 }
