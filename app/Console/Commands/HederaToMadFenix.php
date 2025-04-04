@@ -299,9 +299,9 @@ class HederaToMadFenix extends Command
                 continue;
             }
             foreach ($hederaBalances->balances as $hederaBalance) {
-                if ($hederaBalance->account == $accountId && $profilesWithHederaWallet->$tokenParameter != $hederaBalance->balance) {
-                    $profilesWithHederaWallet->plumas_hedera = $hederaBalance->balance;
-                    $profilesWithHederaWallet->save();
+                if ($hederaBalance->account == $accountId && $profileWithHederaWallet->$tokenParameter != $hederaBalance->balance) {
+                    $profileWithHederaWallet->plumas_hedera = $hederaBalance->balance;
+                    $profileWithHederaWallet->save();
 
                     $this->line('Actualización ' . $tokenParameter . '. Usuario: ' . trim($profileWithHederaWallet->user_id) . '.');
                 }
