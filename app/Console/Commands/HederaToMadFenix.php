@@ -290,6 +290,29 @@ class HederaToMadFenix extends Command
         }
     }
 
+    protected function consumePageFromHederaFTInHedera($url, $profilesWithHederaWallet, $tokenParameter = 'plumas_hedera') {
+        $hederaBalances = json_decode(file_get_contents($url));
+
+        foreach ($profilesWithHederaWallet as $profileWithHederaWallet) {
+            $accountId = $profileWithHederaWallet->hedera_wallet;
+            if (empty($accountId)) {
+                continue;
+            }
+            foreach ($hederaBalances->balances as $hederaBalance) {
+                if ($hederaBalance->account == $accountId && $profilesWithHederaWallet->$tokenParameter != $hederaBalance->balance) {
+                    $profilesWithHederaWallet->plumas_hedera = $hederaBalance->balance;
+                    $profilesWithHederaWallet->save();
+
+                    $this->line('Actualización ' . $tokenParameter . '. Usuario: ' . trim($profileWithHederaWallet->user_id) . '.');
+                }
+            }
+        }
+
+        if (!empty($hederaBalances->links->next)) {
+            $this->consumePageFromHederaFTInHedera('https://mainnet-public.mirrornode.hedera.com' . $hederaBalances->links->next, $profilesWithHederaWallet, $tokenParameter);
+        }
+    }
+
     /**
      * Execute the console command.
      */
@@ -302,6 +325,7 @@ class HederaToMadFenix extends Command
         $this->consumePageFromHederaAccountTransactions('https://mainnet-public.mirrornode.hedera.com/api/v1/transactions?account.id=' . $accountId . '&transactiontype=CRYPTOTRANSFER&result=success', $accountId, $tokenIdPlumas, $tokenIdOro);
 
         $nfts = Nft::all();
+        $profilesWithHederaWallet = Profile::whereNotNull('hedera_wallet')->get();
         foreach ($nfts as $nft) {
             $nftTokenId = $nft->token_props . '.' . $nft->token_realm . '.' . $nft->token_number;
             $nftIdentifications = NftIdentification::where('nft_id', '=', $nft->id)
@@ -316,9 +340,12 @@ class HederaToMadFenix extends Command
                 $accountId
             );
 
-            $profilesWithHederaWallet = Profile::whereNotNull('hedera_wallet')->get();
-
             $this->consumePageFromHederaNFTsInHedera('https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $nftTokenId . '/nfts?limit=100', $profilesWithHederaWallet, $nftIdentifications);
         }
+
+        // Consume token balances From Plumas
+        $this->consumePageFromHederaFTInHedera('https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $tokenIdPlumas . '/balances?limit=100', $profilesWithHederaWallet);
+        // Consume token balances From Oros
+        $this->consumePageFromHederaFTInHedera('https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/' . $tokenIdOro . '/balances?limit=100', $profilesWithHederaWallet, 'oro_hedera');
     }
 }
