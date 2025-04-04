@@ -103,9 +103,9 @@ class Api extends ResourceController
         $returnProfile->details = $profile->details;
         $returnProfile->avatar = $profile->avatar;
         $returnProfile->plumas = $profile->plumas;
-        $returnProfile->plumas_hedera = $profile->plumas_hedera;
+        $returnProfile->plumas_hedera = (empty($profile->plumas_hedera))? 0 : $profile->plumas_hedera;
         $returnProfile->oro = $profile->oro;
-        $returnProfile->oro_hedera = $profile->oro_hedera;
+        $returnProfile->oro_hedera = (empty($profile->oro_hedera))? 0 : $profile->oro_hedera;
         $returnProfile->user_twitch = $profile->twitch_user_name;
         $returnProfile->user_steam = $profile->steam_user_name;
         $returnProfile->referred_code = $profile->referred_code;
