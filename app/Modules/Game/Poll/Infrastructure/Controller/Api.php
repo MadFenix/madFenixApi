@@ -78,7 +78,7 @@ class Api extends ResourceController
         if (!$profile) {
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
-        $userAnswer = PollAnswer::where('pool_id', '=', $poll_id)
+        $userAnswer = PollAnswer::where('poll_id', '=', $poll_id)
             ->where('user_id', '=', $user->id)
             ->first();
         if ($userAnswer) {
