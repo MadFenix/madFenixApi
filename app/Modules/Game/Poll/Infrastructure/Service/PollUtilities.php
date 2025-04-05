@@ -73,12 +73,20 @@ class PollUtilities
                 $totalCronistas += $pollDetails->answers[$keyAnswer]->cronistas;
             }
 
+            $dividerPlumas = 2;
+            if (empty($totalCronistas)) {
+                $dividerPlumas = 1;
+            }
+            $dividerCronistas = 2;
+            if (empty($totalPlumas)) {
+                $dividerCronistas = 1;
+            }
             foreach ($answers as $keyAnswer => $answer) {
                 if (!empty($totalPlumas)) {
-                    $pollDetails->answers[$keyAnswer]->votes += (($pollDetails->answers[$keyAnswer]->plumas / $totalPlumas) * 100) / 2;
+                    $pollDetails->answers[$keyAnswer]->votes += (($pollDetails->answers[$keyAnswer]->plumas / $totalPlumas) * 100) / $dividerPlumas;
                 }
                 if (!empty($totalCronistas)) {
-                    $pollDetails->answers[$keyAnswer]->votes += (($pollDetails->answers[$keyAnswer]->cronistas / $totalCronistas) * 100) / 2;
+                    $pollDetails->answers[$keyAnswer]->votes += (($pollDetails->answers[$keyAnswer]->cronistas / $totalCronistas) * 100) / $dividerCronistas;
                 }
             }
 
@@ -100,12 +108,12 @@ class PollUtilities
                     foreach ($answers as $keyAnswer => $answer) {
                         if ($answer == $pollDetails->userAnswer->answer) {
                             if (!empty($totalPlumas)) {
-                                $pollDetails->userAnswer->votes += (($pollDetails->userAnswer->plumas / $totalPlumas) * 100) / 2;
+                                $pollDetails->userAnswer->votes += (($pollDetails->userAnswer->plumas / $totalPlumas) * 100) / $dividerPlumas;
                             }
                             if (!empty($totalCronistas)) {
-                                $pollDetails->userAnswer->votes += (($pollDetails->userAnswer->cronistas / $totalCronistas) * 100) / 2;
+                                $pollDetails->userAnswer->votes += (($pollDetails->userAnswer->cronistas / $totalCronistas) * 100) / $dividerCronistas;
                             }
-                            $pollDetails->answers[$keyAnswer]->votes = number_format($pollDetails->userAnswer->votes, 2);
+                            $pollDetails->userAnswer->votes = number_format($pollDetails->userAnswer->votes, 2);
                             break;
                         }
                     }
