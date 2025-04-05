@@ -103,6 +103,11 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('coupon/usePlumasCoupon', 'Api@usePlumasCoupon');
         Route::post('coupon/useOroCoupon', 'Api@useOroCoupon');
     });
+    Route::namespace('Game\\Poll\\Infrastructure\\Controller')->group(function () {
+        Route::get('poll/pollDetails', 'Api@pollDetails');
+        Route::get('poll/pollsDetailsLast30Days', 'Api@pollsDetailsLast30Days');
+        Route::post('poll/answerPoll', 'Api@answerPoll');
+    });
     Route::namespace('Blockchain\\Wallet\\Infrastructure\\Controller')->group(function () {
         Route::post('wallet/transferZen', 'Api@transferZen');
         Route::get('wallet/show', 'Api@show');
