@@ -92,20 +92,22 @@ class PollUtilities
             $userAnswer = PollAnswer::where('poll_id', '=', $poll_id)
                 ->where('user_id', '=', $user->id)
                 ->first();
-            $pollDetails->userAnswer = (object) $userAnswer->toArray();
+            if ($userAnswer) {
+                $pollDetails->userAnswer = (object) $userAnswer->toArray();
 
-            $pollDetails->userAnswer->votes = 0;
-            if (!empty($poll->answers)) {
-                foreach ($answers as $keyAnswer => $answer) {
-                    if ($answer == $pollDetails->userAnswer->answer) {
-                        if (!empty($totalPlumas)) {
-                            $pollDetails->userAnswer->votes += (($pollDetails->answers[$keyAnswer]->plumas / $totalPlumas) * 100) / 2;
+                $pollDetails->userAnswer->votes = 0;
+                if (!empty($poll->answers)) {
+                    foreach ($answers as $keyAnswer => $answer) {
+                        if ($answer == $pollDetails->userAnswer->answer) {
+                            if (!empty($totalPlumas)) {
+                                $pollDetails->userAnswer->votes += (($pollDetails->answers[$keyAnswer]->plumas / $totalPlumas) * 100) / 2;
+                            }
+                            if (!empty($totalCronistas)) {
+                                $pollDetails->userAnswer->votes += (($pollDetails->answers[$keyAnswer]->cronistas / $totalCronistas) * 100) / 2;
+                            }
+                            $pollDetails->answers[$keyAnswer]->votes = number_format($pollDetails->userAnswer->votes, 2);
+                            break;
                         }
-                        if (!empty($totalCronistas)) {
-                            $pollDetails->userAnswer->votes += (($pollDetails->answers[$keyAnswer]->cronistas / $totalCronistas) * 100) / 2;
-                        }
-                        $pollDetails->answers[$keyAnswer]->votes = number_format($pollDetails->userAnswer->votes, 2);
-                        break;
                     }
                 }
             }
