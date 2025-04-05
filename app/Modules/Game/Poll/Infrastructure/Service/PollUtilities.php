@@ -39,6 +39,7 @@ class PollUtilities
         if (empty($poll->answers)) {
             foreach ($pollAnswers as $pollAnswer) {
                 $newPollAnswer = (object) $pollAnswer->toArray();
+                $newPollAnswer->username = $pollAnswer->user->name;
 
                 $pollDetails->customAnswers[] = $newPollAnswer;
             }
