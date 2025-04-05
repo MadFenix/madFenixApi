@@ -48,17 +48,13 @@ class Api extends ResourceController
     {
         $user = auth()->user();
 
-        $active = true;
-        if (empty($data['active'])) {
-            $active = false;
-        }
         $date = Carbon::now();
         $date->subDays(30);
         $polls = Poll::where('end_date', '>', $date->format('Y-m-d H:i:s'))->get();
         $pollsReturn = [];
         foreach ($polls as $poll) {
             try {
-                $pollsReturn[] = PollUtilities::pollDetails($data['poll_id'], $active, $user, $poll);
+                $pollsReturn[] = PollUtilities::pollDetails($data['poll_id'], false, $user, $poll);
             } catch (\Exception $e) {
                 return response()->json($e->getMessage(), 500);
             }
