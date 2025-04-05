@@ -54,7 +54,7 @@ class Api extends ResourceController
         $pollsReturn = [];
         foreach ($polls as $poll) {
             try {
-                $pollsReturn[] = PollUtilities::pollDetails($data['poll_id'], false, $user, $poll);
+                $pollsReturn[] = PollUtilities::pollDetails($poll->id, false, $user, $poll);
             } catch (\Exception $e) {
                 return response()->json($e->getMessage(), 500);
             }
