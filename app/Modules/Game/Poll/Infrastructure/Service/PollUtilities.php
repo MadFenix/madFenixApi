@@ -56,7 +56,7 @@ class PollUtilities
 
             foreach ($pollAnswers as $pollAnswer) {
                 foreach ($answers as $keyAnswer => $answer) {
-                    if ($answer == $pollAnswer) {
+                    if ($answer == $pollAnswer->answer) {
                         $plumas = (empty($pollAnswer->plumas))? 0 : $pollAnswer->plumas;
                         $pollDetails->answers[$keyAnswer]->plumas += $plumas;
                         $cronistas = (empty($pollAnswer->cronistas))? 0 : $pollAnswer->cronistas;
@@ -100,10 +100,10 @@ class PollUtilities
                     foreach ($answers as $keyAnswer => $answer) {
                         if ($answer == $pollDetails->userAnswer->answer) {
                             if (!empty($totalPlumas)) {
-                                $pollDetails->userAnswer->votes += (($pollDetails->answers[$keyAnswer]->plumas / $totalPlumas) * 100) / 2;
+                                $pollDetails->userAnswer->votes += (($pollDetails->userAnswer->plumas / $totalPlumas) * 100) / 2;
                             }
                             if (!empty($totalCronistas)) {
-                                $pollDetails->userAnswer->votes += (($pollDetails->answers[$keyAnswer]->cronistas / $totalCronistas) * 100) / 2;
+                                $pollDetails->userAnswer->votes += (($pollDetails->userAnswer->cronistas / $totalCronistas) * 100) / 2;
                             }
                             $pollDetails->answers[$keyAnswer]->votes = number_format($pollDetails->userAnswer->votes, 2);
                             break;
