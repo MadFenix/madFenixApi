@@ -35,11 +35,12 @@ class PollUtilities
             ->get();
 
         $pollDetails->answers = [];
+        $pollDetails->customAnswers = [];
         if (empty($poll->answers)) {
             foreach ($pollAnswers as $pollAnswer) {
                 $newPollAnswer = (object) $pollAnswer->toArray();
 
-                $pollDetails->pollRewards[] = $newPollAnswer;
+                $pollDetails->customAnswers[] = $newPollAnswer;
             }
         } else {
             $answers = explode(",", $poll->answers);
