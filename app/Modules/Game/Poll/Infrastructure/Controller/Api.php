@@ -48,9 +48,13 @@ class Api extends ResourceController
     {
         $user = auth()->user();
 
+        $dateNow = Carbon::now();
         $date = Carbon::now();
         $date->subDays(30);
-        $polls = Poll::where('end_date', '>', $date->format('Y-m-d H:i:s'))->orderBy('start_date', 'DESC')->get();
+        $polls = Poll::where('start_date', '<', $dateNow->format('Y-m-d H:i:s'))
+            ->where('end_date', '>', $date->format('Y-m-d H:i:s'))
+            ->orderBy('start_date', 'DESC')
+            ->get();
         $pollsReturn = [];
         foreach ($polls as $poll) {
             try {
