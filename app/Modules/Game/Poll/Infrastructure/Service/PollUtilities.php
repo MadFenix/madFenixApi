@@ -89,7 +89,7 @@ class PollUtilities
 
         $pollDetails->userAnswer = null;
         if ($user) {
-            $userAnswer = PollAnswer::where('pool_id', '=', $poll_id)
+            $userAnswer = PollAnswer::where('poll_id', '=', $poll_id)
                 ->where('user_id', '=', $user->id)
                 ->first();
             $pollDetails->userAnswer = (object) $userAnswer->toArray();
