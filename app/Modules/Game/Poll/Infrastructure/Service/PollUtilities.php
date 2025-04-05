@@ -102,6 +102,7 @@ class PollUtilities
                 ->first();
             if ($userAnswer) {
                 $pollDetails->userAnswer = (object) $userAnswer->toArray();
+                $pollDetails->userAnswer->username = $userAnswer->user()->name;
 
                 $pollDetails->userAnswer->votes = 0;
                 if (!empty($poll->answers)) {
