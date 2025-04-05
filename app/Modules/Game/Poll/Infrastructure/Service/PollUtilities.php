@@ -9,9 +9,9 @@ use Carbon\Carbon;
 class PollUtilities
 {
     static public function pollDetails($poll_id, $active = true, $user = null, $poll = null) {
+        $dateNow = Carbon::now();
         if (!$poll) {
             if ($active) {
-                $dateNow = Carbon::now();
                 $poll = Poll::where('start_date', '<', $dateNow->format('Y-m-d H:i:s'))
                     ->where('end_date', '>', $dateNow->format('Y-m-d H:i:s'))
                     ->where('id', '=', $poll_id)
@@ -25,6 +25,11 @@ class PollUtilities
             }
         }
         $pollDetails = (object) $poll->toArray();
+        if ($poll->end_date >= $dateNow && $poll->start_date <= $dateNow) {
+            $pollDetails->active = true;
+        } else {
+            $pollDetails->active = false;
+        }
 
         $pollAnswers = PollAnswer::where('poll_id', '=', $poll->id)
             ->get();
