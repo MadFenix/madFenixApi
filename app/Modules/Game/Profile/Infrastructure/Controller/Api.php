@@ -129,7 +129,7 @@ class Api extends ResourceController
             if ($keyCategoryExists === null) {
                 $newNftCategory = new \stdClass();
                 $newNftCategory->name = $nft->category;
-                $newNftCategory->subcateories = [];
+                $newNftCategory->subcategories = [];
                 $newNftCategory->nfts = [];
                 $newNftCategory->nfts[] = (object) $nft->toArray();
                 $returnProfile->nft_categories[] = $newNftCategory;
@@ -143,8 +143,8 @@ class Api extends ResourceController
             foreach ($returnProfile->nft_categories as $keyCategory => $checkCategory) {
                 if ($nft->category == $checkCategory->name) {
                     $keyCategoryExists = $keyCategory;
-                    foreach ($checkCategory->subcateories as $checkSubcategory) {
-                        if ($nft->subcategory == $checkSubcategory->name) {
+                    foreach ($checkCategory->subcategories as $checkSubcategory) {
+                        if ($nft->subcategory == $checkSubcategory) {
                             $subcategoryExists = true;
                             break;
                         }
@@ -155,7 +155,7 @@ class Api extends ResourceController
             if ($subcategoryExists || $keyCategoryExists === null) {
                 continue;
             }
-            $returnProfile->nft_categories[$keyCategoryExists]->subcateories[] = $nft->subcategory;
+            $returnProfile->nft_categories[$keyCategoryExists]->subcategories[] = $nft->subcategory;
         }
         foreach ($nftIdentifications as $nftIdentification) {
             $nft = null;
