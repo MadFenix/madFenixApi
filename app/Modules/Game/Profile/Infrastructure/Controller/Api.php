@@ -119,37 +119,43 @@ class Api extends ResourceController
         $nfts = Nft::all();
         $returnProfile->nft_categories = [];
         foreach ($nfts as $nft) {
-            $categoryExists = false;
-            foreach ($returnProfile->nft_categories as $checkCategory) {
+            $keyCategoryExists = null;
+            foreach ($returnProfile->nft_categories as $keyCategory => $checkCategory) {
                 if ($nft->category == $checkCategory->name) {
-                    $categoryExists = true;
+                    $keyCategoryExists = $keyCategory;
                     break;
                 }
             }
-            if ($categoryExists) {
-                continue;
+            if ($keyCategoryExists === null) {
+                $newNftCategory = new \stdClass();
+                $newNftCategory->name = $nft->category;
+                $newNftCategory->subcateories = [];
+                $newNftCategory->nfts = [];
+                $newNftCategory->nfts[] = (object) $nft->toArray();
+                $returnProfile->nft_categories[] = $newNftCategory;
+            } else {
+                $returnProfile->nft_categories[$keyCategoryExists]->nfts[] = (object) $nft->toArray();
             }
-            $newNftCategory = new \stdClass();
-            $newNftCategory->name = $nft->category;
-            $newNftCategory->subcateories = [];
-            $returnProfile->nft_categories[] = $newNftCategory;
         }
         foreach ($nfts as $nft) {
             $subcategoryExists = false;
+            $keyCategoryExists = null;
             foreach ($returnProfile->nft_categories as $keyCategory => $checkCategory) {
                 if ($nft->category == $checkCategory->name) {
+                    $keyCategoryExists = $keyCategory;
                     foreach ($checkCategory->subcateories as $checkSubcategory) {
                         if ($nft->subcategory == $checkSubcategory->name) {
                             $subcategoryExists = true;
                             break;
                         }
                     }
+                    break;
                 }
             }
-            if ($subcategoryExists) {
+            if ($subcategoryExists || $keyCategoryExists === null) {
                 continue;
             }
-            $returnProfile->nft_categories[$keyCategory]->subcateories[] = $nft->subcategory;
+            $returnProfile->nft_categories[$keyCategoryExists]->subcateories[] = $nft->subcategory;
         }
         foreach ($nftIdentifications as $nftIdentification) {
             $nft = null;
