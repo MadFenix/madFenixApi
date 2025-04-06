@@ -80,7 +80,7 @@ class Api extends ResourceController
         ]);
 
         $nft = Nft::find($data['nft_id']);
-        if (!$nft) {
+        if (!$nft || $nft->category != 'Avatar') {
             return response()->json('Avatar no encontrado.', 404);
         }
 
@@ -94,6 +94,33 @@ class Api extends ResourceController
 
         return $profileSaved
             ? response()->json('Se ha establecido tu nuevo avatar.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
+    public function setEstado(Request $request)
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        $data = $request->validate([
+            'nft_id' => 'required'
+        ]);
+
+        $nft = Nft::find($data['nft_id']);
+        if (!$nft || $nft->category != 'Estado') {
+            return response()->json('Estado no encontrado.', 404);
+        }
+
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+
+        $profile->description = $nft->name;
+        $profileSaved = $profile->save();
+
+        return $profileSaved
+            ? response()->json('Se ha establecido tu nuevo estado.')
             : response()->json('Error al guardar el perfil.', 500);
     }
 
