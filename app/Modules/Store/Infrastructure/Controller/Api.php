@@ -312,7 +312,7 @@ class Api extends Controller
             $nowMinus30sec->subtract('1 minute');
             if ($productOrder->created_at > $nowMinus30sec) {
                 $userProfile = Profile::where('user_id', '=', $productOrder->user->id)->first();
-                $response[] = '<div class="flex items-center justify-center" style="max-height: 200px"><div><img src="' . $userProfile->avatar . '" style="max-height: 200px" /></div><div class="grow">' . $productOrder->product->name . ' por <span style="color: #FC9208">' . $productOrder->user->name . '</span>.</div></div>';
+                $response[] = '<div class="flex items-center space-x-3 justify-center" style="max-height: 200px"><div><img src="' . $userProfile->avatar . '" style="max-height: 200px" /></div><div class="grow">' . $productOrder->product->name . ' por <span style="color: #FC9208">' . $productOrder->user->name . '</span>.</div></div>';
             }
         }
 
