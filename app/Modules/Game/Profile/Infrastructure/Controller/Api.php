@@ -169,6 +169,11 @@ class Api extends ResourceController
         $returnProfile->hedera_wallet_check_account = $profile->hedera_wallet_check_account;
         $returnProfile->nfts = [];
         $returnProfile->nfts_hedera = [];
+        if ($profile->referred_code) {
+            $returnProfile->count_refered = Profile::where('referred_code_from', '=', $profile->referred_code)->count();
+        } else {
+            $returnProfile->count_refered = 0;
+        }
         $returnProfile->fighter_minimum_version = '0.1';
         $nfts = Nft::all();
         $returnProfile->nft_categories = [];
