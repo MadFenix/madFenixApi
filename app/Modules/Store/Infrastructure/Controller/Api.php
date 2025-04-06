@@ -311,7 +311,8 @@ class Api extends Controller
             $nowMinus30sec = Carbon::now();
             $nowMinus30sec->subtract('1 minute');
             if ($productOrder->created_at > $nowMinus30sec) {
-                $response[] = $productOrder->product->name . ' por <span style="color: #FC9208">' . $productOrder->user->name . '</span>.';
+                $userProfile = Profile::where('user_id', '=', $productOrder->user->id)->first();
+                $response[] = '<div class="flex items-center justify-center" style="max-height: 100px"><div><img src="' . $userProfile->avatar . '" /></div><div class="grow">' . $productOrder->product->name . ' por <span style="color: #FC9208">' . $productOrder->user->name . '</span>.</div></div>';
             }
         }
 
