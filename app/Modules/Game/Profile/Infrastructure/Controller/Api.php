@@ -152,7 +152,7 @@ class Api extends ResourceController
                     break;
                 }
             }
-            if ($subcategoryExists || $keyCategoryExists === null) {
+            if ($subcategoryExists || $keyCategoryExists === null || !$nft->subcategory) {
                 continue;
             }
             $returnProfile->nft_categories[$keyCategoryExists]->subcategories[] = $nft->subcategory;
