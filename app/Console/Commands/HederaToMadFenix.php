@@ -331,6 +331,9 @@ class HederaToMadFenix extends Command
         $nfts = Nft::all();
         $profilesWithHederaWallet = Profile::whereNotNull('hedera_wallet')->get();
         foreach ($nfts as $nft) {
+            if ($nft->token_number <= 0) {
+                continue;
+            }
             $nftTokenId = $nft->token_props . '.' . $nft->token_realm . '.' . $nft->token_number;
             $nftIdentifications = NftIdentification::where('nft_id', '=', $nft->id)
                 ->whereNull('user_id')
