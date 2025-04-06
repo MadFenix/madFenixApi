@@ -160,7 +160,7 @@ class Api extends ResourceController
         foreach ($nftIdentifications as $nftIdentification) {
             $nft = null;
             foreach ($nfts as $nftSearch) {
-                if ($nftSearch->id == $nftIdentification->id) {
+                if ($nftSearch->id == $nftIdentification->nft_id) {
                     $nft = $nftSearch;
                 }
             }
@@ -174,7 +174,7 @@ class Api extends ResourceController
         foreach ($nftIdentificationsHedera as $nftIdentification) {
             $nft = null;
             foreach ($nfts as $nftSearch) {
-                if ($nftSearch->id == $nftIdentification->id) {
+                if ($nftSearch->id == $nftIdentification->nft_id) {
                     $nft = $nftSearch;
                 }
             }
