@@ -70,6 +70,33 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    public function setAvatar(Request $request)
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        $data = $request->validate([
+            'nft_id' => 'required'
+        ]);
+
+        $nft = Nft::find($data['nft_id']);
+        if (!$nft) {
+            return response()->json('Avatar no encontrado.', 404);
+        }
+
+        $profile = Profile::where('user_id', '=', $user->id)->first();
+        if (!$profile) {
+            return response()->json('Perfil del usuario no encontrado.', 404);
+        }
+
+        $profile->avatar = $nft->portrait_image;
+        $profileSaved = $profile->save();
+
+        return $profileSaved
+            ? response()->json('Se ha establecido tu nuevo avatar.')
+            : response()->json('Error al guardar el perfil.', 500);
+    }
+
     public function getUserProfile()
     {
         /** @var User $user */

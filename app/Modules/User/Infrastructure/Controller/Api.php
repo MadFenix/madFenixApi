@@ -117,7 +117,7 @@ class Api extends Controller
         $profile->user_id = $user->id;
         $profile->description = '';
         $profile->details = '';
-        $profile->avatar = '';
+        $profile->avatar = 'https://colecciones.madfenix.com/avatares/gratis/tiefling_bard.jpg';
         $profile->plumas = 2;
         $profile->oro = 0;
         $profile->save();

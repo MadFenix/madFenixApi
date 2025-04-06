@@ -78,6 +78,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('profile/addPlumas', 'Api@addPluma');
         Route::post('profile/addOro', 'Api@addOro');
         Route::post('profile/getUserProfile', 'Api@getUserProfile');
+        Route::post('profile/setAvatar', 'Api@setAvatar');
         Route::post('profile/subtractPlumaUser', 'Api@subtractPlumaUser');
         Route::post('profile/subtractOroUser', 'Api@subtractOroUser');
         Route::post('profile/setUserProfileReferredCode', 'Api@setUserProfileReferredCode');
