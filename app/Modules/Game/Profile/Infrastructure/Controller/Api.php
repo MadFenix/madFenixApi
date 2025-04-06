@@ -119,6 +119,9 @@ class Api extends ResourceController
         $nfts = Nft::all();
         $returnProfile->nft_categories = [];
         foreach ($nfts as $nft) {
+            if (!$nft->category) {
+                continue;
+            }
             $keyCategoryExists = null;
             foreach ($returnProfile->nft_categories as $keyCategory => $checkCategory) {
                 if ($nft->category == $checkCategory->name) {
