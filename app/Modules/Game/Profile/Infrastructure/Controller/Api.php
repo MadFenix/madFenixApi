@@ -116,14 +116,65 @@ class Api extends ResourceController
         $returnProfile->nfts = [];
         $returnProfile->nfts_hedera = [];
         $returnProfile->fighter_minimum_version = '0.1';
+        $nfts = Nft::all();
+        $returnProfile->nft_categories = [];
+        foreach ($nfts as $nft) {
+            $categoryExists = false;
+            foreach ($returnProfile->nft_categories as $checkCategory) {
+                if ($nft->category == $checkCategory->name) {
+                    $categoryExists = true;
+                    break;
+                }
+            }
+            if ($categoryExists) {
+                continue;
+            }
+            $newNftCategory = new \stdClass();
+            $newNftCategory->name = $nft->category;
+            $newNftCategory->subcateories = [];
+            $returnProfile->nft_categories[] = $newNftCategory;
+        }
+        foreach ($nfts as $nft) {
+            $subcategoryExists = false;
+            foreach ($returnProfile->nft_categories as $keyCategory => $checkCategory) {
+                if ($nft->category == $checkCategory->name) {
+                    foreach ($checkCategory->subcateories as $checkSubcategory) {
+                        if ($nft->subcategory == $checkSubcategory->name) {
+                            $subcategoryExists = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if ($subcategoryExists) {
+                continue;
+            }
+            $returnProfile->nft_categories[$keyCategory]->subcateories[] = $nft->subcategory;
+        }
         foreach ($nftIdentifications as $nftIdentification) {
-            $nft = Nft::find($nftIdentification->nft_id);
+            $nft = null;
+            foreach ($nfts as $nftSearch) {
+                if ($nftSearch->id == $nftIdentification->id) {
+                    $nft = $nftSearch;
+                }
+            }
+            if (!$nft) {
+                $nft = Nft::find($nftIdentification->nft_id);
+            }
             $newNft = (object) $nftIdentification->toArray();
             $newNft->nft = (object) $nft->toArray();
             $returnProfile->nfts[] = $newNft;
         }
         foreach ($nftIdentificationsHedera as $nftIdentification) {
-            $nft = Nft::find($nftIdentification->nft_id);
+            $nft = null;
+            foreach ($nfts as $nftSearch) {
+                if ($nftSearch->id == $nftIdentification->id) {
+                    $nft = $nftSearch;
+                }
+            }
+            if (!$nft) {
+                $nft = Nft::find($nftIdentification->nft_id);
+            }
             $newNft = (object) $nftIdentification->toArray();
             $newNft->nft = (object) $nft->toArray();
             $returnProfile->nfts_hedera[] = $newNft;
