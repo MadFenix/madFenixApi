@@ -15,7 +15,7 @@ class UpdateProduct3Table extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->integer('nft_serial_greater_equal')->nullable()->after('rarity');
-            $table->integer('nft_serial_less_equal')->nullable()->after('nft_serial_mayor_igual');
+            $table->integer('nft_serial_less_equal')->nullable()->after('nft_serial_greater_equal');
         });
     }
 
