@@ -323,8 +323,10 @@ class Api extends Controller
                     $nftIdentificationToAssociate = $nftIdentificationToAssociate
                         ->first();
                     if (!$nftIdentificationToAssociate && empty($productOrder->is_gift)) {
-                        $product->active = 0;
-                        $product->save();
+                        foreach ($products as $productToDesactivate) {
+                            $productToDesactivate->active = 0;
+                            $productToDesactivate->save();
+                        }
 
                         // return paid tokens
                         $newBlockchainHistorical = new BlockchainHistorical();
