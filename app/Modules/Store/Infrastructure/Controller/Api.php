@@ -121,7 +121,7 @@ class Api extends Controller
         /** @var User $user */
         $user = auth()->user();
 
-        $event = Event::where('id', '=', $data['event_id'])->whereNull('product_gift_delivered')->first();
+        $event = Event::where('id', '=', $data['event_id'])->where('destinator_id', '=', $user->id)->whereNull('product_gift_delivered')->first();
         if (!$event) {
             return response()->json('Evento del usuario no encontrado.', 404);
         }

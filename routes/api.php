@@ -88,6 +88,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     });
     Route::namespace('Event\\Infrastructure\\Controller')->group(function () {
         Route::post('event/list', 'Api@index');
+        Route::post('event/readEvent', 'Api@readEvent');
     });
     Route::namespace('Game\\Fighter\\Infrastructure\\Controller')->group(function () {
         Route::get('fighter/getFighterUser', 'Api@getFighterUser');
