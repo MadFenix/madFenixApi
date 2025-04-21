@@ -87,7 +87,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('profile/setUserProfileHederaWalletCheck', 'Api@setUserProfileHederaWalletCheck');
     });
     Route::namespace('Event\\Infrastructure\\Controller')->group(function () {
-        Route::post('event/list', 'Api@index');
+        Route::get('event/list', 'Api@index');
         Route::post('event/readEvent', 'Api@readEvent');
     });
     Route::namespace('Game\\Fighter\\Infrastructure\\Controller')->group(function () {
