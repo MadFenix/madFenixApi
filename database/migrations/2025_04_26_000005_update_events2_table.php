@@ -22,7 +22,7 @@ class UpdateEvents2Table extends Migration
             $table->unsignedBigInteger('product_gift_id')->nullable()->after('product_gift_delivered');
         });
         Schema::table('product_orders', function (Blueprint $table) {
-            $table->integer('is_gift')->nullable()->after('custom');
+            $table->integer('is_gift')->nullable()->after('payment_validated');
         });
     }
 
