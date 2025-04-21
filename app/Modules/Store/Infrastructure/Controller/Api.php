@@ -322,7 +322,7 @@ class Api extends Controller
                     }
                     $nftIdentificationToAssociate = $nftIdentificationToAssociate
                         ->first();
-                    if (!$nftIdentificationToAssociate) {
+                    if (!$nftIdentificationToAssociate && empty($productOrder->is_gift)) {
                         $product->active = 0;
                         $product->save();
 
