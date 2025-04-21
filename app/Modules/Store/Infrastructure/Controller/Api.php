@@ -6,6 +6,7 @@ namespace App\Modules\Store\Infrastructure\Controller;
 use App\Http\Controllers\Controller;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
+use App\Modules\Event\Domain\Event;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Season\Domain\SeasonRewardRedeemed;
 use App\Modules\Store\Domain\Product;
@@ -112,6 +113,45 @@ class Api extends Controller
         return ($productOrder = $this->saveProductOrder($data['product_id'], $user))
             ? response()->json($productOrder->toArray())
             : response()->json('Error al guardar el pedido de producto.', 500);
+    }
+
+    public function addEventGiftToOrder(Request $request) {
+        $data = $request->validate(['event_id' => 'required']);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        $event = Event::where('id', '=', $data['event_id'])->whereNull('product_gift_delivered')->first();
+        if (!$event) {
+            return response()->json('Evento del usuario no encontrado.', 404);
+        }
+        $product = Product::find($event->product_gift_id);
+        if (!$product) {
+            return response()->json('Producto no encontrado.', 404);
+        }
+
+        $event->product_gift_delivered = new Carbon();
+        $eventSaved = $event->save();
+        if (!$eventSaved) {
+            return response()->json('Error al guardar el evento.', 500);
+        }
+
+        $productOrder = new ProductOrder();
+        $productOrder->product_id = $product->id;
+        $productOrder->user_id = $user->id;
+        $productOrder->is_gift = 1;
+        $productOrderSaved = $productOrder->save();
+
+        if ($productOrderSaved) {
+            $newBlockchainHistorical = new BlockchainHistorical();
+            $newBlockchainHistorical->user_id = $user->id;
+            $newBlockchainHistorical->memo = "Event Gift " . $productOrder->id;
+            $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+        }
+
+        return ($productOrderSaved)
+            ? response()->json($productOrder->toArray())
+            : response()->json('Error al guardar el regalo del evento.', 500);
     }
 
     protected function getProductOrderIdFromStripePaid($sig_header)

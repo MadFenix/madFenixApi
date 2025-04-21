@@ -86,6 +86,9 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
         Route::post('profile/setUserProfileReferredCodeFrom', 'Api@setUserProfileReferredCodeFrom');
         Route::post('profile/setUserProfileHederaWalletCheck', 'Api@setUserProfileHederaWalletCheck');
     });
+    Route::namespace('Event\\Infrastructure\\Controller')->group(function () {
+        Route::post('event/list', 'Api@index');
+    });
     Route::namespace('Game\\Fighter\\Infrastructure\\Controller')->group(function () {
         Route::get('fighter/getFighterUser', 'Api@getFighterUser');
         Route::post('fighter/setFighterUserDecks', 'Api@setFighterUserDecks');
@@ -139,6 +142,7 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     Route::namespace('Store\\Infrastructure\\Controller')->group(function () {
         Route::get('store/details', 'Api@getStoreDetails');
         Route::post('store/addProductToOrder', 'Api@addProductToOrder');
+        Route::post('store/addEventGiftToOrder', 'Api@addEventGiftToOrder');
         Route::get('store/getLastProductOrders', 'Api@getLastProductOrders');
     });
 

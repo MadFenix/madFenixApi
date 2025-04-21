@@ -15,6 +15,7 @@ class ProductOrder extends BaseDomain
         'product_id',
         'user_id',
         'payment_validated',
+        'is_gift',
     ];
 
     /**

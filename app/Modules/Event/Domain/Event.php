@@ -13,10 +13,11 @@ class Event extends BaseDomain
         'destinator_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'min:4', 'max:255'],
         'details' => ['required', 'string', 'min:8', 'max:2000'],
-        'reservated_at' => ['required', 'integer'],
+        'product_gift_delivered' => ['integer'],
+        'product_gift_id' => ['integer'],
     ];
 
-    protected $fillable = ['description', 'details', 'creator_id', 'destinator_id', 'reservated_at'];
+    protected $fillable = ['description', 'details', 'creator_id', 'destinator_id', 'start_at', 'start_at', 'end_at', 'read_at', 'product_gift_delivered', 'product_gift_id'];
 
     /**
      * The attributes that should be cast to native types.
@@ -24,7 +25,9 @@ class Event extends BaseDomain
      * @var array
      */
     protected $casts = [
-        'reservated_at' => 'datetime',
+        'start_at' => 'datetime',
+        'end_at' => 'datetime',
+        'read_at' => 'datetime',
     ];
 
     // RELATIONS
@@ -37,6 +40,11 @@ class Event extends BaseDomain
     public function destinator()
     {
         return $this->belongsTo('App\Modules\User\Domain\User', 'destinator_id');
+    }
+
+    public function product_gift()
+    {
+        return $this->belongsTo('App\Modules\Store\Domain\Product', 'product_gift_id');
     }
 
     // GETTERS
