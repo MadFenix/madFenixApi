@@ -245,6 +245,14 @@ class Api extends Controller
                                 }
                             });
                     }
+                    if (!empty($product->nft_serial_greater_equal)) {
+                        $nftIdentificationToAssociate = $nftIdentificationToAssociate
+                            ->where('nft_identification', '>=', $product->nft_serial_greater_equal);
+                    }
+                    if (!empty($product->nft_serial_less_equal)) {
+                        $nftIdentificationToAssociate = $nftIdentificationToAssociate
+                            ->where('nft_identification', '<=', $product->nft_serial_less_equal);
+                    }
                     $nftIdentificationToAssociate = $nftIdentificationToAssociate
                         ->first();
                     if (!$nftIdentificationToAssociate) {

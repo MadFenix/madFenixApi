@@ -18,6 +18,8 @@ class Product extends BaseDomain
         'plumas' => ['nullable', 'integer'],
         'nft_id' => ['nullable', 'integer', 'exists:nfts,id'],
         'rarity' => ['nullable', 'string'],
+        'nft_serial_greater_equal' => ['nullable', 'integer'],
+        'nft_serial_less_equal' => ['nullable', 'integer'],
         'custom' => ['nullable', 'string'],
         'one_time_purchase' => ['nullable', 'integer'],
     ];
@@ -35,6 +37,8 @@ class Product extends BaseDomain
         'plumas',
         'nft_id',
         'rarity',
+        'nft_serial_greater_equal',
+        'nft_serial_less_equal',
         'custom',
         'one_time_purchase',
     ];
