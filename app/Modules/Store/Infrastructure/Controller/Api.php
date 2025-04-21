@@ -196,11 +196,19 @@ class Api extends Controller
         $productOrder->payment_validated = true;
         $productOrderSaved = $productOrder->save();
 
+        $returnProductsOrdered = new \stdClass();
+        $returnProductsOrdered->video_purchase = $productOrder->product->video_purchase;
+        $returnProductsOrdered->oro = 0;
+        $returnProductsOrdered->plumas = 0;
+        $returnProductsOrdered->nfts = [];
+
         if ($productOrderSaved) {
             foreach ($products as $product) {
                 if ($product->oro > 0) {
                     $profile->oro += $product->oro;
                     $profileSaved = $profile->save();
+
+                    $returnProductsOrdered->oro = $product->oro;
 
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
@@ -216,6 +224,8 @@ class Api extends Controller
                 if ($product->plumas > 0) {
                     $profile->plumas += $product->plumas;
                     $profileSaved = $profile->save();
+
+                    $returnProductsOrdered->plumas = $product->plumas;
 
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
@@ -323,6 +333,8 @@ class Api extends Controller
                     $nftIdentificationToAssociate->user_id = $profile->user_id;
                     $nftIdentificationToAssociateSaved = $nftIdentificationToAssociate->save();
 
+                    $returnProductsOrdered->nfts[] = (object) $nftIdentificationToAssociate->toArray();
+
                     $newBlockchainHistorical = new BlockchainHistorical();
                     $newBlockchainHistorical->user_id = $profile->user_id;
                     $newBlockchainHistorical->nft_identification_id = $nftIdentificationToAssociate->id;
@@ -351,7 +363,7 @@ class Api extends Controller
         }
 
         return $productOrderSaved
-            ? response()->json('Pedido de producto guardado.')
+            ? response()->json($returnProductsOrdered)
             : response()->json('Error al guardar el perfil.', 500);
     }
 
