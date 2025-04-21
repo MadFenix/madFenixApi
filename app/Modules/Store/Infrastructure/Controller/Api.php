@@ -245,6 +245,23 @@ class Api extends Controller
                                 }
                             });
                     }
+                    if (!empty($product->tags)) {
+                        $tags = explode(',', $product->tags);
+                        $nftIdentificationToAssociate = $nftIdentificationToAssociate
+                            ->where(function ($query) use($tags) {
+                                $query->where('tag_1', '=', $tags[0]);
+                                $query->orWhere('tag_2', '=', $tags[0]);
+                                $query->orWhere('tag_3', '=', $tags[0]);
+                                foreach ($tags as $key => $tag) {
+                                    if (empty($key)) {
+                                        continue;
+                                    }
+                                    $query->orWhere('tag_1', '=', $tag);
+                                    $query->orWhere('tag_2', '=', $tag);
+                                    $query->orWhere('tag_3', '=', $tag);
+                                }
+                            });
+                    }
                     if (!empty($product->nft_serial_greater_equal)) {
                         $nftIdentificationToAssociate = $nftIdentificationToAssociate
                             ->where('nft_identification', '>=', $product->nft_serial_greater_equal);
