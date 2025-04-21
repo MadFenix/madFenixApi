@@ -18,7 +18,7 @@ class UpdateEvents2Table extends Migration
             $table->timestamp('start_at', 0)->nullable()->after('details');
             $table->timestamp('end_at', 0)->nullable()->after('start_at');
             $table->timestamp('read_at', 0)->nullable()->after('end_at');
-            $table->integer('product_gift_delivered')->nullable()->after('read_at');
+            $table->timestamp('product_gift_delivered')->nullable()->after('read_at');
             $table->unsignedBigInteger('product_gift_id')->nullable()->after('product_gift_delivered');
         });
         Schema::table('product_orders', function (Blueprint $table) {
