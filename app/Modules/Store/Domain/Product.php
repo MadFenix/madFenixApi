@@ -17,7 +17,9 @@ class Product extends BaseDomain
         'oro' => ['nullable', 'integer'],
         'plumas' => ['nullable', 'integer'],
         'nft_id' => ['nullable', 'integer', 'exists:nfts,id'],
+        'rarity' => ['nullable', 'string'],
         'custom' => ['nullable', 'string'],
+        'one_time_purchase' => ['nullable', 'integer'],
     ];
 
     protected $fillable = [
@@ -32,7 +34,9 @@ class Product extends BaseDomain
         'oro',
         'plumas',
         'nft_id',
+        'rarity',
         'custom',
+        'one_time_purchase',
     ];
 
     /**

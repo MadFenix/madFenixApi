@@ -28,10 +28,11 @@ class Api extends Controller
         if (!$product) {
             return response()->json('Producto no encontrado.', 404);
         }
+        if (empty($product->active)) {
+            return response()->json('Producto no activo.', 403);
+        }
 
-        if (in_array($product->id, [
-            23
-        ])) {
+        if (!empty($product->one_time_purchase) && $product->one_time_purchase == 1) {
             $productOrderOwner = ProductOrder::where('user_id', '=', $user->id)->where('product_id', '=', $product->id)->get();
             if ($productOrderOwner->count() > 0) {
                 return response()->json('Ya has comprado una vez este producto.', 404);
@@ -93,6 +94,11 @@ class Api extends Controller
 
         $newBlockchainHistorical->memo = "Order " . $productOrder->id . $memoBase;
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        if (!empty($product->one_time_purchase_global) && $productOrderSaved) {
+            $product->active = 0;
+            $product->save();
+        }
 
         return ($productOrderSaved && $blockchainHistoricalSaved)? $productOrder : false;
     }
@@ -225,11 +231,67 @@ class Api extends Controller
                 if ($product->nft_id > 0) {
                     $nftIdentificationToAssociate = NftIdentification::where('nft_id', '=', $product->nft_id)
                         ->whereNull('user_id')
-                        ->where('madfenix_ownership', '=', '1')
+                        ->where('madfenix_ownership', '=', '1');
+                    if (!empty($product->rarity)) {
+                        $rarities = explode(',', $product->rarity);
+                        $nftIdentificationToAssociate = $nftIdentificationToAssociate
+                            ->where(function ($query) use($rarities) {
+                                $query->where('rarity', '=', $rarities[0]);
+                                foreach ($rarities as $key => $rarity) {
+                                    if (empty($key)) {
+                                        continue;
+                                    }
+                                    $query->orWhere('rarity', '=', $rarities[0]);
+                                }
+                            });
+                    }
+                    $nftIdentificationToAssociate = $nftIdentificationToAssociate
                         ->first();
                     if (!$nftIdentificationToAssociate) {
                         $product->active = 0;
                         $product->save();
+
+                        // return paid tokens
+                        $newBlockchainHistorical = new BlockchainHistorical();
+                        $newBlockchainHistorical->user_id = $profile->user_id;
+                        $memoBase = '';
+
+                        if ($product->price_oro > 0) {
+                            $profile->oro += $product->price_oro;
+                            $profile->save();
+
+                            $newBlockchainHistorical->piezas_de_oro_ft = $product->price_oro;
+
+                            if ($profile->referred_code_from) {
+                                $profileWithSameReferredCode = Profile::where('referred_code', '=', $profile->referred_code_from)->first();
+                                if ($profileWithSameReferredCode) {
+                                    $oroToReferred = (int) ceil($product->price_oro / 10);
+
+                                    if ($oroToReferred > 1) {
+                                        $profileWithSameReferredCode->oro -= $oroToReferred;
+                                        $profileWithSameReferredCode->save();
+
+                                        $newBlockchainHistorical2 = new BlockchainHistorical();
+                                        $newBlockchainHistorical2->user_id = $profileWithSameReferredCode->user_id;
+                                        $newBlockchainHistorical2->piezas_de_oro_ft = -$oroToReferred;
+                                        $newBlockchainHistorical2->memo = "Refund Referred buy. User " . $profile->user_id;
+                                        $newBlockchainHistorical2->save();
+                                    }
+                                }
+                            }
+                        }
+
+                        if ($product->price_plumas > 0) {
+                            $profile->plumas += $product->price_plumas;
+                            $profile->save();
+
+                            $newBlockchainHistorical->plumas = $product->price_plumas;
+                        }
+
+                        $newBlockchainHistorical->memo = "Refund Order " . $productOrder->id . $memoBase;
+                        $newBlockchainHistorical->save();
+                        // end return paid tokens
+
                         return response()->json('No se ha encontrado el activo digital del pedido.', 404);
                     }
                     $nftIdentificationToAssociate->madfenix_ownership = false;
@@ -259,18 +321,6 @@ class Api extends Controller
                     if (!($profileSaved && $blockchainHistoricalSaved)) {
                         return response()->json('Error al canjear el pedido.', 500);
                     }
-                }
-
-                if (in_array($product->id, [
-                    21,
-                    22,
-                    24,
-                    25,
-                    26,
-                    27
-                ])) {
-                    $product->active = 0;
-                    $product->save();
                 }
             }
         }
