@@ -14,6 +14,7 @@ use App\Modules\Store\Domain\ProductOrder;
 use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
@@ -279,6 +280,7 @@ class Api extends Controller
                 }
 
                 if ($product->nft_id > 0) {
+                    DB::beginTransaction();
                     $nftIdentificationToAssociate = NftIdentification::where('nft_id', '=', $product->nft_id)
                         ->whereNull('user_id')
                         ->where('madfenix_ownership', '=', '1');
@@ -323,6 +325,7 @@ class Api extends Controller
                     $nftIdentificationToAssociate = $nftIdentificationToAssociate
                         ->first();
                     if (!$nftIdentificationToAssociate && empty($productOrder->is_gift)) {
+                        DB::rollBack();
                         foreach ($products as $productToDesactivate) {
                             $productToDesactivate->active = 0;
                             $productToDesactivate->save();
@@ -371,9 +374,14 @@ class Api extends Controller
 
                         return response()->json('No se ha encontrado el activo digital del pedido.', 404);
                     }
+                    if (!$nftIdentificationToAssociate) {
+                        DB::rollBack();
+                        return response()->json('No se ha encontrado el activo digital del pedido.', 404);
+                    }
                     $nftIdentificationToAssociate->madfenix_ownership = false;
                     $nftIdentificationToAssociate->user_id = $profile->user_id;
                     $nftIdentificationToAssociateSaved = $nftIdentificationToAssociate->save();
+                    DB::commit();
 
                     $returnProductsOrdered->nfts[] = (object) $nftIdentificationToAssociate->toArray();
 
