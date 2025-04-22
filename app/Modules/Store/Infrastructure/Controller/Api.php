@@ -58,7 +58,7 @@ class Api extends Controller
             if ($profile->referred_code_from) {
                 $profileWithSameReferredCode = Profile::where('referred_code', '=', $profile->referred_code_from)->first();
                 if ($profileWithSameReferredCode) {
-                    $oroToReferred = (int) ceil($product->price_oro / 20);
+                    $oroToReferred = (int) ceil(($product->price_oro / 10) * 2);
 
                     if ($oroToReferred > 1) {
                         $profileWithSameReferredCode->oro += $oroToReferred;
