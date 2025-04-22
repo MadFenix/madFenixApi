@@ -50,6 +50,12 @@ class Api extends ResourceController
             return response()->json('Ya has usado este cupon con tu usuario.', 403);
         }
 
+        $returnProductsOrdered = new \stdClass();
+        $returnProductsOrdered->video_purchase = '';
+        $returnProductsOrdered->oro = 0;
+        $returnProductsOrdered->plumas = 0;
+        $returnProductsOrdered->nfts = [];
+
         $couponUser = new CouponUser();
         $couponUser->user_id = $user->id;
         $couponUser->coupon_id = $coupon->id;
@@ -59,6 +65,8 @@ class Api extends ResourceController
         $coupon->save();
 
         $plumasToAdd = ceil($coupon->plumas * UserDragonCustodio::tokenMultiplier($profile));
+
+        $returnProductsOrdered->plumas += $plumasToAdd;
 
         $profile->plumas += $plumasToAdd;
         $profileSaved = $profile->save();
@@ -70,7 +78,7 @@ class Api extends ResourceController
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
         return $profileSaved && $blockchainHistoricalSaved
-            ? response()->json('Se han sumado las plumas al usuario.')
+            ? response()->json($returnProductsOrdered)
             : response()->json('Error al guardar el perfil.', 500);
     }
 
@@ -107,6 +115,12 @@ class Api extends ResourceController
             return response()->json('Ya has usado este cupon con tu usuario.', 403);
         }
 
+        $returnProductsOrdered = new \stdClass();
+        $returnProductsOrdered->video_purchase = '';
+        $returnProductsOrdered->oro = 0;
+        $returnProductsOrdered->plumas = 0;
+        $returnProductsOrdered->nfts = [];
+
         $couponUser = new CouponGoldUser();
         $couponUser->user_id = $user->id;
         $couponUser->coupon_id = $coupon->id;
@@ -116,6 +130,8 @@ class Api extends ResourceController
         $coupon->save();
 
         $oroToAdd = ceil($coupon->oro * UserDragonCustodio::tokenMultiplier($profile));
+
+        $returnProductsOrdered->oro += $oroToAdd;
 
         $profile->oro += $oroToAdd;
         $profileSaved = $profile->save();
@@ -127,7 +143,7 @@ class Api extends ResourceController
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
         return $profileSaved && $blockchainHistoricalSaved
-            ? response()->json('Se ha sumado el oro al usuario.')
+            ? response()->json($returnProductsOrdered)
             : response()->json('Error al guardar el perfil.', 500);
     }
 
@@ -163,6 +179,13 @@ class Api extends ResourceController
         if ($couponUser) {
             return response()->json('Ya has usado este cupon con tu usuario.', 403);
         }
+
+        $returnProductsOrdered = new \stdClass();
+        $returnProductsOrdered->video_purchase = '';
+        $returnProductsOrdered->oro = 0;
+        $returnProductsOrdered->plumas = 0;
+        $returnProductsOrdered->nfts = [];
+
         DB::beginTransaction();
         $nftIdentificationToAssociate = NftIdentification::where('nft_id', '=', $coupon->nft_id)
             ->whereNull('user_id')
@@ -217,6 +240,8 @@ class Api extends ResourceController
         $nftIdentificationToAssociate->save();
         DB::commit();
 
+        $returnProductsOrdered->nfts[] = (object) $nftIdentificationToAssociate->toArray();
+
         $couponUser = new CouponItemUser();
         $couponUser->user_id = $user->id;
         $couponUser->coupon_id = $coupon->id;
@@ -237,7 +262,7 @@ class Api extends ResourceController
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
         return $profileSaved && $blockchainHistoricalSaved
-            ? response()->json('Se ha sumado el oro al usuario.')
+            ? response()->json($returnProductsOrdered)
             : response()->json('Error al guardar el perfil.', 500);
     }
 
