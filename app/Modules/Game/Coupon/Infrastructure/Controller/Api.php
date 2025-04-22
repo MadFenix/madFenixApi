@@ -257,7 +257,7 @@ class Api extends ResourceController
 
         $newBlockchainHistorical = new BlockchainHistorical();
         $newBlockchainHistorical->user_id = $user->id;
-        $newBlockchainHistorical->nft_identification_id = $nftIdentificationToAssociate-id;
+        $newBlockchainHistorical->nft_identification_id = $nftIdentificationToAssociate->id;
         $newBlockchainHistorical->memo = "Coupon";
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
 
