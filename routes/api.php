@@ -108,6 +108,8 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
     Route::namespace('Game\\Coupon\\Infrastructure\\Controller')->group(function () {
         Route::post('coupon/usePlumasCoupon', 'Api@usePlumasCoupon');
         Route::post('coupon/useOroCoupon', 'Api@useOroCoupon');
+        Route::post('coupon/useItemCoupon', 'Api@useItemCoupon');
+        Route::post('coupon/useCoupon', 'Api@useCoupon');
     });
     Route::namespace('Game\\Poll\\Infrastructure\\Controller')->group(function () {
         Route::get('poll/pollDetails', 'Api@pollDetails');

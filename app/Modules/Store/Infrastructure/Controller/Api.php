@@ -323,6 +323,7 @@ class Api extends Controller
                             ->where('nft_identification', '<=', $product->nft_serial_less_equal);
                     }
                     $nftIdentificationToAssociate = $nftIdentificationToAssociate
+                        ->lockForUpdate()
                         ->first();
                     if (!$nftIdentificationToAssociate && empty($productOrder->is_gift)) {
                         DB::rollBack();
