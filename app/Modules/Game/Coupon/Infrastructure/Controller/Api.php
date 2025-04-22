@@ -173,7 +173,7 @@ class Api extends ResourceController
         if ($coupon->uses >= $coupon->max_uses) {
             return response()->json('Cupón gastado.', 403);
         }
-        $couponUser = CouponGoldUser::where('user_id', '=', $user->id)
+        $couponUser = CouponItemUser::where('user_id', '=', $user->id)
             ->where('coupon_id', '=', $coupon->id)
             ->first();
         if ($couponUser) {
