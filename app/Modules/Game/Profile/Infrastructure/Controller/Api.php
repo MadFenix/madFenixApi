@@ -324,6 +324,9 @@ class Api extends ResourceController
         if (!$profile) {
             return response()->json('Perfil del usuario no encontrado.', 404);
         }
+        if ($profile->season_level < 2) {
+            return response()->json('Para vincular un referido debes tener el nivel dos del pase de temporada.', 404);
+        }
         if ($profile->referred_code_from) {
             return response()->json('Ya tienes un código de referido.', 400);
         }

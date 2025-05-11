@@ -98,7 +98,7 @@ class Api extends ResourceController
             return response()->json('No se ha encontrado la poll.', 404);
         }
 
-        $cronistas = NftIdentification::where('nft_id', '=', 3)
+        $cronistas = NftIdentification::where('nft_id', '=', 34)
             ->where(function ($query) use($user) {
                 $query->where('user_id', '=', $user->id)
                     ->orWhere('user_id_hedera', '=', $user->id);
