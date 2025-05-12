@@ -3,11 +3,13 @@
 
 namespace App\Modules\User\Infrastructure\Controller;
 
+use App\Enums\EmployeePosition;
 use App\Http\Controllers\Controller;
 use App\Mail\DeleteAccount;
 use App\Modules\Base\Infrastructure\Service\AccountManager;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Wallet\Domain\Wallet;
+use App\Modules\EmployeeManager\Domain\Employee;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\Identification;
 use App\Modules\User\Domain\User;
@@ -166,6 +168,16 @@ class Api extends Controller
         $newBlockchainHistorical->plumas = 2;
         $newBlockchainHistorical->memo = "Register";
         $blockchainHistoricalSaved = $newBlockchainHistorical->save();
+
+        if ($accountCreated) {
+            $employee = new Employee();
+            $employee->user_id = $user->id;
+            $employee->name = $data['name'];
+            $employee->email = $data['email'];
+            $employee->position = EmployeePosition::fromName('MANAGER');
+            $employee->phone_number = '';
+            $employee->save();
+        }
 
         return response()->json('User registered');
     }
