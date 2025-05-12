@@ -61,6 +61,11 @@ Route::prefix('/{account}')->group(function () {
 
     // Usual routes authed
     Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function () {
+        Route::namespace('EmployeeManager\\Infrastructure\\Controller')->group(function () {
+            Route::get('/user-is-manager', 'EmployeeController@userIsManager')->name('user-is-manager');
+            Route::get('/user-is-employee', 'EmployeeController@userIsEmployee')->name('user-is-employee');
+        });
+
         Route::namespace('User\\Infrastructure\\Controller')->group(function () {
             Route::post('linkWallet', 'Api@linkWallet');
             Route::post('setIP', 'Api@setIP');
