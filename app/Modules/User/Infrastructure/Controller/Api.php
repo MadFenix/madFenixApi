@@ -5,9 +5,11 @@ namespace App\Modules\User\Infrastructure\Controller;
 
 use App\Http\Controllers\Controller;
 use App\Mail\DeleteAccount;
+use App\Modules\Base\Infrastructure\Service\AccountManager;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Wallet\Domain\Wallet;
 use App\Modules\Game\Profile\Domain\Profile;
+use App\Modules\User\Domain\Identification;
 use App\Modules\User\Domain\User;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\PasswordReset;
@@ -15,6 +17,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -33,6 +36,11 @@ class Api extends Controller
      */
     public function login(Request $request)
     {
+        $account = $request->route('account');
+        if (empty($account)) {
+            return response()->json('Account not found', 500);
+        }
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -86,8 +94,13 @@ class Api extends Controller
      * @return JsonResponse
      * @throws
      */
-    public function logout()
+    public function logout(Request $request)
     {
+        $account = $request->route('account');
+        if (empty($account)) {
+            return response()->json('Account not found', 500);
+        }
+
         auth()->user()->tokens()->delete();
 
         return response()->json('Exit to logout');
@@ -99,6 +112,32 @@ class Api extends Controller
      */
     public function register(Request $request)
     {
+        $account = $request->route('account');
+        if (empty($account)) {
+            return response()->json('Account not found', 500);
+        }
+
+        $checkExistIdentification = Identification::where('account', strtolower($account))->first();
+
+        $accountCreated = false;
+        if (!$checkExistIdentification) {
+            try {
+                $accountCreated = AccountManager::createAccount($account);
+            } catch (\Exception $e) {
+                return response()->json('Error to create account ' . $e->getMessage(), 500);
+            }
+            if (!$accountCreated) {
+                return response()->json('Error to create account', 500);
+            }
+        }
+        $accountConnected = AccountManager::connectToAccount($request);
+        if ($accountCreated && $accountConnected) {
+            Artisan::call('migrate', [
+                '--database' => 'tenant',
+                '--force'    => true, // Obligatorio para evitar confirmaciones en producción
+            ]);
+        }
+
         $data = $request->validate(User::VALIDATION_COTNEXT);
 
         event(new Registered($user = User::create([
@@ -115,9 +154,9 @@ class Api extends Controller
 
         $profile = new Profile();
         $profile->user_id = $user->id;
-        $profile->description = 'Aprendiz de Névoran';
+        $profile->description = 'Aprendiz';
         $profile->details = '';
-        $profile->avatar = 'https://colecciones.madfenix.com/avatares/gratis/tiefling_bard.jpg';
+        $profile->avatar = '';
         $profile->plumas = 2;
         $profile->oro = 0;
         $profile->save();
