@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Modules\Blockchain\Wallet\Transformers;
+namespace App\Modules\Game\Poll\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
-use App\Modules\Blockchain\Wallet\Domain\Wallet as WalletModel;
+use App\Modules\Game\Poll\Domain\Poll as PollModel;
 
 class Poll extends BaseTransformer
 {
     /**
      * The resource instance.
      *
-     * @var mixed|WalletModel
+     * @var mixed|PollModel
      */
     public $resource;
 
