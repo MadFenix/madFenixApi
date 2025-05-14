@@ -27,7 +27,7 @@ class Api
             throw new \Exception('Wallet not found.');
         }
 
-        return response()->json(new \App\Modules\Blockchain\Wallet\Transformers\Wallet($wallet));
+        return response()->json(new \App\Modules\Blockchain\Wallet\Transformers\Poll($wallet));
     }
 
     /**

@@ -2,6 +2,10 @@
 
 namespace App\Modules\Base\Infrastructure\Controller;
 
+use App\Exceptions\ForbiddenException;
+use App\Exceptions\NotFoundException;
+use App\Exceptions\ServerErrorException;
+use App\Exceptions\ValidationErrorException;
 use App\Http\Controllers\Controller;
 use App\Modules\Base\Domain\BaseDomain;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -14,6 +18,29 @@ use Illuminate\Validation\ValidationException;
 abstract class ResourceController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function formatExceptionError(Throwable $e)
+    {
+
+        $message = $e->getMessage();
+
+        if ($e instanceof NotFoundException) {
+            $status = 404;
+        } else if ($e instanceof ForbiddenException) {
+            $status = 403;
+        } else if ($e instanceof ServerErrorException) {
+            $status = 500;
+        } else if ($e instanceof ValidationErrorException) {
+            $status = 422;
+        } else {
+            $status = 500;
+        }
+
+        return response()->json([
+            "message" => $message,
+            "status" => $status
+        ], $status);
+    }
 
     /**
      * Display a listing of the resource.
@@ -33,18 +60,22 @@ abstract class ResourceController extends Controller
      */
     public function store()
     {
-        $modelClass = $this->getModelClass();
-        $transformerClass = $this->getTransformerClass();
-        /** @var BaseDomain $model */
-        $model = new $modelClass();
-        $validator = Validator::make(request()->all(), $model->getValidationContext());
+        try {
+            $modelClass = $this->getModelClass();
+            $transformerClass = $this->getTransformerClass();
+            /** @var BaseDomain $model */
+            $model = new $modelClass();
+            $validator = Validator::make(request()->all(), $model->getValidationContext());
 
-        if ($validator->fails()) {
-            throw ValidationException::withMessages($validator->errors()->toArray());
+            if ($validator->fails()) {
+                throw ValidationException::withMessages($validator->errors()->toArray());
+            }
+
+            $model = new $modelClass(request()->all());
+            $model->save();
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
         }
-
-        $model = new $modelClass(request()->all());
-        $model->save();
 
         return response()->json(new $transformerClass($model));
     }
@@ -57,8 +88,12 @@ abstract class ResourceController extends Controller
      */
     public function show($id)
     {
-        $transformerClass = $this->getTransformerClass();
-        $model = ($this->getModelClass())::findOrFail($id);
+        try {
+            $transformerClass = $this->getTransformerClass();
+            $model = ($this->getModelClass())::findOrFail($id);
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
 
         return response()->json(new $transformerClass($model));
     }
@@ -72,16 +107,20 @@ abstract class ResourceController extends Controller
      */
     public function update($id)
     {
-        $transformerClass = $this->getTransformerClass();
-        /** @var BaseDomain $model */
-        $model = ($this->getModelClass())::findOrFail($id);
-        $validator = Validator::make(request()->all(), $model->getValidationContext());
+        try {
+            $transformerClass = $this->getTransformerClass();
+            /** @var BaseDomain $model */
+            $model = ($this->getModelClass())::findOrFail($id);
+            $validator = Validator::make(request()->all(), $model->getValidationContext());
 
-        if ($validator->fails()) {
-            throw ValidationException::withMessages($validator->errors()->toArray());
+            if ($validator->fails()) {
+                throw ValidationException::withMessages($validator->errors()->toArray());
+            }
+
+            $model->update(request()->all());
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
         }
-
-        $model->update(request()->all());
 
         return response()->json(new $transformerClass($model));
     }
@@ -94,8 +133,12 @@ abstract class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        /** @var BaseDomain $model */
-        $model = ($this->getModelClass())::findOrFail($id);
+        try {
+            /** @var BaseDomain $model */
+            $model = ($this->getModelClass())::findOrFail($id);
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
 
         return response()->json($model->remove());
     }

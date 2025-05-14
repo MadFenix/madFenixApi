@@ -61,6 +61,15 @@ Route::prefix('/{account}')->group(function () {
 
     // Usual routes authed
     Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function () {
+        Route::prefix('/manager')->group(function () {
+            Route::middleware('manager')->group(function () {
+                Route::apiResource('poll', 'Game\\Poll\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
+            });
+            Route::middleware('employee')->group(function () {
+                // TODO endpoints to ambassadors
+            });
+        });
+
         Route::namespace('EmployeeManager\\Infrastructure\\Controller')->group(function () {
             Route::get('/user-is-manager', 'EmployeeController@userIsManager')->name('user-is-manager');
             Route::get('/user-is-employee', 'EmployeeController@userIsEmployee')->name('user-is-employee');
