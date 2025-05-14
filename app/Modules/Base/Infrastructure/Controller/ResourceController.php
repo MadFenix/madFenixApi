@@ -138,13 +138,21 @@ abstract class ResourceController extends Controller
     public function destroy($account, $id)
     {
         try {
-            /** @var BaseDomain $model */
-            $model = ($this->getModelClass())::findOrFail($id);
+            if (!is_array($id)) {
+                $id = [$id];
+            }
+            $response = [];
+            foreach ($id as $idValue) {
+                /** @var BaseDomain $model */
+                $model = ($this->getModelClass())::findOrFail($idValue);
+
+                $response[] = $model->remove();
+            }
         } catch (\Throwable $th) {
             return $this->formatExceptionError($th);
         }
 
-        return response()->json($model->remove());
+        return response()->json($response);
     }
 
     abstract protected function getModelName(): string;
