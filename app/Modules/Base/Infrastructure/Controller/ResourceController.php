@@ -84,10 +84,11 @@ abstract class ResourceController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  string  $account
      * @param  int  $id
      * @return JsonResponse
      */
-    public function show($id)
+    public function show($account, $id)
     {
         try {
             $transformerClass = $this->getTransformerClass();
@@ -102,11 +103,12 @@ abstract class ResourceController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * @param  string  $account
      * @param  int  $id
      * @return JsonResponse
      * @throws
      */
-    public function update($id)
+    public function update($account, $id)
     {
         try {
             $transformerClass = $this->getTransformerClass();
@@ -129,10 +131,11 @@ abstract class ResourceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  string  $account
      * @param  int  $id
      * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($account, $id)
     {
         try {
             /** @var BaseDomain $model */
