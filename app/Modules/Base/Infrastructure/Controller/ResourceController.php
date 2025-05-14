@@ -132,11 +132,12 @@ abstract class ResourceController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  string  $account
-     * @param  int  $id
      * @return JsonResponse
      */
-    public function destroy($account, $id)
+    public function destroy($account, $id = null, Request $request)
     {
+        $id = $id ?? $request->input('id');
+
         try {
             if (!is_array($id)) {
                 $id = [$id];
