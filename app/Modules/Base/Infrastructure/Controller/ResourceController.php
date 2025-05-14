@@ -135,9 +135,9 @@ abstract class ResourceController extends Controller
      * @param  string  $account
      * @return JsonResponse
      */
-    public function destroy($account, $id = null, Request $request)
+    public function destroy($account, Request $request)
     {
-        $id = $id ?? $request->input('id');
+        $id = $request->route('id') ?? $request->input('id') ?? $request->query('id');
 
         try {
             if (!is_array($id)) {
