@@ -65,6 +65,7 @@ Route::prefix('/{account}')->group(function () {
             Route::middleware('manager')->group(function () {
                 Route::apiResource('poll', 'Game\\Poll\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/poll', 'Game\\Poll\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/poll/download', 'Game\\Poll\\Infrastructure\\Controller\\Api@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors

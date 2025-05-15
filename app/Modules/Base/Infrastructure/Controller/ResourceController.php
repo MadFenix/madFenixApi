@@ -15,6 +15,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Throwable;
 
 abstract class ResourceController extends Controller
@@ -44,12 +46,7 @@ abstract class ResourceController extends Controller
         ], $status);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return JsonResponse
-     */
-    public function index(Request $request)
+    protected function getData(Request $request, $withoutLimit = false)
     {
         // Define and apply validation rules
         $rules = [
@@ -87,7 +84,10 @@ abstract class ResourceController extends Controller
         $totaData = $query->count();
 
         // Apply pagination
-        $paginated = $query->skip($page * $limit)->take($limit)->get();
+        if (!$withoutLimit) {
+            $query = $query->skip($page * $limit)->take($limit)->get();
+        }
+        $paginated = $query->get();
 
         $return = new \stdClass();
         $return->data = ($this->getTransformerClass())::collection($paginated);
@@ -98,8 +98,75 @@ abstract class ResourceController extends Controller
         $return->metadata->filter = $filter;
         $return->metadata->sorting = $sorting;
 
+        return $return;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function index(Request $request)
+    {
+        /** @var \stdClass|JsonResponse $data */
+        $data = $this->getData($request);
+
+        if ($data instanceof JsonResponse) {
+            return $data;
+        }
+
         // Return transformed and paginated results
-        return response()->json($return);
+        return response()->json($data);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse|StreamedResponse
+     */
+    public function download(Request $request)
+    {
+        $rules = [
+            'type' => 'string'
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // Check for validation errors and return a custom JSON response if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $validated = $validator->valid();
+
+        /** @var \stdClass|JsonResponse $data */
+        $data = $this->getData($request, true);
+
+        if ($data instanceof JsonResponse) {
+            return $data;
+        }
+        /** @var \stdClass $data */
+
+        if ($validated['type'] == 'csv') {
+            $instance = new ($this->getModelClass())(); // alternativamente, podría recuperar una instancia de la base de datos
+            $arrayRepresentation = $instance->toArray();
+            $headers = array_keys($arrayRepresentation);
+
+            // Return transformed and paginated results
+            return response()->streamDownload(function () use ($data, $headers) {
+                $output = fopen('php://output', 'w');
+                fputcsv($output, $headers);
+
+                foreach ($data->data as $row) {
+                    fputcsv($output, $row);
+                }
+
+                fclose($output);
+            }, 'list-' . strtolower($this->getModelName()) . '.csv');
+        }
+        //elseif ($validated['type'] == 'json') {
+
+        return response()->json($data->data);
     }
 
     /**
