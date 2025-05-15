@@ -152,7 +152,7 @@ abstract class ResourceController extends Controller
             if (!empty($data->data)) {
                 $instance = $data->data->first();
             }
-            $arrayRepresentation = $instance->toArray();
+            $arrayRepresentation = (array) $instance;
             $headers = array_keys($arrayRepresentation);
 
             // Return transformed and paginated results
