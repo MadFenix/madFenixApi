@@ -22,8 +22,7 @@ class Poll extends BaseTransformer
      */
     public function toArray($request)
     {
-        return [
-            $this->merge(parent::toArray($request)),
+        return $this->merge(parent::toArray($request),[
             'user' => new BaseTransformer($this->user),
             'name' => $this->name,
             'portrait_image' => $this->portrait_image,
@@ -31,6 +30,6 @@ class Poll extends BaseTransformer
             'answers' => $this->answers,
             'start_date' => $this->start_date->format('Y-m-d H:i:s'),
             'end_date' => $this->end_date->format('Y-m-d H:i:s'),
-        ];
+        ]);
     }
 }
