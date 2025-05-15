@@ -49,9 +49,38 @@ abstract class ResourceController extends Controller
      *
      * @return JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::orderBy('created_at', 'desc')->get()));
+        // Define and apply validation rules
+        $rules = [
+            'page'    => 'integer|min:0',
+            'limit'   => 'integer|min:1|max:100',
+            'filter'  => 'string|max:255',
+            'sorting' => 'string'
+        ];
+
+        $validated = $request->validate($rules);
+
+        // Retrieve query parameters and set defaults
+        $page = $validated['page'] ?? 0;
+        $limit = $validated['limit'] ?? 5;
+        $filter = $validated['filter'] ?? '';
+        $sorting = $validated['sorting'] ?? 'created_at:desc';
+        list($sortColumn, $sortDirection) = explode(':', $sorting);
+
+        // The main model query
+        $query = ($this->getModelClass())::orderBy($sortColumn, $sortDirection);
+
+        // Apply filtering
+        if(!empty($filter)){
+            $query = $query->where('name', 'like', '%' . $filter . '%');
+        }
+
+        // Apply pagination
+        $paginated = $query->skip($page * $limit)->take($limit)->get();
+
+        // Return transformed and paginated results
+        return response()->json(($this->getTransformerClass())::collection($paginated));
     }
 
     /**
