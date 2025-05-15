@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 // If Laravel >= 5.2 then delete 'use' and 'implements' of deprecated Middleware interface.
 class AddGodotCorsHeaders
@@ -16,8 +17,11 @@ class AddGodotCorsHeaders
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $response = $next($request);
-        $response->header('Cross-Origin-Opener-Policy', 'same-origin');
-        $response->header('Cross-Origin-Embedder-Policy', 'require-corp');
+
+        if (!($next instanceof StreamedResponse)) {
+            $response->header('Cross-Origin-Opener-Policy', 'same-origin');
+            $response->header('Cross-Origin-Embedder-Policy', 'require-corp');
+        }
 
         return $response;
     }
