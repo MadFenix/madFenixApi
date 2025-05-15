@@ -66,6 +66,8 @@ abstract class ResourceController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
+        $validated = $validator->valid();
+
         // Retrieve query parameters and set defaults
         $page = $validated['page'] ?? 0;
         $limit = $validated['limit'] ?? 5;
