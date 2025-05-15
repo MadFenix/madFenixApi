@@ -161,7 +161,11 @@ abstract class ResourceController extends Controller
                 fputcsv($output, $headers);
 
                 foreach ($data->data as $row) {
-                    fputcsv($output, $row->toArray($request));
+                    $dataRow = $row->toArray($request);
+                    $dataRow = array_walk_recursive($dataRow, function(&$value) {
+                        $value = str_replace('"', '\\"', $value);
+                    });
+                    fputcsv($output, $dataRow);
                 }
 
                 fclose($output);
