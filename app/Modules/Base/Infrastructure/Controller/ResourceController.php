@@ -165,7 +165,7 @@ abstract class ResourceController extends Controller
                 }
 
                 fclose($output);
-            }, 'list-' . strtolower($this->getModelName()) . '.csv');
+            }, 'list-' . str_replace(['/','\\'], '_', strtolower($this->getModelName())) . '.csv');
         }
         //elseif ($validated['type'] == 'json') {
 
