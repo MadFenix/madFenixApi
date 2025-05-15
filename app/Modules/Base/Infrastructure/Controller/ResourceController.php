@@ -85,7 +85,7 @@ abstract class ResourceController extends Controller
 
         // Apply pagination
         if (!$withoutLimit) {
-            $query = $query->skip($page * $limit)->take($limit)->get();
+            $query = $query->skip($page * $limit)->take($limit);
         }
         $paginated = $query->get();
 
