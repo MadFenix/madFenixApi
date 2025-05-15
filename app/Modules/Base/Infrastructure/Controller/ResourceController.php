@@ -148,8 +148,10 @@ abstract class ResourceController extends Controller
         /** @var \stdClass $data */
 
         if ($validated['type'] == 'csv') {
-            $modelClass = $this->getModelClass();
-            $instance = new $modelClass(); // alternativamente, podría recuperar una instancia de la base de datos
+            $instance = new \stdClass();
+            if (!empty($data->data[0])) {
+                $instance = $data->data[0];
+            }
             $arrayRepresentation = $instance->toArray();
             $headers = array_keys($arrayRepresentation);
 
