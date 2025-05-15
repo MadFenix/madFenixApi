@@ -158,7 +158,7 @@ abstract class ResourceController extends Controller
                 fputcsv($output, $headers);
 
                 foreach ($data->data as $row) {
-                    fputcsv($output, implode(',', $row));
+                    fputcsv($output, $row->toArray());
                 }
 
                 fclose($output);
