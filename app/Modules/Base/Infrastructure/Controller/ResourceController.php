@@ -55,7 +55,7 @@ abstract class ResourceController extends Controller
         $rules = [
             'page'    => 'integer|min:0',
             'limit'   => 'integer|min:1|max:100',
-            'filter'  => 'string|max:255',
+            'filter'  => 'nullable|string|max:255',
             'sorting' => 'string'
         ];
 
