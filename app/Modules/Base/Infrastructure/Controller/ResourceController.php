@@ -53,10 +53,10 @@ abstract class ResourceController extends Controller
     {
         // Define and apply validation rules
         $rules = [
-            'page'    => 'integer|min:0',
-            'limit'   => 'integer|min:1|max:100',
+            'page'    => 'nullable|integer|min:0',
+            'limit'   => 'nullable|integer|min:1|max:100',
             'filter'  => 'nullable|string|max:255',
-            'sorting' => 'string'
+            'sorting' => 'nullable|string'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -86,8 +86,16 @@ abstract class ResourceController extends Controller
         // Apply pagination
         $paginated = $query->skip($page * $limit)->take($limit)->get();
 
+        $return = new \stdClass();
+        $return->data = ($this->getTransformerClass())::collection($paginated);
+        $return->metadata = new \stdClass();
+        $return->metadata->page = $page;
+        $return->metadata->limit = $limit;
+        $return->metadata->filter = $filter;
+        $return->metadata->sorting = $sorting;
+
         // Return transformed and paginated results
-        return response()->json(($this->getTransformerClass())::collection($paginated));
+        return response()->json($return);
     }
 
     /**
