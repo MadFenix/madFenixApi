@@ -23,7 +23,6 @@ class Poll extends BaseTransformer
     public function toArray($request)
     {
         return array_merge(parent::toArray($request),[
-            'user' => new BaseTransformer($this->user),
             'name' => $this->name,
             'portrait_image' => $this->portrait_image,
             'featured_image' => $this->featured_image,
