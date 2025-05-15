@@ -152,16 +152,16 @@ abstract class ResourceController extends Controller
             if (!empty($data->data)) {
                 $instance = $data->data->first();
             }
-            $arrayRepresentation = (array) $instance;
+            $arrayRepresentation = $instance->toArray($request);
             $headers = array_keys($arrayRepresentation);
 
             // Return transformed and paginated results
-            return response()->streamDownload(function () use ($data, $headers) {
+            return response()->streamDownload(function () use ($data, $headers, $request) {
                 $output = fopen('php://output', 'w');
                 fputcsv($output, $headers);
 
                 foreach ($data->data as $row) {
-                    fputcsv($output, (array) $row);
+                    fputcsv($output, $row->toArray($request));
                 }
 
                 fclose($output);
