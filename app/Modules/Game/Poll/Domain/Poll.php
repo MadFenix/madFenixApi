@@ -11,7 +11,7 @@ class Poll extends BaseDomain
         'description' => ['string'],
         'portrait_image' => ['string'],
         'featured_image' => ['string'],
-        'answers' => ['string'],
+        'answers' => ['nullable', 'string'],
         'start_date' => ['required', 'date'],
         'end_date' => ['required', 'date'],
     ];
