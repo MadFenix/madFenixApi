@@ -83,6 +83,9 @@ abstract class ResourceController extends Controller
             $query = $query->where('name', 'like', '%' . $filter . '%');
         }
 
+        // Get the total count
+        $totaData = $query->count();
+
         // Apply pagination
         $paginated = $query->skip($page * $limit)->take($limit)->get();
 
@@ -91,6 +94,7 @@ abstract class ResourceController extends Controller
         $return->metadata = new \stdClass();
         $return->metadata->page = $page;
         $return->metadata->limit = $limit;
+        $return->metadata->totaData = $totaData;
         $return->metadata->filter = $filter;
         $return->metadata->sorting = $sorting;
 
