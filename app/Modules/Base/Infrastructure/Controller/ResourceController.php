@@ -149,8 +149,8 @@ abstract class ResourceController extends Controller
 
         if ($validated['type'] == 'csv') {
             $instance = new \stdClass();
-            if (!empty($data->data[0])) {
-                $instance = $data->data[0];
+            if (!empty($data->data)) {
+                $instance = $data->data->first();
             }
             $arrayRepresentation = $instance->toArray();
             $headers = array_keys($arrayRepresentation);
