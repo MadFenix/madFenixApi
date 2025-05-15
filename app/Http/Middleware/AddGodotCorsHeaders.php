@@ -18,7 +18,7 @@ class AddGodotCorsHeaders
     {
         $response = $next($request);
 
-        if (!($next instanceof StreamedResponse)) {
+        if (!($response instanceof StreamedResponse)) {
             $response->header('Cross-Origin-Opener-Policy', 'same-origin');
             $response->header('Cross-Origin-Embedder-Policy', 'require-corp');
         }
