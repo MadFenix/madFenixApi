@@ -59,7 +59,12 @@ abstract class ResourceController extends Controller
             'sorting' => 'string'
         ];
 
-        $validated = $request->validate($rules);
+        $validator = Validator::make($request->all(), $rules);
+
+        // Check for validation errors and return a custom JSON response if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
 
         // Retrieve query parameters and set defaults
         $page = $validated['page'] ?? 0;
