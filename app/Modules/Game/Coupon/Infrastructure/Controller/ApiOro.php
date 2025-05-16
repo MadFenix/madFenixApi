@@ -11,4 +11,9 @@ class ApiOro extends ResourceController
     {
         return 'Game\\CouponGold';
     }
+
+    protected function getNameParameter(): string
+    {
+        return 'coupon';
+    }
 }

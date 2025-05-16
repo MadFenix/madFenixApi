@@ -26,6 +26,11 @@ class Api extends ResourceController
         return 'Game\\Coupon';
     }
 
+    protected function getNameParameter(): string
+    {
+        return 'coupon';
+    }
+
     protected function usePlumasCouponFunctionality($couponString, $user)
     {
         $profile = Profile::where('user_id', '=', $user->id)->first();

@@ -23,6 +23,11 @@ abstract class ResourceController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    protected function getNameParameter(): string
+    {
+        return 'name';
+    }
+
     public function formatExceptionError(Throwable $e)
     {
 
@@ -77,7 +82,7 @@ abstract class ResourceController extends Controller
 
         // Apply filtering
         if(!empty($filter)){
-            $query = $query->where('name', 'like', '%' . $filter . '%');
+            $query = $query->where($this->getNameParameter(), 'like', '%' . $filter . '%');
         }
 
         // Get the total count

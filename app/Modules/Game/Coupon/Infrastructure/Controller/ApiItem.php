@@ -11,4 +11,9 @@ class ApiItem extends ResourceController
     {
         return 'Game\\CouponItem';
     }
+
+    protected function getNameParameter(): string
+    {
+        return 'coupon';
+    }
 }
