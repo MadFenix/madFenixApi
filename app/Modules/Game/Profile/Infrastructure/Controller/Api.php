@@ -48,7 +48,7 @@ class Api extends ResourceController
         foreach ($records as $record) {
             $profile = Profile::where('user_id', '=', $record->user_id)->first();
             $return->plumasLast10Changes[] = [
-                'username' => $record->user()->name,
+                'username' => $record->user->name,
                 'avatar' => $profile->avatar,
                 'state' => $profile->description,
                 'plumas' => $record->plumas,
