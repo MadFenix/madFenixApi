@@ -57,17 +57,17 @@ class Api extends ResourceController
             ];
         }
 
-        $return->totalORoLast10Days = new \stdClass();
-        $return->totalORoLast10Days->todayMinus0 = BlockchainHistorical::whereDate('created_at', Carbon::today())->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus1 = BlockchainHistorical::whereDate('created_at', Carbon::yesterday())->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus2 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(2))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus3 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(3))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus4 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(4))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus5 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(5))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus6 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(6))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus7 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(7))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus8 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(8))->sum('piezas_de_oro_ft');
-        $return->totalORoLast10Days->todayMinus9 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(9))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days = new \stdClass();
+        $return->totalOroLast10Days->todayMinus0 = BlockchainHistorical::whereDate('created_at', Carbon::today())->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus1 = BlockchainHistorical::whereDate('created_at', Carbon::yesterday())->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus2 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(2))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus3 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(3))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus4 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(4))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus5 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(5))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus6 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(6))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus7 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(7))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus8 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(8))->sum('piezas_de_oro_ft');
+        $return->totalOroLast10Days->todayMinus9 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(9))->sum('piezas_de_oro_ft');
 
         $return->oroLast10Changes = [];
         $records = BlockchainHistorical::where('piezas_de_oro_ft', '!=', 0)
