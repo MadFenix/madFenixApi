@@ -75,7 +75,7 @@ class Api extends ResourceController
             ->get();
         foreach ($records as $record) {
             $profile = Profile::where('user_id', '=', $record->user_id)->first();
-            $return->plumasLast10Changes[] = [
+            $return->oroLast10Changes[] = [
                 'username' => $record->user->name,
                 'avatar' => $profile->avatar,
                 'state' => $profile->description,
