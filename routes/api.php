@@ -66,6 +66,16 @@ Route::prefix('/{account}')->group(function () {
                 Route::apiResource('poll', 'Game\\Poll\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/poll', 'Game\\Poll\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/poll-download', 'Game\\Poll\\Infrastructure\\Controller\\Api@download');
+
+                Route::apiResource('coupon-free', 'Game\\Coupon\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/coupon-free', 'Game\\Coupon\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/coupon-free-download', 'Game\\Coupon\\Infrastructure\\Controller\\Api@download');
+                Route::apiResource('coupon-payment', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/coupon-payment', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@destroy');
+                Route::get('/coupon-payment-download', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@download');
+                Route::apiResource('coupon-items', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/coupon-items', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@destroy');
+                Route::get('/coupon-items-download', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors

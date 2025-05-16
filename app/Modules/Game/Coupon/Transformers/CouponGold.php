@@ -3,14 +3,14 @@
 namespace App\Modules\Game\Coupon\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
-use App\Modules\Game\Coupon\Domain\Coupon as CouponModel;
+use App\Modules\Game\Coupon\Domain\CouponGold as CouponGoldModel;
 
-class Coupon extends BaseTransformer
+class CouponGold extends BaseTransformer
 {
     /**
      * The resource instance.
      *
-     * @var mixed|CouponModel
+     * @var mixed|CouponGoldModel
      */
     public $resource;
 
@@ -26,7 +26,7 @@ class Coupon extends BaseTransformer
             'coupon' => $this->coupon,
             'uses' => $this->uses,
             'max_uses' => $this->max_uses,
-            'plumas' => $this->plumas,
+            'oro' => $this->oro,
             'start_date' => $this->start_date->format('Y-m-d H:i:s'),
             'end_date' => $this->end_date->format('Y-m-d H:i:s'),
         ]);
