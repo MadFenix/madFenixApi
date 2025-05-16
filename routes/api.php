@@ -63,6 +63,8 @@ Route::prefix('/{account}')->group(function () {
     Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function () {
         Route::prefix('/manager')->group(function () {
             Route::middleware('manager')->group(function () {
+                Route::get('/admin-dashboard', 'Game\\Profile\\Infrastructure\\Controller\\Api@adminDashboard');
+
                 Route::apiResource('poll', 'Game\\Poll\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/poll', 'Game\\Poll\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/poll-download', 'Game\\Poll\\Infrastructure\\Controller\\Api@download');

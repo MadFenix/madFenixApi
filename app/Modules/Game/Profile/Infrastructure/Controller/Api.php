@@ -22,6 +22,71 @@ class Api extends ResourceController
         return 'Game\\Profile';
     }
 
+    public function adminDashboard()
+    {
+        $return = new \stdClass();
+        $return->totalPlumas = Profile::sum('plumas') + Profile::sum('plumas_hedera');
+        $return->totalOro = Profile::sum('oro') + Profile::sum('oro_hedera');
+
+        $return->totalPlumasLast10Days = new \stdClass();
+        $return->totalPlumasLast10Days->todayMinus0 = BlockchainHistorical::whereDate('created_at', Carbon::today())->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus1 = BlockchainHistorical::whereDate('created_at', Carbon::yesterday())->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus2 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(2))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus3 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(3))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus4 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(4))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus5 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(5))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus6 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(6))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus7 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(7))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus8 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(8))->sum('plumas');
+        $return->totalPlumasLast10Days->todayMinus9 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(9))->sum('plumas');
+
+        $return->plumasLast10Changes = [];
+        $records = BlockchainHistorical::where('plumas', '!=', 0)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+        foreach ($records as $record) {
+            $profile = Profile::where('user_id', '=', $record->user_id)->first();
+            $return->plumasLast10Changes[] = [
+                'username' => $record->user()->name,
+                'avatar' => $profile->avatar,
+                'state' => $profile->description,
+                'plumas' => $record->plumas,
+                'created_at' => $record->created_at,
+            ];
+        }
+
+        $return->totalORoLast10Days = new \stdClass();
+        $return->totalORoLast10Days->todayMinus0 = BlockchainHistorical::whereDate('created_at', Carbon::today())->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus1 = BlockchainHistorical::whereDate('created_at', Carbon::yesterday())->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus2 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(2))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus3 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(3))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus4 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(4))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus5 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(5))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus6 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(6))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus7 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(7))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus8 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(8))->sum('piezas_de_oro_ft');
+        $return->totalORoLast10Days->todayMinus9 = BlockchainHistorical::whereDate('created_at', Carbon::now()->subDays(9))->sum('piezas_de_oro_ft');
+
+        $return->oroLast10Changes = [];
+        $records = BlockchainHistorical::where('piezas_de_oro_ft', '!=', 0)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+        foreach ($records as $record) {
+            $profile = Profile::where('user_id', '=', $record->user_id)->first();
+            $return->plumasLast10Changes[] = [
+                'username' => $record->user()->name,
+                'avatar' => $profile->avatar,
+                'state' => $profile->description,
+                'oro' => $record->piezas_de_oro_ft,
+                'created_at' => $record->created_at,
+            ];
+        }
+
+        return response()->json($return);
+    }
+
     public function subtractPlumaUser()
     {
         /** @var User $user */
