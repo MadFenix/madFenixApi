@@ -52,6 +52,7 @@ class Api extends ResourceController
                 'avatar' => $profile->avatar,
                 'state' => $profile->description,
                 'plumas' => $record->plumas,
+                'memo' => $record->memo,
                 'created_at' => $record->created_at,
             ];
         }
@@ -80,6 +81,7 @@ class Api extends ResourceController
                 'avatar' => $profile->avatar,
                 'state' => $profile->description,
                 'oro' => $record->piezas_de_oro_ft,
+                'memo' => $record->memo,
                 'created_at' => $record->created_at,
             ];
         }
