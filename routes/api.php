@@ -78,6 +78,10 @@ Route::prefix('/{account}')->group(function () {
                 Route::apiResource('coupon-items', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/coupon-items', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@destroy');
                 Route::get('/coupon-items-download', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@download');
+
+                Route::apiResource('nft', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/nft', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@destroy');
+                Route::get('/nft-download', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
