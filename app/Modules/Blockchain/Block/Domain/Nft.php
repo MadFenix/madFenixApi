@@ -54,6 +54,11 @@ class Nft extends BaseDomain
 
     // Others
 
+    public function getShortReadableAttribute(): string
+    {
+        return $this->short_description;
+    }
+
     public function remove(): bool
     {
         return $this->delete();
