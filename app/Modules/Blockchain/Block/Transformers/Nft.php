@@ -24,6 +24,7 @@ class Nft extends BaseTransformer
     {
         return array_merge(parent::toArray($request),[
             'name' => $this->name,
+            'short_description' => $this->short_description,
             'category' => $this->category,
             'subcategory' => $this->subcategory,
             'portrait_image' => $this->portrait_image,
