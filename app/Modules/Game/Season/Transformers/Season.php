@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Game\Poll\Transformers;
+namespace App\Modules\Game\Season\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
 use App\Modules\Game\Season\Domain\Season as SeasonModel;
