@@ -18,8 +18,8 @@ class CreateEventMetasTable extends Migration
             $table->unsignedBigInteger('creator_id');
             $table->string('description');
             $table->text('details');
-            $table->timestamp('start_at');
-            $table->timestamp('end_at');
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('end_at')->nullable();
             $table->unsignedBigInteger('product_gift_id')->nullable();
             $table->timestamps();
         });
