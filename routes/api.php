@@ -86,6 +86,10 @@ Route::prefix('/{account}')->group(function () {
                 Route::apiResource('season', 'Game\\Season\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/season', 'Game\\Season\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/season-download', 'Game\\Season\\Infrastructure\\Controller\\Api@download');
+
+                Route::apiResource('event-meta', 'Event\\Infrastructure\\Controller\\ApiMeta')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/event-meta', 'Event\\Infrastructure\\Controller\\ApiMeta@destroy');
+                Route::get('/event-meta-download', 'Event\\Infrastructure\\Controller\\ApiMeta@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
