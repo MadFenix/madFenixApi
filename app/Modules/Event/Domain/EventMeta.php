@@ -13,8 +13,8 @@ class EventMeta extends BaseDomain
         'description' => ['required', 'string', 'min:4', 'max:255'],
         'details' => ['required', 'string', 'min:8', 'max:2000'],
         'product_gift_id' => ['integer'],
-        'start_date' => ['required', 'date'],
-        'end_date' => ['required', 'date'],
+        'start_at' => ['required', 'date'],
+        'end_at' => ['required', 'date'],
     ];
 
     protected $fillable = ['description', 'details', 'creator_id', 'start_at', 'start_at', 'end_at', 'product_gift_id'];
