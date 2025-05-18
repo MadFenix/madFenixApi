@@ -18,6 +18,11 @@ use Illuminate\Validation\ValidationException;
 
 class ApiMeta extends ResourceController
 {
+    protected function getNameParameter(): string
+    {
+        return 'description';
+    }
+
     protected function getModelName(): string
     {
         return 'Event\\EventMeta';
