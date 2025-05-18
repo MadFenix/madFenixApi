@@ -296,6 +296,9 @@ class Api extends ResourceController
             if (!$nft) {
                 $nft = Nft::find($nftIdentification->nft_id);
             }
+            if (empty($nft)) {
+                $nft = new Nft();
+            }
             $newNft = (object) $nftIdentification->toArray();
             $newNft->nft = (object) $nft->toArray();
             $returnProfile->nfts[] = $newNft;
@@ -309,6 +312,9 @@ class Api extends ResourceController
             }
             if (!$nft) {
                 $nft = Nft::find($nftIdentification->nft_id);
+            }
+            if (empty($nft)) {
+                $nft = new Nft();
             }
             $newNft = (object) $nftIdentification->toArray();
             $newNft->nft = (object) $nft->toArray();
