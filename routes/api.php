@@ -159,3 +159,8 @@ Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function
 Route::namespace('\\App\\Modules\\Blockchain\\')->group(function () {
     // Route::get('sorteo', 'Wallet\\Infrastructure\\Controller\\Api@sorteo');
 });
+
+Route::namespace('\\App\\Modules\\Blockchain\\Nft\\Infrastructure\\Controller')->group(function () {
+    Route::get('nft/signMessage', 'Api@getSignMessage');
+    Route::post('nft/getWalletCollectionTokens', 'Api@getOwnedTokens');
+});
