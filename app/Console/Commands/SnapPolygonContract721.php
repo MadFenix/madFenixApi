@@ -29,7 +29,7 @@ class SnapPolygonContract721 extends Command
     {
         // Configuración
         $contractAddress = '0x6172974acedb93a0121b2a7b68b8acea0918be8c'; // reemplaza con la dirección del contrato
-        $apiKey = 'KGVSTK2EN4T7N2M5RMW12PYUDGUG4N2TC6'; // gratuita desde polygonscan.com
+        $apiKey = env('POLYGONSCAN_API_KEY'); // gratuita desde polygonscan.com
         $startBlock = 25000000; // cambia esto al bloque de deploy real
         $endBlock = 'latest';
         $pageSize = 1000;
