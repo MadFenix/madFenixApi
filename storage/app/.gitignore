@@ -3,9 +3,4 @@
 !luchador/
 !luchador/*
 !luchador/metadata/*
-!nsujpg/
-!nsujpg/*
-!nsujpg/metadata-images/*
-!nsujpg/metadata-nft/*
-!nsujpg/snap-nft/*
 !.gitignore
