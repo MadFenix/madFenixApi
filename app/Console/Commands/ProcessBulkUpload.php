@@ -124,8 +124,14 @@ class ProcessBulkUpload extends Command
             $processedInBatch = 0;
             $failedInBatch = 0;
             $headerMapping = json_decode($upload->header_mapping);
-            $hasIdField = isset($headerMapping->id);
-            $idFieldIndex = $hasIdField ? array_search('id', $headerMapping) : null;
+            $hasIdField = false;
+            $idFieldIndex = null;
+            foreach ($headerMapping as $csvHeader => $modelField) {
+                if ($modelField === 'id') {
+                    $hasIdField = true;
+                    $idFieldIndex = $csvHeader;
+                }
+            }
 
             while ($processedInBatch < $linesToProcess && ($row = fgetcsv($file)) !== false) {
                 $currentLine++;
