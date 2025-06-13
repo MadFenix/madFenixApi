@@ -128,8 +128,9 @@ class ProcessBulkUpload extends Command
             $idFieldIndex = null;
             foreach ($headerMapping as $csvHeader => $modelField) {
                 if ($modelField === 'id') {
+                    $headerIndex = array_search($csvHeader, $headers);
                     $hasIdField = true;
-                    $idFieldIndex = $csvHeader;
+                    $idFieldIndex = $headerIndex;
                 }
             }
 
