@@ -68,28 +68,49 @@ Route::prefix('/{account}')->group(function () {
                 Route::apiResource('poll', 'Game\\Poll\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/poll', 'Game\\Poll\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/poll-download', 'Game\\Poll\\Infrastructure\\Controller\\Api@download');
+                Route::post('/poll-upload', 'Game\\Poll\\Infrastructure\\Controller\\Api@upload');
+                Route::get('/poll-upload/{id}', 'Game\\Poll\\Infrastructure\\Controller\\Api@uploadStatus');
+                Route::delete('/poll-upload/{id}', 'Game\\Poll\\Infrastructure\\Controller\\Api@deleteUpload');
 
                 Route::apiResource('coupon-free', 'Game\\Coupon\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/coupon-free', 'Game\\Coupon\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/coupon-free-download', 'Game\\Coupon\\Infrastructure\\Controller\\Api@download');
+                Route::post('/coupon-free-upload', 'Game\\Coupon\\Infrastructure\\Controller\\Api@upload');
+                Route::get('/coupon-free-upload/{id}', 'Game\\Coupon\\Infrastructure\\Controller\\Api@uploadStatus');
+                Route::delete('/coupon-free-upload/{id}', 'Game\\Coupon\\Infrastructure\\Controller\\Api@deleteUpload');
                 Route::apiResource('coupon-payment', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/coupon-payment', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@destroy');
                 Route::get('/coupon-payment-download', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@download');
+                Route::post('/coupon-payment-upload', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@upload');
+                Route::get('/coupon-payment-upload/{id}', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@uploadStatus');
+                Route::delete('/coupon-payment-upload/{id}', 'Game\\Coupon\\Infrastructure\\Controller\\ApiOro@deleteUpload');
                 Route::apiResource('coupon-items', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/coupon-items', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@destroy');
                 Route::get('/coupon-items-download', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@download');
+                Route::post('/coupon-items-upload', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@upload');
+                Route::get('/coupon-items-upload/{id}', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@uploadStatus');
+                Route::delete('/coupon-items-upload/{id}', 'Game\\Coupon\\Infrastructure\\Controller\\ApiItem@deleteUpload');
 
                 Route::apiResource('nft', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/nft', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@destroy');
                 Route::get('/nft-download', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@download');
+                Route::post('/nft-upload', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@upload');
+                Route::get('/nft-upload/{id}', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@uploadStatus');
+                Route::delete('/nft-upload/{id}', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@deleteUpload');
 
                 Route::apiResource('season', 'Game\\Season\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/season', 'Game\\Season\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/season-download', 'Game\\Season\\Infrastructure\\Controller\\Api@download');
+                Route::post('/season-upload', 'Game\\Season\\Infrastructure\\Controller\\Api@upload');
+                Route::get('/season-upload/{id}', 'Game\\Season\\Infrastructure\\Controller\\Api@uploadStatus');
+                Route::delete('/season-upload/{id}', 'Game\\Season\\Infrastructure\\Controller\\Api@deleteUpload');
 
                 Route::apiResource('event-metas', 'Event\\Infrastructure\\Controller\\ApiMeta')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/event-metas', 'Event\\Infrastructure\\Controller\\ApiMeta@destroy');
                 Route::get('/event-metas-download', 'Event\\Infrastructure\\Controller\\ApiMeta@download');
+                Route::post('/event-metas-upload', 'Event\\Infrastructure\\Controller\\ApiMeta@upload');
+                Route::get('/event-metas-upload/{id}', 'Event\\Infrastructure\\Controller\\ApiMeta@uploadStatus');
+                Route::delete('/event-metas-upload/{id}', 'Event\\Infrastructure\\Controller\\ApiMeta@deleteUpload');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors

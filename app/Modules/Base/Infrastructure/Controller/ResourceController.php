@@ -13,11 +13,14 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Throwable;
+use App\Modules\Base\Domain\BulkUpload;
 
 abstract class ResourceController extends Controller
 {
@@ -302,5 +305,132 @@ abstract class ResourceController extends Controller
         $lastModelName = array_pop($lastModelName);
 
         return '\\App\\Modules\\' . $modelName . '\\Transformers\\' . $lastModelName;
+    }
+
+    /**
+     * Upload a CSV file for bulk processing
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function upload($account)
+    {
+        try {
+            $request = request();
+
+            // Validate request
+            $validator = Validator::make($request->all(), [
+                'file' => 'required|file|mimes:csv,txt|max:10240', // Max 10MB
+                'header_mapping' => 'required|array',
+            ]);
+
+            if ($validator->fails()) {
+                throw ValidationException::withMessages($validator->errors()->toArray());
+            }
+
+            $file = $request->file('file');
+            $headerMapping = $request->input('header_mapping');
+
+            // Get model name for the resource
+            $modelName = $this->getModelName();
+            $resourceName = str_replace('\\', '_', $modelName);
+
+            // Create upload directory if it doesn't exist
+            $uploadDir = 'uploads/' . $account . '/' . $resourceName;
+            if (!Storage::exists($uploadDir)) {
+                Storage::makeDirectory($uploadDir);
+            }
+
+            // Generate unique filename
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $filePath = $uploadDir . '/' . $filename;
+
+            // Store file
+            Storage::putFileAs($uploadDir, $file, $filename);
+
+            // Count total rows in CSV (excluding header)
+            $totalRows = 0;
+            if (($handle = fopen(Storage::path($filePath), 'r')) !== false) {
+                // Skip header row
+                fgetcsv($handle);
+
+                while (fgetcsv($handle) !== false) {
+                    $totalRows++;
+                }
+                fclose($handle);
+            }
+
+            // Create bulk upload record
+            $bulkUpload = new BulkUpload();
+            $bulkUpload->account = $account;
+            $bulkUpload->resource_name = $resourceName;
+            $bulkUpload->file_path = $filePath;
+            $bulkUpload->original_filename = $file->getClientOriginalName();
+            $bulkUpload->header_mapping = $headerMapping;
+            $bulkUpload->status = 'pending';
+            $bulkUpload->total_rows = $totalRows;
+            $bulkUpload->save();
+
+            return response()->json([
+                'message' => 'File uploaded successfully and queued for processing',
+                'upload_id' => $bulkUpload->id,
+                'total_rows' => $totalRows,
+            ]);
+
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
+    }
+
+    /**
+     * Get the status of a bulk upload
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function uploadStatus($account, $id)
+    {
+        try {
+            $bulkUpload = BulkUpload::where('account', $account)
+                ->where('id', $id)
+                ->firstOrFail();
+
+            return response()->json(new \App\Modules\Base\Transformers\BulkUpload($bulkUpload));
+
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
+    }
+
+    /**
+     * Delete a bulk upload
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function deleteUpload($account, $id)
+    {
+        try {
+            $bulkUpload = BulkUpload::where('account', $account)
+                ->where('id', $id)
+                ->firstOrFail();
+
+            // Delete the file if it exists
+            if (Storage::exists($bulkUpload->file_path)) {
+                Storage::delete($bulkUpload->file_path);
+            }
+
+            // Delete the record
+            $bulkUpload->delete();
+
+            return response()->json([
+                'message' => 'Bulk upload deleted successfully'
+            ]);
+
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
     }
 }
