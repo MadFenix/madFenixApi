@@ -4,7 +4,10 @@ namespace App\Console\Commands;
 
 use App\Modules\Base\Domain\BaseDomain;
 use App\Modules\Base\Domain\BulkUpload;
+use App\Modules\Base\Infrastructure\Service\AccountManager;
+use App\Modules\User\Domain\Identification;
 use Illuminate\Console\Command;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,7 +18,7 @@ class ProcessBulkUpload extends Command
      *
      * @var string
      */
-    protected $signature = 'bulk-upload:process {--id= : The ID of the specific upload to process} {--lines=100 : Number of lines to process per batch}';
+    protected $signature = 'bulk-upload:process {--id= : The ID of the specific upload to process} {--lines=30 : Number of lines to process per batch}';
 
     /**
      * The console command description.
@@ -32,26 +35,32 @@ class ProcessBulkUpload extends Command
         $uploadId = $this->option('id');
         $linesToProcess = (int) $this->option('lines');
 
-        // Get uploads to process
-        $query = BulkUpload::where('status', 'pending')
-            ->orWhere(function ($query) {
-                $query->where('status', 'processing')
-                    ->where('processed_rows', '<', \DB::raw('total_rows'));
-            });
+        $identifications = Identification::all();
 
-        if ($uploadId) {
-            $query->where('id', $uploadId);
-        }
+        foreach ($identifications as $identification) {
+            $isConnected = AccountManager::connectToAccount(new Request(), $identification->account);
+            if ($isConnected) {
+                // Get uploads to process
+                $query = BulkUpload::where('status', 'pending')
+                    ->orWhere(function ($query) {
+                        $query->where('status', 'processing')
+                            ->where('processed_rows', '<', \DB::raw('total_rows'));
+                    });
 
-        $uploads = $query->get();
+                if ($uploadId) {
+                    $query->where('id', $uploadId);
+                }
 
-        if ($uploads->isEmpty()) {
-            $this->info('No pending uploads to process.');
-            return 0;
-        }
+                $uploads = $query->get();
 
-        foreach ($uploads as $upload) {
-            $this->processUpload($upload, $linesToProcess);
+                if ($uploads->isEmpty()) {
+                    $this->info('No pending uploads to process: ' . $identification->account);
+                } else {
+                    foreach ($uploads as $upload) {
+                        $this->processUpload($upload, $linesToProcess);
+                    }
+                }
+            }
         }
 
         return 0;
