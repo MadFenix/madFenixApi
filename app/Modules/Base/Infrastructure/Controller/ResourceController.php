@@ -433,4 +433,49 @@ abstract class ResourceController extends Controller
             return $this->formatExceptionError($th);
         }
     }
+
+    /**
+     * List the fields of the domain model
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function fields($account)
+    {
+        try {
+            $modelClass = $this->getModelClass();
+            $model = new $modelClass();
+
+            // Get table columns using Schema
+            $table = $model->getTable();
+            $columns = \Schema::getColumnListing($table);
+
+            $fields = [];
+            foreach ($columns as $column) {
+                $type = \Schema::getColumnType($table, $column);
+                $fields[$column] = [
+                    'name' => $column,
+                    'type' => $type
+                ];
+            }
+
+            // Add fillable property if defined
+            if (property_exists($model, 'fillable') && is_array($model->fillable)) {
+                foreach ($model->fillable as $fillable) {
+                    if (isset($fields[$fillable])) {
+                        $fields[$fillable]['fillable'] = true;
+                    }
+                }
+            }
+
+            return response()->json([
+                'model' => class_basename($modelClass),
+                'table' => $table,
+                'fields' => $fields
+            ]);
+
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
+    }
 }
