@@ -3,34 +3,40 @@
 namespace App\Modules\Base\Transformers;
 
 use App\Modules\Base\Domain\BulkUpload as BulkUploadModel;
-use League\Fractal\TransformerAbstract;
 
-class BulkUpload extends TransformerAbstract
+class BulkUpload extends BaseTransformer
 {
     /**
-     * Transform the BulkUpload entity
+     * The resource instance.
      *
-     * @param BulkUploadModel $bulkUpload
+     * @var mixed|BulkUploadModel
+     */
+    public $resource;
+
+    /**
+     * Transform the resource into an array.
+     *
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
-    public function transform(BulkUploadModel $bulkUpload): array
+    public function toArray($request)
     {
         return [
-            'id' => $bulkUpload->id,
-            'account' => $bulkUpload->account,
-            'resource_name' => $bulkUpload->resource_name,
-            'original_filename' => $bulkUpload->original_filename,
-            'header_mapping' => $bulkUpload->header_mapping,
-            'status' => $bulkUpload->status,
-            'status_info' => $bulkUpload->status_info,
-            'total_rows' => $bulkUpload->total_rows,
-            'processed_rows' => $bulkUpload->processed_rows,
-            'failed_rows' => $bulkUpload->failed_rows,
-            'progress_percentage' => $bulkUpload->total_rows > 0
-                ? round(($bulkUpload->processed_rows / $bulkUpload->total_rows) * 100, 2)
+            'id' => $this->id,
+            'account' => $this->account,
+            'resource_name' => $this->resource_name,
+            'original_filename' => $this->original_filename,
+            'header_mapping' => $this->header_mapping,
+            'status' => $this->status,
+            'status_info' => $this->status_info,
+            'total_rows' => $this->total_rows,
+            'processed_rows' => $this->processed_rows,
+            'failed_rows' => $this->failed_rows,
+            'progress_percentage' => $this->total_rows > 0
+                ? round(($this->processed_rows / $this->total_rows) * 100, 2)
                 : 0,
-            'created_at' => $bulkUpload->created_at->toIso8601String(),
-            'updated_at' => $bulkUpload->updated_at->toIso8601String(),
+            'created_at' => $this->created_at->toIso8601String(),
+            'updated_at' => $this->updated_at->toIso8601String(),
         ];
     }
 }
