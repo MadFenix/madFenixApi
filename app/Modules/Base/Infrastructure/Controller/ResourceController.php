@@ -386,18 +386,16 @@ abstract class ResourceController extends Controller
      * Get the status of a bulk upload
      *
      * @param string $account
-     * @param int $id
      * @return JsonResponse
      */
-    public function uploadStatus($account, $id)
+    public function uploadStatus($account)
     {
         try {
-            $bulkUpload = BulkUpload::where('account', $account)
-                ->where('id', $id)
-                ->firstOrFail();
+            $bulkUploads = BulkUpload::where('account', $account)
+                ->where('status', 'pending')
+                ->get();
 
-            return response()->json(new \App\Modules\Base\Transformers\BulkUpload($bulkUpload));
-
+            return response()->json(\App\Modules\Base\Transformers\BulkUpload::collection($bulkUploads));
         } catch (\Throwable $th) {
             return $this->formatExceptionError($th);
         }
