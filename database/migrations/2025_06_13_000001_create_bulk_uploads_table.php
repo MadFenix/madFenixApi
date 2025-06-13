@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('resource_name');
             $table->string('file_path');
             $table->string('original_filename');
-            $table->json('header_mapping');
+            $table->string('header_mapping');
             $table->enum('status', ['pending', 'processing', 'completed', 'failed'])->default('pending');
             $table->text('status_info')->nullable();
             $table->integer('total_rows')->default(0);
