@@ -123,7 +123,7 @@ class ProcessBulkUpload extends Command
             // Process lines
             $processedInBatch = 0;
             $failedInBatch = 0;
-            $headerMapping = $upload->header_mapping;
+            $headerMapping = json_decode($upload->header_mapping);
             $hasIdField = isset($headerMapping['id']);
             $idFieldIndex = $hasIdField ? array_search('id', $headerMapping) : null;
 
