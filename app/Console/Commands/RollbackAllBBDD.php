@@ -39,6 +39,7 @@ class RollbackAllBBDD extends Command
         foreach ($identifications as $identification) {
             $isConnected = AccountManager::connectToAccount(new Request(), $identification->account);
             if ($isConnected) {
+                $this->info("Rollback account: {$identification->account}");
                 Artisan::call('migrate:rollback', [
                     '--database' => 'tenant',
                     '--force'    => true, // Obligatorio para evitar confirmaciones en producción
