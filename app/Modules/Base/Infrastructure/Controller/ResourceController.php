@@ -391,8 +391,13 @@ abstract class ResourceController extends Controller
     public function uploadStatus($account)
     {
         try {
+            // Get model name for the resource
+            $modelName = $this->getModelName();
+            $resourceName = str_replace('\\', '_', $modelName);
+
             $bulkUploads = BulkUpload::where('account', $account)
                 ->where('status', 'pending')
+                ->where('resource_name', $resourceName)
                 ->get();
 
             return response()->json(\App\Modules\Base\Transformers\BulkUpload::collection($bulkUploads));
