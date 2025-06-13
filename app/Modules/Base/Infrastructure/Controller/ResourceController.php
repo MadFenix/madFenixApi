@@ -321,7 +321,7 @@ abstract class ResourceController extends Controller
             // Validate request
             $validator = Validator::make($request->all(), [
                 'file' => 'required|file|mimes:csv,txt|max:10240', // Max 10MB
-                'header_mapping' => 'required|array',
+                'header_mapping' => 'required|object',
             ]);
 
             if ($validator->fails()) {
