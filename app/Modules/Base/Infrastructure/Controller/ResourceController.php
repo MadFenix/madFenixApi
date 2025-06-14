@@ -406,8 +406,8 @@ abstract class ResourceController extends Controller
     {
         try {
             // Get model name for the resource
-            $modelName = $this->getModelName();
-            $resourceName = str_replace('\\', '_', $modelName);
+            $modelClassName = $this->getModelClass();
+            $resourceName = str_replace('\\', '_', $modelClassName);
 
             $bulkUploads = BulkUpload::where('account', $account)
                 ->where('status', 'pending')
