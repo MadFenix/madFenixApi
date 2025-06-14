@@ -103,6 +103,14 @@ Route::prefix('/{account}')->group(function () {
                 Route::get('/nft-upload', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@uploadStatus');
                 Route::delete('/nft-upload/{id}', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNft@deleteUpload');
 
+                Route::apiResource('nft-identification', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/nft-identification', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification@destroy');
+                Route::get('/nft-identification-download', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification@download');
+                Route::get('/nft-identification-fields', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification@fields');
+                Route::post('/nft-identification-upload', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification@upload');
+                Route::get('/nft-identification-upload', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification@uploadStatus');
+                Route::delete('/nft-identification-upload/{id}', 'Blockchain\\Block\\Infrastructure\\Controller\\ApiNftIdentification@deleteUpload');
+
                 Route::apiResource('season', 'Game\\Season\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/season', 'Game\\Season\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/season-download', 'Game\\Season\\Infrastructure\\Controller\\Api@download');
