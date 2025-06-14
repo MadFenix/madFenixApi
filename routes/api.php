@@ -119,6 +119,14 @@ Route::prefix('/{account}')->group(function () {
                 Route::get('/season-upload', 'Game\\Season\\Infrastructure\\Controller\\Api@uploadStatus');
                 Route::delete('/season-upload/{id}', 'Game\\Season\\Infrastructure\\Controller\\Api@deleteUpload');
 
+                Route::apiResource('season-reward', 'Game\\Season\\Infrastructure\\Controller\\ApiReward')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/season-reward', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@destroy');
+                Route::get('/season-reward-download', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@download');
+                Route::get('/season-reward-fields', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@fields');
+                Route::post('/season-reward-upload', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@upload');
+                Route::get('/season-reward-upload', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@uploadStatus');
+                Route::delete('/season-reward-upload/{id}', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@deleteUpload');
+
                 Route::apiResource('event-metas', 'Event\\Infrastructure\\Controller\\ApiMeta')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/event-metas', 'Event\\Infrastructure\\Controller\\ApiMeta@destroy');
                 Route::get('/event-metas-download', 'Event\\Infrastructure\\Controller\\ApiMeta@download');
