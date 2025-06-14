@@ -66,7 +66,8 @@ abstract class ResourceController extends Controller
             'page'    => 'nullable|integer|min:0',
             'limit'   => 'nullable|integer|min:1|max:100',
             'filter'  => 'nullable|string|max:255',
-            'sorting' => 'nullable|string'
+            'sorting' => 'nullable|string',
+            'parent_id' => 'nullable|integer'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -82,19 +83,21 @@ abstract class ResourceController extends Controller
         $page = $validated['page'] ?? 0;
         $limit = $validated['limit'] ?? 5;
         $filter = $validated['filter'] ?? '';
+        $parent_id = $validated['parent_id'] ?? null;
         $sorting = $validated['sorting'] ?? 'created_at:desc';
         list($sortColumn, $sortDirection) = explode(':', $sorting);
 
         // The main model query
         $query = ($this->getModelClass())::orderBy($sortColumn, $sortDirection);
 
+        // Apply parent id
+        if ($this->getParentIdentificator() && is_numeric($parent_id)) {
+            $query = $query->where($this->getParentIdentificator(), '=', $parent_id);
+        }
+
         // Apply filtering
         if(!empty($filter)){
-            if ($this->getParentIdentificator() && is_numeric($filter)) {
-                $query = $query->where($this->getParentIdentificator(), '=', $filter);
-            } else {
-                $query = $query->where($this->getNameParameter(), 'like', '%' . $filter . '%');
-            }
+            $query = $query->where($this->getNameParameter(), 'like', '%' . $filter . '%');
         }
 
         // Get the total count
