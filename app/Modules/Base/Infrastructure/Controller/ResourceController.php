@@ -31,6 +31,11 @@ abstract class ResourceController extends Controller
         return 'name';
     }
 
+    protected function getParentIdentificator()
+    {
+        return null;
+    }
+
     public function formatExceptionError(Throwable $e)
     {
 
@@ -85,7 +90,11 @@ abstract class ResourceController extends Controller
 
         // Apply filtering
         if(!empty($filter)){
-            $query = $query->where($this->getNameParameter(), 'like', '%' . $filter . '%');
+            if ($this->getParentIdentificator() && is_numeric($filter)) {
+                $query = $query->where($this->getParentIdentificator(), '=', $filter);
+            } else {
+                $query = $query->where($this->getNameParameter(), 'like', '%' . $filter . '%');
+            }
         }
 
         // Get the total count

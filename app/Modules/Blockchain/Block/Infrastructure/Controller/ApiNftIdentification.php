@@ -12,6 +12,11 @@ class ApiNftIdentification extends ResourceController
         return 'Blockchain\\NftIdentification';
     }
 
+    protected function getParentIdentificator(): string
+    {
+        return 'nft_id';
+    }
+
     protected function getModelClass(): string
     {
         $modelName = $this->getModelName();
