@@ -345,10 +345,12 @@ abstract class ResourceController extends Controller
 
             // Get model name for the resource
             $modelName = $this->getModelName();
-            $resourceName = str_replace('\\', '_', $modelName);
+            $modelClassName = $this->getModelClass();
+            $resourceNameToUploadDir = str_replace('\\', '_', $modelName);
+            $resourceName = str_replace('\\', '_', $modelClassName);
 
             // Create upload directory if it doesn't exist
-            $uploadDir = 'uploads/' . $account . '/' . $resourceName;
+            $uploadDir = 'uploads/' . $account . '/' . $resourceNameToUploadDir;
             if (!Storage::exists($uploadDir)) {
                 Storage::makeDirectory($uploadDir);
             }

@@ -117,8 +117,7 @@ class ProcessBulkUpload extends Command
             }
 
             // Get model class based on resource name
-            $resourceName = str_replace('_', '\\', $upload->resource_name);
-            $modelClass = "\\App\\Modules\\{$resourceName}\\Domain\\" . explode('\\', $resourceName)[1];
+            $modelClass = str_replace('_', '\\', $upload->resource_name);
 
             // Process lines
             $processedInBatch = 0;
