@@ -410,9 +410,9 @@ abstract class ResourceController extends Controller
             $resourceName = str_replace('\\', '_', $modelClassName);
 
             $bulkUploads = BulkUpload::where('account', $account)
-                ->orWhere(function ($query) {
+                ->where(function ($query) {
                     $query->where('status', 'pending')
-                        ->where('status', 'pending');
+                        ->orWhere('status', 'processing');
                 })
                 ->where('resource_name', $resourceName)
                 ->get();
