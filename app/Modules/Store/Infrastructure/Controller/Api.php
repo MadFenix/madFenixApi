@@ -20,6 +20,7 @@ use Stripe\Webhook;
 
 class Api extends ResourceController
 {
+
     protected function getModelName(): string
     {
         return 'Store\\Product';
@@ -28,6 +29,24 @@ class Api extends ResourceController
     protected function getParentIdentificator(): string
     {
         return 'product_parent_id';
+    }
+
+    protected function getModelClass(): string
+    {
+        $modelName = $this->getModelName();
+        $lastModelName = explode('\\', $modelName);
+        $lastModelName = array_pop($lastModelName);
+
+        return '\\App\\Modules\\Store\\Domain\\' . $lastModelName;
+    }
+
+    protected function getTransformerClass(): string
+    {
+        $modelName = $this->getModelName();
+        $lastModelName = explode('\\', $modelName);
+        $lastModelName = array_pop($lastModelName);
+
+        return '\\App\\Modules\\Store\\Transformers\\' . $lastModelName;
     }
 
     protected function saveProductOrder($productId, $user)
