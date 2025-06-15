@@ -10,7 +10,7 @@ class Product extends BaseDomain
         'short_description' => ['nullable', 'string'],
         'description' => ['nullable', 'string'],
         'image' => ['nullable', 'string'],
-        'price_fiat' => ['nullable', 'float'],
+        'price_fiat' => ['nullable'],
         'price_oro' => ['nullable', 'integer'],
         'price_plumas' => ['nullable', 'integer'],
         'active' => ['nullable', 'integer'],
