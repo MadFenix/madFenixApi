@@ -135,13 +135,13 @@ Route::prefix('/{account}')->group(function () {
                 Route::get('/event-metas-upload', 'Event\\Infrastructure\\Controller\\ApiMeta@uploadStatus');
                 Route::delete('/event-metas-upload/{id}', 'Event\\Infrastructure\\Controller\\ApiMeta@deleteUpload');
 
-                Route::apiResource('product', 'Game\\Season\\Infrastructure\\Controller\\ApiReward')->only(['index', 'store', 'show', 'update', 'destroy']);
-                Route::delete('/product', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@destroy');
-                Route::get('/product-download', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@download');
-                Route::get('/product-fields', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@fields');
-                Route::post('/product-upload', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@upload');
-                Route::get('/product-upload', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@uploadStatus');
-                Route::delete('/product-upload/{id}', 'Game\\Season\\Infrastructure\\Controller\\ApiReward@deleteUpload');
+                Route::apiResource('product', 'Store\\Infrastructure\\Controller\\ApiReward')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/product', 'Store\\Infrastructure\\Controller\\ApiReward@destroy');
+                Route::get('/product-download', 'Store\\Infrastructure\\Controller\\ApiReward@download');
+                Route::get('/product-fields', 'Store\\Infrastructure\\Controller\\ApiReward@fields');
+                Route::post('/product-upload', 'Store\\Infrastructure\\Controller\\ApiReward@upload');
+                Route::get('/product-upload', 'Store\\Infrastructure\\Controller\\ApiReward@uploadStatus');
+                Route::delete('/product-upload/{id}', 'Store\\Infrastructure\\Controller\\ApiReward@deleteUpload');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors

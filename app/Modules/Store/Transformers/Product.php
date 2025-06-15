@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Store\Infrastructure\Controller;
+namespace App\Modules\Store\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
 use App\Modules\Store\Domain\Product as ProductModel;
