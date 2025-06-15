@@ -3,7 +3,7 @@
 
 namespace App\Modules\Store\Infrastructure\Controller;
 
-use App\Http\Controllers\Controller;
+use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Event\Domain\Event;
@@ -18,8 +18,18 @@ use Illuminate\Support\Facades\DB;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
-class Api extends Controller
+class Api extends ResourceController
 {
+    protected function getModelName(): string
+    {
+        return 'Store\\Product';
+    }
+
+    protected function getParentIdentificator(): string
+    {
+        return 'product_parent_id';
+    }
+
     protected function saveProductOrder($productId, $user)
     {
         $profile = Profile::where('user_id', '=', $user->id)->first();
