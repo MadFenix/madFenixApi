@@ -29,6 +29,7 @@ class Product extends BaseTransformer
             'image' => $this->image,
             'price_fiat' => $this->price_fiat,
             'price_oro' => $this->price_oro,
+            'price_plumas' => $this->price_plumas,
             'active' => $this->active,
             'product_parent_id' => $this->product_parent_id,
             'oro' => $this->oro,
