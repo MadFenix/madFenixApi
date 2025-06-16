@@ -77,15 +77,6 @@ class Profile extends BaseDomain
         return 'user';
     }
 
-    // Setter
-    protected function details(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $value,
-            set: fn ($value) => $value === null ? '' : $value
-        );
-    }
-
     // Others
 
     public function remove(): bool
