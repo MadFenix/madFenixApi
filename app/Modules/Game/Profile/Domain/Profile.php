@@ -11,17 +11,8 @@ class Profile extends BaseDomain
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
         'plumas_hedera' => ['integer'],
         'plumas' => ['integer'],
-        'season_level' => ['integer'],
-        'season_points' => ['integer'],
         'oro_hedera' => ['integer'],
         'oro' => ['integer'],
-        'twitch_user_id' => ['nullable', 'string'],
-        'twitch_user_name' => ['nullable', 'string'],
-        'twitch_api_user_token' => ['nullable', 'string'],
-        'twitch_api_user_refresh_token' => ['nullable', 'string'],
-        'twitch_scope' => ['nullable', 'string'],
-        'steam_user_id' => ['nullable', 'string'],
-        'steam_user_name' => ['nullable', 'string'],
     ];
 
     protected $fillable = [
