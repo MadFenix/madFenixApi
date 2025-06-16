@@ -149,6 +149,9 @@ Route::prefix('/{account}')->group(function () {
 
                 Route::apiResource('user', 'User\\Infrastructure\\Controller\\ApiManager')->only(['index', 'show', 'update']);
                 Route::get('/user-download', 'User\\Infrastructure\\Controller\\ApiManager@download');
+
+                Route::apiResource('profile', 'Game\\Profile\\Infrastructure\\Controller\\Api')->only(['index', 'show', 'update']);
+                Route::get('/profile-download', 'Game\\Profile\\Infrastructure\\Controller\\Api@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
