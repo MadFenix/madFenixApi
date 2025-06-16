@@ -149,6 +149,7 @@ Route::prefix('/{account}')->group(function () {
 
                 Route::apiResource('user', 'User\\Infrastructure\\Controller\\ApiManager')->only(['index', 'show', 'update']);
                 Route::get('/user-download', 'User\\Infrastructure\\Controller\\ApiManager@download');
+                Route::post('/user-password-reset', 'User\\Infrastructure\\Controller\\Api@resetPasswordLogged');
 
                 Route::apiResource('profile', 'Game\\Profile\\Infrastructure\\Controller\\Api')->only(['index', 'show', 'update']);
                 Route::get('/profile-download', 'Game\\Profile\\Infrastructure\\Controller\\Api@download');

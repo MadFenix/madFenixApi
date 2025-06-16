@@ -277,6 +277,23 @@ class Api extends Controller
     /**
      * @param Request $request
      * @return JsonResponse
+     */
+    public function resetPasswordLogged(Request $request)
+    {
+        $user = auth()->user();
+
+        $data = $request->validate([
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $this->resetPassword($user, $data['password']);
+
+        return response()->json('Password reset');
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
      * @throws
      */
     public function verify(Request $request)
