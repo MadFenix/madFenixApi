@@ -284,7 +284,7 @@ class Api extends Controller
 
         $data = $request->validate([
             'currentPassword' => 'required',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required|min:8',
         ]);
 
         // Verificar si la contraseña actual es correcta
