@@ -140,7 +140,7 @@ abstract class ResourceController extends Controller
     }
 
     public static function getRowDataToDownload(&$value) {
-        if (is_array($value)) {
+        if (!is_string($value)) {
             $value = json_encode($value);
         }
 
