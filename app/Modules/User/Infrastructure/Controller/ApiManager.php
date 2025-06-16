@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Modules\Store\Infrastructure\Controller;
+namespace App\Modules\User\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 
