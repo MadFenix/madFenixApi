@@ -258,8 +258,6 @@ abstract class ResourceController extends Controller
     public function update($account, $id)
     {
         try {
-            \DB::enableQueryLog();
-
             $transformerClass = $this->getTransformerClass();
             /** @var BaseDomain $model */
             $model = ($this->getModelClass())::findOrFail($id);
@@ -269,13 +267,13 @@ abstract class ResourceController extends Controller
                 throw ValidationException::withMessages($validator->errors()->toArray());
             }
 
-            $model->update(request()->all());
-            $queries = \DB::getQueryLog();
+            $requestData = request()->all();
+            $model->update($requestData);
         } catch (\Throwable $th) {
             return $this->formatExceptionError($th);
         }
 
-        return response()->json(["model"=>new $transformerClass($model), "query"=>$queries]);
+        return response()->json(["model"=>new $transformerClass($model), "requestData"=>$requestData]);
     }
 
     /**
