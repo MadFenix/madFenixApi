@@ -25,9 +25,9 @@ class ProductOrder extends BaseTransformer
     {
         return array_merge(parent::toArray($request),[
             'product_id' => $this->product_id,
-            'product' => (array) (new Product($this->product))->toArray($request),
+            'product' => (new Product($this->product))->toArray($request),
             'user_id' => $this->user_id,
-            'user' => (array) (new User($this->user))->toArray($request),
+            'user' => (new User($this->user))->toArray($request),
             'payment_validated' => $this->payment_validated,
             'is_gift' => $this->is_gift,
             'created_at' => $this->created_at,
