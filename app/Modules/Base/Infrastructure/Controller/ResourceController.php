@@ -268,11 +268,12 @@ abstract class ResourceController extends Controller
             }
 
             $model->update(request()->all());
+            $queries = \DB::getQueryLog();
         } catch (\Throwable $th) {
             return $this->formatExceptionError($th);
         }
 
-        return response()->json(new $transformerClass($model));
+        return response()->json(["model"=>new $transformerClass($model), "query"=>$queries});
     }
 
     /**
