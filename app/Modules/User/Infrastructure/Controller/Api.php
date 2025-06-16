@@ -283,8 +283,17 @@ class Api extends Controller
         $user = auth()->user();
 
         $data = $request->validate([
+            'currentPassword' => 'required',
             'password' => 'required|confirmed|min:8',
         ]);
+
+        // Verificar si la contraseña actual es correcta
+        if (!Hash::check($data['currentPassword'], $user->password)) {
+            throw ValidationException::withMessages([
+                'currentPassword' => ['Current password is incorrect.'],
+            ]);
+        }
+
 
         $this->resetPassword($user, $data['password']);
 
