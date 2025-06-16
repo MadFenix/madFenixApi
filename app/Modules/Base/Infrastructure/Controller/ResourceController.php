@@ -273,7 +273,7 @@ abstract class ResourceController extends Controller
             return $this->formatExceptionError($th);
         }
 
-        return response()->json(["model"=>new $transformerClass($model), "query"=>$queries});
+        return response()->json(["model"=>new $transformerClass($model), "query"=>$queries]);
     }
 
     /**
