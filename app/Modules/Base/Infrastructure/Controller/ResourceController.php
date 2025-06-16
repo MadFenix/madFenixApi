@@ -139,14 +139,6 @@ abstract class ResourceController extends Controller
         return response()->json($data);
     }
 
-    public static function getRowDataToDownload(&$value) {
-        if (!is_string($value)) {
-            $value = json_encode($value);
-        }
-
-        $value = str_replace('"', '\\"', $value);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -190,7 +182,13 @@ abstract class ResourceController extends Controller
 
                 foreach ($data->data as $row) {
                     $dataRow = $row->toArray($request);
-                    array_walk_recursive($dataRow, [self::class, 'getRowDataToDownload']);
+                    array_walk_recursive($dataRow, function(&$value) {
+                        if (!is_string($value)) {
+                            $value = json_encode($value);
+                        }
+
+                        $value = str_replace('"', '\\"', $value);
+                    });
                     fputcsv($output, $dataRow);
                 }
 
