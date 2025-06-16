@@ -258,6 +258,8 @@ abstract class ResourceController extends Controller
     public function update($account, $id)
     {
         try {
+            \DB::enableQueryLog();
+
             $transformerClass = $this->getTransformerClass();
             /** @var BaseDomain $model */
             $model = ($this->getModelClass())::findOrFail($id);
