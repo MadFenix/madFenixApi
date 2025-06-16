@@ -9,10 +9,6 @@ class Profile extends BaseDomain
         'user_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'min:4', 'max:255'],
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
-        'plumas_hedera' => ['integer'],
-        'plumas' => ['integer'],
-        'oro_hedera' => ['integer'],
-        'oro' => ['integer'],
     ];
 
     protected $fillable = [
