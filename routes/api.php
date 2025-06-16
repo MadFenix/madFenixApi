@@ -142,6 +142,10 @@ Route::prefix('/{account}')->group(function () {
                 Route::post('/product-upload', 'Store\\Infrastructure\\Controller\\Api@upload');
                 Route::get('/product-upload', 'Store\\Infrastructure\\Controller\\Api@uploadStatus');
                 Route::delete('/product-upload/{id}', 'Store\\Infrastructure\\Controller\\Api@deleteUpload');
+
+                Route::apiResource('product', 'Store\\Infrastructure\\Controller\\Api')->only(['index', 'destroy']);
+                Route::delete('/product', 'Store\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/product-download', 'Store\\Infrastructure\\Controller\\Api@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
