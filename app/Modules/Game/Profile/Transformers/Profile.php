@@ -31,6 +31,7 @@ class Profile extends BaseTransformer
             'plumas' => $this->plumas,
             'season_level' => $this->season_level,
             'season_points' => $this->season_points,
+            'season_premium' => $this->season_premium,
             'oro_hedera' => $this->oro_hedera,
             'oro' => $this->oro,
             'hedera_wallet' => $this->hedera_wallet,
