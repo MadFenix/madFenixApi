@@ -24,9 +24,10 @@ class UserSummary extends BaseTransformer
      */
     public function toArray($request)
     {
-        return [
-            $this->merge(parent::toArray($request)),
+        return array_merge(parent::toArray($request), [
             'name' => $this->name,
-        ];
+            'email' => $this->email,
+            'newsletter' => $this->newsletter,
+        ]);
     }
 }
