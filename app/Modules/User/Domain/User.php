@@ -7,6 +7,7 @@ use App\Modules\Base\Traits\DescriptiveInterface;
 use App\Notifications\CustomResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\Rule;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements BaseDomainInterface, DescriptiveInterface
@@ -88,7 +89,22 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
 
     public function getValidationContext(): array
     {
-        return self::VALIDATION_COTNEXT;
+        $rules = self::VALIDATION_COTNEXT;
+
+        // Si el usuario ya existe (tiene ID), modificamos la regla del email
+        if ($this->exists) {
+            $rules['email'] = [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($this->id)
+            ];
+            // Removemos la validación de password para actualizaciones
+            unset($rules['password']);
+        }
+
+        return $rules;
     }
 
     public function getIcon(): string
