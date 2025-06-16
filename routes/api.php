@@ -22,6 +22,7 @@ Route::prefix('/{account}')->group(function () {
 
     Route::namespace('\\App\\Modules\\User\\Infrastructure\\Controller\\')->group(function () {
         Route::post('/login', 'Api@login');
+        Route::post('/verify2fa', 'Api@verify2fa');
         Route::post('/deleteAccount', 'Api@deleteAccount');
         // TODO Route::post('/refreshToken', 'Api@refreshToken');
         Route::middleware('auth:sanctum')->post('/logout', 'Api@logout');
@@ -150,6 +151,8 @@ Route::prefix('/{account}')->group(function () {
                 Route::apiResource('user', 'User\\Infrastructure\\Controller\\ApiManager')->only(['index', 'show', 'update']);
                 Route::get('/user-download', 'User\\Infrastructure\\Controller\\ApiManager@download');
                 Route::post('/user-password-reset', 'User\\Infrastructure\\Controller\\Api@resetPasswordLogged');
+                Route::get('/user-generate2fa', 'User\\Infrastructure\\Controller\\Api@generate2fa');
+                Route::post('/user-confirm2fa', 'User\\Infrastructure\\Controller\\Api@confirm2fa');
 
                 Route::apiResource('profile', 'Game\\Profile\\Infrastructure\\Controller\\Api')->only(['index', 'show', 'update']);
                 Route::get('/profile-download', 'Game\\Profile\\Infrastructure\\Controller\\Api@download');

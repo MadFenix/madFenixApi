@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Agustind\Ethsignature;
+use PragmaRX\Google2FA\Google2FA;
+use PragmaRX\Google2FAQRCode\Google2FA as Google2FAQRCode;
 
 class Api extends Controller
 {
@@ -56,6 +58,15 @@ class Api extends Controller
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
+        }
+
+        // Check if 2FA is enabled for this user
+        if ($user->two_factor_enabled) {
+            $return = new \stdClass();
+            $return->two_factor_required = true;
+            $return->email = $user->email;
+
+            return response()->json($return);
         }
 
         $return = new \stdClass();
@@ -414,5 +425,119 @@ class Api extends Controller
 
 
         return response()->json($users->get(0)->ip);
+    }
+
+    /**
+     * Generate 2FA secret key and QR code
+     *
+     * @return JsonResponse
+     */
+    public function generate2fa()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        // Initialize the 2FA class
+        $google2fa = new Google2FA();
+
+        // Generate a new secret key
+        $secretKey = $google2fa->generateSecretKey();
+
+        // Save the secret key to the user
+        $user->two_factor_secret = $secretKey;
+        $user->two_factor_pre_enabled = true;
+        $user->save();
+
+        // Generate the QR code
+        $google2faQR = new Google2FAQRCode();
+        $qrCodeUrl = $google2faQR->getQRCodeInline(
+            'weLore',
+            $user->email,
+            $secretKey
+        );
+
+        return response()->json([
+            'secret' => $secretKey,
+            'qr_code' => $qrCodeUrl
+        ]);
+    }
+
+    /**
+     * Confirm 2FA setup by validating a code
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function confirm2fa(Request $request)
+    {
+        $request->validate([
+            'code' => 'required|string'
+        ]);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        // Check if 2FA is pre-enabled
+        if (!$user->two_factor_pre_enabled) {
+            return response()->json('Two-factor authentication not initialized', 400);
+        }
+
+        // Initialize the 2FA class
+        $google2fa = new Google2FA();
+
+        // Verify the code
+        $valid = $google2fa->verifyKey($user->two_factor_secret, $request->code);
+
+        if ($valid) {
+            // Enable 2FA
+            $user->two_factor_enabled = true;
+            $user->save();
+
+            return response()->json('Two-factor authentication enabled');
+        }
+
+        return response()->json('Invalid verification code', 400);
+    }
+
+    /**
+     * Verify 2FA code during login
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function verify2fa(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'code' => 'required|string',
+            'device_name' => 'required'
+        ]);
+
+        /** @var User $user */
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json('User not found', 404);
+        }
+
+        // Check if 2FA is enabled
+        if (!$user->two_factor_enabled) {
+            return response()->json('Two-factor authentication not enabled for this user', 400);
+        }
+
+        // Initialize the 2FA class
+        $google2fa = new Google2FA();
+
+        // Verify the code
+        $valid = $google2fa->verifyKey($user->two_factor_secret, $request->code);
+
+        if ($valid) {
+            $return = new \stdClass();
+            $return->token = $user->createToken($request->device_name)->plainTextToken;
+
+            return response()->json($return);
+        }
+
+        return response()->json('Invalid verification code', 400);
     }
 }

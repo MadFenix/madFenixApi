@@ -28,6 +28,7 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
      */
     protected $fillable = [
         'name', 'email', 'password', 'newsletter', 'eth_wallet', 'ip',
+        'two_factor_pre_enabled', 'two_factor_enabled', 'two_factor_secret',
     ];
 
     /**
