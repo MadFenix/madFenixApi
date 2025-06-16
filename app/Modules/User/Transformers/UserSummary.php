@@ -3,7 +3,7 @@
 namespace App\Modules\User\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
-use \App\Modules\Game\Poll\Transformers\Profile as ProfileTransformer;
+use \App\Modules\Game\Profile\Transformers\Profile as ProfileTransformer;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User as UserModel;
 

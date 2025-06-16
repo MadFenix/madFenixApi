@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Game\Poll\Transformers;
+namespace App\Modules\Game\Profile\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
 use App\Modules\Game\Poll\Domain\Profile as ProfileModel;
