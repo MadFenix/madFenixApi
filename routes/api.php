@@ -147,8 +147,8 @@ Route::prefix('/{account}')->group(function () {
                 Route::delete('/product-order', 'Store\\Infrastructure\\Controller\\ApiOrder@destroy');
                 Route::get('/product-order-download', 'Store\\Infrastructure\\Controller\\ApiOrder@download');
 
-                Route::apiResource('user', 'Store\\Infrastructure\\Controller\\Api')->only(['index', 'show', 'update']);
-                Route::get('/user-download', 'Store\\Infrastructure\\Controller\\Api@download');
+                Route::apiResource('user', 'User\\Infrastructure\\Controller\\ApiManager')->only(['index', 'show', 'update']);
+                Route::get('/user-download', 'User\\Infrastructure\\Controller\\ApiManager@download');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
