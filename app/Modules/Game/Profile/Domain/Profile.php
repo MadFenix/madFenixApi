@@ -76,6 +76,7 @@ class Profile extends BaseDomain
     protected function details(): Attribute
     {
         return Attribute::make(
+            get: fn ($value) => $value,
             set: fn ($value) => $value === null ? '' : $value
         );
     }
