@@ -22,9 +22,13 @@ class ProductOrder extends BaseTransformer
      */
     public function toArray($request)
     {
+        $user = new \stdClass();
+        $user->id = $this->user_id;
+        $user->email = $this->user->email;
+        $user->name = $this->user->name;
         return array_merge(parent::toArray($request),[
             'product_id' => $this->product_id,
-            'user_id' => $this->user_id,
+            'user' => $user,
             'payment_validated' => $this->payment_validated,
             'is_gift' => $this->is_gift,
         ]);
