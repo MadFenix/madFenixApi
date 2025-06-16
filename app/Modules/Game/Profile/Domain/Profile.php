@@ -8,8 +8,7 @@ class Profile extends BaseDomain
     const VALIDATION_COTNEXT = [
         'user_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'min:4', 'max:255'],
-        'details' => ['present
-', 'string'],
+        'details' => ['nullable', 'string'],
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
         'plumas_hedera' => ['integer'],
         'plumas' => ['integer'],
@@ -70,6 +69,12 @@ class Profile extends BaseDomain
     public function getIcon(): string
     {
         return 'user';
+    }
+
+    // Setter
+    public function setDetailsAttribute($value)
+    {
+        $this->attributes['details'] = $value === null ? '' : $value;
     }
 
     // Others
