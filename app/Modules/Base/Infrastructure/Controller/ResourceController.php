@@ -183,7 +183,7 @@ abstract class ResourceController extends Controller
                 foreach ($data->data as $row) {
                     $dataRow = $row->toArray($request);
                     array_walk_recursive($dataRow, function(&$value) {
-                        if (!is_string($value)) {
+                        if (is_array($value) || is_object($value)) {
                             $value = json_encode($value);
                         }
 
