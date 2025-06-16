@@ -8,7 +8,7 @@ class Profile extends BaseDomain
     const VALIDATION_COTNEXT = [
         'user_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'min:4', 'max:255'],
-        'details' => ['string'],
+        'details' => ['nullable', 'string'],
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
         'plumas_hedera' => ['integer'],
         'plumas' => ['integer'],
@@ -16,13 +16,13 @@ class Profile extends BaseDomain
         'season_points' => ['integer'],
         'oro_hedera' => ['integer'],
         'oro' => ['integer'],
-        'twitch_user_id' => ['string'],
-        'twitch_user_name' => ['string'],
-        'twitch_api_user_token' => ['string'],
-        'twitch_api_user_refresh_token' => ['string'],
-        'twitch_scope' => ['string'],
-        'steam_user_id' => ['string'],
-        'steam_user_name' => ['string'],
+        'twitch_user_id' => ['nullable', 'string'],
+        'twitch_user_name' => ['nullable', 'string'],
+        'twitch_api_user_token' => ['nullable', 'string'],
+        'twitch_api_user_refresh_token' => ['nullable', 'string'],
+        'twitch_scope' => ['nullable', 'string'],
+        'steam_user_id' => ['nullable', 'string'],
+        'steam_user_name' => ['nullable', 'string'],
     ];
 
     protected $fillable = [
