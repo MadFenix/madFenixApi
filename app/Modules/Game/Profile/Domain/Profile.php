@@ -8,7 +8,6 @@ class Profile extends BaseDomain
     const VALIDATION_COTNEXT = [
         'user_id' => ['required', 'integer', 'exists:users,id'],
         'description' => ['required', 'string', 'min:4', 'max:255'],
-        'details' => ['nullable', 'string'],
         'avatar' => ['required', 'string', 'min:4', 'max:255'],
         'plumas_hedera' => ['integer'],
         'plumas' => ['integer'],

@@ -259,6 +259,7 @@ abstract class ResourceController extends Controller
     {
         try {
             $transformerClass = $this->getTransformerClass();
+
             /** @var BaseDomain $model */
             $model = ($this->getModelClass())::findOrFail($id);
             $validator = Validator::make(request()->all(), $model->getValidationContext());
@@ -267,13 +268,12 @@ abstract class ResourceController extends Controller
                 throw ValidationException::withMessages($validator->errors()->toArray());
             }
 
-            $requestData = request()->all();
-            $model->update($requestData);
+            $model->update(request()->all());
         } catch (\Throwable $th) {
             return $this->formatExceptionError($th);
         }
 
-        return response()->json(["model"=>new $transformerClass($model), "requestData"=>$requestData]);
+        return response()->json(new $transformerClass($model));
     }
 
     /**
