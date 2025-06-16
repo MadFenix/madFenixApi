@@ -187,7 +187,7 @@ abstract class ResourceController extends Controller
                             $value = json_encode($value);
                         }
 
-                        $value = str_replace('"', '\\"', $value);
+                        $value = str_replace(['"',','], ['\\"',''], $value);
                     });
                     fputcsv($output, $dataRow);
                 }
