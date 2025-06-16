@@ -31,6 +31,8 @@ class ProductOrder extends BaseTransformer
             'user' => $user,
             'payment_validated' => $this->payment_validated,
             'is_gift' => $this->is_gift,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
     }
 }
