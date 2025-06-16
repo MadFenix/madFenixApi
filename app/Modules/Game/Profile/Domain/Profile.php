@@ -32,18 +32,23 @@ class Profile extends BaseDomain
         'avatar',
         'plumas_hedera',
         'plumas',
-        'oro_hedera',
-        'oro',
         'season_level',
         'season_points',
+        'season_premium',
+        'oro_hedera',
+        'oro',
+        'hedera_wallet',
+        'hedera_wallet_check',
+        'hedera_wallet_check_account',
+        'referred_code',
+        'referred_code_from',
         'twitch_user_id',
         'twitch_user_name',
         'twitch_api_user_token',
         'twitch_api_user_refresh_token',
         'twitch_scope',
         'steam_user_id',
-        'steam_user_name',
-        'creator_id'
+        'steam_user_name'
     ];
 
     /**
