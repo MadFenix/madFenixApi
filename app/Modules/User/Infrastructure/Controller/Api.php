@@ -231,7 +231,7 @@ class Api extends Controller
      * @param  string  $password
      * @return void
      */
-    protected function resetPassword($user, $password)
+    protected function resetPassword($user, $password, $login = true)
     {
         $this->setUserPassword($user, $password);
 
@@ -241,7 +241,9 @@ class Api extends Controller
 
         event(new PasswordReset($user));
 
-        $this->guard()->login($user);
+        if ($login) {
+            $this->guard()->login($user);
+        }
     }
 
     /**
@@ -295,7 +297,7 @@ class Api extends Controller
         }
 
 
-        $this->resetPassword($user, $data['password']);
+        $this->resetPassword($user, $data['password'], false);
 
         return response()->json('Password reset');
     }
