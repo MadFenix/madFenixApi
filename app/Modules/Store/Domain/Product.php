@@ -24,6 +24,7 @@ class Product extends BaseDomain
         'nft_serial_less_equal' => ['nullable', 'integer'],
         'custom' => ['nullable', 'string'],
         'one_time_purchase' => ['nullable', 'integer'],
+        'one_time_purchase_global' => ['nullable', 'integer'],
     ];
 
     protected $fillable = [
@@ -45,6 +46,7 @@ class Product extends BaseDomain
         'nft_serial_less_equal',
         'custom',
         'one_time_purchase',
+        'one_time_purchase_global',
     ];
 
     /**

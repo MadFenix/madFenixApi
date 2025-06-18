@@ -41,6 +41,7 @@ class Product extends BaseTransformer
             'nft_serial_less_equal' => $this->nft_serial_less_equal,
             'custom' => $this->custom,
             'one_time_purchase' => $this->one_time_purchase,
+            'one_time_purchase_global' => $this->one_time_purchase_global,
         ]);
     }
 }
