@@ -26,8 +26,8 @@ class EventMeta extends BaseTransformer
     {
         return array_merge(parent::toArray($request),[
             'details' => $this->details,
-            'start_at' => $this->start_at,
-            'end_at' => $this->end_at,
+            'start_at' => $this->start_at->format('Y-m-d H:i:s'),
+            'end_at' => $this->end_at->format('Y-m-d H:i:s'),
             'product_gift_id' => $this->product_gift_id,
             'creator_id' => $this->creator_id,
         ]);
