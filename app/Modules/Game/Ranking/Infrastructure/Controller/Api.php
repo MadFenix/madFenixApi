@@ -9,6 +9,11 @@ use App\Modules\User\Domain\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Ranking management
+ *
+ * APIs for managing rankings
+ */
 class Api extends ResourceController
 {
     protected function getModelName(): string

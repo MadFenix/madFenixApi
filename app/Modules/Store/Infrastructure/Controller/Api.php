@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\DB;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
+/**
+ * @group Product management
+ *
+ * APIs for managing products
+ */
 class Api extends ResourceController
 {
 

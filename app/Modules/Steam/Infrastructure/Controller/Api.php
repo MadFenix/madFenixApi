@@ -8,6 +8,11 @@ use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User;
 use Illuminate\Http\Request;
 
+/**
+ * @group Steam management
+ *
+ * APIs for managing steam conections
+ */
 class Api extends Controller
 {
     public function connectSteamAccount(Request $request) {

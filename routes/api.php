@@ -53,13 +53,6 @@ Route::prefix('/{account}')->group(function () {
         Route::post('store/validateProductOrder', 'Api@validateProductOrder');
     });
 
-    /*Route::namespace('\\App\\Modules\\Assistant\\Thred\\Infrastructure\\Controller')->group(function () {
-        Route::get('assistant/thred/getResponseFromAI', 'Api@getResponseFromAI');
-        Route::post('assistant/thred/getAudioResponseFromAI', 'Api@getAudioResponseFromAI');
-        Route::post('assistant/thred/getAudioResponseFromMixAI', 'Api@getAudioResponseFromMixAI');
-        Route::post('assistant/thred/getClientCommandFromMixAI', 'Api@getClientCommandFromMixAI');
-    });*/
-
     // Usual routes authed
     Route::namespace('\\App\\Modules\\')->middleware('auth:sanctum')->group(function () {
         Route::prefix('/manager')->group(function () {
@@ -226,10 +219,6 @@ Route::prefix('/{account}')->group(function () {
         Route::namespace('Game\\ThePhoenixDiary\\Infrastructure\\Controller')->group(function () {
             Route::get('thePhoenixDiary/getCharacters', 'Api@getCharacters');
             Route::post('thePhoenixDiary/createNewGame', 'Api@createNewGame');
-        });
-        Route::namespace('Blockchain\\Wallet\\Infrastructure\\Controller')->group(function () {
-            Route::post('wallet/transferZen', 'Api@transferZen');
-            Route::get('wallet/show', 'Api@show');
         });
         Route::namespace('Blockchain\\Block\\Infrastructure\\Controller')->group(function () {
             Route::post('blockchain/transferPlumasToHedera', 'Api@transferPlumasToHedera');

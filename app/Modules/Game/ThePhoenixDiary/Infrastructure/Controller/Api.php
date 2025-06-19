@@ -7,6 +7,11 @@ use App\Modules\Game\ThePhoenixDiary\Domain\TpdCharacter;
 use App\Modules\Game\ThePhoenixDiary\Infrastructure\ThePhoenixDiaryUtilities;
 use App\Modules\User\Domain\User;
 
+/**
+ * @group Phoenix Diary management
+ *
+ * APIs for managing phoenix diary
+ */
 class Api extends ResourceController
 {
     protected function getModelName(): string

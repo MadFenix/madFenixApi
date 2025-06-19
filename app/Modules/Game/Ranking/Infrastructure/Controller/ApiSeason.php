@@ -15,6 +15,11 @@ use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Rankings season management
+ *
+ * APIs for managing rankings seasons
+ */
 class ApiSeason extends ResourceController
 {
     protected function getModelName(): string

@@ -31,6 +31,11 @@ use Agustind\Ethsignature;
 use PragmaRX\Google2FA\Google2FA;
 use PragmaRX\Google2FAQRCode\Google2FA as Google2FAQRCode;
 
+/**
+ * @group User management
+ *
+ * APIs for managing users
+ */
 class Api extends Controller
 {
     /**

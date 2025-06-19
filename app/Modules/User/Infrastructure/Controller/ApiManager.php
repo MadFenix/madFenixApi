@@ -5,6 +5,11 @@ namespace App\Modules\User\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 
+/**
+ * @group User management admin
+ *
+ * APIs for managing users by admins
+ */
 class ApiManager extends ResourceController
 {
 

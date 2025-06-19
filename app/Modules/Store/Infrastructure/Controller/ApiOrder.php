@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\DB;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
+/**
+ * @group Product Order management
+ *
+ * APIs for managing product orders
+ */
 class ApiOrder extends ResourceController
 {
 

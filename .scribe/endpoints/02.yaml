@@ -1,0 +1,278 @@
+name: 'Ranking management'
+description: |-
+
+  APIs for managing rankings
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/{account}/ranking/getClassification'
+    metadata:
+      groupName: 'Ranking management'
+      groupDescription: |-
+
+        APIs for managing rankings
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      account:
+        name: account
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      account: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      game:
+        name: game
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      game: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 500
+        content: '"Error al establecer la clasificaci\u00f3n"'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          cross-origin-opener-policy: same-origin
+          cross-origin-embedder-policy: require-corp
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/{account}/ranking/getGameStarted'
+    metadata:
+      groupName: 'Ranking management'
+      groupDescription: |-
+
+        APIs for managing rankings
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      account:
+        name: account
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      account: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      game:
+        name: game
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      game: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '"No iniciado."'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          cross-origin-opener-policy: same-origin
+          cross-origin-embedder-policy: require-corp
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '58'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/{account}/ranking/addRanking'
+    metadata:
+      groupName: 'Ranking management'
+      groupDescription: |-
+
+        APIs for managing rankings
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      account:
+        name: account
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      account: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      game:
+        name: game
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      network_group:
+        name: network_group
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      fase:
+        name: fase
+        description: ''
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      game: consequatur
+      network_group: consequatur
+      fase: 17
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/{account}/ranking/getRanking'
+    metadata:
+      groupName: 'Ranking management'
+      groupDescription: |-
+
+        APIs for managing rankings
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      account:
+        name: account
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      account: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      game:
+        name: game
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      game: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

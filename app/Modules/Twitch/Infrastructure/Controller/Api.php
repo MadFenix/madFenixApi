@@ -9,6 +9,11 @@ use App\Modules\Twitch\Infrastructure\ApiHelix;
 use App\Modules\User\Domain\User;
 use Illuminate\Http\Request;
 
+/**
+ * @group Twitch management
+ *
+ * APIs for managing teitch conections
+ */
 class Api extends Controller
 {
     public function connectTwitchAccount(Request $request) {

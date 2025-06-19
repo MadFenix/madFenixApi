@@ -5,6 +5,11 @@ namespace App\Modules\Game\Coupon\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 
+/**
+ * @group Item Coupons management
+ *
+ * APIs for managing item coupons
+ */
 class ApiItem extends ResourceController
 {
     protected function getModelName(): string

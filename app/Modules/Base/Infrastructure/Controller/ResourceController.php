@@ -61,12 +61,17 @@ abstract class ResourceController extends Controller
 
     protected function getData(Request $request, $withoutLimit = false)
     {
-        // Define and apply validation rules
+        // Query parameters
         $rules = [
+            // The page number. Example: 3
             'page'    => 'nullable|integer|min:0',
+            // The limit items. Example: 1
             'limit'   => 'nullable|integer|min:1|max:100',
+            // Filter items.
             'filter'  => 'nullable|string|max:255',
+            // Sorting items. Example: desc
             'sorting' => 'nullable|string',
+            // The parent resource of items. Example: 6
             'parent_id' => 'nullable|integer'
         ];
 
@@ -124,6 +129,8 @@ abstract class ResourceController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * - Requires manager role
+     *
      * @return JsonResponse
      */
     public function index(Request $request)
@@ -140,16 +147,20 @@ abstract class ResourceController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource in csv or json.
+     *
+     *  - Requires manager role
      *
      * @return JsonResponse|StreamedResponse
      */
     public function download(Request $request)
     {
         $rules = [
+            // File type (csv or json). Example: json
             'type' => 'string'
         ];
 
+        // Query parameters
         $validator = Validator::make($request->all(), $rules);
 
         // Check for validation errors and return a custom JSON response if validation fails
@@ -203,6 +214,8 @@ abstract class ResourceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     *  - Requires manager role
+     *
      * @return JsonResponse
      * @throws
      */
@@ -213,6 +226,8 @@ abstract class ResourceController extends Controller
             $transformerClass = $this->getTransformerClass();
             /** @var BaseDomain $model */
             $model = new $modelClass();
+
+            // Query parameters
             $validator = Validator::make(request()->all(), $model->getValidationContext());
 
             if ($validator->fails()) {
@@ -230,6 +245,8 @@ abstract class ResourceController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     *  - Requires manager role
      *
      * @param  string  $account
      * @param  int  $id
@@ -250,6 +267,8 @@ abstract class ResourceController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     *  - Requires manager role
+     *
      * @param  string  $account
      * @param  int  $id
      * @return JsonResponse
@@ -262,6 +281,8 @@ abstract class ResourceController extends Controller
 
             /** @var BaseDomain $model */
             $model = ($this->getModelClass())::findOrFail($id);
+
+            // Query parameters
             $validator = Validator::make(request()->all(), $model->getValidationContext());
 
             if ($validator->fails()) {
@@ -278,6 +299,8 @@ abstract class ResourceController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     *  - Requires manager role
      *
      * @param  string  $account
      * @return JsonResponse
@@ -327,6 +350,8 @@ abstract class ResourceController extends Controller
     /**
      * Upload a CSV file for bulk processing
      *
+     *  - Requires manager role
+     *
      * @param string $account
      * @return JsonResponse
      */
@@ -335,9 +360,11 @@ abstract class ResourceController extends Controller
         try {
             $request = request();
 
-            // Validate request
+            // Query parameters
             $validator = Validator::make($request->all(), [
-                'file' => 'required|file|mimes:csv,txt|max:10240', // Max 10MB
+                // File. Max 1MB
+                'file' => 'required|file|mimes:csv,txt|max:1024', // Max 1MB
+                // Array of headers mapping resource fields
                 'header_mapping' => 'required',
             ]);
 
@@ -404,6 +431,8 @@ abstract class ResourceController extends Controller
     /**
      * Get the status of a bulk upload
      *
+     *  - Requires manager role
+     *
      * @param string $account
      * @return JsonResponse
      */
@@ -430,6 +459,8 @@ abstract class ResourceController extends Controller
 
     /**
      * Delete a bulk upload
+     *
+     *  - Requires manager role
      *
      * @param string $account
      * @param int $id
@@ -461,6 +492,8 @@ abstract class ResourceController extends Controller
 
     /**
      * List the fields of the domain model
+     *
+     *  - Requires manager role
      *
      * @param string $account
      * @return JsonResponse

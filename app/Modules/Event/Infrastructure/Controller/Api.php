@@ -16,6 +16,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Event management
+ *
+ * APIs for managing events
+ */
 class Api extends ResourceController
 {
     protected function getModelName(): string

@@ -20,6 +20,11 @@ use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Season Rewards management
+ *
+ * APIs for managing season rewards
+ */
 class ApiReward extends ResourceController
 {
     protected function getModelName(): string

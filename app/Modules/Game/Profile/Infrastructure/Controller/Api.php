@@ -15,6 +15,11 @@ use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+/**
+ * @group Profile management
+ *
+ * APIs for managing profiles
+ */
 class Api extends ResourceController
 {
     protected function getModelName(): string
@@ -22,6 +27,9 @@ class Api extends ResourceController
         return 'Game\\Profile';
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function adminDashboard()
     {
         $return = new \stdClass();
@@ -89,6 +97,9 @@ class Api extends ResourceController
         return response()->json($return);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function subtractPlumaUser()
     {
         /** @var User $user */
@@ -113,6 +124,9 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function subtractOroUser()
     {
         /** @var User $user */
@@ -137,6 +151,10 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function setAvatar(Request $request)
     {
         /** @var User $user */
@@ -164,6 +182,10 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function setEstado(Request $request)
     {
         /** @var User $user */
@@ -191,6 +213,9 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getUserProfile()
     {
         /** @var User $user */
@@ -331,6 +356,10 @@ class Api extends ResourceController
         return response()->json($returnProfile);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function setUserProfileReferredCode(Request $request)
     {
         $data = $request->validate(['referred_code' => 'required|string']);
@@ -356,6 +385,10 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function setUserProfileHederaWalletCheck(Request $request)
     {
         $data = $request->validate(['account' => 'required|string']);
@@ -386,6 +419,10 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function setUserProfileReferredCodeFrom(Request $request)
     {
         $data = $request->validate(['referred_code_from' => 'required|string']);
@@ -435,6 +472,10 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addPluma(Request $request)
     {
         $data = $request->validate(['user_id' => 'required|integer', 'plumas' => 'required|integer']);
@@ -464,6 +505,10 @@ class Api extends ResourceController
             : response()->json('Error al guardar el perfil.', 500);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addOro(Request $request)
     {
         $data = $request->validate(['user_id' => 'required|integer', 'oro' => 'required|integer']);

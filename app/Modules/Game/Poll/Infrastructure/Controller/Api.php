@@ -15,6 +15,11 @@ use App\Modules\Game\Poll\Infrastructure\Service\UserPollPremium;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+/**
+ * @group Poll management
+ *
+ * APIs for managing polls
+ */
 class Api extends ResourceController
 {
     protected function getModelName(): string

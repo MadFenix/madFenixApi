@@ -14,6 +14,11 @@ use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+/**
+ * @group Habit management
+ *
+ * APIs for managing habits
+ */
 class Api extends Controller
 {
     public function postHabit(Request $request) {

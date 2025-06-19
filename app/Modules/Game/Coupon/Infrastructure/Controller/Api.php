@@ -19,6 +19,11 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @group Free Coin Coupon management
+ *
+ * APIs for managing free coin coupons
+ */
 class Api extends ResourceController
 {
     protected function getModelName(): string

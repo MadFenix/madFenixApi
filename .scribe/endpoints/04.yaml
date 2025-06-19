@@ -1,0 +1,137 @@
+name: 'Twitch management'
+description: |-
+
+  APIs for managing teitch conections
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/{account}/twitch/connectAccount'
+    metadata:
+      groupName: 'Twitch management'
+      groupDescription: |-
+
+        APIs for managing teitch conections
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      account:
+        name: account
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      account: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      scope:
+        name: scope
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      state:
+        name: state
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      code: consequatur
+      scope: consequatur
+      state: consequatur
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: '"Perfil del usuario no encontrado."'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          cross-origin-opener-policy: same-origin
+          cross-origin-embedder-policy: require-corp
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
+          vary: Origin
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/{account}/twitch/disconnectTwitch'
+    metadata:
+      groupName: 'Twitch management'
+      groupDescription: |-
+
+        APIs for managing teitch conections
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      account:
+        name: account
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      account: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

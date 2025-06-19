@@ -16,6 +16,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Events meta management
+ *
+ * APIs for managing events meta
+ */
 class ApiMeta extends ResourceController
 {
     protected function getNameParameter(): string

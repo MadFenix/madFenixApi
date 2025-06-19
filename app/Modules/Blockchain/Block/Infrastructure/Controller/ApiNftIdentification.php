@@ -5,6 +5,11 @@ namespace App\Modules\Blockchain\Block\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 
+/**
+ * @group Subitems management
+ *
+ * APIs for managing subitems
+ */
 class ApiNftIdentification extends ResourceController
 {
     protected function getModelName(): string

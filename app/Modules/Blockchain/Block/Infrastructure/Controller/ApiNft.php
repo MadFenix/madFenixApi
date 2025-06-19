@@ -5,6 +5,11 @@ namespace App\Modules\Blockchain\Block\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 
+/**
+ * @group Item management
+ *
+ * APIs for managing items
+ */
 class ApiNft extends ResourceController
 {
     protected function getModelName(): string

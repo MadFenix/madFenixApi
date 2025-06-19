@@ -5,6 +5,11 @@ namespace App\Modules\Game\Coupon\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 
+/**
+ * @group Premium Coin Coupons management
+ *
+ * APIs for managing premium coin coupons
+ */
 class ApiOro extends ResourceController
 {
     protected function getModelName(): string
