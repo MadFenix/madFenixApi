@@ -28,7 +28,7 @@ class Api extends ResourceController
      *
      * @return JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         $now = new Carbon();
         return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::where('destinator_id', '=', auth()->user()->id)->where('start_at', '<=', $now)->where('end_at', '>=', $now)->orderBy('created_at', 'desc')->get()));
