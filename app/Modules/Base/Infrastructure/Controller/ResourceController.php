@@ -353,6 +353,8 @@ abstract class ResourceController extends Controller
      *  - Requires manager role
      *
      * @param string $account
+     * @bodyParam file
+     * @bodyParam header_mapping
      * @return JsonResponse
      */
     public function upload($account)
