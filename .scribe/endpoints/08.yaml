@@ -14,8 +14,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of polls.'
+      description: 'Get a paginated list of all polls.'
       authenticated: false
       custom: []
     headers:
@@ -36,8 +36,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter polls by name.'
+        required: false
+        example: '"Community Survey"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort polls by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter polls by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Community Survey"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -66,8 +121,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created poll.'
+      description: 'Create a new poll with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -88,8 +143,96 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the poll.'
+        required: true
+        example: '"Community Feedback Survey"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      short_description:
+        name: short_description
+        description: 'The short description of the poll.'
+        required: false
+        example: '"A quick survey about our latest features"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The detailed description of the poll.'
+        required: false
+        example: '"This survey aims to collect feedback about our latest platform features and improvements."'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      portrait_image:
+        name: portrait_image
+        description: 'The portrait image URL of the poll.'
+        required: false
+        example: '"https://example.com/portrait.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      featured_image:
+        name: featured_image
+        description: 'The featured image URL of the poll.'
+        required: false
+        example: '"https://example.com/featured.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      answers:
+        name: answers
+        description: 'The possible answers for the poll in JSON format.'
+        required: false
+        example: "\"['Yes', 'No', 'Maybe']\""
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the poll.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the poll.'
+        required: true
+        example: '"2023-01-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Community Feedback Survey"'
+      short_description: '"A quick survey about our latest features"'
+      description: '"This survey aims to collect feedback about our latest platform features and improvements."'
+      portrait_image: '"https://example.com/portrait.jpg"'
+      featured_image: '"https://example.com/featured.jpg"'
+      answers: "\"['Yes', 'No', 'Maybe']\""
+      start_date: '"2023-01-01 00:00:00"'
+      end_date: '"2023-01-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -109,8 +252,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified poll.'
+      description: 'Get details of a specific poll by ID.'
       authenticated: false
       custom: []
     headers:
@@ -173,8 +316,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified poll.'
+      description: 'Update an existing poll with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -206,8 +349,96 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the poll.'
+        required: true
+        example: '"Updated Community Feedback Survey"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      short_description:
+        name: short_description
+        description: 'The short description of the poll.'
+        required: false
+        example: '"A quick survey about our latest features"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The detailed description of the poll.'
+        required: false
+        example: '"This survey aims to collect feedback about our latest platform features and improvements."'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      portrait_image:
+        name: portrait_image
+        description: 'The portrait image URL of the poll.'
+        required: false
+        example: '"https://example.com/portrait.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      featured_image:
+        name: featured_image
+        description: 'The featured image URL of the poll.'
+        required: false
+        example: '"https://example.com/featured.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      answers:
+        name: answers
+        description: 'The possible answers for the poll in JSON format.'
+        required: false
+        example: "\"['Yes', 'No', 'Maybe']\""
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the poll.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the poll.'
+        required: true
+        example: '"2023-01-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Updated Community Feedback Survey"'
+      short_description: '"A quick survey about our latest features"'
+      description: '"This survey aims to collect feedback about our latest platform features and improvements."'
+      portrait_image: '"https://example.com/portrait.jpg"'
+      featured_image: '"https://example.com/featured.jpg"'
+      answers: "\"['Yes', 'No', 'Maybe']\""
+      start_date: '"2023-01-01 00:00:00"'
+      end_date: '"2023-01-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -227,8 +458,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified poll.'
+      description: 'Delete a poll by ID.'
       authenticated: false
       custom: []
     headers:
@@ -281,8 +512,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified poll.'
+      description: 'Delete a poll by ID.'
       authenticated: false
       custom: []
     headers:
@@ -324,8 +555,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download polls as CSV or JSON.'
+      description: 'Export the poll data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -344,21 +575,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter polls by name.'
+        required: false
+        example: '"Community Survey"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort polls by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter polls by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Community Survey"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -387,8 +673,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the poll model.'
+      description: 'Get the structure and field types of the poll model.'
       authenticated: false
       custom: []
     headers:
@@ -439,12 +725,12 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk poll processing.'
+      description: 'Upload a CSV file to create multiple polls at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -461,9 +747,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to poll fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -482,8 +792,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk poll upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -534,8 +844,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk poll upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -588,8 +898,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get details of a specific poll.'
+      description: 'Retrieve detailed information about a poll including its status for the current user.'
       authenticated: false
       custom: []
     headers:
@@ -613,27 +923,27 @@ endpoints:
     bodyParameters:
       poll_id:
         name: poll_id
-        description: ''
+        description: 'The ID of the poll to get details for.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       active:
         name: active
-        description: ''
+        description: 'Whether to only include active polls.'
         required: true
-        example: consequatur
-        type: string
+        example: true
+        type: boolean
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      poll_id: consequatur
-      active: consequatur
+      poll_id: 1
+      active: true
     fileParameters: []
     responses:
       -
@@ -662,8 +972,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get details of polls from the last 30 days.'
+      description: 'Retrieve information about all polls that were active in the last 30 days.'
       authenticated: false
       custom: []
     headers:
@@ -714,8 +1024,8 @@ endpoints:
         APIs for managing polls
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Submit an answer to a poll.'
+      description: "Record a user's response to a specific poll."
       authenticated: false
       custom: []
     headers:
@@ -739,27 +1049,27 @@ endpoints:
     bodyParameters:
       poll_id:
         name: poll_id
-        description: ''
+        description: 'The ID of the poll to answer.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       answer:
         name: answer
-        description: ''
+        description: "The user's answer to the poll."
         required: true
-        example: consequatur
+        example: '"Yes"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      poll_id: consequatur
-      answer: consequatur
+      poll_id: 1
+      answer: '"Yes"'
     fileParameters: []
     responses: []
     responseFields: []

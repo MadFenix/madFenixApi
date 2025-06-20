@@ -16,8 +16,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of season rewards.'
+      description: 'Get a paginated list of all season rewards.'
       authenticated: false
       custom: []
     headers:
@@ -38,8 +38,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter rewards by level.'
+        required: false
+        example: '"5"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort rewards by column and direction (column:direction).'
+        required: false
+        example: '"level:asc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter rewards by season ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"5"'
+      sorting: '"level:asc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -68,8 +123,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created season reward.'
+      description: 'Create a new season reward with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -90,8 +145,96 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      level:
+        name: level
+        description: 'The level at which this reward is unlocked.'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      required_points:
+        name: required_points
+        description: 'The points required to reach this level.'
+        required: true
+        example: 500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The amount of oro (gold) awarded.'
+        required: false
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      plumas:
+        name: plumas
+        description: 'The amount of plumas (feathers) awarded.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the NFT awarded.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_nft_rewards:
+        name: max_nft_rewards
+        description: 'The maximum number of NFT rewards available.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      custom_reward:
+        name: custom_reward
+        description: 'Any custom reward description.'
+        required: false
+        example: '"Special avatar frame"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      season_id:
+        name: season_id
+        description: 'The ID of the season this reward belongs to.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      level: 5
+      required_points: 500
+      oro: 50
+      plumas: 100
+      nft_id: 1
+      max_nft_rewards: 100
+      custom_reward: '"Special avatar frame"'
+      season_id: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -111,8 +254,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified season reward.'
+      description: 'Get details of a specific season reward by ID.'
       authenticated: false
       custom: []
     headers:
@@ -175,8 +318,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified season reward.'
+      description: 'Update an existing season reward with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -208,8 +351,96 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      level:
+        name: level
+        description: 'The level at which this reward is unlocked.'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      required_points:
+        name: required_points
+        description: 'The points required to reach this level.'
+        required: true
+        example: 500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The amount of oro (gold) awarded.'
+        required: false
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      plumas:
+        name: plumas
+        description: 'The amount of plumas (feathers) awarded.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the NFT awarded.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_nft_rewards:
+        name: max_nft_rewards
+        description: 'The maximum number of NFT rewards available.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      custom_reward:
+        name: custom_reward
+        description: 'Any custom reward description.'
+        required: false
+        example: '"Special avatar frame"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      season_id:
+        name: season_id
+        description: 'The ID of the season this reward belongs to.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      level: 5
+      required_points: 500
+      oro: 50
+      plumas: 100
+      nft_id: 1
+      max_nft_rewards: 100
+      custom_reward: '"Special avatar frame"'
+      season_id: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -229,8 +460,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified season reward.'
+      description: 'Delete a season reward by ID.'
       authenticated: false
       custom: []
     headers:
@@ -283,8 +514,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified season reward.'
+      description: 'Delete a season reward by ID.'
       authenticated: false
       custom: []
     headers:
@@ -326,8 +557,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download season rewards as CSV or JSON.'
+      description: 'Export the season reward data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -346,21 +577,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter rewards by level.'
+        required: false
+        example: '"5"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort rewards by column and direction (column:direction).'
+        required: false
+        example: '"level:asc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter rewards by season ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"5"'
+      sorting: '"level:asc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -389,8 +675,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the season reward model.'
+      description: 'Get the structure and field types of the season reward model.'
       authenticated: false
       custom: []
     headers:
@@ -441,12 +727,12 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk season reward processing.'
+      description: 'Upload a CSV file to create multiple season rewards at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -463,9 +749,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to season reward fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -484,8 +794,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk season reward upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -536,8 +846,8 @@ endpoints:
         APIs for managing season rewards
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk season reward upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:

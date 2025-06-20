@@ -16,8 +16,8 @@ endpoints:
         APIs for managing product orders
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of product orders.'
+      description: 'Get a paginated list of all product orders.'
       authenticated: false
       custom: []
     headers:
@@ -38,8 +38,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter product orders by ID.'
+        required: false
+        example: '"123"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort product orders by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter product orders by product ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"123"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -68,8 +123,8 @@ endpoints:
         APIs for managing product orders
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified product order.'
+      description: 'Delete a product order by ID.'
       authenticated: false
       custom: []
     headers:
@@ -122,8 +177,8 @@ endpoints:
         APIs for managing product orders
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified product order.'
+      description: 'Delete a product order by ID.'
       authenticated: false
       custom: []
     headers:
@@ -165,8 +220,8 @@ endpoints:
         APIs for managing product orders
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download product orders as CSV or JSON.'
+      description: 'Export the product order data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -185,21 +240,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter product orders by ID.'
+        required: false
+        example: '"123"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort product orders by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter product orders by product ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"123"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -

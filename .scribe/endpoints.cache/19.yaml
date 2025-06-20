@@ -16,8 +16,8 @@ endpoints:
         APIs for managing events
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of own resource.'
-      description: ''
+      title: 'Display a listing of current events for the authenticated user.'
+      description: 'Get a list of all active events for the current user.'
       authenticated: false
       custom: []
     headers:
@@ -68,8 +68,8 @@ endpoints:
         APIs for managing events
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Mark an event as read.'
+      description: 'Update the read_at timestamp for a specific event.'
       authenticated: false
       custom: []
     headers:
@@ -93,16 +93,16 @@ endpoints:
     bodyParameters:
       event_id:
         name: event_id
-        description: ''
+        description: 'The ID of the event to mark as read.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      event_id: consequatur
+      event_id: 1
     fileParameters: []
     responses: []
     responseFields: []

@@ -16,8 +16,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of seasons.'
+      description: 'Get a paginated list of all seasons.'
       authenticated: false
       custom: []
     headers:
@@ -38,8 +38,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter seasons by name.'
+        required: false
+        example: '"Summer Season"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort seasons by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter seasons by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Summer Season"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -68,8 +123,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created season.'
+      description: 'Create a new season with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -90,8 +145,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the season.'
+        required: true
+        example: '"Summer Season 2023"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_level:
+        name: max_level
+        description: 'The maximum level achievable in this season.'
+        required: true
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_points:
+        name: max_points
+        description: 'The maximum points achievable in this season.'
+        required: true
+        example: 10000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the season.'
+        required: true
+        example: '"2023-06-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the season.'
+        required: true
+        example: '"2023-08-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Summer Season 2023"'
+      max_level: 100
+      max_points: 10000
+      start_date: '"2023-06-01 00:00:00"'
+      end_date: '"2023-08-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -111,8 +221,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified season.'
+      description: 'Get details of a specific season by ID.'
       authenticated: false
       custom: []
     headers:
@@ -175,8 +285,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified season.'
+      description: 'Update an existing season with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -208,8 +318,63 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the season.'
+        required: true
+        example: '"Updated Summer Season 2023"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_level:
+        name: max_level
+        description: 'The maximum level achievable in this season.'
+        required: true
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_points:
+        name: max_points
+        description: 'The maximum points achievable in this season.'
+        required: true
+        example: 10000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the season.'
+        required: true
+        example: '"2023-06-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the season.'
+        required: true
+        example: '"2023-08-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Updated Summer Season 2023"'
+      max_level: 100
+      max_points: 10000
+      start_date: '"2023-06-01 00:00:00"'
+      end_date: '"2023-08-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -229,8 +394,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified season.'
+      description: 'Delete a season by ID.'
       authenticated: false
       custom: []
     headers:
@@ -283,8 +448,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified season.'
+      description: 'Delete a season by ID.'
       authenticated: false
       custom: []
     headers:
@@ -326,8 +491,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download seasons as CSV or JSON.'
+      description: 'Export the season data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -346,21 +511,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter seasons by name.'
+        required: false
+        example: '"Summer Season"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort seasons by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter seasons by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Summer Season"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -389,8 +609,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the season model.'
+      description: 'Get the structure and field types of the season model.'
       authenticated: false
       custom: []
     headers:
@@ -441,12 +661,12 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk season processing.'
+      description: 'Upload a CSV file to create multiple seasons at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -463,9 +683,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to season fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -484,8 +728,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk season upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -536,8 +780,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk season upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -590,8 +834,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get details of the current active season.'
+      description: 'Retrieve detailed information about the currently active season, including rewards and user progress.'
       authenticated: false
       custom: []
     headers:
@@ -642,8 +886,8 @@ endpoints:
         APIs for managing seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Redeem a season level reward.'
+      description: 'Claim the reward for a specific level in the current season.'
       authenticated: false
       custom: []
     headers:
@@ -667,16 +911,16 @@ endpoints:
     bodyParameters:
       level:
         name: level
-        description: ''
+        description: 'The level to redeem the reward for.'
         required: true
-        example: consequatur
-        type: string
+        example: 5
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      level: consequatur
+      level: 5
     fileParameters: []
     responses: []
     responseFields: []

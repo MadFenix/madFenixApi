@@ -1,7 +1,7 @@
 name: 'Item management'
 description: |-
 
-  APIs for managing items
+  APIs for managing Items
 endpoints:
   -
     httpMethods:
@@ -11,11 +11,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of Items.'
+      description: 'Get a paginated list of all Items.'
       authenticated: false
       custom: []
     headers:
@@ -36,8 +36,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter items by name.'
+        required: false
+        example: '"Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort items by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter items by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Phoenix"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -63,11 +118,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created Item.'
+      description: 'Create a new Item with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -88,8 +143,118 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the Item.'
+        required: true
+        example: '"Rare Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      short_description:
+        name: short_description
+        description: 'The short description of the Item.'
+        required: false
+        example: '"A rare phoenix collectible"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The detailed description of the Item.'
+        required: false
+        example: '"This is a detailed description of the rare phoenix collectible"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The category of the Item.'
+        required: false
+        example: '"Collectible"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      subcategory:
+        name: subcategory
+        description: 'The subcategory of the Item.'
+        required: false
+        example: '"Mythical"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      portrait_image:
+        name: portrait_image
+        description: 'The portrait image URL of the Item.'
+        required: false
+        example: '"https://example.com/portrait.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      featured_image:
+        name: featured_image
+        description: 'The featured image URL of the Item.'
+        required: false
+        example: '"https://example.com/featured.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      token_props:
+        name: token_props
+        description: 'The token properties.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      token_realm:
+        name: token_realm
+        description: 'The token realm.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      token_number:
+        name: token_number
+        description: 'The token number.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Rare Phoenix"'
+      short_description: '"A rare phoenix collectible"'
+      description: '"This is a detailed description of the rare phoenix collectible"'
+      category: '"Collectible"'
+      subcategory: '"Mythical"'
+      portrait_image: '"https://example.com/portrait.jpg"'
+      featured_image: '"https://example.com/featured.jpg"'
+      token_props: 1
+      token_realm: 2
+      token_number: 3
     fileParameters: []
     responses: []
     responseFields: []
@@ -106,11 +271,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified Item.'
+      description: 'Get details of a specific Item by ID.'
       authenticated: false
       custom: []
     headers:
@@ -170,11 +335,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified Item.'
+      description: 'Update an existing Item with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -206,8 +371,118 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the Item.'
+        required: true
+        example: '"Rare Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      short_description:
+        name: short_description
+        description: 'The short description of the Item.'
+        required: false
+        example: '"A rare phoenix collectible"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The detailed description of the Item.'
+        required: false
+        example: '"This is a detailed description of the rare phoenix collectible"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      category:
+        name: category
+        description: 'The category of the Item.'
+        required: false
+        example: '"Collectible"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      subcategory:
+        name: subcategory
+        description: 'The subcategory of the Item.'
+        required: false
+        example: '"Mythical"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      portrait_image:
+        name: portrait_image
+        description: 'The portrait image URL of the Item.'
+        required: false
+        example: '"https://example.com/portrait.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      featured_image:
+        name: featured_image
+        description: 'The featured image URL of the Item.'
+        required: false
+        example: '"https://example.com/featured.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      token_props:
+        name: token_props
+        description: 'The token properties.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      token_realm:
+        name: token_realm
+        description: 'The token realm.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      token_number:
+        name: token_number
+        description: 'The token number.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Rare Phoenix"'
+      short_description: '"A rare phoenix collectible"'
+      description: '"This is a detailed description of the rare phoenix collectible"'
+      category: '"Collectible"'
+      subcategory: '"Mythical"'
+      portrait_image: '"https://example.com/portrait.jpg"'
+      featured_image: '"https://example.com/featured.jpg"'
+      token_props: 1
+      token_realm: 2
+      token_number: 3
     fileParameters: []
     responses: []
     responseFields: []
@@ -224,11 +499,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified Item.'
+      description: 'Delete an Item by ID.'
       authenticated: false
       custom: []
     headers:
@@ -278,11 +553,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified Item.'
+      description: 'Delete an Item by ID.'
       authenticated: false
       custom: []
     headers:
@@ -321,11 +596,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download Items as CSV or JSON.'
+      description: 'Export the Item data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -344,21 +619,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter items by name.'
+        required: false
+        example: '"Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort items by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter items by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Phoenix"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -384,11 +714,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the Item model.'
+      description: 'Get the structure and field types of the Item model.'
       authenticated: false
       custom: []
     headers:
@@ -436,15 +766,15 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk Item processing.'
+      description: 'Upload a CSV file to create multiple Items at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -461,9 +791,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to Item fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -479,11 +833,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk Item upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -531,11 +885,11 @@ endpoints:
       groupName: 'Item management'
       groupDescription: |-
 
-        APIs for managing items
+        APIs for managing Items
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk Item upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:

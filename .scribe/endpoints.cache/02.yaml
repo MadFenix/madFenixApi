@@ -16,8 +16,8 @@ endpoints:
         APIs for managing rankings
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get game classification/leaderboard.'
+      description: 'Retrieve the top 10 players and their scores for a specific game.'
       authenticated: false
       custom: []
     headers:
@@ -41,16 +41,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get classification for.'
         required: true
-        example: consequatur
+        example: '"BookersVillage"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"BookersVillage"'
     fileParameters: []
     responses:
       -
@@ -62,7 +62,7 @@ endpoints:
           cross-origin-opener-policy: same-origin
           cross-origin-embedder-policy: require-corp
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-remaining: '52'
           vary: Origin
         description: null
         custom: []
@@ -83,8 +83,8 @@ endpoints:
         APIs for managing rankings
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Check if a game has been started.'
+      description: 'Determine if a specific game has been initialized or started.'
       authenticated: false
       custom: []
     headers:
@@ -108,16 +108,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to check.'
         required: true
-        example: consequatur
+        example: '"BookersVillage"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"BookersVillage"'
     fileParameters: []
     responses:
       -
@@ -129,7 +129,7 @@ endpoints:
           cross-origin-opener-policy: same-origin
           cross-origin-embedder-policy: require-corp
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
+          x-ratelimit-remaining: '51'
           vary: Origin
         description: null
         custom: []
@@ -150,8 +150,8 @@ endpoints:
         APIs for managing rankings
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add a new ranking entry.'
+      description: 'Record a new ranking entry for the current user in a specific game.'
       authenticated: false
       custom: []
     headers:
@@ -175,38 +175,38 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game.'
         required: true
-        example: consequatur
+        example: '"BookersVillage"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       network_group:
         name: network_group
-        description: ''
+        description: 'The network group identifier.'
         required: true
-        example: consequatur
+        example: '"Group1"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       fase:
         name: fase
-        description: ''
+        description: 'The phase or level of the game.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
-      network_group: consequatur
-      fase: 17
+      game: '"BookersVillage"'
+      network_group: '"Group1"'
+      fase: 1
     fileParameters: []
     responses: []
     responseFields: []
@@ -226,8 +226,8 @@ endpoints:
         APIs for managing rankings
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Get user's best ranking for a game."
+      description: 'Retrieve the best time/score for the current user in a specific game.'
       authenticated: false
       custom: []
     headers:
@@ -251,16 +251,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get ranking for.'
         required: true
-        example: consequatur
+        example: '"BookersVillage"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"BookersVillage"'
     fileParameters: []
     responses:
       -

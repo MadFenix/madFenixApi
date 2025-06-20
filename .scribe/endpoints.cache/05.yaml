@@ -51,7 +51,7 @@ endpoints:
           cross-origin-opener-policy: same-origin
           cross-origin-embedder-policy: require-corp
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
+          x-ratelimit-remaining: '46'
           vary: Origin
         description: null
         custom: []

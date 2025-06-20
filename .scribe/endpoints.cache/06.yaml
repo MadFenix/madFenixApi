@@ -59,8 +59,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of products.'
+      description: 'Get a paginated list of all products.'
       authenticated: false
       custom: []
     headers:
@@ -81,8 +81,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter products by name.'
+        required: false
+        example: '"Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort products by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter products by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Phoenix"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -111,8 +166,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created product.'
+      description: 'Create a new product with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -133,8 +188,217 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the product.'
+        required: true
+        example: '"Gold Pack"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      short_description:
+        name: short_description
+        description: 'The short description of the product.'
+        required: false
+        example: '"A pack of gold coins"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The detailed description of the product.'
+        required: false
+        example: '"This pack contains 1000 gold coins"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image URL of the product.'
+        required: false
+        example: '"https://example.com/gold-pack.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      price_fiat:
+        name: price_fiat
+        description: 'The price in fiat currency.'
+        required: false
+        example: '"9.99"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      price_oro:
+        name: price_oro
+        description: 'The price in oro currency.'
+        required: false
+        example: 500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      price_plumas:
+        name: price_plumas
+        description: 'The price in plumas currency.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      active:
+        name: active
+        description: 'Whether the product is active (0 or 1).'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      product_parent_id:
+        name: product_parent_id
+        description: 'The ID of the parent product.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The amount of oro included in the product.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      plumas:
+        name: plumas
+        description: 'The amount of plumas included in the product.'
+        required: false
+        example: 200
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the NFT included in the product.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      rarity:
+        name: rarity
+        description: 'The rarity of the NFT included in the product.'
+        required: false
+        example: '"Legendary"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tags:
+        name: tags
+        description: 'Tags for the product.'
+        required: false
+        example: '"gold,premium"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_greater_equal:
+        name: nft_serial_greater_equal
+        description: 'The minimum NFT serial number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_less_equal:
+        name: nft_serial_less_equal
+        description: 'The maximum NFT serial number.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      custom:
+        name: custom
+        description: 'Custom information for the product.'
+        required: false
+        example: '"Pase de temporada premium"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      one_time_purchase:
+        name: one_time_purchase
+        description: 'Whether the product can only be purchased once per user (0 or 1).'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      one_time_purchase_global:
+        name: one_time_purchase_global
+        description: 'Whether the product can only be purchased once globally (0 or 1).'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Gold Pack"'
+      short_description: '"A pack of gold coins"'
+      description: '"This pack contains 1000 gold coins"'
+      image: '"https://example.com/gold-pack.jpg"'
+      price_fiat: '"9.99"'
+      price_oro: 500
+      price_plumas: 100
+      active: 1
+      product_parent_id: 1
+      oro: 1000
+      plumas: 200
+      nft_id: 5
+      rarity: '"Legendary"'
+      tags: '"gold,premium"'
+      nft_serial_greater_equal: 1
+      nft_serial_less_equal: 100
+      custom: '"Pase de temporada premium"'
+      one_time_purchase: 1
+      one_time_purchase_global: 0
     fileParameters: []
     responses: []
     responseFields: []
@@ -154,8 +418,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified product.'
+      description: 'Get details of a specific product by ID.'
       authenticated: false
       custom: []
     headers:
@@ -218,8 +482,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified product.'
+      description: 'Update an existing product with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -251,8 +515,217 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the product.'
+        required: true
+        example: '"Gold Pack"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      short_description:
+        name: short_description
+        description: 'The short description of the product.'
+        required: false
+        example: '"A pack of gold coins"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The detailed description of the product.'
+        required: false
+        example: '"This pack contains 1000 gold coins"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image URL of the product.'
+        required: false
+        example: '"https://example.com/gold-pack.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      price_fiat:
+        name: price_fiat
+        description: 'The price in fiat currency.'
+        required: false
+        example: '"9.99"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      price_oro:
+        name: price_oro
+        description: 'The price in oro currency.'
+        required: false
+        example: 500
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      price_plumas:
+        name: price_plumas
+        description: 'The price in plumas currency.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      active:
+        name: active
+        description: 'Whether the product is active (0 or 1).'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      product_parent_id:
+        name: product_parent_id
+        description: 'The ID of the parent product.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The amount of oro included in the product.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      plumas:
+        name: plumas
+        description: 'The amount of plumas included in the product.'
+        required: false
+        example: 200
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the NFT included in the product.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      rarity:
+        name: rarity
+        description: 'The rarity of the NFT included in the product.'
+        required: false
+        example: '"Legendary"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tags:
+        name: tags
+        description: 'Tags for the product.'
+        required: false
+        example: '"gold,premium"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_greater_equal:
+        name: nft_serial_greater_equal
+        description: 'The minimum NFT serial number.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_less_equal:
+        name: nft_serial_less_equal
+        description: 'The maximum NFT serial number.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      custom:
+        name: custom
+        description: 'Custom information for the product.'
+        required: false
+        example: '"Pase de temporada premium"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      one_time_purchase:
+        name: one_time_purchase
+        description: 'Whether the product can only be purchased once per user (0 or 1).'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      one_time_purchase_global:
+        name: one_time_purchase_global
+        description: 'Whether the product can only be purchased once globally (0 or 1).'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Gold Pack"'
+      short_description: '"A pack of gold coins"'
+      description: '"This pack contains 1000 gold coins"'
+      image: '"https://example.com/gold-pack.jpg"'
+      price_fiat: '"9.99"'
+      price_oro: 500
+      price_plumas: 100
+      active: 1
+      product_parent_id: 1
+      oro: 1000
+      plumas: 200
+      nft_id: 5
+      rarity: '"Legendary"'
+      tags: '"gold,premium"'
+      nft_serial_greater_equal: 1
+      nft_serial_less_equal: 100
+      custom: '"Pase de temporada premium"'
+      one_time_purchase: 1
+      one_time_purchase_global: 0
     fileParameters: []
     responses: []
     responseFields: []
@@ -272,8 +745,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified product.'
+      description: 'Delete a product by ID.'
       authenticated: false
       custom: []
     headers:
@@ -326,8 +799,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified product.'
+      description: 'Delete a product by ID.'
       authenticated: false
       custom: []
     headers:
@@ -369,8 +842,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download products as CSV or JSON.'
+      description: 'Export the product data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -389,21 +862,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter products by name.'
+        required: false
+        example: '"Gold"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort products by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter products by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Gold"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -432,8 +960,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the Product model.'
+      description: 'Get the structure and field types of the Product model.'
       authenticated: false
       custom: []
     headers:
@@ -484,12 +1012,12 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk Product processing.'
+      description: 'Upload a CSV file to create multiple Products at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -506,9 +1034,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to Product fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -527,8 +1079,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk Product upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -579,8 +1131,8 @@ endpoints:
         APIs for managing products
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk Product upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:

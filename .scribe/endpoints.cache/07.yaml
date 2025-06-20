@@ -16,8 +16,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get admin dashboard statistics.'
+      description: 'Retrieve platform-wide statistics for the admin dashboard.'
       authenticated: false
       custom: []
     headers:
@@ -68,8 +68,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of profiles.'
+      description: 'Get a paginated list of all user profiles.'
       authenticated: false
       custom: []
     headers:
@@ -90,8 +90,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter profiles by description.'
+        required: false
+        example: '"Aprendiz"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort profiles by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter profiles by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Aprendiz"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -120,8 +175,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified profile.'
+      description: 'Get details of a specific profile by ID.'
       authenticated: false
       custom: []
     headers:
@@ -184,8 +239,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified profile.'
+      description: 'Update an existing profile with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -217,8 +272,195 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user this profile belongs to.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The description/status of the profile (4-255 chars).'
+        required: true
+        example: '"Aprendiz"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      details:
+        name: details
+        description: 'Additional details about the profile.'
+        required: false
+        example: '"Joined during Season 1"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      avatar:
+        name: avatar
+        description: 'The avatar URL or identifier (4-255 chars).'
+        required: true
+        example: '"avatar1.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      plumas_hedera:
+        name: plumas_hedera
+        description: 'The number of plumas (feathers) on Hedera.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      plumas:
+        name: plumas
+        description: 'The number of plumas (feathers).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      season_level:
+        name: season_level
+        description: 'The current season level.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      season_points:
+        name: season_points
+        description: 'The current season points.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro_hedera:
+        name: oro_hedera
+        description: 'The number of oro (gold) on Hedera.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The number of oro (gold).'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      twitch_user_id:
+        name: twitch_user_id
+        description: 'The Twitch user ID.'
+        required: false
+        example: '"12345678"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      twitch_user_name:
+        name: twitch_user_name
+        description: 'The Twitch username.'
+        required: false
+        example: '"twitchuser"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      twitch_api_user_token:
+        name: twitch_api_user_token
+        description: 'The Twitch API user token.'
+        required: false
+        example: '"abc123token"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      twitch_api_user_refresh_token:
+        name: twitch_api_user_refresh_token
+        description: 'The Twitch API refresh token.'
+        required: false
+        example: '"abc123refresh"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      twitch_scope:
+        name: twitch_scope
+        description: 'The Twitch API scope.'
+        required: false
+        example: '"user:read:email"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      steam_user_id:
+        name: steam_user_id
+        description: 'The Steam user ID.'
+        required: false
+        example: '"76561198123456789"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      steam_user_name:
+        name: steam_user_name
+        description: 'The Steam username.'
+        required: false
+        example: '"steamuser"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      user_id: 1
+      description: '"Aprendiz"'
+      details: '"Joined during Season 1"'
+      avatar: '"avatar1.jpg"'
+      plumas_hedera: 0
+      plumas: 10
+      season_level: 1
+      season_points: 100
+      oro_hedera: 0
+      oro: 5
+      twitch_user_id: '"12345678"'
+      twitch_user_name: '"twitchuser"'
+      twitch_api_user_token: '"abc123token"'
+      twitch_api_user_refresh_token: '"abc123refresh"'
+      twitch_scope: '"user:read:email"'
+      steam_user_id: '"76561198123456789"'
+      steam_user_name: '"steamuser"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -238,8 +480,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download profiles as CSV or JSON.'
+      description: 'Export the profile data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -258,21 +500,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter profiles by description.'
+        required: false
+        example: '"Aprendiz"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort profiles by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter profiles by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Aprendiz"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -301,8 +598,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add plumas to user.'
+      description: "Add a specified amount of plumas (feathers) to the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -336,17 +633,17 @@ endpoints:
         custom: []
       plumas:
         name: plumas
-        description: ''
+        description: 'The amount of plumas to add.'
         required: true
-        example: 17
+        example: 10
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
       user_id: 17
-      plumas: 17
+      plumas: 10
     fileParameters: []
     responses: []
     responseFields: []
@@ -366,8 +663,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add oro to user.'
+      description: "Add a specified amount of oro (gold) to the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -391,27 +688,27 @@ endpoints:
     bodyParameters:
       user_id:
         name: user_id
-        description: ''
+        description: 'The ID of the user to add oro to.'
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       oro:
         name: oro
-        description: ''
+        description: 'The amount of oro to add.'
         required: true
-        example: 17
+        example: 5
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      user_id: 17
-      oro: 17
+      user_id: 1
+      oro: 5
     fileParameters: []
     responses: []
     responseFields: []
@@ -431,8 +728,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Get current user's profile."
+      description: "Retrieve detailed information about the authenticated user's profile, including habits, NFTs, and other statistics."
       authenticated: false
       custom: []
     headers:
@@ -474,8 +771,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Set user avatar.'
+      description: "Update the avatar for the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -507,8 +804,19 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      avatar:
+        name: avatar
+        description: 'The new avatar URL or identifier.'
+        required: true
+        example: '"avatar2.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
     cleanBodyParameters:
       nft_id: consequatur
+      avatar: '"avatar2.jpg"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -528,8 +836,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Set user status.'
+      description: "Update the status/description for the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -561,8 +869,19 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      estado:
+        name: estado
+        description: 'The new status/description for the profile.'
+        required: true
+        example: '"Explorador"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
     cleanBodyParameters:
       nft_id: consequatur
+      estado: '"Explorador"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -582,8 +901,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Subtract plumas from user.'
+      description: "Deduct a specified amount of plumas (feathers) from the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -625,8 +944,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Subtract oro from user.'
+      description: "Deduct a specified amount of oro (gold) from the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -668,8 +987,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Set user's referral code."
+      description: "Update the referral code for the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -693,16 +1012,16 @@ endpoints:
     bodyParameters:
       referred_code:
         name: referred_code
-        description: ''
+        description: 'The referral code to set.'
         required: true
-        example: consequatur
+        example: '"REF123"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      referred_code: consequatur
+      referred_code: '"REF123"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -722,8 +1041,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Set referral code source.'
+      description: "Update the referral code source for the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -747,16 +1066,16 @@ endpoints:
     bodyParameters:
       referred_code_from:
         name: referred_code_from
-        description: ''
+        description: 'The referral code that referred this user.'
         required: true
-        example: consequatur
+        example: '"FRIEND123"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      referred_code_from: consequatur
+      referred_code_from: '"FRIEND123"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -776,8 +1095,8 @@ endpoints:
         APIs for managing profiles
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Set Hedera wallet verification status.'
+      description: "Update the Hedera wallet verification status for the current user's profile."
       authenticated: false
       custom: []
     headers:
@@ -809,8 +1128,30 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      hedera_wallet_check:
+        name: hedera_wallet_check
+        description: 'Whether the Hedera wallet is verified.'
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      hedera_wallet_check_account:
+        name: hedera_wallet_check_account
+        description: 'The Hedera account that verified the wallet.'
+        required: true
+        example: '"0.0.123456"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
     cleanBodyParameters:
       account: consequatur
+      hedera_wallet_check: true
+      hedera_wallet_check_account: '"0.0.123456"'
     fileParameters: []
     responses: []
     responseFields: []

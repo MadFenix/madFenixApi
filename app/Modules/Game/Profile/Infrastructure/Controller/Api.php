@@ -28,6 +28,148 @@ class Api extends ResourceController
     }
 
     /**
+     * Display a listing of profiles.
+     *
+     * Get a paginated list of all user profiles.
+     *
+     * @param Request $request
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter profiles by description. Example: "Aprendiz"
+     * @bodyParam sorting string Sort profiles by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter profiles by parent ID. Example: 1
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request)
+    {
+        return parent::index($request);
+    }
+
+    /**
+     * Store a newly created profile.
+     *
+     * Create a new user profile with the provided data.
+     *
+     * @bodyParam user_id integer required The ID of the user this profile belongs to. Example: 1
+     * @bodyParam description string required The description/status of the profile (4-255 chars). Example: "Aprendiz"
+     * @bodyParam details string Additional details about the profile. Example: "Joined during Season 1"
+     * @bodyParam avatar string required The avatar URL or identifier (4-255 chars). Example: "avatar1.jpg"
+     * @bodyParam plumas_hedera integer The number of plumas (feathers) on Hedera. Example: 0
+     * @bodyParam plumas integer The number of plumas (feathers). Example: 10
+     * @bodyParam season_level integer The current season level. Example: 1
+     * @bodyParam season_points integer The current season points. Example: 100
+     * @bodyParam oro_hedera integer The number of oro (gold) on Hedera. Example: 0
+     * @bodyParam oro integer The number of oro (gold). Example: 5
+     * @bodyParam twitch_user_id string The Twitch user ID. Example: "12345678"
+     * @bodyParam twitch_user_name string The Twitch username. Example: "twitchuser"
+     * @bodyParam twitch_api_user_token string The Twitch API user token. Example: "abc123token"
+     * @bodyParam twitch_api_user_refresh_token string The Twitch API refresh token. Example: "abc123refresh"
+     * @bodyParam twitch_scope string The Twitch API scope. Example: "user:read:email"
+     * @bodyParam steam_user_id string The Steam user ID. Example: "76561198123456789"
+     * @bodyParam steam_user_name string The Steam username. Example: "steamuser"
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store()
+    {
+        return parent::store();
+    }
+
+    /**
+     * Display the specified profile.
+     *
+     * Get details of a specific profile by ID.
+     *
+     * @param string $account
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show($account, $id)
+    {
+        return parent::show($account, $id);
+    }
+
+    /**
+     * Update the specified profile.
+     *
+     * Update an existing profile with the provided data.
+     *
+     * @param string $account
+     * @param int $id
+     * @bodyParam user_id integer required The ID of the user this profile belongs to. Example: 1
+     * @bodyParam description string required The description/status of the profile (4-255 chars). Example: "Aprendiz"
+     * @bodyParam details string Additional details about the profile. Example: "Joined during Season 1"
+     * @bodyParam avatar string required The avatar URL or identifier (4-255 chars). Example: "avatar1.jpg"
+     * @bodyParam plumas_hedera integer The number of plumas (feathers) on Hedera. Example: 0
+     * @bodyParam plumas integer The number of plumas (feathers). Example: 10
+     * @bodyParam season_level integer The current season level. Example: 1
+     * @bodyParam season_points integer The current season points. Example: 100
+     * @bodyParam oro_hedera integer The number of oro (gold) on Hedera. Example: 0
+     * @bodyParam oro integer The number of oro (gold). Example: 5
+     * @bodyParam twitch_user_id string The Twitch user ID. Example: "12345678"
+     * @bodyParam twitch_user_name string The Twitch username. Example: "twitchuser"
+     * @bodyParam twitch_api_user_token string The Twitch API user token. Example: "abc123token"
+     * @bodyParam twitch_api_user_refresh_token string The Twitch API refresh token. Example: "abc123refresh"
+     * @bodyParam twitch_scope string The Twitch API scope. Example: "user:read:email"
+     * @bodyParam steam_user_id string The Steam user ID. Example: "76561198123456789"
+     * @bodyParam steam_user_name string The Steam username. Example: "steamuser"
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update($account, $id)
+    {
+        return parent::update($account, $id);
+    }
+
+    /**
+     * Remove the specified profile.
+     *
+     * Delete a profile by ID.
+     *
+     * @param string $account
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function destroy($account, Request $request)
+    {
+        return parent::destroy($account, $request);
+    }
+
+    /**
+     * Download profiles as CSV or JSON.
+     *
+     * Export the profile data in CSV or JSON format.
+     *
+     * @param Request $request
+     * @bodyParam type string The file format to download (csv or json). Example: "csv"
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter profiles by description. Example: "Aprendiz"
+     * @bodyParam sorting string Sort profiles by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter profiles by parent ID. Example: 1
+     * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\StreamedResponse
+     */
+    public function download(Request $request)
+    {
+        return parent::download($request);
+    }
+
+    /**
+     * List the fields of the profile model.
+     *
+     * Get the structure and field types of the profile model.
+     *
+     * @param string $account
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function fields($account)
+    {
+        return parent::fields($account);
+    }
+
+    /**
+     * Get admin dashboard statistics.
+     *
+     * Retrieve platform-wide statistics for the admin dashboard.
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function adminDashboard()
@@ -98,6 +240,10 @@ class Api extends ResourceController
     }
 
     /**
+     * Subtract plumas from user.
+     *
+     * Deduct a specified amount of plumas (feathers) from the current user's profile.
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function subtractPlumaUser()
@@ -125,6 +271,10 @@ class Api extends ResourceController
     }
 
     /**
+     * Subtract oro from user.
+     *
+     * Deduct a specified amount of oro (gold) from the current user's profile.
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function subtractOroUser()
@@ -152,7 +302,12 @@ class Api extends ResourceController
     }
 
     /**
+     * Set user avatar.
+     *
+     * Update the avatar for the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam avatar string required The new avatar URL or identifier. Example: "avatar2.jpg"
      * @return \Illuminate\Http\JsonResponse
      */
     public function setAvatar(Request $request)
@@ -183,7 +338,12 @@ class Api extends ResourceController
     }
 
     /**
+     * Set user status.
+     *
+     * Update the status/description for the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam estado string required The new status/description for the profile. Example: "Explorador"
      * @return \Illuminate\Http\JsonResponse
      */
     public function setEstado(Request $request)
@@ -214,6 +374,10 @@ class Api extends ResourceController
     }
 
     /**
+     * Get current user's profile.
+     *
+     * Retrieve detailed information about the authenticated user's profile, including habits, NFTs, and other statistics.
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function getUserProfile()
@@ -357,7 +521,12 @@ class Api extends ResourceController
     }
 
     /**
+     * Set user's referral code.
+     *
+     * Update the referral code for the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam referred_code string required The referral code to set. Example: "REF123"
      * @return \Illuminate\Http\JsonResponse
      */
     public function setUserProfileReferredCode(Request $request)
@@ -386,7 +555,13 @@ class Api extends ResourceController
     }
 
     /**
+     * Set Hedera wallet verification status.
+     *
+     * Update the Hedera wallet verification status for the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam hedera_wallet_check boolean required Whether the Hedera wallet is verified. Example: true
+     * @bodyParam hedera_wallet_check_account string required The Hedera account that verified the wallet. Example: "0.0.123456"
      * @return \Illuminate\Http\JsonResponse
      */
     public function setUserProfileHederaWalletCheck(Request $request)
@@ -420,7 +595,12 @@ class Api extends ResourceController
     }
 
     /**
+     * Set referral code source.
+     *
+     * Update the referral code source for the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam referred_code_from string required The referral code that referred this user. Example: "FRIEND123"
      * @return \Illuminate\Http\JsonResponse
      */
     public function setUserProfileReferredCodeFrom(Request $request)
@@ -473,7 +653,12 @@ class Api extends ResourceController
     }
 
     /**
+     * Add plumas to user.
+     *
+     * Add a specified amount of plumas (feathers) to the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam plumas integer required The amount of plumas to add. Example: 10
      * @return \Illuminate\Http\JsonResponse
      */
     public function addPluma(Request $request)
@@ -506,7 +691,13 @@ class Api extends ResourceController
     }
 
     /**
+     * Add oro to user.
+     *
+     * Add a specified amount of oro (gold) to the current user's profile.
+     *
      * @param Request $request
+     * @bodyParam user_id integer required The ID of the user to add oro to. Example: 1
+     * @bodyParam oro integer required The amount of oro to add. Example: 5
      * @return \Illuminate\Http\JsonResponse
      */
     public function addOro(Request $request)

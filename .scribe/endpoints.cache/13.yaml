@@ -3,7 +3,7 @@
 name: 'Subitems management'
 description: |-
 
-  APIs for managing subitems
+  APIs for managing SubItem (specific instances of Items)
 endpoints:
   -
     httpMethods:
@@ -13,11 +13,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of SubItem.'
+      description: 'Get a paginated list of all SubItem.'
       authenticated: false
       custom: []
     headers:
@@ -38,8 +38,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter items by name.'
+        required: false
+        example: '"Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort items by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter items by parent Item ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Phoenix"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -65,11 +120,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created SubItem.'
+      description: 'Create a new SubItem with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -90,8 +145,140 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the SubItem.'
+        required: true
+        example: '"Phoenix #123"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The description of the SubItem.'
+        required: false
+        example: '"A unique phoenix with special attributes"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image URL of the SubItem.'
+        required: false
+        example: '"https://example.com/nft123.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_identification:
+        name: nft_identification
+        description: 'The unique identification number.'
+        required: true
+        example: 123
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the parent Item.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      rarity:
+        name: rarity
+        description: 'The rarity level of the Item.'
+        required: false
+        example: '"Legendary"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tag_1:
+        name: tag_1
+        description: 'The first tag for the Item.'
+        required: false
+        example: '"Fire"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tag_2:
+        name: tag_2
+        description: 'The second tag for the Item.'
+        required: false
+        example: '"Mythical"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tag_3:
+        name: tag_3
+        description: 'The third tag for the Item.'
+        required: false
+        example: '"Limited"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      madfenix_ownership:
+        name: madfenix_ownership
+        description: 'Whether the Item is owned by MadFenix.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      user_id:
+        name: user_id
+        description: 'The ID of the user who owns this Item.'
+        required: false
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      user_id_hedera:
+        name: user_id_hedera
+        description: 'The ID of the user who owns this Item on Hedera.'
+        required: false
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Phoenix #123"'
+      description: '"A unique phoenix with special attributes"'
+      image: '"https://example.com/nft123.jpg"'
+      nft_identification: 123
+      nft_id: 1
+      rarity: '"Legendary"'
+      tag_1: '"Fire"'
+      tag_2: '"Mythical"'
+      tag_3: '"Limited"'
+      madfenix_ownership: true
+      user_id: 42
+      user_id_hedera: 42
     fileParameters: []
     responses: []
     responseFields: []
@@ -108,11 +295,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified SubItem.'
+      description: 'Get details of a specific SubItem by ID.'
       authenticated: false
       custom: []
     headers:
@@ -172,11 +359,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified SubItem.'
+      description: 'Update an existing SubItem with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -208,8 +395,140 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the SubItem.'
+        required: true
+        example: '"Phoenix #123"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The description of the SubItem.'
+        required: false
+        example: '"A unique phoenix with special attributes"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      image:
+        name: image
+        description: 'The image URL of the SubItem.'
+        required: false
+        example: '"https://example.com/nft123.jpg"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_identification:
+        name: nft_identification
+        description: 'The unique identification number.'
+        required: true
+        example: 123
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the parent Item.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      rarity:
+        name: rarity
+        description: 'The rarity level of the Item.'
+        required: false
+        example: '"Legendary"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tag_1:
+        name: tag_1
+        description: 'The first tag for the Item.'
+        required: false
+        example: '"Fire"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tag_2:
+        name: tag_2
+        description: 'The second tag for the Item.'
+        required: false
+        example: '"Mythical"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tag_3:
+        name: tag_3
+        description: 'The third tag for the Item.'
+        required: false
+        example: '"Limited"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      madfenix_ownership:
+        name: madfenix_ownership
+        description: 'Whether the Item is owned by MadFenix.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      user_id:
+        name: user_id
+        description: 'The ID of the user who owns this Item.'
+        required: false
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      user_id_hedera:
+        name: user_id_hedera
+        description: 'The ID of the user who owns this Item on Hedera.'
+        required: false
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"Phoenix #123"'
+      description: '"A unique phoenix with special attributes"'
+      image: '"https://example.com/nft123.jpg"'
+      nft_identification: 123
+      nft_id: 1
+      rarity: '"Legendary"'
+      tag_1: '"Fire"'
+      tag_2: '"Mythical"'
+      tag_3: '"Limited"'
+      madfenix_ownership: true
+      user_id: 42
+      user_id_hedera: 42
     fileParameters: []
     responses: []
     responseFields: []
@@ -226,11 +545,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified SubItem.'
+      description: 'Delete an SubItem by ID.'
       authenticated: false
       custom: []
     headers:
@@ -280,11 +599,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified SubItem.'
+      description: 'Delete an SubItem by ID.'
       authenticated: false
       custom: []
     headers:
@@ -323,11 +642,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download SubItem as CSV or JSON.'
+      description: 'Export the SubItem data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -346,21 +665,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter items by name.'
+        required: false
+        example: '"Phoenix"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort items by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter items by parent Item ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Phoenix"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -386,11 +760,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the SubItem model.'
+      description: 'Get the structure and field types of the SubItem model.'
       authenticated: false
       custom: []
     headers:
@@ -438,15 +812,15 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk SubItem processing.'
+      description: 'Upload a CSV file to create multiple SubItem at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -463,9 +837,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to SubItem fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -481,11 +879,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk SubItem upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -533,11 +931,11 @@ endpoints:
       groupName: 'Subitems management'
       groupDescription: |-
 
-        APIs for managing subitems
+        APIs for managing SubItem (specific instances of Items)
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk SubItem upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:

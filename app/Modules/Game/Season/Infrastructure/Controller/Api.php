@@ -32,6 +32,170 @@ class Api extends ResourceController
         return 'Game\\Season';
     }
 
+    /**
+     * Display a listing of seasons.
+     *
+     * Get a paginated list of all seasons.
+     *
+     * @param Request $request
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter seasons by name. Example: "Summer Season"
+     * @bodyParam sorting string Sort seasons by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter seasons by parent ID. Example: 1
+     * @return JsonResponse
+     */
+    public function index(Request $request)
+    {
+        return parent::index($request);
+    }
+
+    /**
+     * Store a newly created season.
+     *
+     * Create a new season with the provided data.
+     *
+     * @bodyParam name string required The name of the season. Example: "Summer Season 2023"
+     * @bodyParam max_level integer required The maximum level achievable in this season. Example: 100
+     * @bodyParam max_points integer required The maximum points achievable in this season. Example: 10000
+     * @bodyParam start_date datetime required The start date and time of the season. Example: "2023-06-01 00:00:00"
+     * @bodyParam end_date datetime required The end date and time of the season. Example: "2023-08-31 23:59:59"
+     * @return JsonResponse
+     */
+    public function store()
+    {
+        return parent::store();
+    }
+
+    /**
+     * Display the specified season.
+     *
+     * Get details of a specific season by ID.
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function show($account, $id)
+    {
+        return parent::show($account, $id);
+    }
+
+    /**
+     * Update the specified season.
+     *
+     * Update an existing season with the provided data.
+     *
+     * @param string $account
+     * @param int $id
+     * @bodyParam name string required The name of the season. Example: "Updated Summer Season 2023"
+     * @bodyParam max_level integer required The maximum level achievable in this season. Example: 100
+     * @bodyParam max_points integer required The maximum points achievable in this season. Example: 10000
+     * @bodyParam start_date datetime required The start date and time of the season. Example: "2023-06-01 00:00:00"
+     * @bodyParam end_date datetime required The end date and time of the season. Example: "2023-08-31 23:59:59"
+     * @return JsonResponse
+     */
+    public function update($account, $id)
+    {
+        return parent::update($account, $id);
+    }
+
+    /**
+     * Remove the specified season.
+     *
+     * Delete a season by ID.
+     *
+     * @param string $account
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function destroy($account, Request $request)
+    {
+        return parent::destroy($account, $request);
+    }
+
+    /**
+     * Download seasons as CSV or JSON.
+     *
+     * Export the season data in CSV or JSON format.
+     *
+     * @param Request $request
+     * @bodyParam type string The file format to download (csv or json). Example: "csv"
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter seasons by name. Example: "Summer Season"
+     * @bodyParam sorting string Sort seasons by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter seasons by parent ID. Example: 1
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\StreamedResponse
+     */
+    public function download(Request $request)
+    {
+        return parent::download($request);
+    }
+
+    /**
+     * List the fields of the season model.
+     *
+     * Get the structure and field types of the season model.
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function fields($account)
+    {
+        return parent::fields($account);
+    }
+
+    /**
+     * Upload a CSV file for bulk season processing.
+     *
+     * Upload a CSV file to create multiple seasons at once.
+     *
+     * @param string $account
+     * @bodyParam file file required The CSV file to upload (max 1MB). Must be a CSV file.
+     * @bodyParam header_mapping array required Array of headers mapping to season fields.
+     * @return JsonResponse
+     */
+    public function upload($account)
+    {
+        return parent::upload($account);
+    }
+
+    /**
+     * Get the status of a bulk season upload.
+     *
+     * Check the progress of a previously submitted bulk upload.
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function uploadStatus($account)
+    {
+        return parent::uploadStatus($account);
+    }
+
+    /**
+     * Delete a bulk season upload.
+     *
+     * Remove a pending or processing bulk upload.
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function deleteUpload($account, $id)
+    {
+        return parent::deleteUpload($account, $id);
+    }
+
+    /**
+     * Get details of the current active season.
+     *
+     * Retrieve detailed information about the currently active season, including rewards and user progress.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function seasonDetails(Request $request)
     {
         $user = auth()->user();
@@ -87,6 +251,15 @@ class Api extends ResourceController
         return response()->json($seasonDetails);
     }
 
+    /**
+     * Redeem a season level reward.
+     *
+     * Claim the reward for a specific level in the current season.
+     *
+     * @param Request $request
+     * @bodyParam level integer required The level to redeem the reward for. Example: 5
+     * @return JsonResponse
+     */
     public function redeemSeasonLvl(Request $request)
     {
         $user = auth()->user();

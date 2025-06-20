@@ -27,6 +27,162 @@ class ApiSeason extends ResourceController
         return 'Game\\Ranking2024s1';
     }
 
+    /**
+     * Display a listing of season rankings.
+     *
+     * Get a paginated list of all season rankings.
+     *
+     * @param Request $request
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter rankings by game. Example: "NameOfGame"
+     * @bodyParam sorting string Sort rankings by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter rankings by parent ID. Example: 1
+     * @return JsonResponse
+     */
+    public function index(Request $request)
+    {
+        return parent::index($request);
+    }
+
+    /**
+     * Store a newly created season ranking.
+     *
+     * Create a new season ranking with the provided data.
+     *
+     * @bodyParam user_id integer required The ID of the user this ranking belongs to. Example: 1
+     * @bodyParam game string required The game name (4-255 chars). Example: "NameOfGame"
+     * @bodyParam network_group string required The network group (4-255 chars). Example: "Group1"
+     * @bodyParam fase integer required The phase or level of the game. Example: 1
+     * @bodyParam points integer required The points scored in the game. Example: 1000
+     * @return JsonResponse
+     */
+    public function store()
+    {
+        return parent::store();
+    }
+
+    /**
+     * Display the specified season ranking.
+     *
+     * Get details of a specific season ranking by ID.
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function show($account, $id)
+    {
+        return parent::show($account, $id);
+    }
+
+    /**
+     * Update the specified season ranking.
+     *
+     * Update an existing season ranking with the provided data.
+     *
+     * @param string $account
+     * @param int $id
+     * @bodyParam user_id integer required The ID of the user this ranking belongs to. Example: 1
+     * @bodyParam game string required The game name (4-255 chars). Example: "NameOfGame"
+     * @bodyParam network_group string required The network group (4-255 chars). Example: "Group1"
+     * @bodyParam fase integer required The phase or level of the game. Example: 1
+     * @bodyParam points integer required The points scored in the game. Example: 1000
+     * @return JsonResponse
+     */
+    public function update($account, $id)
+    {
+        return parent::update($account, $id);
+    }
+
+    /**
+     * Remove the specified season ranking.
+     *
+     * Delete a season ranking by ID.
+     *
+     * @param string $account
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function destroy($account, Request $request)
+    {
+        return parent::destroy($account, $request);
+    }
+
+    /**
+     * Download season rankings as CSV or JSON.
+     *
+     * Export the season ranking data in CSV or JSON format.
+     *
+     * @param Request $request
+     * @bodyParam type string The file format to download (csv or json). Example: "csv"
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter rankings by game. Example: "NameOfGame"
+     * @bodyParam sorting string Sort rankings by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter rankings by parent ID. Example: 1
+     * @return JsonResponse|\Symfony\Component\HttpFoundation\StreamedResponse
+     */
+    public function download(Request $request)
+    {
+        return parent::download($request);
+    }
+
+    /**
+     * List the fields of the season ranking model.
+     *
+     * Get the structure and field types of the season ranking model.
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function fields($account)
+    {
+        return parent::fields($account);
+    }
+
+    /**
+     * Upload a CSV file for bulk season ranking processing.
+     *
+     * Upload a CSV file to create multiple season rankings at once.
+     *
+     * @param string $account
+     * @bodyParam file file required The CSV file to upload (max 1MB). Must be a CSV file.
+     * @bodyParam header_mapping array required Array of headers mapping to season ranking fields.
+     * @return JsonResponse
+     */
+    public function upload($account)
+    {
+        return parent::upload($account);
+    }
+
+    /**
+     * Get the status of a bulk season ranking upload.
+     *
+     * Check the progress of a previously submitted bulk upload.
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function uploadStatus($account)
+    {
+        return parent::uploadStatus($account);
+    }
+
+    /**
+     * Delete a bulk season ranking upload.
+     *
+     * Remove a pending or processing bulk upload.
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function deleteUpload($account, $id)
+    {
+        return parent::deleteUpload($account, $id);
+    }
+
     protected function getBestIntentOfUserPerTime($game, $user)
     {
         $fasesDelJuego = 1000;
@@ -177,7 +333,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Get user's best time-based ranking for a game.
+     *
+     * Retrieve the best time for the current user in a specific game.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to get ranking for. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getRankingPerTime(Request $request)
@@ -194,7 +355,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Get user's best points-based ranking for a game.
+     *
+     * Retrieve the best points score for the current user in a specific game.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to get ranking for. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getRankingPerPoints(Request $request)
@@ -211,7 +377,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Check if a season game has been started.
+     *
+     * Determine if a specific game has been initialized or started in the current season.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to check. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getGameStarted(Request $request)    {
@@ -229,7 +400,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Get season game time-based classification/leaderboard.
+     *
+     * Retrieve the top 10 players and their times for a specific game in the current season.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to get classification for. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getClassificationPerTime(Request $request)    {
@@ -243,7 +419,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Get season game points-based classification/leaderboard.
+     *
+     * Retrieve the top 10 players and their points for a specific game in the current season.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to get classification for. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getClassificationPerPoints(Request $request)    {
@@ -257,7 +438,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Get user's time-based classification/leaderboard.
+     *
+     * Retrieve the user's personal time-based leaderboard and any tournament leaderboards they're part of.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to get classification for. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getUserClassificationPerTime(Request $request)    {
@@ -297,7 +483,12 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Get user's points-based classification/leaderboard.
+     *
+     * Retrieve the user's personal points-based leaderboard and any tournament leaderboards they're part of.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game to get classification for. Example: "NameOfGame"
      * @return JsonResponse
      */
     public function getUserClassificationPerPoints(Request $request)    {
@@ -336,7 +527,15 @@ class ApiSeason extends ResourceController
     }
 
     /**
+     * Add a new season ranking entry.
+     *
+     * Record a new ranking entry for the current user in a specific game for the current season.
+     *
      * @param Request $request
+     * @bodyParam game string required The name of the game. Example: "NameOfGame"
+     * @bodyParam network_group string The network group identifier. Example: "Group1"
+     * @bodyParam fase integer The phase or level of the game. Example: 1
+     * @bodyParam points integer The points scored in the game. Example: 1000
      * @return JsonResponse
      */
     public function addRanking(Request $request)

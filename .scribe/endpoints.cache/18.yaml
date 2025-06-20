@@ -16,8 +16,8 @@ endpoints:
         APIs for managing users by admins
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of users.'
+      description: 'Get a paginated list of all users.'
       authenticated: false
       custom: []
     headers:
@@ -38,8 +38,52 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter users by name or email.'
+        required: false
+        example: '"john"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort users by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"john"'
+      sorting: '"created_at:desc"'
     fileParameters: []
     responses:
       -
@@ -68,8 +112,8 @@ endpoints:
         APIs for managing users by admins
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified user.'
+      description: 'Get details of a specific user by ID.'
       authenticated: false
       custom: []
     headers:
@@ -132,8 +176,8 @@ endpoints:
         APIs for managing users by admins
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified user.'
+      description: 'Update an existing user with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -165,8 +209,96 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the user.'
+        required: true
+        example: '"John Doe"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'The email address of the user.'
+        required: true
+        example: '"john@example.com"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      newsletter:
+        name: newsletter
+        description: 'Whether the user wants to receive the newsletter.'
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      eth_wallet:
+        name: eth_wallet
+        description: 'The Ethereum wallet address of the user.'
+        required: false
+        example: '"0x1234567890abcdef"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      ip:
+        name: ip
+        description: 'The IP address of the user.'
+        required: false
+        example: '"192.168.1.1"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      two_factor_pre_enabled:
+        name: two_factor_pre_enabled
+        description: 'Whether two-factor authentication is pre-enabled.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      two_factor_enabled:
+        name: two_factor_enabled
+        description: 'Whether two-factor authentication is enabled.'
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      two_factor_secret:
+        name: two_factor_secret
+        description: 'The two-factor authentication secret.'
+        required: false
+        example: '"ABCDEFGHIJKLMNOP"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: '"John Doe"'
+      email: '"john@example.com"'
+      newsletter: true
+      eth_wallet: '"0x1234567890abcdef"'
+      ip: '"192.168.1.1"'
+      two_factor_pre_enabled: false
+      two_factor_enabled: false
+      two_factor_secret: '"ABCDEFGHIJKLMNOP"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -186,8 +318,8 @@ endpoints:
         APIs for managing users by admins
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download users as CSV or JSON.'
+      description: 'Export the user data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -206,21 +338,65 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter users by name or email.'
+        required: false
+        example: '"john"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort users by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"john"'
+      sorting: '"created_at:desc"'
     fileParameters: []
     responses:
       -

@@ -14,8 +14,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of item coupons.'
+      description: 'Get a paginated list of all item coupons.'
       authenticated: false
       custom: []
     headers:
@@ -36,8 +36,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter coupons by code.'
+        required: false
+        example: '"ITEM"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort coupons by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter coupons by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"ITEM"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -66,8 +121,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created item coupon.'
+      description: 'Create a new item coupon with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -88,8 +143,118 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      coupon:
+        name: coupon
+        description: 'The coupon code (4-150 chars).'
+        required: true
+        example: '"ITEM2023"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the NFT to award.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      rarity:
+        name: rarity
+        description: 'The rarity filter for NFTs.'
+        required: false
+        example: '"Legendary,Rare"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tags:
+        name: tags
+        description: 'The tags filter for NFTs.'
+        required: false
+        example: '"Fire,Water"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_greater_equal:
+        name: nft_serial_greater_equal
+        description: 'The minimum serial number for NFTs.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_less_equal:
+        name: nft_serial_less_equal
+        description: 'The maximum serial number for NFTs.'
+        required: false
+        example: 200
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      uses:
+        name: uses
+        description: 'The current number of uses.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_uses:
+        name: max_uses
+        description: 'The maximum number of uses allowed.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the coupon validity.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the coupon validity.'
+        required: true
+        example: '"2023-12-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      coupon: '"ITEM2023"'
+      nft_id: 5
+      rarity: '"Legendary,Rare"'
+      tags: '"Fire,Water"'
+      nft_serial_greater_equal: 100
+      nft_serial_less_equal: 200
+      uses: 0
+      max_uses: 1000
+      start_date: '"2023-01-01 00:00:00"'
+      end_date: '"2023-12-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -109,8 +274,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified item coupon.'
+      description: 'Get details of a specific item coupon by ID.'
       authenticated: false
       custom: []
     headers:
@@ -173,8 +338,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified item coupon.'
+      description: 'Update an existing item coupon with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -206,8 +371,118 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      coupon:
+        name: coupon
+        description: 'The coupon code (4-150 chars).'
+        required: true
+        example: '"ITEM2023"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_id:
+        name: nft_id
+        description: 'The ID of the NFT to award.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      rarity:
+        name: rarity
+        description: 'The rarity filter for NFTs.'
+        required: false
+        example: '"Legendary,Rare"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      tags:
+        name: tags
+        description: 'The tags filter for NFTs.'
+        required: false
+        example: '"Fire,Water"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_greater_equal:
+        name: nft_serial_greater_equal
+        description: 'The minimum serial number for NFTs.'
+        required: false
+        example: 100
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      nft_serial_less_equal:
+        name: nft_serial_less_equal
+        description: 'The maximum serial number for NFTs.'
+        required: false
+        example: 200
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      uses:
+        name: uses
+        description: 'The current number of uses.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_uses:
+        name: max_uses
+        description: 'The maximum number of uses allowed.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the coupon validity.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the coupon validity.'
+        required: true
+        example: '"2023-12-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      coupon: '"ITEM2023"'
+      nft_id: 5
+      rarity: '"Legendary,Rare"'
+      tags: '"Fire,Water"'
+      nft_serial_greater_equal: 100
+      nft_serial_less_equal: 200
+      uses: 0
+      max_uses: 1000
+      start_date: '"2023-01-01 00:00:00"'
+      end_date: '"2023-12-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -227,8 +502,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified item coupon.'
+      description: 'Delete an item coupon by ID.'
       authenticated: false
       custom: []
     headers:
@@ -281,8 +556,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified item coupon.'
+      description: 'Delete an item coupon by ID.'
       authenticated: false
       custom: []
     headers:
@@ -324,8 +599,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download item coupons as CSV or JSON.'
+      description: 'Export the item coupon data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -344,21 +619,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter coupons by code.'
+        required: false
+        example: '"ITEM"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort coupons by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter coupons by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"ITEM"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -387,8 +717,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the item coupon model.'
+      description: 'Get the structure and field types of the item coupon model.'
       authenticated: false
       custom: []
     headers:
@@ -439,12 +769,12 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk item coupon processing.'
+      description: 'Upload a CSV file to create multiple item coupons at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -461,9 +791,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to item coupon fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -482,8 +836,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk item coupon upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -534,8 +888,8 @@ endpoints:
         APIs for managing item coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk item coupon upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:

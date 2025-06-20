@@ -14,8 +14,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get season game time-based classification/leaderboard.'
+      description: 'Retrieve the top 10 players and their times for a specific game in the current season.'
       authenticated: false
       custom: []
     headers:
@@ -39,16 +39,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get classification for.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -
@@ -60,7 +60,7 @@ endpoints:
           cross-origin-opener-policy: same-origin
           cross-origin-embedder-policy: require-corp
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
+          x-ratelimit-remaining: '50'
           vary: Origin
         description: null
         custom: []
@@ -81,8 +81,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get season game points-based classification/leaderboard.'
+      description: 'Retrieve the top 10 players and their points for a specific game in the current season.'
       authenticated: false
       custom: []
     headers:
@@ -106,16 +106,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get classification for.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -
@@ -127,7 +127,7 @@ endpoints:
           cross-origin-opener-policy: same-origin
           cross-origin-embedder-policy: require-corp
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '49'
           vary: Origin
         description: null
         custom: []
@@ -148,8 +148,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Check if a season game has been started.'
+      description: 'Determine if a specific game has been initialized or started in the current season.'
       authenticated: false
       custom: []
     headers:
@@ -173,16 +173,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to check.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -
@@ -194,7 +194,7 @@ endpoints:
           cross-origin-opener-policy: same-origin
           cross-origin-embedder-policy: require-corp
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '48'
           vary: Origin
         description: null
         custom: []
@@ -215,8 +215,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Add a new season ranking entry.'
+      description: 'Record a new ranking entry for the current user in a specific game for the current season.'
       authenticated: false
       custom: []
     headers:
@@ -240,49 +240,49 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       network_group:
         name: network_group
-        description: ''
+        description: 'The network group identifier.'
         required: false
-        example: consequatur
+        example: '"Group1"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       fase:
         name: fase
-        description: ''
+        description: 'The phase or level of the game.'
         required: false
-        example: 17
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
       points:
         name: points
-        description: ''
+        description: 'The points scored in the game.'
         required: false
-        example: 17
+        example: 1000
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
-      network_group: consequatur
-      fase: 17
-      points: 17
+      game: '"NameOfGame"'
+      network_group: '"Group1"'
+      fase: 1
+      points: 1000
     fileParameters: []
     responses: []
     responseFields: []
@@ -302,8 +302,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Get user's best time-based ranking for a game."
+      description: 'Retrieve the best time for the current user in a specific game.'
       authenticated: false
       custom: []
     headers:
@@ -327,16 +327,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get ranking for.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -
@@ -365,8 +365,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Get user's best points-based ranking for a game."
+      description: 'Retrieve the best points score for the current user in a specific game.'
       authenticated: false
       custom: []
     headers:
@@ -390,16 +390,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get ranking for.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -
@@ -428,8 +428,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Get user's time-based classification/leaderboard."
+      description: "Retrieve the user's personal time-based leaderboard and any tournament leaderboards they're part of."
       authenticated: false
       custom: []
     headers:
@@ -453,16 +453,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get classification for.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -
@@ -491,8 +491,8 @@ endpoints:
         APIs for managing rankings seasons
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: "Get user's points-based classification/leaderboard."
+      description: "Retrieve the user's personal points-based leaderboard and any tournament leaderboards they're part of."
       authenticated: false
       custom: []
     headers:
@@ -516,16 +516,16 @@ endpoints:
     bodyParameters:
       game:
         name: game
-        description: ''
+        description: 'The name of the game to get classification for.'
         required: true
-        example: consequatur
+        example: '"NameOfGame"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      game: consequatur
+      game: '"NameOfGame"'
     fileParameters: []
     responses:
       -

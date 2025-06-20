@@ -67,6 +67,22 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-blockchain-operations" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="blockchain-operations">
+                    <a href="#blockchain-operations">Blockchain operations</a>
+                </li>
+                                    <ul id="tocify-subheader-blockchain-operations" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="blockchain-operations-POSTapi--account--blockchain-transferPlumasToHedera">
+                                <a href="#blockchain-operations-POSTapi--account--blockchain-transferPlumasToHedera">Transfer Plumas to Hedera</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="blockchain-operations-POSTapi--account--blockchain-transferOroToHedera">
+                                <a href="#blockchain-operations-POSTapi--account--blockchain-transferOroToHedera">Transfer Oro to Hedera</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="blockchain-operations-POSTapi--account--blockchain-transferNftToHedera">
+                                <a href="#blockchain-operations-POSTapi--account--blockchain-transferNftToHedera">Transfer NFT to Hedera</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-endpoints" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="endpoints">
                     <a href="#endpoints">Endpoints</a>
@@ -120,15 +136,6 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi--account--fighter-getFighterUserBattle">
                                 <a href="#endpoints-GETapi--account--fighter-getFighterUserBattle">GET api/{account}/fighter/getFighterUserBattle</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi--account--blockchain-transferPlumasToHedera">
-                                <a href="#endpoints-POSTapi--account--blockchain-transferPlumasToHedera">Transfer zen</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi--account--blockchain-transferOroToHedera">
-                                <a href="#endpoints-POSTapi--account--blockchain-transferOroToHedera">Transfer zen</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi--account--blockchain-transferNftToHedera">
-                                <a href="#endpoints-POSTapi--account--blockchain-transferNftToHedera">Transfer zen</a>
-                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-event-management" class="tocify-header">
@@ -137,10 +144,10 @@
                 </li>
                                     <ul id="tocify-subheader-event-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="event-management-GETapi--account--event-list">
-                                <a href="#event-management-GETapi--account--event-list">Display a listing of own resource.</a>
+                                <a href="#event-management-GETapi--account--event-list">Display a listing of current events for the authenticated user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="event-management-POSTapi--account--event-readEvent">
-                                <a href="#event-management-POSTapi--account--event-readEvent">POST api/{account}/event/readEvent</a>
+                                <a href="#event-management-POSTapi--account--event-readEvent">Mark an event as read.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -150,37 +157,37 @@
                 </li>
                                     <ul id="tocify-subheader-events-meta-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="events-meta-management-GETapi--account--manager-event-metas">
-                                <a href="#events-meta-management-GETapi--account--manager-event-metas">Display a listing of the resource.</a>
+                                <a href="#events-meta-management-GETapi--account--manager-event-metas">Display a listing of event metas.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-POSTapi--account--manager-event-metas">
-                                <a href="#events-meta-management-POSTapi--account--manager-event-metas">Store a newly created resource in storage.</a>
+                                <a href="#events-meta-management-POSTapi--account--manager-event-metas">Store a newly created event meta.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-GETapi--account--manager-event-metas--id-">
-                                <a href="#events-meta-management-GETapi--account--manager-event-metas--id-">Display the specified resource.</a>
+                                <a href="#events-meta-management-GETapi--account--manager-event-metas--id-">Display the specified event meta.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-PUTapi--account--manager-event-metas--id-">
-                                <a href="#events-meta-management-PUTapi--account--manager-event-metas--id-">Update the specified resource in storage.</a>
+                                <a href="#events-meta-management-PUTapi--account--manager-event-metas--id-">Update the specified event meta.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-DELETEapi--account--manager-event-metas--id-">
-                                <a href="#events-meta-management-DELETEapi--account--manager-event-metas--id-">Remove the specified resource from storage.</a>
+                                <a href="#events-meta-management-DELETEapi--account--manager-event-metas--id-">Remove the specified event meta.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-DELETEapi--account--manager-event-metas">
-                                <a href="#events-meta-management-DELETEapi--account--manager-event-metas">Remove the specified resource from storage.</a>
+                                <a href="#events-meta-management-DELETEapi--account--manager-event-metas">Remove the specified event meta.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-GETapi--account--manager-event-metas-download">
-                                <a href="#events-meta-management-GETapi--account--manager-event-metas-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#events-meta-management-GETapi--account--manager-event-metas-download">Download event metas as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-GETapi--account--manager-event-metas-fields">
-                                <a href="#events-meta-management-GETapi--account--manager-event-metas-fields">List the fields of the domain model</a>
+                                <a href="#events-meta-management-GETapi--account--manager-event-metas-fields">List the fields of the event meta model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-POSTapi--account--manager-event-metas-upload">
-                                <a href="#events-meta-management-POSTapi--account--manager-event-metas-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#events-meta-management-POSTapi--account--manager-event-metas-upload">Upload a CSV file for bulk event meta processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-GETapi--account--manager-event-metas-upload">
-                                <a href="#events-meta-management-GETapi--account--manager-event-metas-upload">Get the status of a bulk upload</a>
+                                <a href="#events-meta-management-GETapi--account--manager-event-metas-upload">Get the status of a bulk event meta upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="events-meta-management-DELETEapi--account--manager-event-metas-upload--id-">
-                                <a href="#events-meta-management-DELETEapi--account--manager-event-metas-upload--id-">Delete a bulk upload</a>
+                                <a href="#events-meta-management-DELETEapi--account--manager-event-metas-upload--id-">Delete a bulk event meta upload.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -190,49 +197,49 @@
                 </li>
                                     <ul id="tocify-subheader-free-coin-coupon-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="free-coin-coupon-management-GETapi--account--manager-coupon-free">
-                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free">Display a listing of the resource.</a>
+                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free">Display a listing of free coin coupons.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-POSTapi--account--manager-coupon-free">
-                                <a href="#free-coin-coupon-management-POSTapi--account--manager-coupon-free">Store a newly created resource in storage.</a>
+                                <a href="#free-coin-coupon-management-POSTapi--account--manager-coupon-free">Store a newly created free coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-GETapi--account--manager-coupon-free--id-">
-                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free--id-">Display the specified resource.</a>
+                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free--id-">Display the specified free coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-PUTapi--account--manager-coupon-free--id-">
-                                <a href="#free-coin-coupon-management-PUTapi--account--manager-coupon-free--id-">Update the specified resource in storage.</a>
+                                <a href="#free-coin-coupon-management-PUTapi--account--manager-coupon-free--id-">Update the specified free coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-DELETEapi--account--manager-coupon-free--id-">
-                                <a href="#free-coin-coupon-management-DELETEapi--account--manager-coupon-free--id-">Remove the specified resource from storage.</a>
+                                <a href="#free-coin-coupon-management-DELETEapi--account--manager-coupon-free--id-">Remove the specified free coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-DELETEapi--account--manager-coupon-free">
-                                <a href="#free-coin-coupon-management-DELETEapi--account--manager-coupon-free">Remove the specified resource from storage.</a>
+                                <a href="#free-coin-coupon-management-DELETEapi--account--manager-coupon-free">Remove the specified free coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-GETapi--account--manager-coupon-free-download">
-                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free-download">Download free coin coupons as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-GETapi--account--manager-coupon-free-fields">
-                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free-fields">List the fields of the domain model</a>
+                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free-fields">List the fields of the free coin coupon model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-POSTapi--account--manager-coupon-free-upload">
-                                <a href="#free-coin-coupon-management-POSTapi--account--manager-coupon-free-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#free-coin-coupon-management-POSTapi--account--manager-coupon-free-upload">Upload a CSV file for bulk free coin coupon processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-GETapi--account--manager-coupon-free-upload">
-                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free-upload">Get the status of a bulk upload</a>
+                                <a href="#free-coin-coupon-management-GETapi--account--manager-coupon-free-upload">Get the status of a bulk free coin coupon upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-DELETEapi--account--manager-coupon-free-upload--id-">
-                                <a href="#free-coin-coupon-management-DELETEapi--account--manager-coupon-free-upload--id-">Delete a bulk upload</a>
+                                <a href="#free-coin-coupon-management-DELETEapi--account--manager-coupon-free-upload--id-">Delete a bulk free coin coupon upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-POSTapi--account--coupon-usePlumasCoupon">
-                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-usePlumasCoupon">POST api/{account}/coupon/usePlumasCoupon</a>
+                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-usePlumasCoupon">Use a plumas (feathers) coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-POSTapi--account--coupon-useOroCoupon">
-                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-useOroCoupon">POST api/{account}/coupon/useOroCoupon</a>
+                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-useOroCoupon">Use an oro (gold) coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-POSTapi--account--coupon-useItemCoupon">
-                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-useItemCoupon">POST api/{account}/coupon/useItemCoupon</a>
+                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-useItemCoupon">Use an item coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="free-coin-coupon-management-POSTapi--account--coupon-useCoupon">
-                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-useCoupon">POST api/{account}/coupon/useCoupon</a>
+                                <a href="#free-coin-coupon-management-POSTapi--account--coupon-useCoupon">Use any type of coupon.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -255,37 +262,37 @@
                 </li>
                                     <ul id="tocify-subheader-item-coupons-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="item-coupons-management-GETapi--account--manager-coupon-items">
-                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items">Display a listing of the resource.</a>
+                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items">Display a listing of item coupons.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-POSTapi--account--manager-coupon-items">
-                                <a href="#item-coupons-management-POSTapi--account--manager-coupon-items">Store a newly created resource in storage.</a>
+                                <a href="#item-coupons-management-POSTapi--account--manager-coupon-items">Store a newly created item coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-GETapi--account--manager-coupon-items--id-">
-                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items--id-">Display the specified resource.</a>
+                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items--id-">Display the specified item coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-PUTapi--account--manager-coupon-items--id-">
-                                <a href="#item-coupons-management-PUTapi--account--manager-coupon-items--id-">Update the specified resource in storage.</a>
+                                <a href="#item-coupons-management-PUTapi--account--manager-coupon-items--id-">Update the specified item coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-DELETEapi--account--manager-coupon-items--id-">
-                                <a href="#item-coupons-management-DELETEapi--account--manager-coupon-items--id-">Remove the specified resource from storage.</a>
+                                <a href="#item-coupons-management-DELETEapi--account--manager-coupon-items--id-">Remove the specified item coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-DELETEapi--account--manager-coupon-items">
-                                <a href="#item-coupons-management-DELETEapi--account--manager-coupon-items">Remove the specified resource from storage.</a>
+                                <a href="#item-coupons-management-DELETEapi--account--manager-coupon-items">Remove the specified item coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-GETapi--account--manager-coupon-items-download">
-                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items-download">Download item coupons as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-GETapi--account--manager-coupon-items-fields">
-                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items-fields">List the fields of the domain model</a>
+                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items-fields">List the fields of the item coupon model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-POSTapi--account--manager-coupon-items-upload">
-                                <a href="#item-coupons-management-POSTapi--account--manager-coupon-items-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#item-coupons-management-POSTapi--account--manager-coupon-items-upload">Upload a CSV file for bulk item coupon processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-GETapi--account--manager-coupon-items-upload">
-                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items-upload">Get the status of a bulk upload</a>
+                                <a href="#item-coupons-management-GETapi--account--manager-coupon-items-upload">Get the status of a bulk item coupon upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-coupons-management-DELETEapi--account--manager-coupon-items-upload--id-">
-                                <a href="#item-coupons-management-DELETEapi--account--manager-coupon-items-upload--id-">Delete a bulk upload</a>
+                                <a href="#item-coupons-management-DELETEapi--account--manager-coupon-items-upload--id-">Delete a bulk item coupon upload.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -295,37 +302,37 @@
                 </li>
                                     <ul id="tocify-subheader-item-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="item-management-GETapi--account--manager-nft">
-                                <a href="#item-management-GETapi--account--manager-nft">Display a listing of the resource.</a>
+                                <a href="#item-management-GETapi--account--manager-nft">Display a listing of Items.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-POSTapi--account--manager-nft">
-                                <a href="#item-management-POSTapi--account--manager-nft">Store a newly created resource in storage.</a>
+                                <a href="#item-management-POSTapi--account--manager-nft">Store a newly created Item.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-GETapi--account--manager-nft--id-">
-                                <a href="#item-management-GETapi--account--manager-nft--id-">Display the specified resource.</a>
+                                <a href="#item-management-GETapi--account--manager-nft--id-">Display the specified Item.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-PUTapi--account--manager-nft--id-">
-                                <a href="#item-management-PUTapi--account--manager-nft--id-">Update the specified resource in storage.</a>
+                                <a href="#item-management-PUTapi--account--manager-nft--id-">Update the specified Item.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-DELETEapi--account--manager-nft--id-">
-                                <a href="#item-management-DELETEapi--account--manager-nft--id-">Remove the specified resource from storage.</a>
+                                <a href="#item-management-DELETEapi--account--manager-nft--id-">Remove the specified Item.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-DELETEapi--account--manager-nft">
-                                <a href="#item-management-DELETEapi--account--manager-nft">Remove the specified resource from storage.</a>
+                                <a href="#item-management-DELETEapi--account--manager-nft">Remove the specified Item.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-GETapi--account--manager-nft-download">
-                                <a href="#item-management-GETapi--account--manager-nft-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#item-management-GETapi--account--manager-nft-download">Download Items as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-GETapi--account--manager-nft-fields">
-                                <a href="#item-management-GETapi--account--manager-nft-fields">List the fields of the domain model</a>
+                                <a href="#item-management-GETapi--account--manager-nft-fields">List the fields of the Item model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-POSTapi--account--manager-nft-upload">
-                                <a href="#item-management-POSTapi--account--manager-nft-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#item-management-POSTapi--account--manager-nft-upload">Upload a CSV file for bulk Item processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-GETapi--account--manager-nft-upload">
-                                <a href="#item-management-GETapi--account--manager-nft-upload">Get the status of a bulk upload</a>
+                                <a href="#item-management-GETapi--account--manager-nft-upload">Get the status of a bulk Item upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="item-management-DELETEapi--account--manager-nft-upload--id-">
-                                <a href="#item-management-DELETEapi--account--manager-nft-upload--id-">Delete a bulk upload</a>
+                                <a href="#item-management-DELETEapi--account--manager-nft-upload--id-">Delete a bulk Item upload.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -335,10 +342,10 @@
                 </li>
                                     <ul id="tocify-subheader-phoenix-diary-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="phoenix-diary-management-GETapi--account--thePhoenixDiary-getCharacters">
-                                <a href="#phoenix-diary-management-GETapi--account--thePhoenixDiary-getCharacters">GET api/{account}/thePhoenixDiary/getCharacters</a>
+                                <a href="#phoenix-diary-management-GETapi--account--thePhoenixDiary-getCharacters">Get available characters for Phoenix Diary.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="phoenix-diary-management-POSTapi--account--thePhoenixDiary-createNewGame">
-                                <a href="#phoenix-diary-management-POSTapi--account--thePhoenixDiary-createNewGame">POST api/{account}/thePhoenixDiary/createNewGame</a>
+                                <a href="#phoenix-diary-management-POSTapi--account--thePhoenixDiary-createNewGame">Create a new Phoenix Diary game.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -348,46 +355,46 @@
                 </li>
                                     <ul id="tocify-subheader-poll-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--manager-poll">
-                                <a href="#poll-management-GETapi--account--manager-poll">Display a listing of the resource.</a>
+                                <a href="#poll-management-GETapi--account--manager-poll">Display a listing of polls.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-POSTapi--account--manager-poll">
-                                <a href="#poll-management-POSTapi--account--manager-poll">Store a newly created resource in storage.</a>
+                                <a href="#poll-management-POSTapi--account--manager-poll">Store a newly created poll.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--manager-poll--id-">
-                                <a href="#poll-management-GETapi--account--manager-poll--id-">Display the specified resource.</a>
+                                <a href="#poll-management-GETapi--account--manager-poll--id-">Display the specified poll.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-PUTapi--account--manager-poll--id-">
-                                <a href="#poll-management-PUTapi--account--manager-poll--id-">Update the specified resource in storage.</a>
+                                <a href="#poll-management-PUTapi--account--manager-poll--id-">Update the specified poll.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-DELETEapi--account--manager-poll--id-">
-                                <a href="#poll-management-DELETEapi--account--manager-poll--id-">Remove the specified resource from storage.</a>
+                                <a href="#poll-management-DELETEapi--account--manager-poll--id-">Remove the specified poll.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-DELETEapi--account--manager-poll">
-                                <a href="#poll-management-DELETEapi--account--manager-poll">Remove the specified resource from storage.</a>
+                                <a href="#poll-management-DELETEapi--account--manager-poll">Remove the specified poll.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--manager-poll-download">
-                                <a href="#poll-management-GETapi--account--manager-poll-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#poll-management-GETapi--account--manager-poll-download">Download polls as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--manager-poll-fields">
-                                <a href="#poll-management-GETapi--account--manager-poll-fields">List the fields of the domain model</a>
+                                <a href="#poll-management-GETapi--account--manager-poll-fields">List the fields of the poll model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-POSTapi--account--manager-poll-upload">
-                                <a href="#poll-management-POSTapi--account--manager-poll-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#poll-management-POSTapi--account--manager-poll-upload">Upload a CSV file for bulk poll processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--manager-poll-upload">
-                                <a href="#poll-management-GETapi--account--manager-poll-upload">Get the status of a bulk upload</a>
+                                <a href="#poll-management-GETapi--account--manager-poll-upload">Get the status of a bulk poll upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-DELETEapi--account--manager-poll-upload--id-">
-                                <a href="#poll-management-DELETEapi--account--manager-poll-upload--id-">Delete a bulk upload</a>
+                                <a href="#poll-management-DELETEapi--account--manager-poll-upload--id-">Delete a bulk poll upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--poll-pollDetails">
-                                <a href="#poll-management-GETapi--account--poll-pollDetails">GET api/{account}/poll/pollDetails</a>
+                                <a href="#poll-management-GETapi--account--poll-pollDetails">Get details of a specific poll.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-GETapi--account--poll-pollsDetailsLast30Days">
-                                <a href="#poll-management-GETapi--account--poll-pollsDetailsLast30Days">GET api/{account}/poll/pollsDetailsLast30Days</a>
+                                <a href="#poll-management-GETapi--account--poll-pollsDetailsLast30Days">Get details of polls from the last 30 days.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="poll-management-POSTapi--account--poll-answerPoll">
-                                <a href="#poll-management-POSTapi--account--poll-answerPoll">POST api/{account}/poll/answerPoll</a>
+                                <a href="#poll-management-POSTapi--account--poll-answerPoll">Submit an answer to a poll.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -397,37 +404,37 @@
                 </li>
                                     <ul id="tocify-subheader-premium-coin-coupons-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-GETapi--account--manager-coupon-payment">
-                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment">Display a listing of the resource.</a>
+                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment">Display a listing of premium coin coupons.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-POSTapi--account--manager-coupon-payment">
-                                <a href="#premium-coin-coupons-management-POSTapi--account--manager-coupon-payment">Store a newly created resource in storage.</a>
+                                <a href="#premium-coin-coupons-management-POSTapi--account--manager-coupon-payment">Store a newly created premium coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-GETapi--account--manager-coupon-payment--id-">
-                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment--id-">Display the specified resource.</a>
+                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment--id-">Display the specified premium coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-PUTapi--account--manager-coupon-payment--id-">
-                                <a href="#premium-coin-coupons-management-PUTapi--account--manager-coupon-payment--id-">Update the specified resource in storage.</a>
+                                <a href="#premium-coin-coupons-management-PUTapi--account--manager-coupon-payment--id-">Update the specified premium coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment--id-">
-                                <a href="#premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment--id-">Remove the specified resource from storage.</a>
+                                <a href="#premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment--id-">Remove the specified premium coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment">
-                                <a href="#premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment">Remove the specified resource from storage.</a>
+                                <a href="#premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment">Remove the specified premium coin coupon.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-download">
-                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment-download">Download premium coin coupons as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-fields">
-                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment-fields">List the fields of the domain model</a>
+                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment-fields">List the fields of the premium coin coupon model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-POSTapi--account--manager-coupon-payment-upload">
-                                <a href="#premium-coin-coupons-management-POSTapi--account--manager-coupon-payment-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#premium-coin-coupons-management-POSTapi--account--manager-coupon-payment-upload">Upload a CSV file for bulk premium coin coupon processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-upload">
-                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment-upload">Get the status of a bulk upload</a>
+                                <a href="#premium-coin-coupons-management-GETapi--account--manager-coupon-payment-upload">Get the status of a bulk premium coin coupon upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment-upload--id-">
-                                <a href="#premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment-upload--id-">Delete a bulk upload</a>
+                                <a href="#premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment-upload--id-">Delete a bulk premium coin coupon upload.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -437,16 +444,16 @@
                 </li>
                                     <ul id="tocify-subheader-product-order-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="product-order-management-GETapi--account--manager-product-order">
-                                <a href="#product-order-management-GETapi--account--manager-product-order">Display a listing of the resource.</a>
+                                <a href="#product-order-management-GETapi--account--manager-product-order">Display a listing of product orders.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-order-management-DELETEapi--account--manager-product-order--id-">
-                                <a href="#product-order-management-DELETEapi--account--manager-product-order--id-">Remove the specified resource from storage.</a>
+                                <a href="#product-order-management-DELETEapi--account--manager-product-order--id-">Remove the specified product order.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-order-management-DELETEapi--account--manager-product-order">
-                                <a href="#product-order-management-DELETEapi--account--manager-product-order">Remove the specified resource from storage.</a>
+                                <a href="#product-order-management-DELETEapi--account--manager-product-order">Remove the specified product order.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-order-management-GETapi--account--manager-product-order-download">
-                                <a href="#product-order-management-GETapi--account--manager-product-order-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#product-order-management-GETapi--account--manager-product-order-download">Download product orders as CSV or JSON.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -459,37 +466,37 @@
                                 <a href="#product-management-POSTapi--account--store-validateProductOrder">POST api/{account}/store/validateProductOrder</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-GETapi--account--manager-product">
-                                <a href="#product-management-GETapi--account--manager-product">Display a listing of the resource.</a>
+                                <a href="#product-management-GETapi--account--manager-product">Display a listing of products.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-POSTapi--account--manager-product">
-                                <a href="#product-management-POSTapi--account--manager-product">Store a newly created resource in storage.</a>
+                                <a href="#product-management-POSTapi--account--manager-product">Store a newly created product.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-GETapi--account--manager-product--id-">
-                                <a href="#product-management-GETapi--account--manager-product--id-">Display the specified resource.</a>
+                                <a href="#product-management-GETapi--account--manager-product--id-">Display the specified product.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-PUTapi--account--manager-product--id-">
-                                <a href="#product-management-PUTapi--account--manager-product--id-">Update the specified resource in storage.</a>
+                                <a href="#product-management-PUTapi--account--manager-product--id-">Update the specified product.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-DELETEapi--account--manager-product--id-">
-                                <a href="#product-management-DELETEapi--account--manager-product--id-">Remove the specified resource from storage.</a>
+                                <a href="#product-management-DELETEapi--account--manager-product--id-">Remove the specified product.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-DELETEapi--account--manager-product">
-                                <a href="#product-management-DELETEapi--account--manager-product">Remove the specified resource from storage.</a>
+                                <a href="#product-management-DELETEapi--account--manager-product">Remove the specified product.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-GETapi--account--manager-product-download">
-                                <a href="#product-management-GETapi--account--manager-product-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#product-management-GETapi--account--manager-product-download">Download products as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-GETapi--account--manager-product-fields">
-                                <a href="#product-management-GETapi--account--manager-product-fields">List the fields of the domain model</a>
+                                <a href="#product-management-GETapi--account--manager-product-fields">List the fields of the Product model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-POSTapi--account--manager-product-upload">
-                                <a href="#product-management-POSTapi--account--manager-product-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#product-management-POSTapi--account--manager-product-upload">Upload a CSV file for bulk Product processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-GETapi--account--manager-product-upload">
-                                <a href="#product-management-GETapi--account--manager-product-upload">Get the status of a bulk upload</a>
+                                <a href="#product-management-GETapi--account--manager-product-upload">Get the status of a bulk Product upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-DELETEapi--account--manager-product-upload--id-">
-                                <a href="#product-management-DELETEapi--account--manager-product-upload--id-">Delete a bulk upload</a>
+                                <a href="#product-management-DELETEapi--account--manager-product-upload--id-">Delete a bulk Product upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="product-management-GETapi--account--store-details">
                                 <a href="#product-management-GETapi--account--store-details">GET api/{account}/store/details</a>
@@ -511,49 +518,49 @@
                 </li>
                                     <ul id="tocify-subheader-profile-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="profile-management-GETapi--account--manager-admin-dashboard">
-                                <a href="#profile-management-GETapi--account--manager-admin-dashboard">GET api/{account}/manager/admin-dashboard</a>
+                                <a href="#profile-management-GETapi--account--manager-admin-dashboard">Get admin dashboard statistics.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-GETapi--account--manager-profile">
-                                <a href="#profile-management-GETapi--account--manager-profile">Display a listing of the resource.</a>
+                                <a href="#profile-management-GETapi--account--manager-profile">Display a listing of profiles.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-GETapi--account--manager-profile--id-">
-                                <a href="#profile-management-GETapi--account--manager-profile--id-">Display the specified resource.</a>
+                                <a href="#profile-management-GETapi--account--manager-profile--id-">Display the specified profile.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-PUTapi--account--manager-profile--id-">
-                                <a href="#profile-management-PUTapi--account--manager-profile--id-">Update the specified resource in storage.</a>
+                                <a href="#profile-management-PUTapi--account--manager-profile--id-">Update the specified profile.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-GETapi--account--manager-profile-download">
-                                <a href="#profile-management-GETapi--account--manager-profile-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#profile-management-GETapi--account--manager-profile-download">Download profiles as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-addPlumas">
-                                <a href="#profile-management-POSTapi--account--profile-addPlumas">POST api/{account}/profile/addPlumas</a>
+                                <a href="#profile-management-POSTapi--account--profile-addPlumas">Add plumas to user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-addOro">
-                                <a href="#profile-management-POSTapi--account--profile-addOro">POST api/{account}/profile/addOro</a>
+                                <a href="#profile-management-POSTapi--account--profile-addOro">Add oro to user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-getUserProfile">
-                                <a href="#profile-management-POSTapi--account--profile-getUserProfile">POST api/{account}/profile/getUserProfile</a>
+                                <a href="#profile-management-POSTapi--account--profile-getUserProfile">Get current user's profile.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-setAvatar">
-                                <a href="#profile-management-POSTapi--account--profile-setAvatar">POST api/{account}/profile/setAvatar</a>
+                                <a href="#profile-management-POSTapi--account--profile-setAvatar">Set user avatar.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-setEstado">
-                                <a href="#profile-management-POSTapi--account--profile-setEstado">POST api/{account}/profile/setEstado</a>
+                                <a href="#profile-management-POSTapi--account--profile-setEstado">Set user status.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-subtractPlumaUser">
-                                <a href="#profile-management-POSTapi--account--profile-subtractPlumaUser">POST api/{account}/profile/subtractPlumaUser</a>
+                                <a href="#profile-management-POSTapi--account--profile-subtractPlumaUser">Subtract plumas from user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-subtractOroUser">
-                                <a href="#profile-management-POSTapi--account--profile-subtractOroUser">POST api/{account}/profile/subtractOroUser</a>
+                                <a href="#profile-management-POSTapi--account--profile-subtractOroUser">Subtract oro from user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-setUserProfileReferredCode">
-                                <a href="#profile-management-POSTapi--account--profile-setUserProfileReferredCode">POST api/{account}/profile/setUserProfileReferredCode</a>
+                                <a href="#profile-management-POSTapi--account--profile-setUserProfileReferredCode">Set user's referral code.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-setUserProfileReferredCodeFrom">
-                                <a href="#profile-management-POSTapi--account--profile-setUserProfileReferredCodeFrom">POST api/{account}/profile/setUserProfileReferredCodeFrom</a>
+                                <a href="#profile-management-POSTapi--account--profile-setUserProfileReferredCodeFrom">Set referral code source.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="profile-management-POSTapi--account--profile-setUserProfileHederaWalletCheck">
-                                <a href="#profile-management-POSTapi--account--profile-setUserProfileHederaWalletCheck">POST api/{account}/profile/setUserProfileHederaWalletCheck</a>
+                                <a href="#profile-management-POSTapi--account--profile-setUserProfileHederaWalletCheck">Set Hedera wallet verification status.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -563,16 +570,16 @@
                 </li>
                                     <ul id="tocify-subheader-ranking-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="ranking-management-GETapi--account--ranking-getClassification">
-                                <a href="#ranking-management-GETapi--account--ranking-getClassification">GET api/{account}/ranking/getClassification</a>
+                                <a href="#ranking-management-GETapi--account--ranking-getClassification">Get game classification/leaderboard.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="ranking-management-GETapi--account--ranking-getGameStarted">
-                                <a href="#ranking-management-GETapi--account--ranking-getGameStarted">GET api/{account}/ranking/getGameStarted</a>
+                                <a href="#ranking-management-GETapi--account--ranking-getGameStarted">Check if a game has been started.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="ranking-management-POSTapi--account--ranking-addRanking">
-                                <a href="#ranking-management-POSTapi--account--ranking-addRanking">POST api/{account}/ranking/addRanking</a>
+                                <a href="#ranking-management-POSTapi--account--ranking-addRanking">Add a new ranking entry.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="ranking-management-GETapi--account--ranking-getRanking">
-                                <a href="#ranking-management-GETapi--account--ranking-getRanking">GET api/{account}/ranking/getRanking</a>
+                                <a href="#ranking-management-GETapi--account--ranking-getRanking">Get user's best ranking for a game.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -582,28 +589,28 @@
                 </li>
                                     <ul id="tocify-subheader-rankings-season-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerTime">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerTime">GET api/{account}/ranking/getSeasonClassificationPerTime</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerTime">Get season game time-based classification/leaderboard.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerPoints">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerPoints">GET api/{account}/ranking/getSeasonClassificationPerPoints</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerPoints">Get season game points-based classification/leaderboard.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonGameStarted">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonGameStarted">GET api/{account}/ranking/getSeasonGameStarted</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonGameStarted">Check if a season game has been started.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-POSTapi--account--ranking-addSeasonRanking">
-                                <a href="#rankings-season-management-POSTapi--account--ranking-addSeasonRanking">POST api/{account}/ranking/addSeasonRanking</a>
+                                <a href="#rankings-season-management-POSTapi--account--ranking-addSeasonRanking">Add a new season ranking entry.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonRankingPerTime">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonRankingPerTime">GET api/{account}/ranking/getSeasonRankingPerTime</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonRankingPerTime">Get user's best time-based ranking for a game.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonRankingPerPoints">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonRankingPerPoints">GET api/{account}/ranking/getSeasonRankingPerPoints</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonRankingPerPoints">Get user's best points-based ranking for a game.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerTime">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerTime">GET api/{account}/ranking/getSeasonUserClassificationPerTime</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerTime">Get user's time-based classification/leaderboard.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerPoints">
-                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerPoints">GET api/{account}/ranking/getSeasonUserClassificationPerPoints</a>
+                                <a href="#rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerPoints">Get user's points-based classification/leaderboard.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -613,37 +620,37 @@
                 </li>
                                     <ul id="tocify-subheader-season-rewards-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="season-rewards-management-GETapi--account--manager-season-reward">
-                                <a href="#season-rewards-management-GETapi--account--manager-season-reward">Display a listing of the resource.</a>
+                                <a href="#season-rewards-management-GETapi--account--manager-season-reward">Display a listing of season rewards.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-POSTapi--account--manager-season-reward">
-                                <a href="#season-rewards-management-POSTapi--account--manager-season-reward">Store a newly created resource in storage.</a>
+                                <a href="#season-rewards-management-POSTapi--account--manager-season-reward">Store a newly created season reward.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-GETapi--account--manager-season-reward--id-">
-                                <a href="#season-rewards-management-GETapi--account--manager-season-reward--id-">Display the specified resource.</a>
+                                <a href="#season-rewards-management-GETapi--account--manager-season-reward--id-">Display the specified season reward.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-PUTapi--account--manager-season-reward--id-">
-                                <a href="#season-rewards-management-PUTapi--account--manager-season-reward--id-">Update the specified resource in storage.</a>
+                                <a href="#season-rewards-management-PUTapi--account--manager-season-reward--id-">Update the specified season reward.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-DELETEapi--account--manager-season-reward--id-">
-                                <a href="#season-rewards-management-DELETEapi--account--manager-season-reward--id-">Remove the specified resource from storage.</a>
+                                <a href="#season-rewards-management-DELETEapi--account--manager-season-reward--id-">Remove the specified season reward.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-DELETEapi--account--manager-season-reward">
-                                <a href="#season-rewards-management-DELETEapi--account--manager-season-reward">Remove the specified resource from storage.</a>
+                                <a href="#season-rewards-management-DELETEapi--account--manager-season-reward">Remove the specified season reward.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-GETapi--account--manager-season-reward-download">
-                                <a href="#season-rewards-management-GETapi--account--manager-season-reward-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#season-rewards-management-GETapi--account--manager-season-reward-download">Download season rewards as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-GETapi--account--manager-season-reward-fields">
-                                <a href="#season-rewards-management-GETapi--account--manager-season-reward-fields">List the fields of the domain model</a>
+                                <a href="#season-rewards-management-GETapi--account--manager-season-reward-fields">List the fields of the season reward model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-POSTapi--account--manager-season-reward-upload">
-                                <a href="#season-rewards-management-POSTapi--account--manager-season-reward-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#season-rewards-management-POSTapi--account--manager-season-reward-upload">Upload a CSV file for bulk season reward processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-GETapi--account--manager-season-reward-upload">
-                                <a href="#season-rewards-management-GETapi--account--manager-season-reward-upload">Get the status of a bulk upload</a>
+                                <a href="#season-rewards-management-GETapi--account--manager-season-reward-upload">Get the status of a bulk season reward upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-rewards-management-DELETEapi--account--manager-season-reward-upload--id-">
-                                <a href="#season-rewards-management-DELETEapi--account--manager-season-reward-upload--id-">Delete a bulk upload</a>
+                                <a href="#season-rewards-management-DELETEapi--account--manager-season-reward-upload--id-">Delete a bulk season reward upload.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -653,43 +660,43 @@
                 </li>
                                     <ul id="tocify-subheader-season-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="season-management-GETapi--account--manager-season">
-                                <a href="#season-management-GETapi--account--manager-season">Display a listing of the resource.</a>
+                                <a href="#season-management-GETapi--account--manager-season">Display a listing of seasons.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-POSTapi--account--manager-season">
-                                <a href="#season-management-POSTapi--account--manager-season">Store a newly created resource in storage.</a>
+                                <a href="#season-management-POSTapi--account--manager-season">Store a newly created season.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-GETapi--account--manager-season--id-">
-                                <a href="#season-management-GETapi--account--manager-season--id-">Display the specified resource.</a>
+                                <a href="#season-management-GETapi--account--manager-season--id-">Display the specified season.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-PUTapi--account--manager-season--id-">
-                                <a href="#season-management-PUTapi--account--manager-season--id-">Update the specified resource in storage.</a>
+                                <a href="#season-management-PUTapi--account--manager-season--id-">Update the specified season.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-DELETEapi--account--manager-season--id-">
-                                <a href="#season-management-DELETEapi--account--manager-season--id-">Remove the specified resource from storage.</a>
+                                <a href="#season-management-DELETEapi--account--manager-season--id-">Remove the specified season.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-DELETEapi--account--manager-season">
-                                <a href="#season-management-DELETEapi--account--manager-season">Remove the specified resource from storage.</a>
+                                <a href="#season-management-DELETEapi--account--manager-season">Remove the specified season.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-GETapi--account--manager-season-download">
-                                <a href="#season-management-GETapi--account--manager-season-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#season-management-GETapi--account--manager-season-download">Download seasons as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-GETapi--account--manager-season-fields">
-                                <a href="#season-management-GETapi--account--manager-season-fields">List the fields of the domain model</a>
+                                <a href="#season-management-GETapi--account--manager-season-fields">List the fields of the season model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-POSTapi--account--manager-season-upload">
-                                <a href="#season-management-POSTapi--account--manager-season-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#season-management-POSTapi--account--manager-season-upload">Upload a CSV file for bulk season processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-GETapi--account--manager-season-upload">
-                                <a href="#season-management-GETapi--account--manager-season-upload">Get the status of a bulk upload</a>
+                                <a href="#season-management-GETapi--account--manager-season-upload">Get the status of a bulk season upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-DELETEapi--account--manager-season-upload--id-">
-                                <a href="#season-management-DELETEapi--account--manager-season-upload--id-">Delete a bulk upload</a>
+                                <a href="#season-management-DELETEapi--account--manager-season-upload--id-">Delete a bulk season upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-GETapi--account--season-seasonDetails">
-                                <a href="#season-management-GETapi--account--season-seasonDetails">GET api/{account}/season/seasonDetails</a>
+                                <a href="#season-management-GETapi--account--season-seasonDetails">Get details of the current active season.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="season-management-POSTapi--account--season-redeemSeasonLvl">
-                                <a href="#season-management-POSTapi--account--season-redeemSeasonLvl">POST api/{account}/season/redeemSeasonLvl</a>
+                                <a href="#season-management-POSTapi--account--season-redeemSeasonLvl">Redeem a season level reward.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -712,37 +719,37 @@
                 </li>
                                     <ul id="tocify-subheader-subitems-management" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="subitems-management-GETapi--account--manager-nft-identification">
-                                <a href="#subitems-management-GETapi--account--manager-nft-identification">Display a listing of the resource.</a>
+                                <a href="#subitems-management-GETapi--account--manager-nft-identification">Display a listing of SubItem.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-POSTapi--account--manager-nft-identification">
-                                <a href="#subitems-management-POSTapi--account--manager-nft-identification">Store a newly created resource in storage.</a>
+                                <a href="#subitems-management-POSTapi--account--manager-nft-identification">Store a newly created SubItem.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-GETapi--account--manager-nft-identification--id-">
-                                <a href="#subitems-management-GETapi--account--manager-nft-identification--id-">Display the specified resource.</a>
+                                <a href="#subitems-management-GETapi--account--manager-nft-identification--id-">Display the specified SubItem.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-PUTapi--account--manager-nft-identification--id-">
-                                <a href="#subitems-management-PUTapi--account--manager-nft-identification--id-">Update the specified resource in storage.</a>
+                                <a href="#subitems-management-PUTapi--account--manager-nft-identification--id-">Update the specified SubItem.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-DELETEapi--account--manager-nft-identification--id-">
-                                <a href="#subitems-management-DELETEapi--account--manager-nft-identification--id-">Remove the specified resource from storage.</a>
+                                <a href="#subitems-management-DELETEapi--account--manager-nft-identification--id-">Remove the specified SubItem.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-DELETEapi--account--manager-nft-identification">
-                                <a href="#subitems-management-DELETEapi--account--manager-nft-identification">Remove the specified resource from storage.</a>
+                                <a href="#subitems-management-DELETEapi--account--manager-nft-identification">Remove the specified SubItem.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-GETapi--account--manager-nft-identification-download">
-                                <a href="#subitems-management-GETapi--account--manager-nft-identification-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#subitems-management-GETapi--account--manager-nft-identification-download">Download SubItem as CSV or JSON.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-GETapi--account--manager-nft-identification-fields">
-                                <a href="#subitems-management-GETapi--account--manager-nft-identification-fields">List the fields of the domain model</a>
+                                <a href="#subitems-management-GETapi--account--manager-nft-identification-fields">List the fields of the SubItem model.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-POSTapi--account--manager-nft-identification-upload">
-                                <a href="#subitems-management-POSTapi--account--manager-nft-identification-upload">Upload a CSV file for bulk processing</a>
+                                <a href="#subitems-management-POSTapi--account--manager-nft-identification-upload">Upload a CSV file for bulk SubItem processing.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-GETapi--account--manager-nft-identification-upload">
-                                <a href="#subitems-management-GETapi--account--manager-nft-identification-upload">Get the status of a bulk upload</a>
+                                <a href="#subitems-management-GETapi--account--manager-nft-identification-upload">Get the status of a bulk SubItem upload.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="subitems-management-DELETEapi--account--manager-nft-identification-upload--id-">
-                                <a href="#subitems-management-DELETEapi--account--manager-nft-identification-upload--id-">Delete a bulk upload</a>
+                                <a href="#subitems-management-DELETEapi--account--manager-nft-identification-upload--id-">Delete a bulk SubItem upload.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -814,16 +821,16 @@
                 </li>
                                     <ul id="tocify-subheader-user-management-admin" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="user-management-admin-GETapi--account--manager-user">
-                                <a href="#user-management-admin-GETapi--account--manager-user">Display a listing of the resource.</a>
+                                <a href="#user-management-admin-GETapi--account--manager-user">Display a listing of users.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-admin-GETapi--account--manager-user--id-">
-                                <a href="#user-management-admin-GETapi--account--manager-user--id-">Display the specified resource.</a>
+                                <a href="#user-management-admin-GETapi--account--manager-user--id-">Display the specified user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-admin-PUTapi--account--manager-user--id-">
-                                <a href="#user-management-admin-PUTapi--account--manager-user--id-">Update the specified resource in storage.</a>
+                                <a href="#user-management-admin-PUTapi--account--manager-user--id-">Update the specified user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-admin-GETapi--account--manager-user-download">
-                                <a href="#user-management-admin-GETapi--account--manager-user-download">Display a listing of the resource in csv or json.</a>
+                                <a href="#user-management-admin-GETapi--account--manager-user-download">Download users as CSV or JSON.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -836,7 +843,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: June 19, 2025</li>
+        <li>Last updated: June 20, 2025</li>
     </ul>
 </div>
 
@@ -858,7 +865,473 @@ Let’s turn your fans into part of your legend.
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="blockchain-operations">Blockchain operations</h1>
+
+    <p>APIs for managing blockchain transfers to Hedera</p>
+
+                                <h2 id="blockchain-operations-POSTapi--account--blockchain-transferPlumasToHedera">Transfer Plumas to Hedera</h2>
+
+<p>
+</p>
+
+<p>Transfer a specified amount of Plumas (feathers) from the user's account to Hedera blockchain.</p>
+
+<span id="example-requests-POSTapi--account--blockchain-transferPlumasToHedera">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferPlumasToHedera" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"id_hedera\": \"\\\"0.0.123456\\\"\",
+    \"plumas\": 10
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferPlumasToHedera"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id_hedera": "\"0.0.123456\"",
+    "plumas": 10
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi--account--blockchain-transferPlumasToHedera">
+</span>
+<span id="execution-results-POSTapi--account--blockchain-transferPlumasToHedera" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi--account--blockchain-transferPlumasToHedera"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi--account--blockchain-transferPlumasToHedera"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi--account--blockchain-transferPlumasToHedera" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi--account--blockchain-transferPlumasToHedera">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi--account--blockchain-transferPlumasToHedera" data-method="POST"
+      data-path="api/{account}/blockchain/transferPlumasToHedera"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--blockchain-transferPlumasToHedera', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi--account--blockchain-transferPlumasToHedera"
+                    onclick="tryItOut('POSTapi--account--blockchain-transferPlumasToHedera');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi--account--blockchain-transferPlumasToHedera"
+                    onclick="cancelTryOut('POSTapi--account--blockchain-transferPlumasToHedera');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi--account--blockchain-transferPlumasToHedera"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/{account}/blockchain/transferPlumasToHedera</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>account</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="account"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_hedera</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_hedera"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
+               value=""0.0.123456""
+               data-component="body">
+    <br>
+<p>The Hedera account ID to transfer to. Example: <code>"0.0.123456"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
+               value="10"
+               data-component="body">
+    <br>
+<p>The amount of plumas to transfer (minimum 1). Example: <code>10</code></p>
+        </div>
+        </form>
+
+                    <h2 id="blockchain-operations-POSTapi--account--blockchain-transferOroToHedera">Transfer Oro to Hedera</h2>
+
+<p>
+</p>
+
+<p>Transfer a specified amount of Oro (gold) from the user's account to Hedera blockchain.</p>
+
+<span id="example-requests-POSTapi--account--blockchain-transferOroToHedera">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferOroToHedera" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"id_hedera\": \"\\\"0.0.123456\\\"\",
+    \"oro\": 5
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferOroToHedera"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id_hedera": "\"0.0.123456\"",
+    "oro": 5
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi--account--blockchain-transferOroToHedera">
+</span>
+<span id="execution-results-POSTapi--account--blockchain-transferOroToHedera" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi--account--blockchain-transferOroToHedera"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi--account--blockchain-transferOroToHedera"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi--account--blockchain-transferOroToHedera" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi--account--blockchain-transferOroToHedera">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi--account--blockchain-transferOroToHedera" data-method="POST"
+      data-path="api/{account}/blockchain/transferOroToHedera"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--blockchain-transferOroToHedera', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi--account--blockchain-transferOroToHedera"
+                    onclick="tryItOut('POSTapi--account--blockchain-transferOroToHedera');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi--account--blockchain-transferOroToHedera"
+                    onclick="cancelTryOut('POSTapi--account--blockchain-transferOroToHedera');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi--account--blockchain-transferOroToHedera"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/{account}/blockchain/transferOroToHedera</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>account</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="account"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_hedera</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_hedera"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
+               value=""0.0.123456""
+               data-component="body">
+    <br>
+<p>The Hedera account ID to transfer to. Example: <code>"0.0.123456"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
+               value="5"
+               data-component="body">
+    <br>
+<p>The amount of oro to transfer (minimum 1). Example: <code>5</code></p>
+        </div>
+        </form>
+
+                    <h2 id="blockchain-operations-POSTapi--account--blockchain-transferNftToHedera">Transfer NFT to Hedera</h2>
+
+<p>
+</p>
+
+<p>Transfer a specific NFT from the user's account to Hedera blockchain.</p>
+
+<span id="example-requests-POSTapi--account--blockchain-transferNftToHedera">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferNftToHedera" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"id_hedera\": \"\\\"0.0.123456\\\"\",
+    \"nft_identification_id\": 42
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferNftToHedera"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "id_hedera": "\"0.0.123456\"",
+    "nft_identification_id": 42
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi--account--blockchain-transferNftToHedera">
+</span>
+<span id="execution-results-POSTapi--account--blockchain-transferNftToHedera" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi--account--blockchain-transferNftToHedera"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi--account--blockchain-transferNftToHedera"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi--account--blockchain-transferNftToHedera" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi--account--blockchain-transferNftToHedera">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi--account--blockchain-transferNftToHedera" data-method="POST"
+      data-path="api/{account}/blockchain/transferNftToHedera"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--blockchain-transferNftToHedera', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi--account--blockchain-transferNftToHedera"
+                    onclick="tryItOut('POSTapi--account--blockchain-transferNftToHedera');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi--account--blockchain-transferNftToHedera"
+                    onclick="cancelTryOut('POSTapi--account--blockchain-transferNftToHedera');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi--account--blockchain-transferNftToHedera"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/{account}/blockchain/transferNftToHedera</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>account</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="account"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_hedera</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id_hedera"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
+               value=""0.0.123456""
+               data-component="body">
+    <br>
+<p>The Hedera account ID to transfer to. Example: <code>"0.0.123456"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_identification_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_identification_id"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
+               value="42"
+               data-component="body">
+    <br>
+<p>The ID of the NFT identification to transfer. Example: <code>42</code></p>
+        </div>
+        </form>
+
+                <h1 id="endpoints">Endpoints</h1>
 
     
 
@@ -3106,478 +3579,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-POSTapi--account--blockchain-transferPlumasToHedera">Transfer zen</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi--account--blockchain-transferPlumasToHedera">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferPlumasToHedera" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id_hedera\": \"consequatur\",
-    \"plumas\": \"mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferPlumasToHedera"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id_hedera": "consequatur",
-    "plumas": "mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi--account--blockchain-transferPlumasToHedera">
-</span>
-<span id="execution-results-POSTapi--account--blockchain-transferPlumasToHedera" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi--account--blockchain-transferPlumasToHedera"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi--account--blockchain-transferPlumasToHedera"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi--account--blockchain-transferPlumasToHedera" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi--account--blockchain-transferPlumasToHedera">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi--account--blockchain-transferPlumasToHedera" data-method="POST"
-      data-path="api/{account}/blockchain/transferPlumasToHedera"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--blockchain-transferPlumasToHedera', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi--account--blockchain-transferPlumasToHedera"
-                    onclick="tryItOut('POSTapi--account--blockchain-transferPlumasToHedera');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi--account--blockchain-transferPlumasToHedera"
-                    onclick="cancelTryOut('POSTapi--account--blockchain-transferPlumasToHedera');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi--account--blockchain-transferPlumasToHedera"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/{account}/blockchain/transferPlumasToHedera</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="account"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>Example: <code>consequatur</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_hedera</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id_hedera"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="plumas"                data-endpoint="POSTapi--account--blockchain-transferPlumasToHedera"
-               value="mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur"
-               data-component="body">
-    <br>
-<p>Must be at least 1 character. Example: <code>mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-POSTapi--account--blockchain-transferOroToHedera">Transfer zen</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi--account--blockchain-transferOroToHedera">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferOroToHedera" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id_hedera\": \"consequatur\",
-    \"oro\": \"mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferOroToHedera"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id_hedera": "consequatur",
-    "oro": "mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi--account--blockchain-transferOroToHedera">
-</span>
-<span id="execution-results-POSTapi--account--blockchain-transferOroToHedera" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi--account--blockchain-transferOroToHedera"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi--account--blockchain-transferOroToHedera"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi--account--blockchain-transferOroToHedera" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi--account--blockchain-transferOroToHedera">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi--account--blockchain-transferOroToHedera" data-method="POST"
-      data-path="api/{account}/blockchain/transferOroToHedera"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--blockchain-transferOroToHedera', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi--account--blockchain-transferOroToHedera"
-                    onclick="tryItOut('POSTapi--account--blockchain-transferOroToHedera');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi--account--blockchain-transferOroToHedera"
-                    onclick="cancelTryOut('POSTapi--account--blockchain-transferOroToHedera');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi--account--blockchain-transferOroToHedera"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/{account}/blockchain/transferOroToHedera</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="account"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>Example: <code>consequatur</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_hedera</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id_hedera"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="oro"                data-endpoint="POSTapi--account--blockchain-transferOroToHedera"
-               value="mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur"
-               data-component="body">
-    <br>
-<p>Must be at least 1 character. Example: <code>mqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-POSTapi--account--blockchain-transferNftToHedera">Transfer zen</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi--account--blockchain-transferNftToHedera">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferNftToHedera" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id_hedera\": \"consequatur\",
-    \"nft_identification_id\": \"consequatur\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://api-weafinity.madfenix.com/api/consequatur/blockchain/transferNftToHedera"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "id_hedera": "consequatur",
-    "nft_identification_id": "consequatur"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi--account--blockchain-transferNftToHedera">
-</span>
-<span id="execution-results-POSTapi--account--blockchain-transferNftToHedera" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi--account--blockchain-transferNftToHedera"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi--account--blockchain-transferNftToHedera"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi--account--blockchain-transferNftToHedera" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi--account--blockchain-transferNftToHedera">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi--account--blockchain-transferNftToHedera" data-method="POST"
-      data-path="api/{account}/blockchain/transferNftToHedera"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--blockchain-transferNftToHedera', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi--account--blockchain-transferNftToHedera"
-                    onclick="tryItOut('POSTapi--account--blockchain-transferNftToHedera');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi--account--blockchain-transferNftToHedera"
-                    onclick="cancelTryOut('POSTapi--account--blockchain-transferNftToHedera');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi--account--blockchain-transferNftToHedera"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/{account}/blockchain/transferNftToHedera</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>account</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="account"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>Example: <code>consequatur</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>id_hedera</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id_hedera"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>nft_identification_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="nft_identification_id"                data-endpoint="POSTapi--account--blockchain-transferNftToHedera"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-        </form>
-
                 <h1 id="event-management">Event management</h1>
 
     <p>APIs for managing events</p>
 
-                                <h2 id="event-management-GETapi--account--event-list">Display a listing of own resource.</h2>
+                                <h2 id="event-management-GETapi--account--event-list">Display a listing of current events for the authenticated user.</h2>
 
 <p>
 </p>
 
-
+<p>Get a list of all active events for the current user.</p>
 
 <span id="example-requests-GETapi--account--event-list">
 <blockquote>Example request:</blockquote>
@@ -3708,12 +3719,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="event-management-POSTapi--account--event-readEvent">POST api/{account}/event/readEvent</h2>
+                    <h2 id="event-management-POSTapi--account--event-readEvent">Mark an event as read.</h2>
 
 <p>
 </p>
 
-
+<p>Update the read_at timestamp for a specific event.</p>
 
 <span id="example-requests-POSTapi--account--event-readEvent">
 <blockquote>Example request:</blockquote>
@@ -3725,7 +3736,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"event_id\": \"consequatur\"
+    \"event_id\": 1
 }"
 </code></pre></div>
 
@@ -3741,7 +3752,7 @@ const headers = {
 };
 
 let body = {
-    "event_id": "consequatur"
+    "event_id": 1
 };
 
 fetch(url, {
@@ -3838,14 +3849,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>event_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="event_id"                data-endpoint="POSTapi--account--event-readEvent"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="event_id"                data-endpoint="POSTapi--account--event-readEvent"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The ID of the event to mark as read. Example: <code>1</code></p>
         </div>
         </form>
 
@@ -3853,14 +3864,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing events meta</p>
 
-                                <h2 id="events-meta-management-GETapi--account--manager-event-metas">Display a listing of the resource.</h2>
+                                <h2 id="events-meta-management-GETapi--account--manager-event-metas">Display a listing of event metas.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all event metas.</p>
 
 <span id="example-requests-GETapi--account--manager-event-metas">
 <blockquote>Example request:</blockquote>
@@ -3870,7 +3879,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Important\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3883,9 +3900,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Important\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -3989,16 +4015,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-event-metas"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-event-metas"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-event-metas"
+               value=""Important""
+               data-component="body">
+    <br>
+<p>Filter event metas by description. Example: <code>"Important"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-event-metas"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort event metas by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-event-metas"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter event metas by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="events-meta-management-POSTapi--account--manager-event-metas">Store a newly created resource in storage.</h2>
+                    <h2 id="events-meta-management-POSTapi--account--manager-event-metas">Store a newly created event meta.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new event meta with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-event-metas">
 <blockquote>Example request:</blockquote>
@@ -4008,7 +4088,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"creator_id\": 1,
+    \"description\": \"\\\"New event meta\\\"\",
+    \"details\": \"\\\"This is a detailed description of the event meta with all relevant information.\\\"\",
+    \"product_gift_id\": 10,
+    \"start_at\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_at\": \"\\\"2023-01-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -4021,9 +4110,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "creator_id": 1,
+    "description": "\"New event meta\"",
+    "details": "\"This is a detailed description of the event meta with all relevant information.\"",
+    "product_gift_id": 10,
+    "start_at": "\"2023-01-01 00:00:00\"",
+    "end_at": "\"2023-01-31 23:59:59\""
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4111,16 +4210,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>creator_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="creator_id"                data-endpoint="POSTapi--account--manager-event-metas"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the user creating the event meta. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi--account--manager-event-metas"
+               value=""New event meta""
+               data-component="body">
+    <br>
+<p>The short description of the event meta (4-255 chars). Example: <code>"New event meta"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>details</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="details"                data-endpoint="POSTapi--account--manager-event-metas"
+               value=""This is a detailed description of the event meta with all relevant information.""
+               data-component="body">
+    <br>
+<p>The detailed description of the event meta (8-2000 chars). Example: <code>"This is a detailed description of the event meta with all relevant information."</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>product_gift_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product_gift_id"                data-endpoint="POSTapi--account--manager-event-metas"
+               value="10"
+               data-component="body">
+    <br>
+<p>The ID of the product gift. Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_at</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_at"                data-endpoint="POSTapi--account--manager-event-metas"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the event meta. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_at</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_at"                data-endpoint="POSTapi--account--manager-event-metas"
+               value=""2023-01-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the event meta. Example: <code>"2023-01-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="events-meta-management-GETapi--account--manager-event-metas--id-">Display the specified resource.</h2>
+                    <h2 id="events-meta-management-GETapi--account--manager-event-metas--id-">Display the specified event meta.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific event meta by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-event-metas--id-">
 <blockquote>Example request:</blockquote>
@@ -4262,14 +4426,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="events-meta-management-PUTapi--account--manager-event-metas--id-">Update the specified resource in storage.</h2>
+                    <h2 id="events-meta-management-PUTapi--account--manager-event-metas--id-">Update the specified event meta.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing event meta with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-event-metas--id-">
 <blockquote>Example request:</blockquote>
@@ -4279,7 +4441,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"creator_id\": 1,
+    \"description\": \"\\\"Updated event meta\\\"\",
+    \"details\": \"\\\"This is an updated detailed description of the event meta with all relevant information.\\\"\",
+    \"product_gift_id\": 10,
+    \"start_at\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_at\": \"\\\"2023-01-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -4292,9 +4463,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "creator_id": 1,
+    "description": "\"Updated event meta\"",
+    "details": "\"This is an updated detailed description of the event meta with all relevant information.\"",
+    "product_gift_id": 10,
+    "start_at": "\"2023-01-01 00:00:00\"",
+    "end_at": "\"2023-01-31 23:59:59\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4397,16 +4578,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the event meta. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>creator_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="creator_id"                data-endpoint="PUTapi--account--manager-event-metas--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the user creating the event meta. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi--account--manager-event-metas--id-"
+               value=""Updated event meta""
+               data-component="body">
+    <br>
+<p>The short description of the event meta (4-255 chars). Example: <code>"Updated event meta"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>details</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="details"                data-endpoint="PUTapi--account--manager-event-metas--id-"
+               value=""This is an updated detailed description of the event meta with all relevant information.""
+               data-component="body">
+    <br>
+<p>The detailed description of the event meta (8-2000 chars). Example: <code>"This is an updated detailed description of the event meta with all relevant information."</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>product_gift_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product_gift_id"                data-endpoint="PUTapi--account--manager-event-metas--id-"
+               value="10"
+               data-component="body">
+    <br>
+<p>The ID of the product gift. Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_at</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_at"                data-endpoint="PUTapi--account--manager-event-metas--id-"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the event meta. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_at</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_at"                data-endpoint="PUTapi--account--manager-event-metas--id-"
+               value=""2023-01-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the event meta. Example: <code>"2023-01-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="events-meta-management-DELETEapi--account--manager-event-metas--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="events-meta-management-DELETEapi--account--manager-event-metas--id-">Remove the specified event meta.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an event meta by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-event-metas--id-">
 <blockquote>Example request:</blockquote>
@@ -4532,14 +4778,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="events-meta-management-DELETEapi--account--manager-event-metas">Remove the specified resource from storage.</h2>
+                    <h2 id="events-meta-management-DELETEapi--account--manager-event-metas">Remove the specified event meta.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an event meta by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-event-metas">
 <blockquote>Example request:</blockquote>
@@ -4654,14 +4898,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="events-meta-management-GETapi--account--manager-event-metas-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="events-meta-management-GETapi--account--manager-event-metas-download">Download event metas as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the event meta data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-event-metas-download">
 <blockquote>Example request:</blockquote>
@@ -4669,9 +4911,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Important\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -4679,20 +4930,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Important\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4796,28 +5051,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-event-metas-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-event-metas-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-event-metas-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-event-metas-download"
+               value=""Important""
+               data-component="body">
+    <br>
+<p>Filter event metas by description. Example: <code>"Important"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-event-metas-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort event metas by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-event-metas-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter event metas by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="events-meta-management-GETapi--account--manager-event-metas-fields">List the fields of the domain model</h2>
+                    <h2 id="events-meta-management-GETapi--account--manager-event-metas-fields">List the fields of the event meta model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the event meta model.</p>
 
 <span id="example-requests-GETapi--account--manager-event-metas-fields">
 <blockquote>Example request:</blockquote>
@@ -4948,14 +5256,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="events-meta-management-POSTapi--account--manager-event-metas-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="events-meta-management-POSTapi--account--manager-event-metas-upload">Upload a CSV file for bulk event meta processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple event metas at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-event-metas-upload">
 <blockquote>Example request:</blockquote>
@@ -4964,8 +5270,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/event-metas-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpC304.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -4974,13 +5282,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -5005,7 +5318,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-event-metas-upload" data-method="POST"
       data-path="api/{account}/manager/event-metas-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-event-metas-upload', this);">
@@ -5040,10 +5353,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-event-metas-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -5068,16 +5381,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-event-metas-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpC304.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-event-metas-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-event-metas-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to event meta fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="events-meta-management-GETapi--account--manager-event-metas-upload">Get the status of a bulk upload</h2>
+                    <h2 id="events-meta-management-GETapi--account--manager-event-metas-upload">Get the status of a bulk event meta upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-event-metas-upload">
 <blockquote>Example request:</blockquote>
@@ -5208,14 +5544,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="events-meta-management-DELETEapi--account--manager-event-metas-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="events-meta-management-DELETEapi--account--manager-event-metas-upload--id-">Delete a bulk event meta upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-event-metas-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -5345,14 +5679,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing free coin coupons</p>
 
-                                <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free">Display a listing of the resource.</h2>
+                                <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free">Display a listing of free coin coupons.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all free coin coupons.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-free">
 <blockquote>Example request:</blockquote>
@@ -5362,7 +5694,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"WELCOME\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -5375,9 +5715,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"WELCOME\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -5481,16 +5830,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-coupon-free"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-coupon-free"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-coupon-free"
+               value=""WELCOME""
+               data-component="body">
+    <br>
+<p>Filter coupons by code. Example: <code>"WELCOME"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-coupon-free"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort coupons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-coupon-free"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter coupons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="free-coin-coupon-management-POSTapi--account--manager-coupon-free">Store a newly created resource in storage.</h2>
+                    <h2 id="free-coin-coupon-management-POSTapi--account--manager-coupon-free">Store a newly created free coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new free coin coupon with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-coupon-free">
 <blockquote>Example request:</blockquote>
@@ -5500,7 +5903,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"coupon\": \"\\\"WELCOME2023\\\"\",
+    \"plumas\": 100,
+    \"uses\": 0,
+    \"max_uses\": 1000,
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-12-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -5513,9 +5925,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "coupon": "\"WELCOME2023\"",
+    "plumas": 100,
+    "uses": 0,
+    "max_uses": 1000,
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-12-31 23:59:59\""
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -5603,16 +6025,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="coupon"                data-endpoint="POSTapi--account--manager-coupon-free"
+               value=""WELCOME2023""
+               data-component="body">
+    <br>
+<p>The coupon code (4-150 chars). Example: <code>"WELCOME2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="POSTapi--account--manager-coupon-free"
+               value="100"
+               data-component="body">
+    <br>
+<p>The number of plumas (feathers) to award. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="uses"                data-endpoint="POSTapi--account--manager-coupon-free"
+               value="0"
+               data-component="body">
+    <br>
+<p>The current number of uses. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_uses"                data-endpoint="POSTapi--account--manager-coupon-free"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The maximum number of uses allowed. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="POSTapi--account--manager-coupon-free"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the coupon validity. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="POSTapi--account--manager-coupon-free"
+               value=""2023-12-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the coupon validity. Example: <code>"2023-12-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free--id-">Display the specified resource.</h2>
+                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free--id-">Display the specified free coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific free coin coupon by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-free--id-">
 <blockquote>Example request:</blockquote>
@@ -5754,14 +6241,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="free-coin-coupon-management-PUTapi--account--manager-coupon-free--id-">Update the specified resource in storage.</h2>
+                    <h2 id="free-coin-coupon-management-PUTapi--account--manager-coupon-free--id-">Update the specified free coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing free coin coupon with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-coupon-free--id-">
 <blockquote>Example request:</blockquote>
@@ -5771,7 +6256,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"coupon\": \"\\\"WELCOME2023\\\"\",
+    \"plumas\": 100,
+    \"uses\": 0,
+    \"max_uses\": 1000,
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-12-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -5784,9 +6278,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "coupon": "\"WELCOME2023\"",
+    "plumas": 100,
+    "uses": 0,
+    "max_uses": 1000,
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-12-31 23:59:59\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -5889,16 +6393,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the coupon free. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="coupon"                data-endpoint="PUTapi--account--manager-coupon-free--id-"
+               value=""WELCOME2023""
+               data-component="body">
+    <br>
+<p>The coupon code (4-150 chars). Example: <code>"WELCOME2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="PUTapi--account--manager-coupon-free--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The number of plumas (feathers) to award. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="uses"                data-endpoint="PUTapi--account--manager-coupon-free--id-"
+               value="0"
+               data-component="body">
+    <br>
+<p>The current number of uses. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_uses"                data-endpoint="PUTapi--account--manager-coupon-free--id-"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The maximum number of uses allowed. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="PUTapi--account--manager-coupon-free--id-"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the coupon validity. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="PUTapi--account--manager-coupon-free--id-"
+               value=""2023-12-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the coupon validity. Example: <code>"2023-12-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="free-coin-coupon-management-DELETEapi--account--manager-coupon-free--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="free-coin-coupon-management-DELETEapi--account--manager-coupon-free--id-">Remove the specified free coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a free coin coupon by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-free--id-">
 <blockquote>Example request:</blockquote>
@@ -6024,14 +6593,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="free-coin-coupon-management-DELETEapi--account--manager-coupon-free">Remove the specified resource from storage.</h2>
+                    <h2 id="free-coin-coupon-management-DELETEapi--account--manager-coupon-free">Remove the specified free coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a free coin coupon by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-free">
 <blockquote>Example request:</blockquote>
@@ -6146,14 +6713,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free-download">Download free coin coupons as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the free coin coupon data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-free-download">
 <blockquote>Example request:</blockquote>
@@ -6161,9 +6726,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"WELCOME\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -6171,20 +6745,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"WELCOME\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -6288,28 +6866,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-coupon-free-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-coupon-free-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-coupon-free-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-coupon-free-download"
+               value=""WELCOME""
+               data-component="body">
+    <br>
+<p>Filter coupons by code. Example: <code>"WELCOME"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-coupon-free-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort coupons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-coupon-free-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter coupons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free-fields">List the fields of the domain model</h2>
+                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free-fields">List the fields of the free coin coupon model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the free coin coupon model.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-free-fields">
 <blockquote>Example request:</blockquote>
@@ -6440,14 +7071,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="free-coin-coupon-management-POSTapi--account--manager-coupon-free-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="free-coin-coupon-management-POSTapi--account--manager-coupon-free-upload">Upload a CSV file for bulk free coin coupon processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple free coin coupons at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-coupon-free-upload">
 <blockquote>Example request:</blockquote>
@@ -6456,8 +7085,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-free-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpBD68.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6466,13 +7097,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -6497,7 +7133,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-coupon-free-upload" data-method="POST"
       data-path="api/{account}/manager/coupon-free-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-coupon-free-upload', this);">
@@ -6532,10 +7168,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-coupon-free-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -6560,16 +7196,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-coupon-free-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpBD68.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-coupon-free-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-coupon-free-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to free coin coupon fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free-upload">Get the status of a bulk upload</h2>
+                    <h2 id="free-coin-coupon-management-GETapi--account--manager-coupon-free-upload">Get the status of a bulk free coin coupon upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-free-upload">
 <blockquote>Example request:</blockquote>
@@ -6700,14 +7359,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="free-coin-coupon-management-DELETEapi--account--manager-coupon-free-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="free-coin-coupon-management-DELETEapi--account--manager-coupon-free-upload--id-">Delete a bulk free coin coupon upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-free-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -6833,12 +7490,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-usePlumasCoupon">POST api/{account}/coupon/usePlumasCoupon</h2>
+                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-usePlumasCoupon">Use a plumas (feathers) coupon.</h2>
 
 <p>
 </p>
 
-
+<p>Redeem a coupon code to receive plumas (feathers).</p>
 
 <span id="example-requests-POSTapi--account--coupon-usePlumasCoupon">
 <blockquote>Example request:</blockquote>
@@ -6850,7 +7507,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"coupon\": \"consequatur\"
+    \"coupon\": \"\\\"WELCOME2023\\\"\"
 }"
 </code></pre></div>
 
@@ -6866,7 +7523,7 @@ const headers = {
 };
 
 let body = {
-    "coupon": "consequatur"
+    "coupon": "\"WELCOME2023\""
 };
 
 fetch(url, {
@@ -6967,19 +7624,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="coupon"                data-endpoint="POSTapi--account--coupon-usePlumasCoupon"
-               value="consequatur"
+               value=""WELCOME2023""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The coupon code to redeem. Example: <code>"WELCOME2023"</code></p>
         </div>
         </form>
 
-                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-useOroCoupon">POST api/{account}/coupon/useOroCoupon</h2>
+                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-useOroCoupon">Use an oro (gold) coupon.</h2>
 
 <p>
 </p>
 
-
+<p>Redeem a coupon code to receive oro (gold).</p>
 
 <span id="example-requests-POSTapi--account--coupon-useOroCoupon">
 <blockquote>Example request:</blockquote>
@@ -6991,7 +7648,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"coupon\": \"consequatur\"
+    \"coupon\": \"\\\"GOLD2023\\\"\"
 }"
 </code></pre></div>
 
@@ -7007,7 +7664,7 @@ const headers = {
 };
 
 let body = {
-    "coupon": "consequatur"
+    "coupon": "\"GOLD2023\""
 };
 
 fetch(url, {
@@ -7108,19 +7765,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="coupon"                data-endpoint="POSTapi--account--coupon-useOroCoupon"
-               value="consequatur"
+               value=""GOLD2023""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The coupon code to redeem. Example: <code>"GOLD2023"</code></p>
         </div>
         </form>
 
-                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-useItemCoupon">POST api/{account}/coupon/useItemCoupon</h2>
+                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-useItemCoupon">Use an item coupon.</h2>
 
 <p>
 </p>
 
-
+<p>Redeem a coupon code to receive an item.</p>
 
 <span id="example-requests-POSTapi--account--coupon-useItemCoupon">
 <blockquote>Example request:</blockquote>
@@ -7132,7 +7789,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"coupon\": \"consequatur\"
+    \"coupon\": \"\\\"ITEM2023\\\"\"
 }"
 </code></pre></div>
 
@@ -7148,7 +7805,7 @@ const headers = {
 };
 
 let body = {
-    "coupon": "consequatur"
+    "coupon": "\"ITEM2023\""
 };
 
 fetch(url, {
@@ -7249,19 +7906,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="coupon"                data-endpoint="POSTapi--account--coupon-useItemCoupon"
-               value="consequatur"
+               value=""ITEM2023""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The coupon code to redeem. Example: <code>"ITEM2023"</code></p>
         </div>
         </form>
 
-                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-useCoupon">POST api/{account}/coupon/useCoupon</h2>
+                    <h2 id="free-coin-coupon-management-POSTapi--account--coupon-useCoupon">Use any type of coupon.</h2>
 
 <p>
 </p>
 
-
+<p>Redeem a coupon code with a prefix to determine the type (p- for plumas, o- for oro, i- for item).</p>
 
 <span id="example-requests-POSTapi--account--coupon-useCoupon">
 <blockquote>Example request:</blockquote>
@@ -7273,7 +7930,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"coupon\": \"consequatur\"
+    \"coupon\": \"\\\"p-WELCOME2023\\\"\"
 }"
 </code></pre></div>
 
@@ -7289,7 +7946,7 @@ const headers = {
 };
 
 let body = {
-    "coupon": "consequatur"
+    "coupon": "\"p-WELCOME2023\""
 };
 
 fetch(url, {
@@ -7390,10 +8047,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="coupon"                data-endpoint="POSTapi--account--coupon-useCoupon"
-               value="consequatur"
+               value=""p-WELCOME2023""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The coupon code to redeem with prefix (p-, o-, i-). Example: <code>"p-WELCOME2023"</code></p>
         </div>
         </form>
 
@@ -7713,14 +8370,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing item coupons</p>
 
-                                <h2 id="item-coupons-management-GETapi--account--manager-coupon-items">Display a listing of the resource.</h2>
+                                <h2 id="item-coupons-management-GETapi--account--manager-coupon-items">Display a listing of item coupons.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all item coupons.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-items">
 <blockquote>Example request:</blockquote>
@@ -7730,7 +8385,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"ITEM\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -7743,9 +8406,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"ITEM\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -7849,16 +8521,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-coupon-items"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-coupon-items"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-coupon-items"
+               value=""ITEM""
+               data-component="body">
+    <br>
+<p>Filter coupons by code. Example: <code>"ITEM"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-coupon-items"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort coupons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-coupon-items"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter coupons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-coupons-management-POSTapi--account--manager-coupon-items">Store a newly created resource in storage.</h2>
+                    <h2 id="item-coupons-management-POSTapi--account--manager-coupon-items">Store a newly created item coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new item coupon with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-coupon-items">
 <blockquote>Example request:</blockquote>
@@ -7868,7 +8594,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"coupon\": \"\\\"ITEM2023\\\"\",
+    \"nft_id\": 5,
+    \"rarity\": \"\\\"Legendary,Rare\\\"\",
+    \"tags\": \"\\\"Fire,Water\\\"\",
+    \"nft_serial_greater_equal\": 100,
+    \"nft_serial_less_equal\": 200,
+    \"uses\": 0,
+    \"max_uses\": 1000,
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-12-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -7881,9 +8620,23 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "coupon": "\"ITEM2023\"",
+    "nft_id": 5,
+    "rarity": "\"Legendary,Rare\"",
+    "tags": "\"Fire,Water\"",
+    "nft_serial_greater_equal": 100,
+    "nft_serial_less_equal": 200,
+    "uses": 0,
+    "max_uses": 1000,
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-12-31 23:59:59\""
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -7971,16 +8724,125 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="coupon"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value=""ITEM2023""
+               data-component="body">
+    <br>
+<p>The coupon code (4-150 chars). Example: <code>"ITEM2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value="5"
+               data-component="body">
+    <br>
+<p>The ID of the NFT to award. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rarity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rarity"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value=""Legendary,Rare""
+               data-component="body">
+    <br>
+<p>The rarity filter for NFTs. Example: <code>"Legendary,Rare"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tags"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value=""Fire,Water""
+               data-component="body">
+    <br>
+<p>The tags filter for NFTs. Example: <code>"Fire,Water"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_greater_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_greater_equal"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value="100"
+               data-component="body">
+    <br>
+<p>The minimum serial number for NFTs. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_less_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_less_equal"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value="200"
+               data-component="body">
+    <br>
+<p>The maximum serial number for NFTs. Example: <code>200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="uses"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value="0"
+               data-component="body">
+    <br>
+<p>The current number of uses. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_uses"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The maximum number of uses allowed. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the coupon validity. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="POSTapi--account--manager-coupon-items"
+               value=""2023-12-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the coupon validity. Example: <code>"2023-12-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items--id-">Display the specified resource.</h2>
+                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items--id-">Display the specified item coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific item coupon by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-items--id-">
 <blockquote>Example request:</blockquote>
@@ -8122,14 +8984,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-coupons-management-PUTapi--account--manager-coupon-items--id-">Update the specified resource in storage.</h2>
+                    <h2 id="item-coupons-management-PUTapi--account--manager-coupon-items--id-">Update the specified item coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing item coupon with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-coupon-items--id-">
 <blockquote>Example request:</blockquote>
@@ -8139,7 +8999,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"coupon\": \"\\\"ITEM2023\\\"\",
+    \"nft_id\": 5,
+    \"rarity\": \"\\\"Legendary,Rare\\\"\",
+    \"tags\": \"\\\"Fire,Water\\\"\",
+    \"nft_serial_greater_equal\": 100,
+    \"nft_serial_less_equal\": 200,
+    \"uses\": 0,
+    \"max_uses\": 1000,
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-12-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -8152,9 +9025,23 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "coupon": "\"ITEM2023\"",
+    "nft_id": 5,
+    "rarity": "\"Legendary,Rare\"",
+    "tags": "\"Fire,Water\"",
+    "nft_serial_greater_equal": 100,
+    "nft_serial_less_equal": 200,
+    "uses": 0,
+    "max_uses": 1000,
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-12-31 23:59:59\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -8257,16 +9144,125 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the coupon item. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="coupon"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value=""ITEM2023""
+               data-component="body">
+    <br>
+<p>The coupon code (4-150 chars). Example: <code>"ITEM2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value="5"
+               data-component="body">
+    <br>
+<p>The ID of the NFT to award. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rarity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rarity"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value=""Legendary,Rare""
+               data-component="body">
+    <br>
+<p>The rarity filter for NFTs. Example: <code>"Legendary,Rare"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tags"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value=""Fire,Water""
+               data-component="body">
+    <br>
+<p>The tags filter for NFTs. Example: <code>"Fire,Water"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_greater_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_greater_equal"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The minimum serial number for NFTs. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_less_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_less_equal"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value="200"
+               data-component="body">
+    <br>
+<p>The maximum serial number for NFTs. Example: <code>200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="uses"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value="0"
+               data-component="body">
+    <br>
+<p>The current number of uses. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_uses"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The maximum number of uses allowed. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the coupon validity. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="PUTapi--account--manager-coupon-items--id-"
+               value=""2023-12-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the coupon validity. Example: <code>"2023-12-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-coupons-management-DELETEapi--account--manager-coupon-items--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="item-coupons-management-DELETEapi--account--manager-coupon-items--id-">Remove the specified item coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an item coupon by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-items--id-">
 <blockquote>Example request:</blockquote>
@@ -8392,14 +9388,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-coupons-management-DELETEapi--account--manager-coupon-items">Remove the specified resource from storage.</h2>
+                    <h2 id="item-coupons-management-DELETEapi--account--manager-coupon-items">Remove the specified item coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an item coupon by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-items">
 <blockquote>Example request:</blockquote>
@@ -8514,14 +9508,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items-download">Download item coupons as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the item coupon data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-items-download">
 <blockquote>Example request:</blockquote>
@@ -8529,9 +9521,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"ITEM\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -8539,20 +9540,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"ITEM\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -8656,28 +9661,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-coupon-items-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-coupon-items-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-coupon-items-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-coupon-items-download"
+               value=""ITEM""
+               data-component="body">
+    <br>
+<p>Filter coupons by code. Example: <code>"ITEM"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-coupon-items-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort coupons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-coupon-items-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter coupons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items-fields">List the fields of the domain model</h2>
+                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items-fields">List the fields of the item coupon model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the item coupon model.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-items-fields">
 <blockquote>Example request:</blockquote>
@@ -8808,14 +9866,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-coupons-management-POSTapi--account--manager-coupon-items-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="item-coupons-management-POSTapi--account--manager-coupon-items-upload">Upload a CSV file for bulk item coupon processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple item coupons at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-coupon-items-upload">
 <blockquote>Example request:</blockquote>
@@ -8824,8 +9880,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-items-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpBEF2.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8834,13 +9892,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -8865,7 +9928,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-coupon-items-upload" data-method="POST"
       data-path="api/{account}/manager/coupon-items-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-coupon-items-upload', this);">
@@ -8900,10 +9963,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-coupon-items-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -8928,16 +9991,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-coupon-items-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpBEF2.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-coupon-items-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-coupon-items-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to item coupon fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items-upload">Get the status of a bulk upload</h2>
+                    <h2 id="item-coupons-management-GETapi--account--manager-coupon-items-upload">Get the status of a bulk item coupon upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-items-upload">
 <blockquote>Example request:</blockquote>
@@ -9068,14 +10154,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-coupons-management-DELETEapi--account--manager-coupon-items-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="item-coupons-management-DELETEapi--account--manager-coupon-items-upload--id-">Delete a bulk item coupon upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-items-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -9203,16 +10287,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="item-management">Item management</h1>
 
-    <p>APIs for managing items</p>
+    <p>APIs for managing Items</p>
 
-                                <h2 id="item-management-GETapi--account--manager-nft">Display a listing of the resource.</h2>
+                                <h2 id="item-management-GETapi--account--manager-nft">Display a listing of Items.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all Items.</p>
 
 <span id="example-requests-GETapi--account--manager-nft">
 <blockquote>Example request:</blockquote>
@@ -9222,7 +10304,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/nft" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Phoenix\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -9235,9 +10325,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Phoenix\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -9341,16 +10440,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-nft"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-nft"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-nft"
+               value=""Phoenix""
+               data-component="body">
+    <br>
+<p>Filter items by name. Example: <code>"Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-nft"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort items by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-nft"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter items by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-management-POSTapi--account--manager-nft">Store a newly created resource in storage.</h2>
+                    <h2 id="item-management-POSTapi--account--manager-nft">Store a newly created Item.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new Item with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-nft">
 <blockquote>Example request:</blockquote>
@@ -9360,7 +10513,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Rare Phoenix\\\"\",
+    \"short_description\": \"\\\"A rare phoenix collectible\\\"\",
+    \"description\": \"\\\"This is a detailed description of the rare phoenix collectible\\\"\",
+    \"category\": \"\\\"Collectible\\\"\",
+    \"subcategory\": \"\\\"Mythical\\\"\",
+    \"portrait_image\": \"\\\"https:\\/\\/example.com\\/portrait.jpg\\\"\",
+    \"featured_image\": \"\\\"https:\\/\\/example.com\\/featured.jpg\\\"\",
+    \"token_props\": 1,
+    \"token_realm\": 2,
+    \"token_number\": 3
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -9373,9 +10539,23 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Rare Phoenix\"",
+    "short_description": "\"A rare phoenix collectible\"",
+    "description": "\"This is a detailed description of the rare phoenix collectible\"",
+    "category": "\"Collectible\"",
+    "subcategory": "\"Mythical\"",
+    "portrait_image": "\"https:\/\/example.com\/portrait.jpg\"",
+    "featured_image": "\"https:\/\/example.com\/featured.jpg\"",
+    "token_props": 1,
+    "token_realm": 2,
+    "token_number": 3
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -9463,16 +10643,125 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi--account--manager-nft"
+               value=""Rare Phoenix""
+               data-component="body">
+    <br>
+<p>The name of the Item. Example: <code>"Rare Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>short_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="short_description"                data-endpoint="POSTapi--account--manager-nft"
+               value=""A rare phoenix collectible""
+               data-component="body">
+    <br>
+<p>The short description of the Item. Example: <code>"A rare phoenix collectible"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi--account--manager-nft"
+               value=""This is a detailed description of the rare phoenix collectible""
+               data-component="body">
+    <br>
+<p>The detailed description of the Item. Example: <code>"This is a detailed description of the rare phoenix collectible"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="POSTapi--account--manager-nft"
+               value=""Collectible""
+               data-component="body">
+    <br>
+<p>The category of the Item. Example: <code>"Collectible"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>subcategory</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="subcategory"                data-endpoint="POSTapi--account--manager-nft"
+               value=""Mythical""
+               data-component="body">
+    <br>
+<p>The subcategory of the Item. Example: <code>"Mythical"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>portrait_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="portrait_image"                data-endpoint="POSTapi--account--manager-nft"
+               value=""https://example.com/portrait.jpg""
+               data-component="body">
+    <br>
+<p>The portrait image URL of the Item. Example: <code>"https://example.com/portrait.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>featured_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="featured_image"                data-endpoint="POSTapi--account--manager-nft"
+               value=""https://example.com/featured.jpg""
+               data-component="body">
+    <br>
+<p>The featured image URL of the Item. Example: <code>"https://example.com/featured.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token_props</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="token_props"                data-endpoint="POSTapi--account--manager-nft"
+               value="1"
+               data-component="body">
+    <br>
+<p>The token properties. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token_realm</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="token_realm"                data-endpoint="POSTapi--account--manager-nft"
+               value="2"
+               data-component="body">
+    <br>
+<p>The token realm. Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token_number</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="token_number"                data-endpoint="POSTapi--account--manager-nft"
+               value="3"
+               data-component="body">
+    <br>
+<p>The token number. Example: <code>3</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-management-GETapi--account--manager-nft--id-">Display the specified resource.</h2>
+                    <h2 id="item-management-GETapi--account--manager-nft--id-">Display the specified Item.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific Item by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-nft--id-">
 <blockquote>Example request:</blockquote>
@@ -9614,14 +10903,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-management-PUTapi--account--manager-nft--id-">Update the specified resource in storage.</h2>
+                    <h2 id="item-management-PUTapi--account--manager-nft--id-">Update the specified Item.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing Item with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-nft--id-">
 <blockquote>Example request:</blockquote>
@@ -9631,7 +10918,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Rare Phoenix\\\"\",
+    \"short_description\": \"\\\"A rare phoenix collectible\\\"\",
+    \"description\": \"\\\"This is a detailed description of the rare phoenix collectible\\\"\",
+    \"category\": \"\\\"Collectible\\\"\",
+    \"subcategory\": \"\\\"Mythical\\\"\",
+    \"portrait_image\": \"\\\"https:\\/\\/example.com\\/portrait.jpg\\\"\",
+    \"featured_image\": \"\\\"https:\\/\\/example.com\\/featured.jpg\\\"\",
+    \"token_props\": 1,
+    \"token_realm\": 2,
+    \"token_number\": 3
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -9644,9 +10944,23 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Rare Phoenix\"",
+    "short_description": "\"A rare phoenix collectible\"",
+    "description": "\"This is a detailed description of the rare phoenix collectible\"",
+    "category": "\"Collectible\"",
+    "subcategory": "\"Mythical\"",
+    "portrait_image": "\"https:\/\/example.com\/portrait.jpg\"",
+    "featured_image": "\"https:\/\/example.com\/featured.jpg\"",
+    "token_props": 1,
+    "token_realm": 2,
+    "token_number": 3
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -9749,16 +11063,125 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the nft. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""Rare Phoenix""
+               data-component="body">
+    <br>
+<p>The name of the Item. Example: <code>"Rare Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>short_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="short_description"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""A rare phoenix collectible""
+               data-component="body">
+    <br>
+<p>The short description of the Item. Example: <code>"A rare phoenix collectible"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""This is a detailed description of the rare phoenix collectible""
+               data-component="body">
+    <br>
+<p>The detailed description of the Item. Example: <code>"This is a detailed description of the rare phoenix collectible"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="category"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""Collectible""
+               data-component="body">
+    <br>
+<p>The category of the Item. Example: <code>"Collectible"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>subcategory</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="subcategory"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""Mythical""
+               data-component="body">
+    <br>
+<p>The subcategory of the Item. Example: <code>"Mythical"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>portrait_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="portrait_image"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""https://example.com/portrait.jpg""
+               data-component="body">
+    <br>
+<p>The portrait image URL of the Item. Example: <code>"https://example.com/portrait.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>featured_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="featured_image"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value=""https://example.com/featured.jpg""
+               data-component="body">
+    <br>
+<p>The featured image URL of the Item. Example: <code>"https://example.com/featured.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token_props</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="token_props"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The token properties. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token_realm</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="token_realm"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value="2"
+               data-component="body">
+    <br>
+<p>The token realm. Example: <code>2</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>token_number</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="token_number"                data-endpoint="PUTapi--account--manager-nft--id-"
+               value="3"
+               data-component="body">
+    <br>
+<p>The token number. Example: <code>3</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-management-DELETEapi--account--manager-nft--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="item-management-DELETEapi--account--manager-nft--id-">Remove the specified Item.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an Item by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-nft--id-">
 <blockquote>Example request:</blockquote>
@@ -9884,14 +11307,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-management-DELETEapi--account--manager-nft">Remove the specified resource from storage.</h2>
+                    <h2 id="item-management-DELETEapi--account--manager-nft">Remove the specified Item.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an Item by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-nft">
 <blockquote>Example request:</blockquote>
@@ -10006,14 +11427,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-management-GETapi--account--manager-nft-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="item-management-GETapi--account--manager-nft-download">Download Items as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the Item data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-download">
 <blockquote>Example request:</blockquote>
@@ -10021,9 +11440,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Phoenix\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -10031,20 +11459,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Phoenix\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -10148,28 +11580,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-nft-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-nft-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-nft-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-nft-download"
+               value=""Phoenix""
+               data-component="body">
+    <br>
+<p>Filter items by name. Example: <code>"Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-nft-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort items by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-nft-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter items by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="item-management-GETapi--account--manager-nft-fields">List the fields of the domain model</h2>
+                    <h2 id="item-management-GETapi--account--manager-nft-fields">List the fields of the Item model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the Item model.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-fields">
 <blockquote>Example request:</blockquote>
@@ -10300,14 +11785,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-management-POSTapi--account--manager-nft-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="item-management-POSTapi--account--manager-nft-upload">Upload a CSV file for bulk Item processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple Items at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-nft-upload">
 <blockquote>Example request:</blockquote>
@@ -10316,8 +11799,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpBFB0.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -10326,13 +11811,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -10357,7 +11847,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-nft-upload" data-method="POST"
       data-path="api/{account}/manager/nft-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-nft-upload', this);">
@@ -10392,10 +11882,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-nft-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -10420,16 +11910,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-nft-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpBFB0.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-nft-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-nft-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to Item fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="item-management-GETapi--account--manager-nft-upload">Get the status of a bulk upload</h2>
+                    <h2 id="item-management-GETapi--account--manager-nft-upload">Get the status of a bulk Item upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-upload">
 <blockquote>Example request:</blockquote>
@@ -10560,14 +12073,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="item-management-DELETEapi--account--manager-nft-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="item-management-DELETEapi--account--manager-nft-upload--id-">Delete a bulk Item upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-nft-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -10697,12 +12208,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing phoenix diary</p>
 
-                                <h2 id="phoenix-diary-management-GETapi--account--thePhoenixDiary-getCharacters">GET api/{account}/thePhoenixDiary/getCharacters</h2>
+                                <h2 id="phoenix-diary-management-GETapi--account--thePhoenixDiary-getCharacters">Get available characters for Phoenix Diary.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve a list of all available characters for the Phoenix Diary game.</p>
 
 <span id="example-requests-GETapi--account--thePhoenixDiary-getCharacters">
 <blockquote>Example request:</blockquote>
@@ -10833,12 +12344,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="phoenix-diary-management-POSTapi--account--thePhoenixDiary-createNewGame">POST api/{account}/thePhoenixDiary/createNewGame</h2>
+                    <h2 id="phoenix-diary-management-POSTapi--account--thePhoenixDiary-createNewGame">Create a new Phoenix Diary game.</h2>
 
 <p>
 </p>
 
-
+<p>Start a new game session with the selected character.</p>
 
 <span id="example-requests-POSTapi--account--thePhoenixDiary-createNewGame">
 <blockquote>Example request:</blockquote>
@@ -10850,7 +12361,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"character_id\": \"consequatur\"
+    \"character_id\": 1
 }"
 </code></pre></div>
 
@@ -10866,7 +12377,7 @@ const headers = {
 };
 
 let body = {
-    "character_id": "consequatur"
+    "character_id": 1
 };
 
 fetch(url, {
@@ -10963,14 +12474,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>character_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="character_id"                data-endpoint="POSTapi--account--thePhoenixDiary-createNewGame"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="character_id"                data-endpoint="POSTapi--account--thePhoenixDiary-createNewGame"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The ID of the character to use in the game. Example: <code>1</code></p>
         </div>
         </form>
 
@@ -10978,14 +12489,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing polls</p>
 
-                                <h2 id="poll-management-GETapi--account--manager-poll">Display a listing of the resource.</h2>
+                                <h2 id="poll-management-GETapi--account--manager-poll">Display a listing of polls.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all polls.</p>
 
 <span id="example-requests-GETapi--account--manager-poll">
 <blockquote>Example request:</blockquote>
@@ -10995,7 +12504,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/poll" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Community Survey\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -11008,9 +12525,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Community Survey\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -11114,16 +12640,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-poll"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-poll"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-poll"
+               value=""Community Survey""
+               data-component="body">
+    <br>
+<p>Filter polls by name. Example: <code>"Community Survey"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-poll"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort polls by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-poll"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter polls by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="poll-management-POSTapi--account--manager-poll">Store a newly created resource in storage.</h2>
+                    <h2 id="poll-management-POSTapi--account--manager-poll">Store a newly created poll.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new poll with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-poll">
 <blockquote>Example request:</blockquote>
@@ -11133,7 +12713,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/poll" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Community Feedback Survey\\\"\",
+    \"short_description\": \"\\\"A quick survey about our latest features\\\"\",
+    \"description\": \"\\\"This survey aims to collect feedback about our latest platform features and improvements.\\\"\",
+    \"portrait_image\": \"\\\"https:\\/\\/example.com\\/portrait.jpg\\\"\",
+    \"featured_image\": \"\\\"https:\\/\\/example.com\\/featured.jpg\\\"\",
+    \"answers\": \"\\\"[\'Yes\', \'No\', \'Maybe\']\\\"\",
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-01-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -11146,9 +12737,21 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Community Feedback Survey\"",
+    "short_description": "\"A quick survey about our latest features\"",
+    "description": "\"This survey aims to collect feedback about our latest platform features and improvements.\"",
+    "portrait_image": "\"https:\/\/example.com\/portrait.jpg\"",
+    "featured_image": "\"https:\/\/example.com\/featured.jpg\"",
+    "answers": "\"['Yes', 'No', 'Maybe']\"",
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-01-31 23:59:59\""
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -11236,16 +12839,103 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi--account--manager-poll"
+               value=""Community Feedback Survey""
+               data-component="body">
+    <br>
+<p>The name of the poll. Example: <code>"Community Feedback Survey"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>short_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="short_description"                data-endpoint="POSTapi--account--manager-poll"
+               value=""A quick survey about our latest features""
+               data-component="body">
+    <br>
+<p>The short description of the poll. Example: <code>"A quick survey about our latest features"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi--account--manager-poll"
+               value=""This survey aims to collect feedback about our latest platform features and improvements.""
+               data-component="body">
+    <br>
+<p>The detailed description of the poll. Example: <code>"This survey aims to collect feedback about our latest platform features and improvements."</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>portrait_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="portrait_image"                data-endpoint="POSTapi--account--manager-poll"
+               value=""https://example.com/portrait.jpg""
+               data-component="body">
+    <br>
+<p>The portrait image URL of the poll. Example: <code>"https://example.com/portrait.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>featured_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="featured_image"                data-endpoint="POSTapi--account--manager-poll"
+               value=""https://example.com/featured.jpg""
+               data-component="body">
+    <br>
+<p>The featured image URL of the poll. Example: <code>"https://example.com/featured.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="answers"                data-endpoint="POSTapi--account--manager-poll"
+               value=""['Yes', 'No', 'Maybe']""
+               data-component="body">
+    <br>
+<p>The possible answers for the poll in JSON format. Example: <code>"['Yes', 'No', 'Maybe']"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="POSTapi--account--manager-poll"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the poll. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="POSTapi--account--manager-poll"
+               value=""2023-01-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the poll. Example: <code>"2023-01-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="poll-management-GETapi--account--manager-poll--id-">Display the specified resource.</h2>
+                    <h2 id="poll-management-GETapi--account--manager-poll--id-">Display the specified poll.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific poll by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-poll--id-">
 <blockquote>Example request:</blockquote>
@@ -11387,14 +13077,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-PUTapi--account--manager-poll--id-">Update the specified resource in storage.</h2>
+                    <h2 id="poll-management-PUTapi--account--manager-poll--id-">Update the specified poll.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing poll with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-poll--id-">
 <blockquote>Example request:</blockquote>
@@ -11404,7 +13092,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/poll/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Updated Community Feedback Survey\\\"\",
+    \"short_description\": \"\\\"A quick survey about our latest features\\\"\",
+    \"description\": \"\\\"This survey aims to collect feedback about our latest platform features and improvements.\\\"\",
+    \"portrait_image\": \"\\\"https:\\/\\/example.com\\/portrait.jpg\\\"\",
+    \"featured_image\": \"\\\"https:\\/\\/example.com\\/featured.jpg\\\"\",
+    \"answers\": \"\\\"[\'Yes\', \'No\', \'Maybe\']\\\"\",
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-01-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -11417,9 +13116,21 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Updated Community Feedback Survey\"",
+    "short_description": "\"A quick survey about our latest features\"",
+    "description": "\"This survey aims to collect feedback about our latest platform features and improvements.\"",
+    "portrait_image": "\"https:\/\/example.com\/portrait.jpg\"",
+    "featured_image": "\"https:\/\/example.com\/featured.jpg\"",
+    "answers": "\"['Yes', 'No', 'Maybe']\"",
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-01-31 23:59:59\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -11522,16 +13233,103 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the poll. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""Updated Community Feedback Survey""
+               data-component="body">
+    <br>
+<p>The name of the poll. Example: <code>"Updated Community Feedback Survey"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>short_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="short_description"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""A quick survey about our latest features""
+               data-component="body">
+    <br>
+<p>The short description of the poll. Example: <code>"A quick survey about our latest features"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""This survey aims to collect feedback about our latest platform features and improvements.""
+               data-component="body">
+    <br>
+<p>The detailed description of the poll. Example: <code>"This survey aims to collect feedback about our latest platform features and improvements."</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>portrait_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="portrait_image"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""https://example.com/portrait.jpg""
+               data-component="body">
+    <br>
+<p>The portrait image URL of the poll. Example: <code>"https://example.com/portrait.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>featured_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="featured_image"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""https://example.com/featured.jpg""
+               data-component="body">
+    <br>
+<p>The featured image URL of the poll. Example: <code>"https://example.com/featured.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>answers</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="answers"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""['Yes', 'No', 'Maybe']""
+               data-component="body">
+    <br>
+<p>The possible answers for the poll in JSON format. Example: <code>"['Yes', 'No', 'Maybe']"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the poll. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="PUTapi--account--manager-poll--id-"
+               value=""2023-01-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the poll. Example: <code>"2023-01-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="poll-management-DELETEapi--account--manager-poll--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="poll-management-DELETEapi--account--manager-poll--id-">Remove the specified poll.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a poll by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-poll--id-">
 <blockquote>Example request:</blockquote>
@@ -11657,14 +13455,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-DELETEapi--account--manager-poll">Remove the specified resource from storage.</h2>
+                    <h2 id="poll-management-DELETEapi--account--manager-poll">Remove the specified poll.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a poll by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-poll">
 <blockquote>Example request:</blockquote>
@@ -11779,14 +13575,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-GETapi--account--manager-poll-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="poll-management-GETapi--account--manager-poll-download">Download polls as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the poll data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-poll-download">
 <blockquote>Example request:</blockquote>
@@ -11794,9 +13588,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/poll-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/poll-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Community Survey\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -11804,20 +13607,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/poll-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Community Survey\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -11921,28 +13728,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-poll-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-poll-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-poll-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-poll-download"
+               value=""Community Survey""
+               data-component="body">
+    <br>
+<p>Filter polls by name. Example: <code>"Community Survey"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-poll-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort polls by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-poll-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter polls by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="poll-management-GETapi--account--manager-poll-fields">List the fields of the domain model</h2>
+                    <h2 id="poll-management-GETapi--account--manager-poll-fields">List the fields of the poll model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the poll model.</p>
 
 <span id="example-requests-GETapi--account--manager-poll-fields">
 <blockquote>Example request:</blockquote>
@@ -12073,14 +13933,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-POSTapi--account--manager-poll-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="poll-management-POSTapi--account--manager-poll-upload">Upload a CSV file for bulk poll processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple polls at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-poll-upload">
 <blockquote>Example request:</blockquote>
@@ -12089,8 +13947,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/poll-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpBC9B.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -12099,13 +13959,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -12130,7 +13995,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-poll-upload" data-method="POST"
       data-path="api/{account}/manager/poll-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-poll-upload', this);">
@@ -12165,10 +14030,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-poll-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -12193,16 +14058,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-poll-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpBC9B.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-poll-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-poll-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to poll fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="poll-management-GETapi--account--manager-poll-upload">Get the status of a bulk upload</h2>
+                    <h2 id="poll-management-GETapi--account--manager-poll-upload">Get the status of a bulk poll upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-poll-upload">
 <blockquote>Example request:</blockquote>
@@ -12333,14 +14221,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-DELETEapi--account--manager-poll-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="poll-management-DELETEapi--account--manager-poll-upload--id-">Delete a bulk poll upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-poll-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -12466,12 +14352,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-GETapi--account--poll-pollDetails">GET api/{account}/poll/pollDetails</h2>
+                    <h2 id="poll-management-GETapi--account--poll-pollDetails">Get details of a specific poll.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve detailed information about a poll including its status for the current user.</p>
 
 <span id="example-requests-GETapi--account--poll-pollDetails">
 <blockquote>Example request:</blockquote>
@@ -12483,8 +14369,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"poll_id\": \"consequatur\",
-    \"active\": \"consequatur\"
+    \"poll_id\": 1,
+    \"active\": true
 }"
 </code></pre></div>
 
@@ -12500,8 +14386,8 @@ const headers = {
 };
 
 let body = {
-    "poll_id": "consequatur",
-    "active": "consequatur"
+    "poll_id": 1,
+    "active": true
 };
 
 fetch(url, {
@@ -12614,34 +14500,44 @@ You can check the Dev Tools console for debugging information.</code></pre>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>poll_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="poll_id"                data-endpoint="GETapi--account--poll-pollDetails"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="poll_id"                data-endpoint="GETapi--account--poll-pollDetails"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The ID of the poll to get details for. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>boolean</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="active"                data-endpoint="GETapi--account--poll-pollDetails"
-               value="consequatur"
-               data-component="body">
+                <label data-endpoint="GETapi--account--poll-pollDetails" style="display: none">
+            <input type="radio" name="active"
+                   value="true"
+                   data-endpoint="GETapi--account--poll-pollDetails"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETapi--account--poll-pollDetails" style="display: none">
+            <input type="radio" name="active"
+                   value="false"
+                   data-endpoint="GETapi--account--poll-pollDetails"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Whether to only include active polls. Example: <code>true</code></p>
         </div>
         </form>
 
-                    <h2 id="poll-management-GETapi--account--poll-pollsDetailsLast30Days">GET api/{account}/poll/pollsDetailsLast30Days</h2>
+                    <h2 id="poll-management-GETapi--account--poll-pollsDetailsLast30Days">Get details of polls from the last 30 days.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve information about all polls that were active in the last 30 days.</p>
 
 <span id="example-requests-GETapi--account--poll-pollsDetailsLast30Days">
 <blockquote>Example request:</blockquote>
@@ -12772,12 +14668,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="poll-management-POSTapi--account--poll-answerPoll">POST api/{account}/poll/answerPoll</h2>
+                    <h2 id="poll-management-POSTapi--account--poll-answerPoll">Submit an answer to a poll.</h2>
 
 <p>
 </p>
 
-
+<p>Record a user's response to a specific poll.</p>
 
 <span id="example-requests-POSTapi--account--poll-answerPoll">
 <blockquote>Example request:</blockquote>
@@ -12789,8 +14685,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"poll_id\": \"consequatur\",
-    \"answer\": \"consequatur\"
+    \"poll_id\": 1,
+    \"answer\": \"\\\"Yes\\\"\"
 }"
 </code></pre></div>
 
@@ -12806,8 +14702,8 @@ const headers = {
 };
 
 let body = {
-    "poll_id": "consequatur",
-    "answer": "consequatur"
+    "poll_id": 1,
+    "answer": "\"Yes\""
 };
 
 fetch(url, {
@@ -12904,14 +14800,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>poll_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="poll_id"                data-endpoint="POSTapi--account--poll-answerPoll"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="poll_id"                data-endpoint="POSTapi--account--poll-answerPoll"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The ID of the poll to answer. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>answer</code></b>&nbsp;&nbsp;
@@ -12919,10 +14815,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="answer"                data-endpoint="POSTapi--account--poll-answerPoll"
-               value="consequatur"
+               value=""Yes""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The user's answer to the poll. Example: <code>"Yes"</code></p>
         </div>
         </form>
 
@@ -12930,14 +14826,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing premium coin coupons</p>
 
-                                <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment">Display a listing of the resource.</h2>
+                                <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment">Display a listing of premium coin coupons.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all premium coin coupons.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-payment">
 <blockquote>Example request:</blockquote>
@@ -12947,7 +14841,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"GOLD\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -12960,9 +14862,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"GOLD\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -13066,16 +14977,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-coupon-payment"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-coupon-payment"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-coupon-payment"
+               value=""GOLD""
+               data-component="body">
+    <br>
+<p>Filter coupons by code. Example: <code>"GOLD"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-coupon-payment"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort coupons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-coupon-payment"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter coupons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="premium-coin-coupons-management-POSTapi--account--manager-coupon-payment">Store a newly created resource in storage.</h2>
+                    <h2 id="premium-coin-coupons-management-POSTapi--account--manager-coupon-payment">Store a newly created premium coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new premium coin coupon with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-coupon-payment">
 <blockquote>Example request:</blockquote>
@@ -13085,7 +15050,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"coupon\": \"\\\"GOLD2023\\\"\",
+    \"oro\": 50,
+    \"uses\": 0,
+    \"max_uses\": 1000,
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-12-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -13098,9 +15072,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "coupon": "\"GOLD2023\"",
+    "oro": 50,
+    "uses": 0,
+    "max_uses": 1000,
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-12-31 23:59:59\""
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -13188,16 +15172,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="coupon"                data-endpoint="POSTapi--account--manager-coupon-payment"
+               value=""GOLD2023""
+               data-component="body">
+    <br>
+<p>The coupon code (4-150 chars). Example: <code>"GOLD2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="POSTapi--account--manager-coupon-payment"
+               value="50"
+               data-component="body">
+    <br>
+<p>The number of oro (gold) to award. Example: <code>50</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="uses"                data-endpoint="POSTapi--account--manager-coupon-payment"
+               value="0"
+               data-component="body">
+    <br>
+<p>The current number of uses. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_uses"                data-endpoint="POSTapi--account--manager-coupon-payment"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The maximum number of uses allowed. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="POSTapi--account--manager-coupon-payment"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the coupon validity. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="POSTapi--account--manager-coupon-payment"
+               value=""2023-12-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the coupon validity. Example: <code>"2023-12-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment--id-">Display the specified resource.</h2>
+                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment--id-">Display the specified premium coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific premium coin coupon by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-payment--id-">
 <blockquote>Example request:</blockquote>
@@ -13339,14 +15388,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="premium-coin-coupons-management-PUTapi--account--manager-coupon-payment--id-">Update the specified resource in storage.</h2>
+                    <h2 id="premium-coin-coupons-management-PUTapi--account--manager-coupon-payment--id-">Update the specified premium coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing premium coin coupon with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-coupon-payment--id-">
 <blockquote>Example request:</blockquote>
@@ -13356,7 +15403,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"coupon\": \"\\\"GOLD2023\\\"\",
+    \"oro\": 50,
+    \"uses\": 0,
+    \"max_uses\": 1000,
+    \"start_date\": \"\\\"2023-01-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-12-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -13369,9 +15425,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "coupon": "\"GOLD2023\"",
+    "oro": 50,
+    "uses": 0,
+    "max_uses": 1000,
+    "start_date": "\"2023-01-01 00:00:00\"",
+    "end_date": "\"2023-12-31 23:59:59\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -13474,16 +15540,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the coupon payment. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coupon</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="coupon"                data-endpoint="PUTapi--account--manager-coupon-payment--id-"
+               value=""GOLD2023""
+               data-component="body">
+    <br>
+<p>The coupon code (4-150 chars). Example: <code>"GOLD2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="PUTapi--account--manager-coupon-payment--id-"
+               value="50"
+               data-component="body">
+    <br>
+<p>The number of oro (gold) to award. Example: <code>50</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="uses"                data-endpoint="PUTapi--account--manager-coupon-payment--id-"
+               value="0"
+               data-component="body">
+    <br>
+<p>The current number of uses. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_uses</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_uses"                data-endpoint="PUTapi--account--manager-coupon-payment--id-"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The maximum number of uses allowed. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="PUTapi--account--manager-coupon-payment--id-"
+               value=""2023-01-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the coupon validity. Example: <code>"2023-01-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="PUTapi--account--manager-coupon-payment--id-"
+               value=""2023-12-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the coupon validity. Example: <code>"2023-12-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment--id-">Remove the specified premium coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a premium coin coupon by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-payment--id-">
 <blockquote>Example request:</blockquote>
@@ -13609,14 +15740,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment">Remove the specified resource from storage.</h2>
+                    <h2 id="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment">Remove the specified premium coin coupon.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a premium coin coupon by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-payment">
 <blockquote>Example request:</blockquote>
@@ -13731,14 +15860,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-download">Download premium coin coupons as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the premium coin coupon data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-payment-download">
 <blockquote>Example request:</blockquote>
@@ -13746,9 +15873,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"GOLD\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -13756,20 +15892,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"GOLD\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -13873,28 +16013,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-coupon-payment-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-coupon-payment-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-coupon-payment-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-coupon-payment-download"
+               value=""GOLD""
+               data-component="body">
+    <br>
+<p>Filter coupons by code. Example: <code>"GOLD"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-coupon-payment-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort coupons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-coupon-payment-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter coupons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-fields">List the fields of the domain model</h2>
+                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-fields">List the fields of the premium coin coupon model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the premium coin coupon model.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-payment-fields">
 <blockquote>Example request:</blockquote>
@@ -14025,14 +16218,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="premium-coin-coupons-management-POSTapi--account--manager-coupon-payment-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="premium-coin-coupons-management-POSTapi--account--manager-coupon-payment-upload">Upload a CSV file for bulk premium coin coupon processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple premium coin coupons at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-coupon-payment-upload">
 <blockquote>Example request:</blockquote>
@@ -14041,8 +16232,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/coupon-payment-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpBE25.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -14051,13 +16244,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -14082,7 +16280,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-coupon-payment-upload" data-method="POST"
       data-path="api/{account}/manager/coupon-payment-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-coupon-payment-upload', this);">
@@ -14117,10 +16315,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-coupon-payment-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -14145,16 +16343,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-coupon-payment-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpBE25.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-coupon-payment-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-coupon-payment-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to premium coin coupon fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-upload">Get the status of a bulk upload</h2>
+                    <h2 id="premium-coin-coupons-management-GETapi--account--manager-coupon-payment-upload">Get the status of a bulk premium coin coupon upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-coupon-payment-upload">
 <blockquote>Example request:</blockquote>
@@ -14285,14 +16506,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="premium-coin-coupons-management-DELETEapi--account--manager-coupon-payment-upload--id-">Delete a bulk premium coin coupon upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-coupon-payment-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -14422,14 +16641,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing product orders</p>
 
-                                <h2 id="product-order-management-GETapi--account--manager-product-order">Display a listing of the resource.</h2>
+                                <h2 id="product-order-management-GETapi--account--manager-product-order">Display a listing of product orders.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all product orders.</p>
 
 <span id="example-requests-GETapi--account--manager-product-order">
 <blockquote>Example request:</blockquote>
@@ -14439,7 +16656,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/product-order" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"123\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -14452,9 +16677,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"123\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -14558,16 +16792,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-product-order"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-product-order"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-product-order"
+               value=""123""
+               data-component="body">
+    <br>
+<p>Filter product orders by ID. Example: <code>"123"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-product-order"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort product orders by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-product-order"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter product orders by product ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="product-order-management-DELETEapi--account--manager-product-order--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="product-order-management-DELETEapi--account--manager-product-order--id-">Remove the specified product order.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a product order by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-product-order--id-">
 <blockquote>Example request:</blockquote>
@@ -14693,14 +16981,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-order-management-DELETEapi--account--manager-product-order">Remove the specified resource from storage.</h2>
+                    <h2 id="product-order-management-DELETEapi--account--manager-product-order">Remove the specified product order.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a product order by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-product-order">
 <blockquote>Example request:</blockquote>
@@ -14815,14 +17101,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-order-management-GETapi--account--manager-product-order-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="product-order-management-GETapi--account--manager-product-order-download">Download product orders as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the product order data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-product-order-download">
 <blockquote>Example request:</blockquote>
@@ -14830,9 +17114,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/product-order-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/product-order-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"123\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -14840,20 +17133,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/product-order-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"123\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -14957,19 +17254,74 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-product-order-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-product-order-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-product-order-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-product-order-download"
+               value=""123""
+               data-component="body">
+    <br>
+<p>Filter product orders by ID. Example: <code>"123"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-product-order-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort product orders by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-product-order-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter product orders by product ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
                 <h1 id="product-management">Product management</h1>
 
@@ -15095,14 +17447,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-management-GETapi--account--manager-product">Display a listing of the resource.</h2>
+                    <h2 id="product-management-GETapi--account--manager-product">Display a listing of products.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all products.</p>
 
 <span id="example-requests-GETapi--account--manager-product">
 <blockquote>Example request:</blockquote>
@@ -15112,7 +17462,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/product" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Phoenix\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -15125,9 +17483,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Phoenix\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -15231,16 +17598,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-product"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-product"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-product"
+               value=""Phoenix""
+               data-component="body">
+    <br>
+<p>Filter products by name. Example: <code>"Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-product"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort products by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-product"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter products by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="product-management-POSTapi--account--manager-product">Store a newly created resource in storage.</h2>
+                    <h2 id="product-management-POSTapi--account--manager-product">Store a newly created product.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new product with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-product">
 <blockquote>Example request:</blockquote>
@@ -15250,7 +17671,29 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/product" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Gold Pack\\\"\",
+    \"short_description\": \"\\\"A pack of gold coins\\\"\",
+    \"description\": \"\\\"This pack contains 1000 gold coins\\\"\",
+    \"image\": \"\\\"https:\\/\\/example.com\\/gold-pack.jpg\\\"\",
+    \"price_fiat\": \"\\\"9.99\\\"\",
+    \"price_oro\": 500,
+    \"price_plumas\": 100,
+    \"active\": 1,
+    \"product_parent_id\": 1,
+    \"oro\": 1000,
+    \"plumas\": 200,
+    \"nft_id\": 5,
+    \"rarity\": \"\\\"Legendary\\\"\",
+    \"tags\": \"\\\"gold,premium\\\"\",
+    \"nft_serial_greater_equal\": 1,
+    \"nft_serial_less_equal\": 100,
+    \"custom\": \"\\\"Pase de temporada premium\\\"\",
+    \"one_time_purchase\": 1,
+    \"one_time_purchase_global\": 0
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -15263,9 +17706,32 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Gold Pack\"",
+    "short_description": "\"A pack of gold coins\"",
+    "description": "\"This pack contains 1000 gold coins\"",
+    "image": "\"https:\/\/example.com\/gold-pack.jpg\"",
+    "price_fiat": "\"9.99\"",
+    "price_oro": 500,
+    "price_plumas": 100,
+    "active": 1,
+    "product_parent_id": 1,
+    "oro": 1000,
+    "plumas": 200,
+    "nft_id": 5,
+    "rarity": "\"Legendary\"",
+    "tags": "\"gold,premium\"",
+    "nft_serial_greater_equal": 1,
+    "nft_serial_less_equal": 100,
+    "custom": "\"Pase de temporada premium\"",
+    "one_time_purchase": 1,
+    "one_time_purchase_global": 0
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -15353,16 +17819,224 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi--account--manager-product"
+               value=""Gold Pack""
+               data-component="body">
+    <br>
+<p>The name of the product. Example: <code>"Gold Pack"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>short_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="short_description"                data-endpoint="POSTapi--account--manager-product"
+               value=""A pack of gold coins""
+               data-component="body">
+    <br>
+<p>The short description of the product. Example: <code>"A pack of gold coins"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi--account--manager-product"
+               value=""This pack contains 1000 gold coins""
+               data-component="body">
+    <br>
+<p>The detailed description of the product. Example: <code>"This pack contains 1000 gold coins"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="image"                data-endpoint="POSTapi--account--manager-product"
+               value=""https://example.com/gold-pack.jpg""
+               data-component="body">
+    <br>
+<p>The image URL of the product. Example: <code>"https://example.com/gold-pack.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_fiat</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="price_fiat"                data-endpoint="POSTapi--account--manager-product"
+               value=""9.99""
+               data-component="body">
+    <br>
+<p>The price in fiat currency. Example: <code>"9.99"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price_oro"                data-endpoint="POSTapi--account--manager-product"
+               value="500"
+               data-component="body">
+    <br>
+<p>The price in oro currency. Example: <code>500</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price_plumas"                data-endpoint="POSTapi--account--manager-product"
+               value="100"
+               data-component="body">
+    <br>
+<p>The price in plumas currency. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="active"                data-endpoint="POSTapi--account--manager-product"
+               value="1"
+               data-component="body">
+    <br>
+<p>Whether the product is active (0 or 1). Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>product_parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product_parent_id"                data-endpoint="POSTapi--account--manager-product"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the parent product. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="POSTapi--account--manager-product"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The amount of oro included in the product. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="POSTapi--account--manager-product"
+               value="200"
+               data-component="body">
+    <br>
+<p>The amount of plumas included in the product. Example: <code>200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="POSTapi--account--manager-product"
+               value="5"
+               data-component="body">
+    <br>
+<p>The ID of the NFT included in the product. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rarity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rarity"                data-endpoint="POSTapi--account--manager-product"
+               value=""Legendary""
+               data-component="body">
+    <br>
+<p>The rarity of the NFT included in the product. Example: <code>"Legendary"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tags"                data-endpoint="POSTapi--account--manager-product"
+               value=""gold,premium""
+               data-component="body">
+    <br>
+<p>Tags for the product. Example: <code>"gold,premium"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_greater_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_greater_equal"                data-endpoint="POSTapi--account--manager-product"
+               value="1"
+               data-component="body">
+    <br>
+<p>The minimum NFT serial number. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_less_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_less_equal"                data-endpoint="POSTapi--account--manager-product"
+               value="100"
+               data-component="body">
+    <br>
+<p>The maximum NFT serial number. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>custom</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="custom"                data-endpoint="POSTapi--account--manager-product"
+               value=""Pase de temporada premium""
+               data-component="body">
+    <br>
+<p>Custom information for the product. Example: <code>"Pase de temporada premium"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>one_time_purchase</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="one_time_purchase"                data-endpoint="POSTapi--account--manager-product"
+               value="1"
+               data-component="body">
+    <br>
+<p>Whether the product can only be purchased once per user (0 or 1). Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>one_time_purchase_global</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="one_time_purchase_global"                data-endpoint="POSTapi--account--manager-product"
+               value="0"
+               data-component="body">
+    <br>
+<p>Whether the product can only be purchased once globally (0 or 1). Example: <code>0</code></p>
+        </div>
+        </form>
 
-                    <h2 id="product-management-GETapi--account--manager-product--id-">Display the specified resource.</h2>
+                    <h2 id="product-management-GETapi--account--manager-product--id-">Display the specified product.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific product by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-product--id-">
 <blockquote>Example request:</blockquote>
@@ -15504,14 +18178,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-management-PUTapi--account--manager-product--id-">Update the specified resource in storage.</h2>
+                    <h2 id="product-management-PUTapi--account--manager-product--id-">Update the specified product.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing product with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-product--id-">
 <blockquote>Example request:</blockquote>
@@ -15521,7 +18193,29 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/product/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Gold Pack\\\"\",
+    \"short_description\": \"\\\"A pack of gold coins\\\"\",
+    \"description\": \"\\\"This pack contains 1000 gold coins\\\"\",
+    \"image\": \"\\\"https:\\/\\/example.com\\/gold-pack.jpg\\\"\",
+    \"price_fiat\": \"\\\"9.99\\\"\",
+    \"price_oro\": 500,
+    \"price_plumas\": 100,
+    \"active\": 1,
+    \"product_parent_id\": 1,
+    \"oro\": 1000,
+    \"plumas\": 200,
+    \"nft_id\": 5,
+    \"rarity\": \"\\\"Legendary\\\"\",
+    \"tags\": \"\\\"gold,premium\\\"\",
+    \"nft_serial_greater_equal\": 1,
+    \"nft_serial_less_equal\": 100,
+    \"custom\": \"\\\"Pase de temporada premium\\\"\",
+    \"one_time_purchase\": 1,
+    \"one_time_purchase_global\": 0
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -15534,9 +18228,32 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Gold Pack\"",
+    "short_description": "\"A pack of gold coins\"",
+    "description": "\"This pack contains 1000 gold coins\"",
+    "image": "\"https:\/\/example.com\/gold-pack.jpg\"",
+    "price_fiat": "\"9.99\"",
+    "price_oro": 500,
+    "price_plumas": 100,
+    "active": 1,
+    "product_parent_id": 1,
+    "oro": 1000,
+    "plumas": 200,
+    "nft_id": 5,
+    "rarity": "\"Legendary\"",
+    "tags": "\"gold,premium\"",
+    "nft_serial_greater_equal": 1,
+    "nft_serial_less_equal": 100,
+    "custom": "\"Pase de temporada premium\"",
+    "one_time_purchase": 1,
+    "one_time_purchase_global": 0
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -15639,16 +18356,224 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the product. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""Gold Pack""
+               data-component="body">
+    <br>
+<p>The name of the product. Example: <code>"Gold Pack"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>short_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="short_description"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""A pack of gold coins""
+               data-component="body">
+    <br>
+<p>The short description of the product. Example: <code>"A pack of gold coins"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""This pack contains 1000 gold coins""
+               data-component="body">
+    <br>
+<p>The detailed description of the product. Example: <code>"This pack contains 1000 gold coins"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="image"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""https://example.com/gold-pack.jpg""
+               data-component="body">
+    <br>
+<p>The image URL of the product. Example: <code>"https://example.com/gold-pack.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_fiat</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="price_fiat"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""9.99""
+               data-component="body">
+    <br>
+<p>The price in fiat currency. Example: <code>"9.99"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price_oro"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="500"
+               data-component="body">
+    <br>
+<p>The price in oro currency. Example: <code>500</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price_plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price_plumas"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The price in plumas currency. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="active"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>Whether the product is active (0 or 1). Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>product_parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product_parent_id"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the parent product. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="1000"
+               data-component="body">
+    <br>
+<p>The amount of oro included in the product. Example: <code>1000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="200"
+               data-component="body">
+    <br>
+<p>The amount of plumas included in the product. Example: <code>200</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="5"
+               data-component="body">
+    <br>
+<p>The ID of the NFT included in the product. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rarity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rarity"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""Legendary""
+               data-component="body">
+    <br>
+<p>The rarity of the NFT included in the product. Example: <code>"Legendary"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tags</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tags"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""gold,premium""
+               data-component="body">
+    <br>
+<p>Tags for the product. Example: <code>"gold,premium"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_greater_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_greater_equal"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The minimum NFT serial number. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_serial_less_equal</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_serial_less_equal"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The maximum NFT serial number. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>custom</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="custom"                data-endpoint="PUTapi--account--manager-product--id-"
+               value=""Pase de temporada premium""
+               data-component="body">
+    <br>
+<p>Custom information for the product. Example: <code>"Pase de temporada premium"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>one_time_purchase</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="one_time_purchase"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>Whether the product can only be purchased once per user (0 or 1). Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>one_time_purchase_global</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="one_time_purchase_global"                data-endpoint="PUTapi--account--manager-product--id-"
+               value="0"
+               data-component="body">
+    <br>
+<p>Whether the product can only be purchased once globally (0 or 1). Example: <code>0</code></p>
+        </div>
+        </form>
 
-                    <h2 id="product-management-DELETEapi--account--manager-product--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="product-management-DELETEapi--account--manager-product--id-">Remove the specified product.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a product by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-product--id-">
 <blockquote>Example request:</blockquote>
@@ -15774,14 +18699,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-management-DELETEapi--account--manager-product">Remove the specified resource from storage.</h2>
+                    <h2 id="product-management-DELETEapi--account--manager-product">Remove the specified product.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a product by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-product">
 <blockquote>Example request:</blockquote>
@@ -15896,14 +18819,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-management-GETapi--account--manager-product-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="product-management-GETapi--account--manager-product-download">Download products as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the product data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-product-download">
 <blockquote>Example request:</blockquote>
@@ -15911,9 +18832,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/product-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/product-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Gold\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -15921,20 +18851,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/product-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Gold\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -16038,28 +18972,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-product-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-product-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-product-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-product-download"
+               value=""Gold""
+               data-component="body">
+    <br>
+<p>Filter products by name. Example: <code>"Gold"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-product-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort products by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-product-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter products by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="product-management-GETapi--account--manager-product-fields">List the fields of the domain model</h2>
+                    <h2 id="product-management-GETapi--account--manager-product-fields">List the fields of the Product model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the Product model.</p>
 
 <span id="example-requests-GETapi--account--manager-product-fields">
 <blockquote>Example request:</blockquote>
@@ -16190,14 +19177,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-management-POSTapi--account--manager-product-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="product-management-POSTapi--account--manager-product-upload">Upload a CSV file for bulk Product processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple Products at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-product-upload">
 <blockquote>Example request:</blockquote>
@@ -16206,8 +19191,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/product-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpC3C1.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -16216,13 +19203,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -16247,7 +19239,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-product-upload" data-method="POST"
       data-path="api/{account}/manager/product-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-product-upload', this);">
@@ -16282,10 +19274,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-product-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -16310,16 +19302,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-product-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpC3C1.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-product-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-product-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to Product fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="product-management-GETapi--account--manager-product-upload">Get the status of a bulk upload</h2>
+                    <h2 id="product-management-GETapi--account--manager-product-upload">Get the status of a bulk Product upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-product-upload">
 <blockquote>Example request:</blockquote>
@@ -16450,14 +19465,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="product-management-DELETEapi--account--manager-product-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="product-management-DELETEapi--account--manager-product-upload--id-">Delete a bulk Product upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-product-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -17141,12 +20154,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing profiles</p>
 
-                                <h2 id="profile-management-GETapi--account--manager-admin-dashboard">GET api/{account}/manager/admin-dashboard</h2>
+                                <h2 id="profile-management-GETapi--account--manager-admin-dashboard">Get admin dashboard statistics.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve platform-wide statistics for the admin dashboard.</p>
 
 <span id="example-requests-GETapi--account--manager-admin-dashboard">
 <blockquote>Example request:</blockquote>
@@ -17277,14 +20290,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="profile-management-GETapi--account--manager-profile">Display a listing of the resource.</h2>
+                    <h2 id="profile-management-GETapi--account--manager-profile">Display a listing of profiles.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all user profiles.</p>
 
 <span id="example-requests-GETapi--account--manager-profile">
 <blockquote>Example request:</blockquote>
@@ -17294,7 +20305,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/profile" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Aprendiz\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -17307,9 +20326,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Aprendiz\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -17413,16 +20441,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-profile"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-profile"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-profile"
+               value=""Aprendiz""
+               data-component="body">
+    <br>
+<p>Filter profiles by description. Example: <code>"Aprendiz"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-profile"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort profiles by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-profile"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter profiles by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="profile-management-GETapi--account--manager-profile--id-">Display the specified resource.</h2>
+                    <h2 id="profile-management-GETapi--account--manager-profile--id-">Display the specified profile.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific profile by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-profile--id-">
 <blockquote>Example request:</blockquote>
@@ -17564,14 +20646,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="profile-management-PUTapi--account--manager-profile--id-">Update the specified resource in storage.</h2>
+                    <h2 id="profile-management-PUTapi--account--manager-profile--id-">Update the specified profile.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing profile with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-profile--id-">
 <blockquote>Example request:</blockquote>
@@ -17581,7 +20661,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/profile/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"user_id\": 1,
+    \"description\": \"\\\"Aprendiz\\\"\",
+    \"details\": \"\\\"Joined during Season 1\\\"\",
+    \"avatar\": \"\\\"avatar1.jpg\\\"\",
+    \"plumas_hedera\": 0,
+    \"plumas\": 10,
+    \"season_level\": 1,
+    \"season_points\": 100,
+    \"oro_hedera\": 0,
+    \"oro\": 5,
+    \"twitch_user_id\": \"\\\"12345678\\\"\",
+    \"twitch_user_name\": \"\\\"twitchuser\\\"\",
+    \"twitch_api_user_token\": \"\\\"abc123token\\\"\",
+    \"twitch_api_user_refresh_token\": \"\\\"abc123refresh\\\"\",
+    \"twitch_scope\": \"\\\"user:read:email\\\"\",
+    \"steam_user_id\": \"\\\"76561198123456789\\\"\",
+    \"steam_user_name\": \"\\\"steamuser\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -17594,9 +20694,30 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "user_id": 1,
+    "description": "\"Aprendiz\"",
+    "details": "\"Joined during Season 1\"",
+    "avatar": "\"avatar1.jpg\"",
+    "plumas_hedera": 0,
+    "plumas": 10,
+    "season_level": 1,
+    "season_points": 100,
+    "oro_hedera": 0,
+    "oro": 5,
+    "twitch_user_id": "\"12345678\"",
+    "twitch_user_name": "\"twitchuser\"",
+    "twitch_api_user_token": "\"abc123token\"",
+    "twitch_api_user_refresh_token": "\"abc123refresh\"",
+    "twitch_scope": "\"user:read:email\"",
+    "steam_user_id": "\"76561198123456789\"",
+    "steam_user_name": "\"steamuser\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -17699,16 +20820,202 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the profile. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the user this profile belongs to. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""Aprendiz""
+               data-component="body">
+    <br>
+<p>The description/status of the profile (4-255 chars). Example: <code>"Aprendiz"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>details</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="details"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""Joined during Season 1""
+               data-component="body">
+    <br>
+<p>Additional details about the profile. Example: <code>"Joined during Season 1"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="avatar"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""avatar1.jpg""
+               data-component="body">
+    <br>
+<p>The avatar URL or identifier (4-255 chars). Example: <code>"avatar1.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas_hedera</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas_hedera"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="0"
+               data-component="body">
+    <br>
+<p>The number of plumas (feathers) on Hedera. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of plumas (feathers). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>season_level</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="season_level"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The current season level. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>season_points</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="season_points"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The current season points. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro_hedera</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro_hedera"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="0"
+               data-component="body">
+    <br>
+<p>The number of oro (gold) on Hedera. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value="5"
+               data-component="body">
+    <br>
+<p>The number of oro (gold). Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>twitch_user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="twitch_user_id"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""12345678""
+               data-component="body">
+    <br>
+<p>The Twitch user ID. Example: <code>"12345678"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>twitch_user_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="twitch_user_name"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""twitchuser""
+               data-component="body">
+    <br>
+<p>The Twitch username. Example: <code>"twitchuser"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>twitch_api_user_token</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="twitch_api_user_token"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""abc123token""
+               data-component="body">
+    <br>
+<p>The Twitch API user token. Example: <code>"abc123token"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>twitch_api_user_refresh_token</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="twitch_api_user_refresh_token"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""abc123refresh""
+               data-component="body">
+    <br>
+<p>The Twitch API refresh token. Example: <code>"abc123refresh"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>twitch_scope</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="twitch_scope"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""user:read:email""
+               data-component="body">
+    <br>
+<p>The Twitch API scope. Example: <code>"user:read:email"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>steam_user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="steam_user_id"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""76561198123456789""
+               data-component="body">
+    <br>
+<p>The Steam user ID. Example: <code>"76561198123456789"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>steam_user_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="steam_user_name"                data-endpoint="PUTapi--account--manager-profile--id-"
+               value=""steamuser""
+               data-component="body">
+    <br>
+<p>The Steam username. Example: <code>"steamuser"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="profile-management-GETapi--account--manager-profile-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="profile-management-GETapi--account--manager-profile-download">Download profiles as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the profile data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-profile-download">
 <blockquote>Example request:</blockquote>
@@ -17716,9 +21023,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/profile-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/profile-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Aprendiz\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -17726,20 +21042,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/profile-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Aprendiz\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -17843,26 +21163,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-profile-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-profile-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-profile-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-profile-download"
+               value=""Aprendiz""
+               data-component="body">
+    <br>
+<p>Filter profiles by description. Example: <code>"Aprendiz"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-profile-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort profiles by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-profile-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter profiles by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-addPlumas">POST api/{account}/profile/addPlumas</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-addPlumas">Add plumas to user.</h2>
 
 <p>
 </p>
 
-
+<p>Add a specified amount of plumas (feathers) to the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-addPlumas">
 <blockquote>Example request:</blockquote>
@@ -17875,7 +21250,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"user_id\": 17,
-    \"plumas\": 17
+    \"plumas\": 10
 }"
 </code></pre></div>
 
@@ -17892,7 +21267,7 @@ const headers = {
 
 let body = {
     "user_id": 17,
-    "plumas": 17
+    "plumas": 10
 };
 
 fetch(url, {
@@ -18004,19 +21379,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="plumas"                data-endpoint="POSTapi--account--profile-addPlumas"
-               value="17"
+               value="10"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>The amount of plumas to add. Example: <code>10</code></p>
         </div>
         </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-addOro">POST api/{account}/profile/addOro</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-addOro">Add oro to user.</h2>
 
 <p>
 </p>
 
-
+<p>Add a specified amount of oro (gold) to the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-addOro">
 <blockquote>Example request:</blockquote>
@@ -18028,8 +21403,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": 17,
-    \"oro\": 17
+    \"user_id\": 1,
+    \"oro\": 5
 }"
 </code></pre></div>
 
@@ -18045,8 +21420,8 @@ const headers = {
 };
 
 let body = {
-    "user_id": 17,
-    "oro": 17
+    "user_id": 1,
+    "oro": 5
 };
 
 fetch(url, {
@@ -18147,10 +21522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="user_id"                data-endpoint="POSTapi--account--profile-addOro"
-               value="17"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>The ID of the user to add oro to. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
@@ -18158,19 +21533,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="oro"                data-endpoint="POSTapi--account--profile-addOro"
-               value="17"
+               value="5"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>The amount of oro to add. Example: <code>5</code></p>
         </div>
         </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-getUserProfile">POST api/{account}/profile/getUserProfile</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-getUserProfile">Get current user&#039;s profile.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve detailed information about the authenticated user's profile, including habits, NFTs, and other statistics.</p>
 
 <span id="example-requests-POSTapi--account--profile-getUserProfile">
 <blockquote>Example request:</blockquote>
@@ -18285,12 +21660,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-setAvatar">POST api/{account}/profile/setAvatar</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-setAvatar">Set user avatar.</h2>
 
 <p>
 </p>
 
-
+<p>Update the avatar for the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-setAvatar">
 <blockquote>Example request:</blockquote>
@@ -18302,7 +21677,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"nft_id\": \"consequatur\"
+    \"nft_id\": \"consequatur\",
+    \"avatar\": \"\\\"avatar2.jpg\\\"\"
 }"
 </code></pre></div>
 
@@ -18318,7 +21694,8 @@ const headers = {
 };
 
 let body = {
-    "nft_id": "consequatur"
+    "nft_id": "consequatur",
+    "avatar": "\"avatar2.jpg\""
 };
 
 fetch(url, {
@@ -18424,14 +21801,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="avatar"                data-endpoint="POSTapi--account--profile-setAvatar"
+               value=""avatar2.jpg""
+               data-component="body">
+    <br>
+<p>The new avatar URL or identifier. Example: <code>"avatar2.jpg"</code></p>
+        </div>
         </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-setEstado">POST api/{account}/profile/setEstado</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-setEstado">Set user status.</h2>
 
 <p>
 </p>
 
-
+<p>Update the status/description for the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-setEstado">
 <blockquote>Example request:</blockquote>
@@ -18443,7 +21831,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"nft_id\": \"consequatur\"
+    \"nft_id\": \"consequatur\",
+    \"estado\": \"\\\"Explorador\\\"\"
 }"
 </code></pre></div>
 
@@ -18459,7 +21848,8 @@ const headers = {
 };
 
 let body = {
-    "nft_id": "consequatur"
+    "nft_id": "consequatur",
+    "estado": "\"Explorador\""
 };
 
 fetch(url, {
@@ -18565,14 +21955,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="estado"                data-endpoint="POSTapi--account--profile-setEstado"
+               value=""Explorador""
+               data-component="body">
+    <br>
+<p>The new status/description for the profile. Example: <code>"Explorador"</code></p>
+        </div>
         </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-subtractPlumaUser">POST api/{account}/profile/subtractPlumaUser</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-subtractPlumaUser">Subtract plumas from user.</h2>
 
 <p>
 </p>
 
-
+<p>Deduct a specified amount of plumas (feathers) from the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-subtractPlumaUser">
 <blockquote>Example request:</blockquote>
@@ -18687,12 +22088,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-subtractOroUser">POST api/{account}/profile/subtractOroUser</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-subtractOroUser">Subtract oro from user.</h2>
 
 <p>
 </p>
 
-
+<p>Deduct a specified amount of oro (gold) from the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-subtractOroUser">
 <blockquote>Example request:</blockquote>
@@ -18807,12 +22208,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-setUserProfileReferredCode">POST api/{account}/profile/setUserProfileReferredCode</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-setUserProfileReferredCode">Set user&#039;s referral code.</h2>
 
 <p>
 </p>
 
-
+<p>Update the referral code for the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-setUserProfileReferredCode">
 <blockquote>Example request:</blockquote>
@@ -18824,7 +22225,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"referred_code\": \"consequatur\"
+    \"referred_code\": \"\\\"REF123\\\"\"
 }"
 </code></pre></div>
 
@@ -18840,7 +22241,7 @@ const headers = {
 };
 
 let body = {
-    "referred_code": "consequatur"
+    "referred_code": "\"REF123\""
 };
 
 fetch(url, {
@@ -18941,19 +22342,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="referred_code"                data-endpoint="POSTapi--account--profile-setUserProfileReferredCode"
-               value="consequatur"
+               value=""REF123""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The referral code to set. Example: <code>"REF123"</code></p>
         </div>
         </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-setUserProfileReferredCodeFrom">POST api/{account}/profile/setUserProfileReferredCodeFrom</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-setUserProfileReferredCodeFrom">Set referral code source.</h2>
 
 <p>
 </p>
 
-
+<p>Update the referral code source for the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-setUserProfileReferredCodeFrom">
 <blockquote>Example request:</blockquote>
@@ -18965,7 +22366,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"referred_code_from\": \"consequatur\"
+    \"referred_code_from\": \"\\\"FRIEND123\\\"\"
 }"
 </code></pre></div>
 
@@ -18981,7 +22382,7 @@ const headers = {
 };
 
 let body = {
-    "referred_code_from": "consequatur"
+    "referred_code_from": "\"FRIEND123\""
 };
 
 fetch(url, {
@@ -19082,19 +22483,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="referred_code_from"                data-endpoint="POSTapi--account--profile-setUserProfileReferredCodeFrom"
-               value="consequatur"
+               value=""FRIEND123""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The referral code that referred this user. Example: <code>"FRIEND123"</code></p>
         </div>
         </form>
 
-                    <h2 id="profile-management-POSTapi--account--profile-setUserProfileHederaWalletCheck">POST api/{account}/profile/setUserProfileHederaWalletCheck</h2>
+                    <h2 id="profile-management-POSTapi--account--profile-setUserProfileHederaWalletCheck">Set Hedera wallet verification status.</h2>
 
 <p>
 </p>
 
-
+<p>Update the Hedera wallet verification status for the current user's profile.</p>
 
 <span id="example-requests-POSTapi--account--profile-setUserProfileHederaWalletCheck">
 <blockquote>Example request:</blockquote>
@@ -19106,7 +22507,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"account\": \"consequatur\"
+    \"account\": \"consequatur\",
+    \"hedera_wallet_check\": true,
+    \"hedera_wallet_check_account\": \"\\\"0.0.123456\\\"\"
 }"
 </code></pre></div>
 
@@ -19122,7 +22525,9 @@ const headers = {
 };
 
 let body = {
-    "account": "consequatur"
+    "account": "consequatur",
+    "hedera_wallet_check": true,
+    "hedera_wallet_check_account": "\"0.0.123456\""
 };
 
 fetch(url, {
@@ -19228,18 +22633,50 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
         </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>hedera_wallet_check</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi--account--profile-setUserProfileHederaWalletCheck" style="display: none">
+            <input type="radio" name="hedera_wallet_check"
+                   value="true"
+                   data-endpoint="POSTapi--account--profile-setUserProfileHederaWalletCheck"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi--account--profile-setUserProfileHederaWalletCheck" style="display: none">
+            <input type="radio" name="hedera_wallet_check"
+                   value="false"
+                   data-endpoint="POSTapi--account--profile-setUserProfileHederaWalletCheck"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether the Hedera wallet is verified. Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>hedera_wallet_check_account</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="hedera_wallet_check_account"                data-endpoint="POSTapi--account--profile-setUserProfileHederaWalletCheck"
+               value=""0.0.123456""
+               data-component="body">
+    <br>
+<p>The Hedera account that verified the wallet. Example: <code>"0.0.123456"</code></p>
+        </div>
         </form>
 
                 <h1 id="ranking-management">Ranking management</h1>
 
     <p>APIs for managing rankings</p>
 
-                                <h2 id="ranking-management-GETapi--account--ranking-getClassification">GET api/{account}/ranking/getClassification</h2>
+                                <h2 id="ranking-management-GETapi--account--ranking-getClassification">Get game classification/leaderboard.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the top 10 players and their scores for a specific game.</p>
 
 <span id="example-requests-GETapi--account--ranking-getClassification">
 <blockquote>Example request:</blockquote>
@@ -19251,7 +22688,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"BookersVillage\\\"\"
 }"
 </code></pre></div>
 
@@ -19267,7 +22704,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"BookersVillage\""
 };
 
 fetch(url, {
@@ -19291,7 +22728,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 52
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -19386,19 +22823,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getClassification"
-               value="consequatur"
+               value=""BookersVillage""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get classification for. Example: <code>"BookersVillage"</code></p>
         </div>
         </form>
 
-                    <h2 id="ranking-management-GETapi--account--ranking-getGameStarted">GET api/{account}/ranking/getGameStarted</h2>
+                    <h2 id="ranking-management-GETapi--account--ranking-getGameStarted">Check if a game has been started.</h2>
 
 <p>
 </p>
 
-
+<p>Determine if a specific game has been initialized or started.</p>
 
 <span id="example-requests-GETapi--account--ranking-getGameStarted">
 <blockquote>Example request:</blockquote>
@@ -19410,7 +22847,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"BookersVillage\\\"\"
 }"
 </code></pre></div>
 
@@ -19426,7 +22863,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"BookersVillage\""
 };
 
 fetch(url, {
@@ -19450,7 +22887,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
+x-ratelimit-remaining: 51
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -19545,19 +22982,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getGameStarted"
-               value="consequatur"
+               value=""BookersVillage""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to check. Example: <code>"BookersVillage"</code></p>
         </div>
         </form>
 
-                    <h2 id="ranking-management-POSTapi--account--ranking-addRanking">POST api/{account}/ranking/addRanking</h2>
+                    <h2 id="ranking-management-POSTapi--account--ranking-addRanking">Add a new ranking entry.</h2>
 
 <p>
 </p>
 
-
+<p>Record a new ranking entry for the current user in a specific game.</p>
 
 <span id="example-requests-POSTapi--account--ranking-addRanking">
 <blockquote>Example request:</blockquote>
@@ -19569,9 +23006,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\",
-    \"network_group\": \"consequatur\",
-    \"fase\": 17
+    \"game\": \"\\\"BookersVillage\\\"\",
+    \"network_group\": \"\\\"Group1\\\"\",
+    \"fase\": 1
 }"
 </code></pre></div>
 
@@ -19587,9 +23024,9 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur",
-    "network_group": "consequatur",
-    "fase": 17
+    "game": "\"BookersVillage\"",
+    "network_group": "\"Group1\"",
+    "fase": 1
 };
 
 fetch(url, {
@@ -19690,10 +23127,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="POSTapi--account--ranking-addRanking"
-               value="consequatur"
+               value=""BookersVillage""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game. Example: <code>"BookersVillage"</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>network_group</code></b>&nbsp;&nbsp;
@@ -19701,10 +23138,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="network_group"                data-endpoint="POSTapi--account--ranking-addRanking"
-               value="consequatur"
+               value=""Group1""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The network group identifier. Example: <code>"Group1"</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fase</code></b>&nbsp;&nbsp;
@@ -19712,19 +23149,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="fase"                data-endpoint="POSTapi--account--ranking-addRanking"
-               value="17"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>The phase or level of the game. Example: <code>1</code></p>
         </div>
         </form>
 
-                    <h2 id="ranking-management-GETapi--account--ranking-getRanking">GET api/{account}/ranking/getRanking</h2>
+                    <h2 id="ranking-management-GETapi--account--ranking-getRanking">Get user&#039;s best ranking for a game.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the best time/score for the current user in a specific game.</p>
 
 <span id="example-requests-GETapi--account--ranking-getRanking">
 <blockquote>Example request:</blockquote>
@@ -19736,7 +23173,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"BookersVillage\\\"\"
 }"
 </code></pre></div>
 
@@ -19752,7 +23189,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"BookersVillage\""
 };
 
 fetch(url, {
@@ -19869,10 +23306,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getRanking"
-               value="consequatur"
+               value=""BookersVillage""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get ranking for. Example: <code>"BookersVillage"</code></p>
         </div>
         </form>
 
@@ -19880,12 +23317,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing rankings seasons</p>
 
-                                <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerTime">GET api/{account}/ranking/getSeasonClassificationPerTime</h2>
+                                <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerTime">Get season game time-based classification/leaderboard.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the top 10 players and their times for a specific game in the current season.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonClassificationPerTime">
 <blockquote>Example request:</blockquote>
@@ -19897,7 +23334,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -19913,7 +23350,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -19937,7 +23374,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 50
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -20032,19 +23469,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonClassificationPerTime"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get classification for. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerPoints">GET api/{account}/ranking/getSeasonClassificationPerPoints</h2>
+                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonClassificationPerPoints">Get season game points-based classification/leaderboard.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the top 10 players and their points for a specific game in the current season.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonClassificationPerPoints">
 <blockquote>Example request:</blockquote>
@@ -20056,7 +23493,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -20072,7 +23509,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -20096,7 +23533,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 49
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -20191,19 +23628,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonClassificationPerPoints"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get classification for. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonGameStarted">GET api/{account}/ranking/getSeasonGameStarted</h2>
+                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonGameStarted">Check if a season game has been started.</h2>
 
 <p>
 </p>
 
-
+<p>Determine if a specific game has been initialized or started in the current season.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonGameStarted">
 <blockquote>Example request:</blockquote>
@@ -20215,7 +23652,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -20231,7 +23668,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -20255,7 +23692,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 48
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -20350,19 +23787,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonGameStarted"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to check. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-POSTapi--account--ranking-addSeasonRanking">POST api/{account}/ranking/addSeasonRanking</h2>
+                    <h2 id="rankings-season-management-POSTapi--account--ranking-addSeasonRanking">Add a new season ranking entry.</h2>
 
 <p>
 </p>
 
-
+<p>Record a new ranking entry for the current user in a specific game for the current season.</p>
 
 <span id="example-requests-POSTapi--account--ranking-addSeasonRanking">
 <blockquote>Example request:</blockquote>
@@ -20374,10 +23811,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\",
-    \"network_group\": \"consequatur\",
-    \"fase\": 17,
-    \"points\": 17
+    \"game\": \"\\\"NameOfGame\\\"\",
+    \"network_group\": \"\\\"Group1\\\"\",
+    \"fase\": 1,
+    \"points\": 1000
 }"
 </code></pre></div>
 
@@ -20393,10 +23830,10 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur",
-    "network_group": "consequatur",
-    "fase": 17,
-    "points": 17
+    "game": "\"NameOfGame\"",
+    "network_group": "\"Group1\"",
+    "fase": 1,
+    "points": 1000
 };
 
 fetch(url, {
@@ -20497,10 +23934,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="POSTapi--account--ranking-addSeasonRanking"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game. Example: <code>"NameOfGame"</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>network_group</code></b>&nbsp;&nbsp;
@@ -20508,10 +23945,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="network_group"                data-endpoint="POSTapi--account--ranking-addSeasonRanking"
-               value="consequatur"
+               value=""Group1""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The network group identifier. Example: <code>"Group1"</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fase</code></b>&nbsp;&nbsp;
@@ -20519,10 +23956,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="fase"                data-endpoint="POSTapi--account--ranking-addSeasonRanking"
-               value="17"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>The phase or level of the game. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>points</code></b>&nbsp;&nbsp;
@@ -20530,19 +23967,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="POSTapi--account--ranking-addSeasonRanking"
-               value="17"
+               value="1000"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>The points scored in the game. Example: <code>1000</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonRankingPerTime">GET api/{account}/ranking/getSeasonRankingPerTime</h2>
+                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonRankingPerTime">Get user&#039;s best time-based ranking for a game.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the best time for the current user in a specific game.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonRankingPerTime">
 <blockquote>Example request:</blockquote>
@@ -20554,7 +23991,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -20570,7 +24007,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -20687,19 +24124,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonRankingPerTime"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get ranking for. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonRankingPerPoints">GET api/{account}/ranking/getSeasonRankingPerPoints</h2>
+                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonRankingPerPoints">Get user&#039;s best points-based ranking for a game.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the best points score for the current user in a specific game.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonRankingPerPoints">
 <blockquote>Example request:</blockquote>
@@ -20711,7 +24148,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -20727,7 +24164,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -20844,19 +24281,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonRankingPerPoints"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get ranking for. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerTime">GET api/{account}/ranking/getSeasonUserClassificationPerTime</h2>
+                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerTime">Get user&#039;s time-based classification/leaderboard.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the user's personal time-based leaderboard and any tournament leaderboards they're part of.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonUserClassificationPerTime">
 <blockquote>Example request:</blockquote>
@@ -20868,7 +24305,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -20884,7 +24321,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -21001,19 +24438,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonUserClassificationPerTime"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get classification for. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
-                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerPoints">GET api/{account}/ranking/getSeasonUserClassificationPerPoints</h2>
+                    <h2 id="rankings-season-management-GETapi--account--ranking-getSeasonUserClassificationPerPoints">Get user&#039;s points-based classification/leaderboard.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve the user's personal points-based leaderboard and any tournament leaderboards they're part of.</p>
 
 <span id="example-requests-GETapi--account--ranking-getSeasonUserClassificationPerPoints">
 <blockquote>Example request:</blockquote>
@@ -21025,7 +24462,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"game\": \"consequatur\"
+    \"game\": \"\\\"NameOfGame\\\"\"
 }"
 </code></pre></div>
 
@@ -21041,7 +24478,7 @@ const headers = {
 };
 
 let body = {
-    "game": "consequatur"
+    "game": "\"NameOfGame\""
 };
 
 fetch(url, {
@@ -21158,10 +24595,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="game"                data-endpoint="GETapi--account--ranking-getSeasonUserClassificationPerPoints"
-               value="consequatur"
+               value=""NameOfGame""
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The name of the game to get classification for. Example: <code>"NameOfGame"</code></p>
         </div>
         </form>
 
@@ -21169,14 +24606,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing season rewards</p>
 
-                                <h2 id="season-rewards-management-GETapi--account--manager-season-reward">Display a listing of the resource.</h2>
+                                <h2 id="season-rewards-management-GETapi--account--manager-season-reward">Display a listing of season rewards.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all season rewards.</p>
 
 <span id="example-requests-GETapi--account--manager-season-reward">
 <blockquote>Example request:</blockquote>
@@ -21186,7 +24621,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"5\\\"\",
+    \"sorting\": \"\\\"level:asc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -21199,9 +24642,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"5\"",
+    "sorting": "\"level:asc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -21305,16 +24757,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-season-reward"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-season-reward"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-season-reward"
+               value=""5""
+               data-component="body">
+    <br>
+<p>Filter rewards by level. Example: <code>"5"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-season-reward"
+               value=""level:asc""
+               data-component="body">
+    <br>
+<p>Sort rewards by column and direction (column:direction). Example: <code>"level:asc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-season-reward"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter rewards by season ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-rewards-management-POSTapi--account--manager-season-reward">Store a newly created resource in storage.</h2>
+                    <h2 id="season-rewards-management-POSTapi--account--manager-season-reward">Store a newly created season reward.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new season reward with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-season-reward">
 <blockquote>Example request:</blockquote>
@@ -21324,7 +24830,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"level\": 5,
+    \"required_points\": 500,
+    \"oro\": 50,
+    \"plumas\": 100,
+    \"nft_id\": 1,
+    \"max_nft_rewards\": 100,
+    \"custom_reward\": \"\\\"Special avatar frame\\\"\",
+    \"season_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -21337,9 +24854,21 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "level": 5,
+    "required_points": 500,
+    "oro": 50,
+    "plumas": 100,
+    "nft_id": 1,
+    "max_nft_rewards": 100,
+    "custom_reward": "\"Special avatar frame\"",
+    "season_id": 1
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -21427,16 +24956,103 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>level</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="level"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="5"
+               data-component="body">
+    <br>
+<p>The level at which this reward is unlocked. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>required_points</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="required_points"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="500"
+               data-component="body">
+    <br>
+<p>The points required to reach this level. Example: <code>500</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="50"
+               data-component="body">
+    <br>
+<p>The amount of oro (gold) awarded. Example: <code>50</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="100"
+               data-component="body">
+    <br>
+<p>The amount of plumas (feathers) awarded. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the NFT awarded. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_nft_rewards</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_nft_rewards"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="100"
+               data-component="body">
+    <br>
+<p>The maximum number of NFT rewards available. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>custom_reward</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="custom_reward"                data-endpoint="POSTapi--account--manager-season-reward"
+               value=""Special avatar frame""
+               data-component="body">
+    <br>
+<p>Any custom reward description. Example: <code>"Special avatar frame"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>season_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="season_id"                data-endpoint="POSTapi--account--manager-season-reward"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the season this reward belongs to. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward--id-">Display the specified resource.</h2>
+                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward--id-">Display the specified season reward.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific season reward by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-season-reward--id-">
 <blockquote>Example request:</blockquote>
@@ -21578,14 +25194,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-rewards-management-PUTapi--account--manager-season-reward--id-">Update the specified resource in storage.</h2>
+                    <h2 id="season-rewards-management-PUTapi--account--manager-season-reward--id-">Update the specified season reward.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing season reward with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-season-reward--id-">
 <blockquote>Example request:</blockquote>
@@ -21595,7 +25209,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"level\": 5,
+    \"required_points\": 500,
+    \"oro\": 50,
+    \"plumas\": 100,
+    \"nft_id\": 1,
+    \"max_nft_rewards\": 100,
+    \"custom_reward\": \"\\\"Special avatar frame\\\"\",
+    \"season_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -21608,9 +25233,21 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "level": 5,
+    "required_points": 500,
+    "oro": 50,
+    "plumas": 100,
+    "nft_id": 1,
+    "max_nft_rewards": 100,
+    "custom_reward": "\"Special avatar frame\"",
+    "season_id": 1
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -21713,16 +25350,103 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the season reward. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>level</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="level"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="5"
+               data-component="body">
+    <br>
+<p>The level at which this reward is unlocked. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>required_points</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="required_points"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="500"
+               data-component="body">
+    <br>
+<p>The points required to reach this level. Example: <code>500</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>oro</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="oro"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="50"
+               data-component="body">
+    <br>
+<p>The amount of oro (gold) awarded. Example: <code>50</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>plumas</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="plumas"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The amount of plumas (feathers) awarded. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the NFT awarded. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_nft_rewards</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_nft_rewards"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The maximum number of NFT rewards available. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>custom_reward</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="custom_reward"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value=""Special avatar frame""
+               data-component="body">
+    <br>
+<p>Any custom reward description. Example: <code>"Special avatar frame"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>season_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="season_id"                data-endpoint="PUTapi--account--manager-season-reward--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the season this reward belongs to. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-rewards-management-DELETEapi--account--manager-season-reward--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="season-rewards-management-DELETEapi--account--manager-season-reward--id-">Remove the specified season reward.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a season reward by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-season-reward--id-">
 <blockquote>Example request:</blockquote>
@@ -21848,14 +25572,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-rewards-management-DELETEapi--account--manager-season-reward">Remove the specified resource from storage.</h2>
+                    <h2 id="season-rewards-management-DELETEapi--account--manager-season-reward">Remove the specified season reward.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a season reward by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-season-reward">
 <blockquote>Example request:</blockquote>
@@ -21970,14 +25692,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward-download">Download season rewards as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the season reward data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-season-reward-download">
 <blockquote>Example request:</blockquote>
@@ -21985,9 +25705,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"5\\\"\",
+    \"sorting\": \"\\\"level:asc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -21995,20 +25724,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"5\"",
+    "sorting": "\"level:asc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -22112,28 +25845,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-season-reward-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-season-reward-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-season-reward-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-season-reward-download"
+               value=""5""
+               data-component="body">
+    <br>
+<p>Filter rewards by level. Example: <code>"5"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-season-reward-download"
+               value=""level:asc""
+               data-component="body">
+    <br>
+<p>Sort rewards by column and direction (column:direction). Example: <code>"level:asc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-season-reward-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter rewards by season ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward-fields">List the fields of the domain model</h2>
+                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward-fields">List the fields of the season reward model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the season reward model.</p>
 
 <span id="example-requests-GETapi--account--manager-season-reward-fields">
 <blockquote>Example request:</blockquote>
@@ -22264,14 +26050,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-rewards-management-POSTapi--account--manager-season-reward-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="season-rewards-management-POSTapi--account--manager-season-reward-upload">Upload a CSV file for bulk season reward processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple season rewards at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-season-reward-upload">
 <blockquote>Example request:</blockquote>
@@ -22280,8 +26064,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season-reward-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpC217.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -22290,13 +26076,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -22321,7 +26112,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-season-reward-upload" data-method="POST"
       data-path="api/{account}/manager/season-reward-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-season-reward-upload', this);">
@@ -22356,10 +26147,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-season-reward-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -22384,16 +26175,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-season-reward-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpC217.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-season-reward-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-season-reward-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to season reward fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward-upload">Get the status of a bulk upload</h2>
+                    <h2 id="season-rewards-management-GETapi--account--manager-season-reward-upload">Get the status of a bulk season reward upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-season-reward-upload">
 <blockquote>Example request:</blockquote>
@@ -22524,14 +26338,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-rewards-management-DELETEapi--account--manager-season-reward-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="season-rewards-management-DELETEapi--account--manager-season-reward-upload--id-">Delete a bulk season reward upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-season-reward-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -22661,14 +26473,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing seasons</p>
 
-                                <h2 id="season-management-GETapi--account--manager-season">Display a listing of the resource.</h2>
+                                <h2 id="season-management-GETapi--account--manager-season">Display a listing of seasons.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all seasons.</p>
 
 <span id="example-requests-GETapi--account--manager-season">
 <blockquote>Example request:</blockquote>
@@ -22678,7 +26488,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/season" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Summer Season\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -22691,9 +26509,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Summer Season\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -22797,16 +26624,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-season"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-season"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-season"
+               value=""Summer Season""
+               data-component="body">
+    <br>
+<p>Filter seasons by name. Example: <code>"Summer Season"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-season"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort seasons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-season"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter seasons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-management-POSTapi--account--manager-season">Store a newly created resource in storage.</h2>
+                    <h2 id="season-management-POSTapi--account--manager-season">Store a newly created season.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new season with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-season">
 <blockquote>Example request:</blockquote>
@@ -22816,7 +26697,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Summer Season 2023\\\"\",
+    \"max_level\": 100,
+    \"max_points\": 10000,
+    \"start_date\": \"\\\"2023-06-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-08-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -22829,9 +26718,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Summer Season 2023\"",
+    "max_level": 100,
+    "max_points": 10000,
+    "start_date": "\"2023-06-01 00:00:00\"",
+    "end_date": "\"2023-08-31 23:59:59\""
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -22919,16 +26817,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi--account--manager-season"
+               value=""Summer Season 2023""
+               data-component="body">
+    <br>
+<p>The name of the season. Example: <code>"Summer Season 2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_level</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_level"                data-endpoint="POSTapi--account--manager-season"
+               value="100"
+               data-component="body">
+    <br>
+<p>The maximum level achievable in this season. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_points</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_points"                data-endpoint="POSTapi--account--manager-season"
+               value="10000"
+               data-component="body">
+    <br>
+<p>The maximum points achievable in this season. Example: <code>10000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="POSTapi--account--manager-season"
+               value=""2023-06-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the season. Example: <code>"2023-06-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="POSTapi--account--manager-season"
+               value=""2023-08-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the season. Example: <code>"2023-08-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-management-GETapi--account--manager-season--id-">Display the specified resource.</h2>
+                    <h2 id="season-management-GETapi--account--manager-season--id-">Display the specified season.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific season by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-season--id-">
 <blockquote>Example request:</blockquote>
@@ -23070,14 +27022,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-PUTapi--account--manager-season--id-">Update the specified resource in storage.</h2>
+                    <h2 id="season-management-PUTapi--account--manager-season--id-">Update the specified season.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing season with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-season--id-">
 <blockquote>Example request:</blockquote>
@@ -23087,7 +27037,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Updated Summer Season 2023\\\"\",
+    \"max_level\": 100,
+    \"max_points\": 10000,
+    \"start_date\": \"\\\"2023-06-01 00:00:00\\\"\",
+    \"end_date\": \"\\\"2023-08-31 23:59:59\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -23100,9 +27058,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Updated Summer Season 2023\"",
+    "max_level": 100,
+    "max_points": 10000,
+    "start_date": "\"2023-06-01 00:00:00\"",
+    "end_date": "\"2023-08-31 23:59:59\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -23205,16 +27172,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the season. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi--account--manager-season--id-"
+               value=""Updated Summer Season 2023""
+               data-component="body">
+    <br>
+<p>The name of the season. Example: <code>"Updated Summer Season 2023"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_level</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_level"                data-endpoint="PUTapi--account--manager-season--id-"
+               value="100"
+               data-component="body">
+    <br>
+<p>The maximum level achievable in this season. Example: <code>100</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>max_points</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="max_points"                data-endpoint="PUTapi--account--manager-season--id-"
+               value="10000"
+               data-component="body">
+    <br>
+<p>The maximum points achievable in this season. Example: <code>10000</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>start_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="start_date"                data-endpoint="PUTapi--account--manager-season--id-"
+               value=""2023-06-01 00:00:00""
+               data-component="body">
+    <br>
+<p>The start date and time of the season. Example: <code>"2023-06-01 00:00:00"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
+<small>datetime</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="end_date"                data-endpoint="PUTapi--account--manager-season--id-"
+               value=""2023-08-31 23:59:59""
+               data-component="body">
+    <br>
+<p>The end date and time of the season. Example: <code>"2023-08-31 23:59:59"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-management-DELETEapi--account--manager-season--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="season-management-DELETEapi--account--manager-season--id-">Remove the specified season.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a season by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-season--id-">
 <blockquote>Example request:</blockquote>
@@ -23340,14 +27361,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-DELETEapi--account--manager-season">Remove the specified resource from storage.</h2>
+                    <h2 id="season-management-DELETEapi--account--manager-season">Remove the specified season.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete a season by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-season">
 <blockquote>Example request:</blockquote>
@@ -23462,14 +27481,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-GETapi--account--manager-season-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="season-management-GETapi--account--manager-season-download">Download seasons as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the season data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-season-download">
 <blockquote>Example request:</blockquote>
@@ -23477,9 +27494,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/season-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/season-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Summer Season\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -23487,20 +27513,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Summer Season\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -23604,28 +27634,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-season-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-season-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-season-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-season-download"
+               value=""Summer Season""
+               data-component="body">
+    <br>
+<p>Filter seasons by name. Example: <code>"Summer Season"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-season-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort seasons by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-season-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter seasons by parent ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="season-management-GETapi--account--manager-season-fields">List the fields of the domain model</h2>
+                    <h2 id="season-management-GETapi--account--manager-season-fields">List the fields of the season model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the season model.</p>
 
 <span id="example-requests-GETapi--account--manager-season-fields">
 <blockquote>Example request:</blockquote>
@@ -23756,14 +27839,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-POSTapi--account--manager-season-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="season-management-POSTapi--account--manager-season-upload">Upload a CSV file for bulk season processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple seasons at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-season-upload">
 <blockquote>Example request:</blockquote>
@@ -23772,8 +27853,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/season-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpC15A.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -23782,13 +27865,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -23813,7 +27901,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-season-upload" data-method="POST"
       data-path="api/{account}/manager/season-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-season-upload', this);">
@@ -23848,10 +27936,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-season-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -23876,16 +27964,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-season-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpC15A.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-season-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-season-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to season fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="season-management-GETapi--account--manager-season-upload">Get the status of a bulk upload</h2>
+                    <h2 id="season-management-GETapi--account--manager-season-upload">Get the status of a bulk season upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-season-upload">
 <blockquote>Example request:</blockquote>
@@ -24016,14 +28127,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-DELETEapi--account--manager-season-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="season-management-DELETEapi--account--manager-season-upload--id-">Delete a bulk season upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-season-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -24149,12 +28258,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-GETapi--account--season-seasonDetails">GET api/{account}/season/seasonDetails</h2>
+                    <h2 id="season-management-GETapi--account--season-seasonDetails">Get details of the current active season.</h2>
 
 <p>
 </p>
 
-
+<p>Retrieve detailed information about the currently active season, including rewards and user progress.</p>
 
 <span id="example-requests-GETapi--account--season-seasonDetails">
 <blockquote>Example request:</blockquote>
@@ -24285,12 +28394,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="season-management-POSTapi--account--season-redeemSeasonLvl">POST api/{account}/season/redeemSeasonLvl</h2>
+                    <h2 id="season-management-POSTapi--account--season-redeemSeasonLvl">Redeem a season level reward.</h2>
 
 <p>
 </p>
 
-
+<p>Claim the reward for a specific level in the current season.</p>
 
 <span id="example-requests-POSTapi--account--season-redeemSeasonLvl">
 <blockquote>Example request:</blockquote>
@@ -24302,7 +28411,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"level\": \"consequatur\"
+    \"level\": 5
 }"
 </code></pre></div>
 
@@ -24318,7 +28427,7 @@ const headers = {
 };
 
 let body = {
-    "level": "consequatur"
+    "level": 5
 };
 
 fetch(url, {
@@ -24415,14 +28524,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>level</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="level"                data-endpoint="POSTapi--account--season-redeemSeasonLvl"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="level"                data-endpoint="POSTapi--account--season-redeemSeasonLvl"
+               value="5"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The level to redeem the reward for. Example: <code>5</code></p>
         </div>
         </form>
 
@@ -24478,7 +28587,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 46
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -24690,16 +28799,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="subitems-management">Subitems management</h1>
 
-    <p>APIs for managing subitems</p>
+    <p>APIs for managing SubItem (specific instances of Items)</p>
 
-                                <h2 id="subitems-management-GETapi--account--manager-nft-identification">Display a listing of the resource.</h2>
+                                <h2 id="subitems-management-GETapi--account--manager-nft-identification">Display a listing of SubItem.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all SubItem.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-identification">
 <blockquote>Example request:</blockquote>
@@ -24709,7 +28816,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Phoenix\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -24722,9 +28837,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Phoenix\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -24828,16 +28952,70 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-nft-identification"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-nft-identification"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-nft-identification"
+               value=""Phoenix""
+               data-component="body">
+    <br>
+<p>Filter items by name. Example: <code>"Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-nft-identification"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort items by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-nft-identification"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter items by parent Item ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="subitems-management-POSTapi--account--manager-nft-identification">Store a newly created resource in storage.</h2>
+                    <h2 id="subitems-management-POSTapi--account--manager-nft-identification">Store a newly created SubItem.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Create a new SubItem with the provided data.</p>
 
 <span id="example-requests-POSTapi--account--manager-nft-identification">
 <blockquote>Example request:</blockquote>
@@ -24847,7 +29025,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Phoenix #123\\\"\",
+    \"description\": \"\\\"A unique phoenix with special attributes\\\"\",
+    \"image\": \"\\\"https:\\/\\/example.com\\/nft123.jpg\\\"\",
+    \"nft_identification\": 123,
+    \"nft_id\": 1,
+    \"rarity\": \"\\\"Legendary\\\"\",
+    \"tag_1\": \"\\\"Fire\\\"\",
+    \"tag_2\": \"\\\"Mythical\\\"\",
+    \"tag_3\": \"\\\"Limited\\\"\",
+    \"madfenix_ownership\": true,
+    \"user_id\": 42,
+    \"user_id_hedera\": 42
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -24860,9 +29053,25 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Phoenix #123\"",
+    "description": "\"A unique phoenix with special attributes\"",
+    "image": "\"https:\/\/example.com\/nft123.jpg\"",
+    "nft_identification": 123,
+    "nft_id": 1,
+    "rarity": "\"Legendary\"",
+    "tag_1": "\"Fire\"",
+    "tag_2": "\"Mythical\"",
+    "tag_3": "\"Limited\"",
+    "madfenix_ownership": true,
+    "user_id": 42,
+    "user_id_hedera": 42
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -24950,16 +29159,157 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""Phoenix #123""
+               data-component="body">
+    <br>
+<p>The name of the SubItem. Example: <code>"Phoenix #123"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""A unique phoenix with special attributes""
+               data-component="body">
+    <br>
+<p>The description of the SubItem. Example: <code>"A unique phoenix with special attributes"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="image"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""https://example.com/nft123.jpg""
+               data-component="body">
+    <br>
+<p>The image URL of the SubItem. Example: <code>"https://example.com/nft123.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_identification</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_identification"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value="123"
+               data-component="body">
+    <br>
+<p>The unique identification number. Example: <code>123</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the parent Item. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rarity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rarity"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""Legendary""
+               data-component="body">
+    <br>
+<p>The rarity level of the Item. Example: <code>"Legendary"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_1"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""Fire""
+               data-component="body">
+    <br>
+<p>The first tag for the Item. Example: <code>"Fire"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_2"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""Mythical""
+               data-component="body">
+    <br>
+<p>The second tag for the Item. Example: <code>"Mythical"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_3"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value=""Limited""
+               data-component="body">
+    <br>
+<p>The third tag for the Item. Example: <code>"Limited"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>madfenix_ownership</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="POSTapi--account--manager-nft-identification" style="display: none">
+            <input type="radio" name="madfenix_ownership"
+                   value="true"
+                   data-endpoint="POSTapi--account--manager-nft-identification"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi--account--manager-nft-identification" style="display: none">
+            <input type="radio" name="madfenix_ownership"
+                   value="false"
+                   data-endpoint="POSTapi--account--manager-nft-identification"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether the Item is owned by MadFenix. Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value="42"
+               data-component="body">
+    <br>
+<p>The ID of the user who owns this Item. Example: <code>42</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id_hedera</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id_hedera"                data-endpoint="POSTapi--account--manager-nft-identification"
+               value="42"
+               data-component="body">
+    <br>
+<p>The ID of the user who owns this Item on Hedera. Example: <code>42</code></p>
+        </div>
+        </form>
 
-                    <h2 id="subitems-management-GETapi--account--manager-nft-identification--id-">Display the specified resource.</h2>
+                    <h2 id="subitems-management-GETapi--account--manager-nft-identification--id-">Display the specified SubItem.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific SubItem by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-identification--id-">
 <blockquote>Example request:</blockquote>
@@ -25101,14 +29451,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="subitems-management-PUTapi--account--manager-nft-identification--id-">Update the specified resource in storage.</h2>
+                    <h2 id="subitems-management-PUTapi--account--manager-nft-identification--id-">Update the specified SubItem.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing SubItem with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-nft-identification--id-">
 <blockquote>Example request:</blockquote>
@@ -25118,7 +29466,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"Phoenix #123\\\"\",
+    \"description\": \"\\\"A unique phoenix with special attributes\\\"\",
+    \"image\": \"\\\"https:\\/\\/example.com\\/nft123.jpg\\\"\",
+    \"nft_identification\": 123,
+    \"nft_id\": 1,
+    \"rarity\": \"\\\"Legendary\\\"\",
+    \"tag_1\": \"\\\"Fire\\\"\",
+    \"tag_2\": \"\\\"Mythical\\\"\",
+    \"tag_3\": \"\\\"Limited\\\"\",
+    \"madfenix_ownership\": true,
+    \"user_id\": 42,
+    \"user_id_hedera\": 42
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -25131,9 +29494,25 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"Phoenix #123\"",
+    "description": "\"A unique phoenix with special attributes\"",
+    "image": "\"https:\/\/example.com\/nft123.jpg\"",
+    "nft_identification": 123,
+    "nft_id": 1,
+    "rarity": "\"Legendary\"",
+    "tag_1": "\"Fire\"",
+    "tag_2": "\"Mythical\"",
+    "tag_3": "\"Limited\"",
+    "madfenix_ownership": true,
+    "user_id": 42,
+    "user_id_hedera": 42
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -25236,16 +29615,157 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the nft identification. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""Phoenix #123""
+               data-component="body">
+    <br>
+<p>The name of the SubItem. Example: <code>"Phoenix #123"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""A unique phoenix with special attributes""
+               data-component="body">
+    <br>
+<p>The description of the SubItem. Example: <code>"A unique phoenix with special attributes"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="image"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""https://example.com/nft123.jpg""
+               data-component="body">
+    <br>
+<p>The image URL of the SubItem. Example: <code>"https://example.com/nft123.jpg"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_identification</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_identification"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value="123"
+               data-component="body">
+    <br>
+<p>The unique identification number. Example: <code>123</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nft_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="nft_id"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value="1"
+               data-component="body">
+    <br>
+<p>The ID of the parent Item. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rarity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rarity"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""Legendary""
+               data-component="body">
+    <br>
+<p>The rarity level of the Item. Example: <code>"Legendary"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_1"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""Fire""
+               data-component="body">
+    <br>
+<p>The first tag for the Item. Example: <code>"Fire"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_2"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""Mythical""
+               data-component="body">
+    <br>
+<p>The second tag for the Item. Example: <code>"Mythical"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tag_3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tag_3"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value=""Limited""
+               data-component="body">
+    <br>
+<p>The third tag for the Item. Example: <code>"Limited"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>madfenix_ownership</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="PUTapi--account--manager-nft-identification--id-" style="display: none">
+            <input type="radio" name="madfenix_ownership"
+                   value="true"
+                   data-endpoint="PUTapi--account--manager-nft-identification--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi--account--manager-nft-identification--id-" style="display: none">
+            <input type="radio" name="madfenix_ownership"
+                   value="false"
+                   data-endpoint="PUTapi--account--manager-nft-identification--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether the Item is owned by MadFenix. Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value="42"
+               data-component="body">
+    <br>
+<p>The ID of the user who owns this Item. Example: <code>42</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id_hedera</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id_hedera"                data-endpoint="PUTapi--account--manager-nft-identification--id-"
+               value="42"
+               data-component="body">
+    <br>
+<p>The ID of the user who owns this Item on Hedera. Example: <code>42</code></p>
+        </div>
+        </form>
 
-                    <h2 id="subitems-management-DELETEapi--account--manager-nft-identification--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="subitems-management-DELETEapi--account--manager-nft-identification--id-">Remove the specified SubItem.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an SubItem by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-nft-identification--id-">
 <blockquote>Example request:</blockquote>
@@ -25371,14 +29891,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="subitems-management-DELETEapi--account--manager-nft-identification">Remove the specified resource from storage.</h2>
+                    <h2 id="subitems-management-DELETEapi--account--manager-nft-identification">Remove the specified SubItem.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Delete an SubItem by ID.</p>
 
 <span id="example-requests-DELETEapi--account--manager-nft-identification">
 <blockquote>Example request:</blockquote>
@@ -25493,14 +30011,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="subitems-management-GETapi--account--manager-nft-identification-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="subitems-management-GETapi--account--manager-nft-identification-download">Download SubItem as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the SubItem data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-identification-download">
 <blockquote>Example request:</blockquote>
@@ -25508,9 +30024,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"Phoenix\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\",
+    \"parent_id\": 1
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -25518,20 +30043,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"Phoenix\"",
+    "sorting": "\"created_at:desc\"",
+    "parent_id": 1
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -25635,28 +30164,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-nft-identification-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-nft-identification-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-nft-identification-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-nft-identification-download"
+               value=""Phoenix""
+               data-component="body">
+    <br>
+<p>Filter items by name. Example: <code>"Phoenix"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-nft-identification-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort items by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>parent_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="parent_id"                data-endpoint="GETapi--account--manager-nft-identification-download"
+               value="1"
+               data-component="body">
+    <br>
+<p>Filter items by parent Item ID. Example: <code>1</code></p>
+        </div>
+        </form>
 
-                    <h2 id="subitems-management-GETapi--account--manager-nft-identification-fields">List the fields of the domain model</h2>
+                    <h2 id="subitems-management-GETapi--account--manager-nft-identification-fields">List the fields of the SubItem model.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get the structure and field types of the SubItem model.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-identification-fields">
 <blockquote>Example request:</blockquote>
@@ -25787,14 +30369,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="subitems-management-POSTapi--account--manager-nft-identification-upload">Upload a CSV file for bulk processing</h2>
+                    <h2 id="subitems-management-POSTapi--account--manager-nft-identification-upload">Upload a CSV file for bulk SubItem processing.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Upload a CSV file to create multiple SubItem at once.</p>
 
 <span id="example-requests-POSTapi--account--manager-nft-identification-upload">
 <blockquote>Example request:</blockquote>
@@ -25803,8 +30383,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/nft-identification-upload" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "header_mapping[]=consequatur"\
+    --form "file=@C:\Users\valen\AppData\Local\Temp\phpC08D.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -25813,13 +30395,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
+
+const body = new FormData();
+body.append('header_mapping[]', 'consequatur');
+body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -25844,7 +30431,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi--account--manager-nft-identification-upload" data-method="POST"
       data-path="api/{account}/manager/nft-identification-upload"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi--account--manager-nft-identification-upload', this);">
@@ -25879,10 +30466,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi--account--manager-nft-identification-upload"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -25907,16 +30494,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="file"                data-endpoint="POSTapi--account--manager-nft-identification-upload"
+               value=""
+               data-component="body">
+    <br>
+<p>The CSV file to upload (max 1MB). Must be a CSV file. Example: <code>C:\Users\valen\AppData\Local\Temp\phpC08D.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>header_mapping</code></b>&nbsp;&nbsp;
+<small>string[]</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="header_mapping[0]"                data-endpoint="POSTapi--account--manager-nft-identification-upload"
+               data-component="body">
+        <input type="text" style="display: none"
+               name="header_mapping[1]"                data-endpoint="POSTapi--account--manager-nft-identification-upload"
+               data-component="body">
+    <br>
+<p>Array of headers mapping to SubItem fields.</p>
+        </div>
+        </form>
 
-                    <h2 id="subitems-management-GETapi--account--manager-nft-identification-upload">Get the status of a bulk upload</h2>
+                    <h2 id="subitems-management-GETapi--account--manager-nft-identification-upload">Get the status of a bulk SubItem upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Check the progress of a previously submitted bulk upload.</p>
 
 <span id="example-requests-GETapi--account--manager-nft-identification-upload">
 <blockquote>Example request:</blockquote>
@@ -26047,14 +30657,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="subitems-management-DELETEapi--account--manager-nft-identification-upload--id-">Delete a bulk upload</h2>
+                    <h2 id="subitems-management-DELETEapi--account--manager-nft-identification-upload--id-">Delete a bulk SubItem upload.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Remove a pending or processing bulk upload.</p>
 
 <span id="example-requests-DELETEapi--account--manager-nft-identification-upload--id-">
 <blockquote>Example request:</blockquote>
@@ -26245,7 +30853,7 @@ content-type: application/json
 cross-origin-opener-policy: same-origin
 cross-origin-embedder-policy: require-corp
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 47
 vary: Origin
  </code></pre></details>         <pre>
 
@@ -28499,14 +33107,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing users by admins</p>
 
-                                <h2 id="user-management-admin-GETapi--account--manager-user">Display a listing of the resource.</h2>
+                                <h2 id="user-management-admin-GETapi--account--manager-user">Display a listing of users.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get a paginated list of all users.</p>
 
 <span id="example-requests-GETapi--account--manager-user">
 <blockquote>Example request:</blockquote>
@@ -28516,7 +33122,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request GET \
     --get "https://api-weafinity.madfenix.com/api/consequatur/manager/user" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"john\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -28529,9 +33142,17 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "page": 0,
+    "limit": 10,
+    "filter": "\"john\"",
+    "sorting": "\"created_at:desc\""
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -28635,16 +33256,59 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-user"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-user"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-user"
+               value=""john""
+               data-component="body">
+    <br>
+<p>Filter users by name or email. Example: <code>"john"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-user"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort users by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="user-management-admin-GETapi--account--manager-user--id-">Display the specified resource.</h2>
+                    <h2 id="user-management-admin-GETapi--account--manager-user--id-">Display the specified user.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Get details of a specific user by ID.</p>
 
 <span id="example-requests-GETapi--account--manager-user--id-">
 <blockquote>Example request:</blockquote>
@@ -28786,14 +33450,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="user-management-admin-PUTapi--account--manager-user--id-">Update the specified resource in storage.</h2>
+                    <h2 id="user-management-admin-PUTapi--account--manager-user--id-">Update the specified user.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Update an existing user with the provided data.</p>
 
 <span id="example-requests-PUTapi--account--manager-user--id-">
 <blockquote>Example request:</blockquote>
@@ -28803,7 +33465,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "https://api-weafinity.madfenix.com/api/consequatur/manager/user/consequatur" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"\\\"John Doe\\\"\",
+    \"email\": \"\\\"john@example.com\\\"\",
+    \"newsletter\": true,
+    \"eth_wallet\": \"\\\"0x1234567890abcdef\\\"\",
+    \"ip\": \"\\\"192.168.1.1\\\"\",
+    \"two_factor_pre_enabled\": false,
+    \"two_factor_enabled\": false,
+    \"two_factor_secret\": \"\\\"ABCDEFGHIJKLMNOP\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -28816,9 +33489,21 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "name": "\"John Doe\"",
+    "email": "\"john@example.com\"",
+    "newsletter": true,
+    "eth_wallet": "\"0x1234567890abcdef\"",
+    "ip": "\"192.168.1.1\"",
+    "two_factor_pre_enabled": false,
+    "two_factor_enabled": false,
+    "two_factor_secret": "\"ABCDEFGHIJKLMNOP\""
+};
+
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -28921,16 +33606,133 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the user. Example: <code>consequatur</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PUTapi--account--manager-user--id-"
+               value=""John Doe""
+               data-component="body">
+    <br>
+<p>The name of the user. Example: <code>"John Doe"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="PUTapi--account--manager-user--id-"
+               value=""john@example.com""
+               data-component="body">
+    <br>
+<p>The email address of the user. Example: <code>"john@example.com"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>newsletter</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="PUTapi--account--manager-user--id-" style="display: none">
+            <input type="radio" name="newsletter"
+                   value="true"
+                   data-endpoint="PUTapi--account--manager-user--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi--account--manager-user--id-" style="display: none">
+            <input type="radio" name="newsletter"
+                   value="false"
+                   data-endpoint="PUTapi--account--manager-user--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether the user wants to receive the newsletter. Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>eth_wallet</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="eth_wallet"                data-endpoint="PUTapi--account--manager-user--id-"
+               value=""0x1234567890abcdef""
+               data-component="body">
+    <br>
+<p>The Ethereum wallet address of the user. Example: <code>"0x1234567890abcdef"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ip</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="ip"                data-endpoint="PUTapi--account--manager-user--id-"
+               value=""192.168.1.1""
+               data-component="body">
+    <br>
+<p>The IP address of the user. Example: <code>"192.168.1.1"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>two_factor_pre_enabled</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="PUTapi--account--manager-user--id-" style="display: none">
+            <input type="radio" name="two_factor_pre_enabled"
+                   value="true"
+                   data-endpoint="PUTapi--account--manager-user--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi--account--manager-user--id-" style="display: none">
+            <input type="radio" name="two_factor_pre_enabled"
+                   value="false"
+                   data-endpoint="PUTapi--account--manager-user--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether two-factor authentication is pre-enabled. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>two_factor_enabled</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="PUTapi--account--manager-user--id-" style="display: none">
+            <input type="radio" name="two_factor_enabled"
+                   value="true"
+                   data-endpoint="PUTapi--account--manager-user--id-"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi--account--manager-user--id-" style="display: none">
+            <input type="radio" name="two_factor_enabled"
+                   value="false"
+                   data-endpoint="PUTapi--account--manager-user--id-"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Whether two-factor authentication is enabled. Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>two_factor_secret</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="two_factor_secret"                data-endpoint="PUTapi--account--manager-user--id-"
+               value=""ABCDEFGHIJKLMNOP""
+               data-component="body">
+    <br>
+<p>The two-factor authentication secret. Example: <code>"ABCDEFGHIJKLMNOP"</code></p>
+        </div>
+        </form>
 
-                    <h2 id="user-management-admin-GETapi--account--manager-user-download">Display a listing of the resource in csv or json.</h2>
+                    <h2 id="user-management-admin-GETapi--account--manager-user-download">Download users as CSV or JSON.</h2>
 
 <p>
 </p>
 
-<ul>
-<li>Requires manager role</li>
-</ul>
+<p>Export the user data in CSV or JSON format.</p>
 
 <span id="example-requests-GETapi--account--manager-user-download">
 <blockquote>Example request:</blockquote>
@@ -28938,9 +33740,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/user-download?type=json" \
+    --get "https://api-weafinity.madfenix.com/api/consequatur/manager/user-download" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"type\": \"\\\"csv\\\"\",
+    \"page\": 0,
+    \"limit\": 10,
+    \"filter\": \"\\\"john\\\"\",
+    \"sorting\": \"\\\"created_at:desc\\\"\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -28948,20 +33758,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "https://api-weafinity.madfenix.com/api/consequatur/manager/user-download"
 );
 
-const params = {
-    "type": "json",
-};
-Object.keys(params)
-    .forEach(key =&gt; url.searchParams.append(key, params[key]));
-
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
+let body = {
+    "type": "\"csv\"",
+    "page": 0,
+    "limit": 10,
+    "filter": "\"john\"",
+    "sorting": "\"created_at:desc\""
+};
+
 fetch(url, {
     method: "GET",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -29065,19 +33878,63 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
-                        <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="GETapi--account--manager-user-download"
-               value="json"
-               data-component="query">
+               value=""csv""
+               data-component="body">
     <br>
-<p>File type (csv or json). Example: <code>json</code></p>
-            </div>
-                </form>
+<p>The file format to download (csv or json). Example: <code>"csv"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="page"                data-endpoint="GETapi--account--manager-user-download"
+               value="0"
+               data-component="body">
+    <br>
+<p>The page number for pagination. Example: <code>0</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi--account--manager-user-download"
+               value="10"
+               data-component="body">
+    <br>
+<p>The number of items per page (1-100). Example: <code>10</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>filter</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter"                data-endpoint="GETapi--account--manager-user-download"
+               value=""john""
+               data-component="body">
+    <br>
+<p>Filter users by name or email. Example: <code>"john"</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sorting</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sorting"                data-endpoint="GETapi--account--manager-user-download"
+               value=""created_at:desc""
+               data-component="body">
+    <br>
+<p>Sort users by column and direction (column:direction). Example: <code>"created_at:desc"</code></p>
+        </div>
+        </form>
 
             
 

@@ -14,8 +14,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of event metas.'
+      description: 'Get a paginated list of all event metas.'
       authenticated: false
       custom: []
     headers:
@@ -36,8 +36,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter event metas by description.'
+        required: false
+        example: '"Important"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort event metas by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter event metas by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"Important"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -66,8 +121,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created event meta.'
+      description: 'Create a new event meta with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -88,8 +143,74 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      creator_id:
+        name: creator_id
+        description: 'The ID of the user creating the event meta.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The short description of the event meta (4-255 chars).'
+        required: true
+        example: '"New event meta"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      details:
+        name: details
+        description: 'The detailed description of the event meta (8-2000 chars).'
+        required: true
+        example: '"This is a detailed description of the event meta with all relevant information."'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      product_gift_id:
+        name: product_gift_id
+        description: 'The ID of the product gift.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_at:
+        name: start_at
+        description: 'The start date and time of the event meta.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_at:
+        name: end_at
+        description: 'The end date and time of the event meta.'
+        required: true
+        example: '"2023-01-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      creator_id: 1
+      description: '"New event meta"'
+      details: '"This is a detailed description of the event meta with all relevant information."'
+      product_gift_id: 10
+      start_at: '"2023-01-01 00:00:00"'
+      end_at: '"2023-01-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -109,8 +230,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified event meta.'
+      description: 'Get details of a specific event meta by ID.'
       authenticated: false
       custom: []
     headers:
@@ -173,8 +294,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified event meta.'
+      description: 'Update an existing event meta with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -206,8 +327,74 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      creator_id:
+        name: creator_id
+        description: 'The ID of the user creating the event meta.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: 'The short description of the event meta (4-255 chars).'
+        required: true
+        example: '"Updated event meta"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      details:
+        name: details
+        description: 'The detailed description of the event meta (8-2000 chars).'
+        required: true
+        example: '"This is an updated detailed description of the event meta with all relevant information."'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      product_gift_id:
+        name: product_gift_id
+        description: 'The ID of the product gift.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_at:
+        name: start_at
+        description: 'The start date and time of the event meta.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_at:
+        name: end_at
+        description: 'The end date and time of the event meta.'
+        required: true
+        example: '"2023-01-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      creator_id: 1
+      description: '"Updated event meta"'
+      details: '"This is an updated detailed description of the event meta with all relevant information."'
+      product_gift_id: 10
+      start_at: '"2023-01-01 00:00:00"'
+      end_at: '"2023-01-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -227,8 +414,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified event meta.'
+      description: 'Delete an event meta by ID.'
       authenticated: false
       custom: []
     headers:
@@ -281,8 +468,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified event meta.'
+      description: 'Delete an event meta by ID.'
       authenticated: false
       custom: []
     headers:
@@ -324,8 +511,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download event metas as CSV or JSON.'
+      description: 'Export the event meta data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -344,21 +531,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter event metas by description.'
+        required: false
+        example: '"Important"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort event metas by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter event metas by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"Important"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -387,8 +629,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the event meta model.'
+      description: 'Get the structure and field types of the event meta model.'
       authenticated: false
       custom: []
     headers:
@@ -439,12 +681,12 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk event meta processing.'
+      description: 'Upload a CSV file to create multiple event metas at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -461,9 +703,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to event meta fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -482,8 +748,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk event meta upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -534,8 +800,8 @@ endpoints:
         APIs for managing events meta
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk event meta upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:

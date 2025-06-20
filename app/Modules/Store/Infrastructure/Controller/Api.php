@@ -25,6 +25,189 @@ use Stripe\Webhook;
  */
 class Api extends ResourceController
 {
+    /**
+     * Display a listing of products.
+     *
+     * Get a paginated list of all products.
+     *
+     * @param Request $request
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter products by name. Example: "Phoenix"
+     * @bodyParam sorting string Sort products by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter products by parent ID. Example: 1
+     * @return JsonResponse
+     */
+    public function index(Request $request)
+    {
+        return parent::index($request);
+    }
+
+    /**
+     * Store a newly created product.
+     *
+     * Create a new product with the provided data.
+     *
+     * @bodyParam name string required The name of the product. Example: "Gold Pack"
+     * @bodyParam short_description string The short description of the product. Example: "A pack of gold coins"
+     * @bodyParam description string The detailed description of the product. Example: "This pack contains 1000 gold coins"
+     * @bodyParam image string The image URL of the product. Example: "https://example.com/gold-pack.jpg"
+     * @bodyParam price_fiat string The price in fiat currency. Example: "9.99"
+     * @bodyParam price_oro integer The price in oro currency. Example: 500
+     * @bodyParam price_plumas integer The price in plumas currency. Example: 100
+     * @bodyParam active integer Whether the product is active (0 or 1). Example: 1
+     * @bodyParam product_parent_id integer The ID of the parent product. Example: 1
+     * @bodyParam oro integer The amount of oro included in the product. Example: 1000
+     * @bodyParam plumas integer The amount of plumas included in the product. Example: 200
+     * @bodyParam nft_id integer The ID of the NFT included in the product. Example: 5
+     * @bodyParam rarity string The rarity of the NFT included in the product. Example: "Legendary"
+     * @bodyParam tags string Tags for the product. Example: "gold,premium"
+     * @bodyParam nft_serial_greater_equal integer The minimum NFT serial number. Example: 1
+     * @bodyParam nft_serial_less_equal integer The maximum NFT serial number. Example: 100
+     * @bodyParam custom string Custom information for the product. Example: "Pase de temporada premium"
+     * @bodyParam one_time_purchase integer Whether the product can only be purchased once per user (0 or 1). Example: 1
+     * @bodyParam one_time_purchase_global integer Whether the product can only be purchased once globally (0 or 1). Example: 0
+     * @return JsonResponse
+     */
+    public function store()
+    {
+        return parent::store();
+    }
+
+    /**
+     * Display the specified product.
+     *
+     * Get details of a specific product by ID.
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function show($account, $id)
+    {
+        return parent::show($account, $id);
+    }
+
+    /**
+     * Update the specified product.
+     *
+     * Update an existing product with the provided data.
+     *
+     * @param string $account
+     * @param int $id
+     * @bodyParam name string required The name of the product. Example: "Gold Pack"
+     * @bodyParam short_description string The short description of the product. Example: "A pack of gold coins"
+     * @bodyParam description string The detailed description of the product. Example: "This pack contains 1000 gold coins"
+     * @bodyParam image string The image URL of the product. Example: "https://example.com/gold-pack.jpg"
+     * @bodyParam price_fiat string The price in fiat currency. Example: "9.99"
+     * @bodyParam price_oro integer The price in oro currency. Example: 500
+     * @bodyParam price_plumas integer The price in plumas currency. Example: 100
+     * @bodyParam active integer Whether the product is active (0 or 1). Example: 1
+     * @bodyParam product_parent_id integer The ID of the parent product. Example: 1
+     * @bodyParam oro integer The amount of oro included in the product. Example: 1000
+     * @bodyParam plumas integer The amount of plumas included in the product. Example: 200
+     * @bodyParam nft_id integer The ID of the NFT included in the product. Example: 5
+     * @bodyParam rarity string The rarity of the NFT included in the product. Example: "Legendary"
+     * @bodyParam tags string Tags for the product. Example: "gold,premium"
+     * @bodyParam nft_serial_greater_equal integer The minimum NFT serial number. Example: 1
+     * @bodyParam nft_serial_less_equal integer The maximum NFT serial number. Example: 100
+     * @bodyParam custom string Custom information for the product. Example: "Pase de temporada premium"
+     * @bodyParam one_time_purchase integer Whether the product can only be purchased once per user (0 or 1). Example: 1
+     * @bodyParam one_time_purchase_global integer Whether the product can only be purchased once globally (0 or 1). Example: 0
+     * @return JsonResponse
+     */
+    public function update($account, $id)
+    {
+        return parent::update($account, $id);
+    }
+
+    /**
+     * Remove the specified product.
+     *
+     * Delete a product by ID.
+     *
+     * @param string $account
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function destroy($account, Request $request)
+    {
+        return parent::destroy($account, $request);
+    }
+
+    /**
+     * Download products as CSV or JSON.
+     *
+     * Export the product data in CSV or JSON format.
+     *
+     * @param Request $request
+     * @bodyParam type string The file format to download (csv or json). Example: "csv"
+     * @bodyParam page integer The page number for pagination. Example: 0
+     * @bodyParam limit integer The number of items per page (1-100). Example: 10
+     * @bodyParam filter string Filter products by name. Example: "Gold"
+     * @bodyParam sorting string Sort products by column and direction (column:direction). Example: "created_at:desc"
+     * @bodyParam parent_id integer Filter products by parent ID. Example: 1
+     * @return JsonResponse|StreamedResponse
+     */
+    public function download(Request $request)
+    {
+        return parent::download($request);
+    }
+
+    /**
+     * List the fields of the Product model.
+     *
+     * Get the structure and field types of the Product model.
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function fields($account)
+    {
+        return parent::fields($account);
+    }
+
+    /**
+     * Upload a CSV file for bulk Product processing.
+     *
+     * Upload a CSV file to create multiple Products at once.
+     *
+     * @param string $account
+     * @bodyParam file file required The CSV file to upload (max 1MB). Must be a CSV file.
+     * @bodyParam header_mapping array required Array of headers mapping to Product fields.
+     * @return JsonResponse
+     */
+    public function upload($account)
+    {
+        return parent::upload($account);
+    }
+
+    /**
+     * Get the status of a bulk Product upload.
+     *
+     * Check the progress of a previously submitted bulk upload.
+     *
+     * @param string $account
+     * @return JsonResponse
+     */
+    public function uploadStatus($account)
+    {
+        return parent::uploadStatus($account);
+    }
+
+    /**
+     * Delete a bulk Product upload.
+     *
+     * Remove a pending or processing bulk upload.
+     *
+     * @param string $account
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function deleteUpload($account, $id)
+    {
+        return parent::deleteUpload($account, $id);
+    }
 
     protected function getModelName(): string
     {

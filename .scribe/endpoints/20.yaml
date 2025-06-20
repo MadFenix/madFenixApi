@@ -14,8 +14,8 @@ endpoints:
         APIs for managing phoenix diary
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Get available characters for Phoenix Diary.'
+      description: 'Retrieve a list of all available characters for the Phoenix Diary game.'
       authenticated: false
       custom: []
     headers:
@@ -66,8 +66,8 @@ endpoints:
         APIs for managing phoenix diary
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: 'Create a new Phoenix Diary game.'
+      description: 'Start a new game session with the selected character.'
       authenticated: false
       custom: []
     headers:
@@ -91,16 +91,16 @@ endpoints:
     bodyParameters:
       character_id:
         name: character_id
-        description: ''
+        description: 'The ID of the character to use in the game.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
     cleanBodyParameters:
-      character_id: consequatur
+      character_id: 1
     fileParameters: []
     responses: []
     responseFields: []

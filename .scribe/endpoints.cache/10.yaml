@@ -16,8 +16,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: '- Requires manager role'
+      title: 'Display a listing of premium coin coupons.'
+      description: 'Get a paginated list of all premium coin coupons.'
       authenticated: false
       custom: []
     headers:
@@ -38,8 +38,63 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter coupons by code.'
+        required: false
+        example: '"GOLD"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort coupons by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter coupons by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      page: 0
+      limit: 10
+      filter: '"GOLD"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -68,8 +123,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: '- Requires manager role'
+      title: 'Store a newly created premium coin coupon.'
+      description: 'Create a new premium coin coupon with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -90,8 +145,74 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      coupon:
+        name: coupon
+        description: 'The coupon code (4-150 chars).'
+        required: true
+        example: '"GOLD2023"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The number of oro (gold) to award.'
+        required: false
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      uses:
+        name: uses
+        description: 'The current number of uses.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_uses:
+        name: max_uses
+        description: 'The maximum number of uses allowed.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the coupon validity.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the coupon validity.'
+        required: true
+        example: '"2023-12-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      coupon: '"GOLD2023"'
+      oro: 50
+      uses: 0
+      max_uses: 1000
+      start_date: '"2023-01-01 00:00:00"'
+      end_date: '"2023-12-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -111,8 +232,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: '- Requires manager role'
+      title: 'Display the specified premium coin coupon.'
+      description: 'Get details of a specific premium coin coupon by ID.'
       authenticated: false
       custom: []
     headers:
@@ -175,8 +296,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: '- Requires manager role'
+      title: 'Update the specified premium coin coupon.'
+      description: 'Update an existing premium coin coupon with the provided data.'
       authenticated: false
       custom: []
     headers:
@@ -208,8 +329,74 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      coupon:
+        name: coupon
+        description: 'The coupon code (4-150 chars).'
+        required: true
+        example: '"GOLD2023"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      oro:
+        name: oro
+        description: 'The number of oro (gold) to award.'
+        required: false
+        example: 50
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      uses:
+        name: uses
+        description: 'The current number of uses.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      max_uses:
+        name: max_uses
+        description: 'The maximum number of uses allowed.'
+        required: false
+        example: 1000
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      start_date:
+        name: start_date
+        description: 'The start date and time of the coupon validity.'
+        required: true
+        example: '"2023-01-01 00:00:00"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      end_date:
+        name: end_date
+        description: 'The end date and time of the coupon validity.'
+        required: true
+        example: '"2023-12-31 23:59:59"'
+        type: datetime
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      coupon: '"GOLD2023"'
+      oro: 50
+      uses: 0
+      max_uses: 1000
+      start_date: '"2023-01-01 00:00:00"'
+      end_date: '"2023-12-31 23:59:59"'
     fileParameters: []
     responses: []
     responseFields: []
@@ -229,8 +416,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified premium coin coupon.'
+      description: 'Delete a premium coin coupon by ID.'
       authenticated: false
       custom: []
     headers:
@@ -283,8 +470,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: '- Requires manager role'
+      title: 'Remove the specified premium coin coupon.'
+      description: 'Delete a premium coin coupon by ID.'
       authenticated: false
       custom: []
     headers:
@@ -326,8 +513,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource in csv or json.'
-      description: '- Requires manager role'
+      title: 'Download premium coin coupons as CSV or JSON.'
+      description: 'Export the premium coin coupon data in CSV or JSON format.'
       authenticated: false
       custom: []
     headers:
@@ -346,21 +533,76 @@ endpoints:
         custom: []
     cleanUrlParameters:
       account: consequatur
-    queryParameters:
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       type:
         name: type
-        description: 'File type (csv or json).'
+        description: 'The file format to download (csv or json).'
         required: false
-        example: json
+        example: '"csv"'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         custom: []
-    cleanQueryParameters:
-      type: json
-    bodyParameters: []
-    cleanBodyParameters: []
+      page:
+        name: page
+        description: 'The page number for pagination.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      limit:
+        name: limit
+        description: 'The number of items per page (1-100).'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      filter:
+        name: filter
+        description: 'Filter coupons by code.'
+        required: false
+        example: '"GOLD"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      sorting:
+        name: sorting
+        description: 'Sort coupons by column and direction (column:direction).'
+        required: false
+        example: '"created_at:desc"'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+      parent_id:
+        name: parent_id
+        description: 'Filter coupons by parent ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      type: '"csv"'
+      page: 0
+      limit: 10
+      filter: '"GOLD"'
+      sorting: '"created_at:desc"'
+      parent_id: 1
     fileParameters: []
     responses:
       -
@@ -389,8 +631,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'List the fields of the domain model'
-      description: '- Requires manager role'
+      title: 'List the fields of the premium coin coupon model.'
+      description: 'Get the structure and field types of the premium coin coupon model.'
       authenticated: false
       custom: []
     headers:
@@ -441,12 +683,12 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Upload a CSV file for bulk processing'
-      description: '- Requires manager role'
+      title: 'Upload a CSV file for bulk premium coin coupon processing.'
+      description: 'Upload a CSV file to create multiple premium coin coupons at once.'
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       account:
@@ -463,9 +705,33 @@ endpoints:
       account: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'The CSV file to upload (max 1MB). Must be a CSV file.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      header_mapping:
+        name: header_mapping
+        description: 'Array of headers mapping to premium coin coupon fields.'
+        required: true
+        example:
+          - consequatur
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      header_mapping:
+        - consequatur
+    fileParameters:
+      file: null
     responses: []
     responseFields: []
     auth: []
@@ -484,8 +750,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get the status of a bulk upload'
-      description: '- Requires manager role'
+      title: 'Get the status of a bulk premium coin coupon upload.'
+      description: 'Check the progress of a previously submitted bulk upload.'
       authenticated: false
       custom: []
     headers:
@@ -536,8 +802,8 @@ endpoints:
         APIs for managing premium coin coupons
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a bulk upload'
-      description: '- Requires manager role'
+      title: 'Delete a bulk premium coin coupon upload.'
+      description: 'Remove a pending or processing bulk upload.'
       authenticated: false
       custom: []
     headers:
