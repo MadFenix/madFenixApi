@@ -14,11 +14,21 @@ use App\Modules\User\Domain\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * @group Blockchain operations
+ *
+ * APIs for managing blockchain transfers to Hedera
+ */
 class Api
 {
     /**
-     * Transfer zen
+     * Transfer Plumas to Hedera
+     *
+     * Transfer a specified amount of Plumas (feathers) from the user's account to Hedera blockchain.
+     *
      * @param  \Illuminate\Http\Request  $request
+     * @bodyParam id_hedera string required The Hedera account ID to transfer to. Example: "0.0.123456"
+     * @bodyParam plumas integer required The amount of plumas to transfer (minimum 1). Example: 10
      * @return JsonResponse
      */
     public function transferPlumasToHedera(Request $request)
@@ -76,8 +86,13 @@ class Api
     }
 
     /**
-     * Transfer zen
+     * Transfer Oro to Hedera
+     *
+     * Transfer a specified amount of Oro (gold) from the user's account to Hedera blockchain.
+     *
      * @param  \Illuminate\Http\Request  $request
+     * @bodyParam id_hedera string required The Hedera account ID to transfer to. Example: "0.0.123456"
+     * @bodyParam oro integer required The amount of oro to transfer (minimum 1). Example: 5
      * @return JsonResponse
      */
     public function transferOroToHedera(Request $request)
@@ -135,8 +150,13 @@ class Api
     }
 
     /**
-     * Transfer zen
+     * Transfer NFT to Hedera
+     *
+     * Transfer a specific NFT from the user's account to Hedera blockchain.
+     *
      * @param  \Illuminate\Http\Request  $request
+     * @bodyParam id_hedera string required The Hedera account ID to transfer to. Example: "0.0.123456"
+     * @bodyParam nft_identification_id integer required The ID of the NFT identification to transfer. Example: 42
      * @return JsonResponse
      */
     public function transferNftToHedera(Request $request)
