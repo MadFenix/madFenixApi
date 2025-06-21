@@ -13,6 +13,10 @@ use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\User\Domain\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
+use Agustind\Ethsignature;
+use App\Modules\Blockchain\Block\Infrastructure\Service\Polygon;
 
 /**
  * @group Blockchain operations
@@ -210,5 +214,46 @@ class Api
         }
 
         return response()->json(true);
+    }
+
+    /**
+     * Generate a message that the user must sign to prove wallet ownership.
+     */
+    public function getSignMessage(Request $request): JsonResponse
+    {
+        $request->validate(['address' => 'required|string']);
+        $address = strtolower($request->address);
+        $message = Str::random(40);
+        Cache::put('polygon_sign_' . $address, $message, now()->addMinutes(10));
+
+        return response()->json(['message' => $message]);
+    }
+
+    /**
+     * Verify the signed message and return owned token ids for a collection.
+     */
+    public function getOwnedTokens(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'address' => 'required|string',
+            'signature' => 'required|string',
+            'contract_address' => 'required|string',
+        ]);
+
+        $address = strtolower($data['address']);
+        $message = Cache::pull('polygon_sign_' . $address);
+        if (!$message) {
+            return response()->json('Sign message not found or expired', 400);
+        }
+
+        $signature = new Ethsignature();
+        if (!$signature->verify($message, $data['signature'], $data['address'])) {
+            return response()->json('Invalid signature', 400);
+        }
+
+        $polygon = new Polygon();
+        $tokenIds = $polygon->getOwnedTokenIds($address, strtolower($data['contract_address']));
+
+        return response()->json($tokenIds);
     }
 }
