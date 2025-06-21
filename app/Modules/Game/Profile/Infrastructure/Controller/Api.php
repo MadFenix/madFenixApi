@@ -178,7 +178,7 @@ class Api extends ResourceController
         $return->totalPlumas = Profile::sum('plumas') + Profile::sum('plumas_hedera');
         $return->totalOro = Profile::sum('oro') + Profile::sum('oro_hedera');
         $return->totalSalesMonth = BlockchainHistorical::whereDate('created_at', '>=', Carbon::now()->startOfMonth())->where('piezas_de_oro_ft', '<', 0)->sum('piezas_de_oro_ft');
-        $return->totalSalesYear = BlockchainHistorical::whereDate('created_at', '>=', Carbon::now()->startOfMonth())->where('piezas_de_oro_ft', '<', 0)->sum('piezas_de_oro_ft');
+        $return->totalSalesYear = BlockchainHistorical::whereDate('created_at', '>=', Carbon::now()->startOfYear())->where('piezas_de_oro_ft', '<', 0)->sum('piezas_de_oro_ft');
 
         $return->totalPlumasLast10Days = new \stdClass();
         $return->totalPlumasLast10Days->todayMinus0 = BlockchainHistorical::whereDate('created_at', Carbon::today())->sum('plumas');
