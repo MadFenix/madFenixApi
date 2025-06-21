@@ -23,6 +23,7 @@ class Theme extends BaseTransformer
     public function toArray($request)
     {
         return array_merge(parent::toArray($request),[
+            'name' => $this->name,
             'logo' => $this->logo,
             'color_primary' => $this->color_primary,
             'color_secondary' => $this->color_secondary,
