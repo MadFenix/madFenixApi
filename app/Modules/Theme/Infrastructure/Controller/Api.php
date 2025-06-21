@@ -37,6 +37,7 @@ class Api extends ResourceController
      *
      * Create a new theme with the provided data.
      *
+     * @bodyParam name string The name of the theme. Example: "Dark Theme"
      * @bodyParam logo string The logo URL of the theme. Example: "https://example.com/logo.png"
      * @bodyParam color_primary string The primary color of the theme. Example: "#FF5733"
      * @bodyParam color_secondary string The secondary color of the theme. Example: "#33FF57"
@@ -86,6 +87,7 @@ class Api extends ResourceController
      *
      * @param string $account
      * @param int $id
+     * @bodyParam name string The name of the theme. Example: "Dark Theme"
      * @bodyParam logo string The logo URL of the theme. Example: "https://example.com/logo.png"
      * @bodyParam color_primary string The primary color of the theme. Example: "#FF5733"
      * @bodyParam color_secondary string The secondary color of the theme. Example: "#33FF57"

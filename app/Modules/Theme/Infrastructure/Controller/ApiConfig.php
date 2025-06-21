@@ -36,6 +36,7 @@ class ApiConfig extends ResourceController
      *
      * Create a new theme configuration with the provided data.
      *
+     * @bodyParam name string The name of the configuration. Example: "Main Configuration"
      * @bodyParam name_ecosystem string The ecosystem name. Example: "Phoenix Ecosystem"
      * @bodyParam name_fiscal string The fiscal name. Example: "Phoenix Inc."
      * @bodyParam direction string The direction/address. Example: "123 Main St"
@@ -85,6 +86,7 @@ class ApiConfig extends ResourceController
      *
      * @param string $account
      * @param int $id
+     * @bodyParam name string The name of the configuration. Example: "Main Configuration"
      * @bodyParam name_ecosystem string The ecosystem name. Example: "Phoenix Ecosystem"
      * @bodyParam name_fiscal string The fiscal name. Example: "Phoenix Inc."
      * @bodyParam direction string The direction/address. Example: "123 Main St"

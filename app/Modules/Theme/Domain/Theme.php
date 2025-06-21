@@ -6,6 +6,7 @@ use App\Modules\Base\Domain\BaseDomain;
 class Theme extends BaseDomain
 {
     const VALIDATION_CONTEXT = [
+        'name' => ['nullable', 'string'],
         'logo' => ['nullable', 'string'],
         'color_primary' => ['nullable', 'string'],
         'color_secondary' => ['nullable', 'string'],
@@ -30,6 +31,7 @@ class Theme extends BaseDomain
     ];
 
     protected $fillable = [
+        'name',
         'logo',
         'color_primary',
         'color_secondary',

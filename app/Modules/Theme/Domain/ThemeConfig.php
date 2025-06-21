@@ -6,6 +6,7 @@ use App\Modules\Base\Domain\BaseDomain;
 class ThemeConfig extends BaseDomain
 {
     const VALIDATION_CONTEXT = [
+        'name' => ['nullable', 'string'],
         'name_ecosystem' => ['nullable', 'string'],
         'name_fiscal' => ['nullable', 'string'],
         'direction' => ['nullable', 'string'],
@@ -30,6 +31,7 @@ class ThemeConfig extends BaseDomain
     ];
 
     protected $fillable = [
+        'name',
         'name_ecosystem',
         'name_fiscal',
         'direction',
