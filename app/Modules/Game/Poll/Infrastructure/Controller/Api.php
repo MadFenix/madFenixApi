@@ -9,9 +9,6 @@ use App\Modules\Game\Poll\Domain\PollAnswer;
 use App\Modules\Game\Poll\Infrastructure\Service\PollUtilities;
 use App\Modules\Game\Profile\Domain\Profile;
 use App\Modules\Game\Poll\Domain\Poll;
-use App\Modules\Game\Poll\Domain\PollReward;
-use App\Modules\Game\Poll\Domain\PollRewardRedeemed;
-use App\Modules\Game\Poll\Infrastructure\Service\UserPollPremium;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

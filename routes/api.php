@@ -32,6 +32,11 @@ Route::prefix('/{account}')->group(function () {
         Route::post('/verify', 'Api@verify');
     });
 
+    // Public theme routes
+    Route::namespace('\\App\\Modules\\Theme\\Infrastructure\\Controller')->group(function () {
+        Route::get('theme/active', 'Api@getActiveTheme');
+    });
+
     Route::namespace('\\App\\Modules\\Game\\Ranking\\Infrastructure\\Controller')->group(function () {
         Route::get('ranking/getClassification', 'Api@getClassification');
         Route::get('ranking/getGameStarted', 'Api@getGameStarted');
@@ -149,6 +154,24 @@ Route::prefix('/{account}')->group(function () {
 
                 Route::apiResource('profile', 'Game\\Profile\\Infrastructure\\Controller\\Api')->only(['index', 'show', 'update']);
                 Route::get('/profile-download', 'Game\\Profile\\Infrastructure\\Controller\\Api@download');
+
+                Route::apiResource('theme', 'Theme\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/theme', 'Theme\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/theme-download', 'Theme\\Infrastructure\\Controller\\Api@download');
+                Route::get('/theme-fields', 'Theme\\Infrastructure\\Controller\\Api@fields');
+                Route::post('/theme-upload', 'Theme\\Infrastructure\\Controller\\Api@upload');
+                Route::get('/theme-upload', 'Theme\\Infrastructure\\Controller\\Api@uploadStatus');
+                Route::delete('/theme-upload/{id}', 'Theme\\Infrastructure\\Controller\\Api@deleteUpload');
+                Route::post('/theme/{id}/activate', 'Theme\\Infrastructure\\Controller\\Api@activate');
+
+                Route::apiResource('theme-config', 'Theme\\Infrastructure\\Controller\\ApiConfig')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/theme-config', 'Theme\\Infrastructure\\Controller\\ApiConfig@destroy');
+                Route::get('/theme-config-download', 'Theme\\Infrastructure\\Controller\\ApiConfig@download');
+                Route::get('/theme-config-fields', 'Theme\\Infrastructure\\Controller\\ApiConfig@fields');
+                Route::post('/theme-config-upload', 'Theme\\Infrastructure\\Controller\\ApiConfig@upload');
+                Route::get('/theme-config-upload', 'Theme\\Infrastructure\\Controller\\ApiConfig@uploadStatus');
+                Route::delete('/theme-config-upload/{id}', 'Theme\\Infrastructure\\Controller\\ApiConfig@deleteUpload');
+                Route::post('/theme-config/{id}/activate', 'Theme\\Infrastructure\\Controller\\ApiConfig@activate');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
