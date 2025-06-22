@@ -12,7 +12,7 @@ class TenantMiddleware
         $connectedToNewAccount = AccountManager::connectToAccount($request);
 
         if (!$connectedToNewAccount && $request->route('account') == 'host') {
-            $accountFromHost = self::getAccountFromHost($request);
+            $accountFromHost = AccountManager::getAccountFromHost($request);
             throw new \Exception('Host not found: ' . $accountFromHost->host . ' - Path: ' . $accountFromHost->path . ' - Account: ' . $accountFromHost->account);
         }
 
