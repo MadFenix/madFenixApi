@@ -35,6 +35,18 @@ class AccountManager
             $account = $request->route('account');
         }
         $account = Utilities::clearName($account);
+        if ($account == 'host') {
+            if ($request->getHost() == 'our.welore.io') {
+                $path = parse_url($request->url(), PHP_URL_PATH);
+                $segments = explode('/', trim($path, '/'));
+                if (empty($segments[0])) {
+                    throw new \Exception('Invalid account');
+                }
+                $account = $segments[0];
+            } else {
+                $account = explode('.', $request->getHost())[0];
+            }
+        }
 
         $data = self::getConnectionDataByAccount($account);
 
