@@ -39,6 +39,9 @@ class AccountManager
             $host = explode(':', $request->getHost())[0];
             if ($request->getHost() == 'our.welore.io' || $host == 'localhost') {
                 $path = parse_url($request->url(), PHP_URL_PATH);
+                if (empty($path)) {
+                    $path = $request->header('X-Current-Path');
+                }
                 $segments = explode('/', trim($path, '/'));
                 if (empty($segments[0])) {
                     throw new \Exception('Invalid account');
