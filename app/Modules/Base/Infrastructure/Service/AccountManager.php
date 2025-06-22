@@ -38,7 +38,7 @@ class AccountManager
         $return->host = explode(':', $parsedUrl['host'])[0];
         $return->path = '';
         $return->account = '';
-        if ($return->host == 'https://our.welore.io' || $return->host == 'http://localhost') {
+        if ($return->host == 'our.welore.io' || $return->host == 'localhost') {
             $return->path = $request->header('X-Current-Path');
             $segments = explode('/', trim($return->path, '/'));
             if (empty($segments[0])) {
