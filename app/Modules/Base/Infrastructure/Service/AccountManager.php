@@ -29,6 +29,28 @@ class AccountManager
         return $data;
     }
 
+    static public function getAccountFromHost(Request $request)
+    {
+        $return = new \stdClass();
+        $return->host = $request->header('Referer');
+        $return->path = '';
+        $return->account = '';
+        if ($return->host == 'https://our.welore.io' || $return->host == 'http://localhost') {
+            $path = $request->header('X-Current-Path');
+            $segments = explode('/', trim($path, '/'));
+            if (empty($segments[0])) {
+                throw new \Exception('Invalid account');
+            }
+            $return->account = $segments[0];
+        } else {
+            $account = explode('.', $return->host)[0];
+            $account = explode('/', $account);
+            $return->account = $account[count($account) - 1];
+        }
+
+        return $return;
+    }
+
     static public function connectToAccount(Request $request, $account = ''): bool
     {
         if (empty($account)) {
@@ -36,19 +58,8 @@ class AccountManager
         }
         $account = Utilities::clearName($account);
         if ($account == 'host') {
-            $host = explode(':', $request->header('Referer'))[0];
-            if ($request->header('Referer') == 'our.welore.io' || $host == 'localhost') {
-                $path = $request->header('X-Current-Path');
-                $segments = explode('/', trim($path, '/'));
-                if (empty($segments[0])) {
-                    throw new \Exception('Invalid account');
-                }
-                $account = $segments[0];
-            } else {
-                $account = explode('.', $host)[0];
-                $account = explode('/', $account);
-                $account = $account[count($account) - 1];
-            }
+            $accountFromHost = self::getAccountFromHost($request);
+            $account = $accountFromHost->account;
         }
 
         $data = self::getConnectionDataByAccount($account);
