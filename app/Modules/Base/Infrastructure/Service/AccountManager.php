@@ -36,7 +36,8 @@ class AccountManager
         }
         $account = Utilities::clearName($account);
         if ($account == 'host') {
-            if ($request->getHost() == 'our.welore.io') {
+            $host = explode(':', $request->getHost())[0];
+            if ($request->getHost() == 'our.welore.io' || $host == 'localhost') {
                 $path = parse_url($request->url(), PHP_URL_PATH);
                 $segments = explode('/', trim($path, '/'));
                 if (empty($segments[0])) {
