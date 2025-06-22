@@ -32,20 +32,21 @@ class AccountManager
     static public function getAccountFromHost(Request $request)
     {
         $return = new \stdClass();
-        $return->host = $request->header('Referer');
+        $return->url = $request->header('Referer');
+        $parsedUrl = parse_url($return->url);
+        $return->scheme = $parsedUrl['scheme'];
+        $return->host = explode(':', $parsedUrl['host'])[0];
         $return->path = '';
         $return->account = '';
         if ($return->host == 'https://our.welore.io' || $return->host == 'http://localhost') {
-            $path = $request->header('X-Current-Path');
-            $segments = explode('/', trim($path, '/'));
+            $return->path = $request->header('X-Current-Path');
+            $segments = explode('/', trim($return->path, '/'));
             if (empty($segments[0])) {
                 throw new \Exception('Invalid account');
             }
             $return->account = $segments[0];
         } else {
-            $account = explode('.', $return->host)[0];
-            $account = explode('/', $account);
-            $return->account = $account[count($account) - 1];
+            $return->account = explode('.', $return->host)[0];
         }
 
         return $return;
