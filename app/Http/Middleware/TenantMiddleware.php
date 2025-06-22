@@ -9,7 +9,11 @@ class TenantMiddleware
 {
     public function handle($request, Closure $next)
     {
-        AccountManager::connectToAccount($request);
+        $connectedToNewAccount = AccountManager::connectToAccount($request);
+
+        if (!$connectedToNewAccount && $request->route('account') == 'host') {
+            throw new \Exception('Host not found.');
+        }
 
         return $next($request);
     }
