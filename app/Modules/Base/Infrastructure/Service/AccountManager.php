@@ -167,6 +167,7 @@ class AccountManager
 
         $newIdentifiaction = new Identification();
         $newIdentifiaction->account = strtolower($account);
+        $newIdentifiaction->host = 'https://our.welore.io/' . strtolower($account);
         $newIdentifiaction->bbdd_host = $dbHost;
         $newIdentifiaction->bbdd_name = $dbName;
         $newIdentifiaction->bbdd_username = $dbUser;
