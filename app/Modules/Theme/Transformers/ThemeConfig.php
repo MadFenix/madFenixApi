@@ -25,6 +25,7 @@ class ThemeConfig extends BaseTransformer
         return array_merge(parent::toArray($request),[
             'name' => $this->name,
             'name_ecosystem' => $this->name_ecosystem,
+            'slogan_ecosystem' => $this->slogan_ecosystem,
             'name_fiscal' => $this->name_fiscal,
             'direction' => $this->direction,
             'city' => $this->city,
@@ -35,6 +36,10 @@ class ThemeConfig extends BaseTransformer
             'terms_conditions' => $this->terms_conditions,
             'cookies_policy' => $this->cookies_policy,
             'privacy_policy' => $this->privacy_policy,
+            'url_instagram' => $this->url_instagram,
+            'url_youtube' => $this->url_youtube,
+            'url_twitch' => $this->url_twitch,
+            'url_x' => $this->url_x,
             'active_coin_free' => $this->active_coin_free,
             'active_coin_premium' => $this->active_coin_premium,
             'active_polls' => $this->active_polls,
