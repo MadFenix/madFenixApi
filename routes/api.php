@@ -37,6 +37,11 @@ Route::prefix('/{account}')->group(function () {
         Route::get('theme/active', 'Api@getActiveTheme');
     });
 
+    // Public page routes
+    Route::namespace('\\App\\Modules\\Page\\Infrastructure\\Controller')->group(function () {
+        Route::get('page/{name}/get', 'Api@getByName');
+    });
+
     Route::namespace('\\App\\Modules\\Game\\Ranking\\Infrastructure\\Controller')->group(function () {
         Route::get('ranking/getClassification', 'Api@getClassification');
         Route::get('ranking/getGameStarted', 'Api@getGameStarted');
@@ -172,6 +177,14 @@ Route::prefix('/{account}')->group(function () {
                 Route::get('/theme-config-upload', 'Theme\\Infrastructure\\Controller\\ApiConfig@uploadStatus');
                 Route::delete('/theme-config-upload/{id}', 'Theme\\Infrastructure\\Controller\\ApiConfig@deleteUpload');
                 Route::post('/theme-config/{id}/activate', 'Theme\\Infrastructure\\Controller\\ApiConfig@activate');
+
+                Route::apiResource('page', 'Page\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/page', 'Page\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/page-download', 'Page\\Infrastructure\\Controller\\Api@download');
+                Route::get('/page-fields', 'Page\\Infrastructure\\Controller\\Api@fields');
+                Route::post('/page-upload', 'Page\\Infrastructure\\Controller\\Api@upload');
+                Route::get('/page-upload', 'Page\\Infrastructure\\Controller\\Api@uploadStatus');
+                Route::delete('/page-upload/{id}', 'Page\\Infrastructure\\Controller\\Api@deleteUpload');
             });
             Route::middleware('employee')->group(function () {
                 // TODO endpoints to ambassadors
