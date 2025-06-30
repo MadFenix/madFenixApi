@@ -1,10 +1,13 @@
 <?php
 namespace App\Modules\Page\Infrastructure\Controller;
 
+use App\Modules\Base\Domain\BaseDomain;
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Page\Domain\Page;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -78,7 +81,35 @@ class Api extends ResourceController
      */
     public function update($account, $id)
     {
-        return parent::update($account, $id);
+        try {
+            $transformerClass = $this->getTransformerClass();
+
+            /** @var BaseDomain $model */
+            $model = ($this->getModelClass())::where('builder_id', '=', $id)->first();
+            $isCreating = false;
+            if (!$model) {
+                $isCreating = true;
+                $modelClass = $this->getModelClass();
+                $model = new $modelClass(request()->all());
+            }
+
+            // Query parameters
+            $validator = Validator::make(request()->all(), $model->getValidationContext());
+
+            if ($validator->fails()) {
+                throw ValidationException::withMessages($validator->errors()->toArray());
+            }
+
+            if ($isCreating) {
+                $model->save();
+            } else {
+                $model->update(request()->all());
+            }
+        } catch (\Throwable $th) {
+            return $this->formatExceptionError($th);
+        }
+
+        return response()->json(new $transformerClass($model));
     }
 
     /**

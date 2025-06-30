@@ -23,6 +23,7 @@ class Page extends BaseTransformer
     public function toArray($request)
     {
         return array_merge(parent::toArray($request),[
+            'builder_id' => $this->builder_id,
             'name' => $this->name,
             'content' => $this->content,
             'seo_title' => $this->seo_title,

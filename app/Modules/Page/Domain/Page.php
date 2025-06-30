@@ -6,6 +6,7 @@ use App\Modules\Base\Domain\BaseDomain;
 class Page extends BaseDomain
 {
     const VALIDATION_CONTEXT = [
+        'builder_id' => ['nullable', 'string'],
         'name' => ['nullable', 'string'],
         'content' => ['nullable', 'string'],
         'seo_title' => ['nullable', 'string'],
