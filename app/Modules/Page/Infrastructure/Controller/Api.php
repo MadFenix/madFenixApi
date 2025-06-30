@@ -244,7 +244,7 @@ class Api extends ResourceController
     public function getByName($account, $name)
     {
         try {
-            $page = Page::where('name', $name)->first();
+            $page = Page::whereRaw('LOWER(name) = ?', [strtolower($name)])->first();
 
             if (!$page) {
                 return response()->json([
