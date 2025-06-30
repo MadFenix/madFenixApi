@@ -15,6 +15,7 @@ class Page extends BaseDomain
     ];
 
     protected $fillable = [
+        'builder_id',
         'name',
         'content',
         'seo_title',
