@@ -28,7 +28,7 @@ class User extends BaseTransformer
         $accountSettings = AccountSetting::all()->first();
         $pgbs_used = 10;
         $pgbs_total = 10;
-        if (!$accountSettings) {
+        if ($accountSettings) {
             $pgbs_used = $accountSettings->page_builder_sessions_used;
             $pgbs_total = $accountSettings->page_builder_sessions_total;
         }
