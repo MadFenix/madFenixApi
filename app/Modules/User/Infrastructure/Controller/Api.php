@@ -169,11 +169,6 @@ class Api extends Controller
             'newsletter' => $data['newsletter'],
         ])));
 
-        $wallet = new Wallet();
-        $wallet->user_id = $user->id;
-        $wallet->balance = 0;
-        $wallet->save();
-
         $profile = new Profile();
         $profile->user_id = $user->id;
         $profile->description = 'Aprendiz';
