@@ -173,7 +173,7 @@ class Api extends Controller
         $profile->user_id = $user->id;
         $profile->description = 'Aprendiz';
         $profile->details = '';
-        $profile->avatar = '';
+        $profile->avatar = 'https://colecciones.madfenix.com/avatares/gratis/guerrero.jpg';
         $profile->plumas = 2;
         $profile->oro = 0;
         $profile->save();
