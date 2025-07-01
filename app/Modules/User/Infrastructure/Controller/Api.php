@@ -135,10 +135,12 @@ class Api extends Controller
             return response()->json('Account not found', 500);
         }
 
+        $connectionName = DB::connection()->getName();
+
         $checkExistIdentification = Identification::where('account', strtolower($account))->first();
 
         $accountCreated = false;
-        if (!$checkExistIdentification) {
+        if (!$checkExistIdentification && $connectionName == 'mysql') {
             try {
                 $accountCreated = AccountManager::createAccount($account);
             } catch (\Exception $e) {
@@ -148,12 +150,14 @@ class Api extends Controller
                 return response()->json('Error to create account', 500);
             }
         }
-        $accountConnected = AccountManager::connectToAccount($request);
-        if ($accountCreated && $accountConnected) {
-            Artisan::call('migrate', [
-                '--database' => 'tenant',
-                '--force'    => true, // Obligatorio para evitar confirmaciones en producción
-            ]);
+        if ($connectionName == 'mysql') {
+            $accountConnected = AccountManager::connectToAccount($request);
+            if ($accountCreated && $accountConnected) {
+                Artisan::call('migrate', [
+                    '--database' => 'tenant',
+                    '--force'    => true, // Obligatorio para evitar confirmaciones en producción
+                ]);
+            }
         }
 
         $data = $request->validate(User::VALIDATION_COTNEXT);
