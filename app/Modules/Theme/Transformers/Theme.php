@@ -44,6 +44,11 @@ class Theme extends BaseTransformer
             'title_season_premium' => $this->title_season_premium,
             'title_store' => $this->title_store,
             'title_store_h1' => $this->title_store_h1,
+            'icon_polls' => $this->icon_polls,
+            'icon_items' => $this->icon_items,
+            'icon_coin_free' => $this->icon_coin_free,
+            'icon_coin_premium' => $this->icon_coin_premium,
+            'icon_rewards_pass' => $this->icon_rewards_pass,
             'active' => $this->active,
         ]);
     }

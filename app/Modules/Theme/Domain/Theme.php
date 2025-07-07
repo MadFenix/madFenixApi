@@ -27,6 +27,11 @@ class Theme extends BaseDomain
         'title_season_premium' => ['nullable', 'string'],
         'title_store' => ['nullable', 'string'],
         'title_store_h1' => ['nullable', 'string'],
+        'icon_polls' => ['nullable', 'string'],
+        'icon_items' => ['nullable', 'string'],
+        'icon_coin_free' => ['nullable', 'string'],
+        'icon_coin_premium' => ['nullable', 'string'],
+        'icon_rewards_pass' => ['nullable', 'string'],
         'active' => ['nullable', 'integer'],
     ];
 
@@ -52,6 +57,11 @@ class Theme extends BaseDomain
         'title_season_premium',
         'title_store',
         'title_store_h1',
+        'icon_polls',
+        'icon_items',
+        'icon_coin_free',
+        'icon_coin_premium',
+        'icon_rewards_pass',
         'active',
     ];
 
