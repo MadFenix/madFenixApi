@@ -42,6 +42,7 @@ class Product extends BaseTransformer
             'custom' => $this->custom,
             'one_time_purchase' => $this->one_time_purchase,
             'one_time_purchase_global' => $this->one_time_purchase_global,
+            'order' => $this->order,
         ]);
     }
 }

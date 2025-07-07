@@ -25,6 +25,7 @@ class Product extends BaseDomain
         'custom' => ['nullable', 'string'],
         'one_time_purchase' => ['nullable', 'integer'],
         'one_time_purchase_global' => ['nullable', 'integer'],
+        'order' => ['nullable', 'string'],
     ];
 
     protected $fillable = [
@@ -47,6 +48,7 @@ class Product extends BaseDomain
         'custom',
         'one_time_purchase',
         'one_time_purchase_global',
+        'order',
     ];
 
     /**
