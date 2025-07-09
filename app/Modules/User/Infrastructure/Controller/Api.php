@@ -157,6 +157,14 @@ class Api extends Controller
                     '--database' => 'tenant',
                     '--force'    => true, // Obligatorio para evitar confirmaciones en producción
                 ]);
+
+                // Ejecutar el DatabaseSeeder
+                Artisan::call('db:seed', [
+                    '--class' => 'DatabaseSeeder',
+                    '--database' => 'tenant',
+                    '--force' => true
+                ]);
+
             }
         }
 
