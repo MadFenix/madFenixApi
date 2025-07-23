@@ -46,7 +46,7 @@ class AccountManager
             }
             $return->account = $segments[0];
         } else {
-            $return->account = explode('.', $return->host)[0];
+            $return->account = explode('.', str_replace('www.', '', $return->host))[0];
         }
 
         return $return;
