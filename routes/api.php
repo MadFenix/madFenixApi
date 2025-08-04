@@ -14,7 +14,6 @@ use App\Modules\User\Transformers\User as UserTransformer;
 use Illuminate\Support\Facades\Route;
 
 Route::namespace('\\App\\Modules\\Store\\Infrastructure\\Controller')->group(function () {
-    Route::get('store/generateStripeLink', 'Api@generateStripeLink');
     Route::post('store/validateProductOrder', 'Api@validateProductOrder');
 });
 
@@ -40,6 +39,10 @@ Route::prefix('/{account}')->group(function () {
     // Public theme routes
     Route::namespace('\\App\\Modules\\Theme\\Infrastructure\\Controller')->group(function () {
         Route::get('theme/active', 'Api@getActiveTheme');
+    });
+
+    Route::namespace('\\App\\Modules\\Store\\Infrastructure\\Controller')->group(function () {
+        Route::get('store/generateStripeLink', 'Api@generateStripeLink');
     });
 
     // Public page routes
