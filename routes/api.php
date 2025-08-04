@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 use App\Modules\User\Transformers\User as UserTransformer;
 use Illuminate\Support\Facades\Route;
 
+Route::namespace('\\App\\Modules\\Store\\Infrastructure\\Controller')->group(function () {
+    Route::get('store/generateStripeLink', 'Api@generateStripeLink');
+    Route::post('store/validateProductOrder', 'Api@validateProductOrder');
+});
+
 Route::prefix('/{account}')->group(function () {
     Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
         return new UserTransformer(auth()->user());

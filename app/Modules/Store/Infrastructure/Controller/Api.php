@@ -4,6 +4,7 @@
 namespace App\Modules\Store\Infrastructure\Controller;
 
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
+use App\Modules\Base\Infrastructure\Service\AccountManager;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Blockchain\Block\Domain\NftIdentification;
 use App\Modules\Event\Domain\Event;
@@ -15,6 +16,7 @@ use App\Modules\User\Domain\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Stripe\Checkout\Session;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
@@ -372,7 +374,47 @@ class Api extends ResourceController
             : response()->json('Error al guardar el regalo del evento.', 500);
     }
 
-    protected function getProductOrderIdFromStripePaid($sig_header)
+    public function generateStripeLink(Request $request) {
+        $data = $request->validate([
+            'user_id' => 'required',
+            'product_id' => 'required',
+            'account' => 'required',
+            'host_to_return' => 'required',
+        ]);
+
+        // Datos del usuario y monto a cobrar
+        $product = Product::find($data['product_id']);
+        if (!$product) {
+            return response()->json('Producto desconocido.', 404);
+        }
+        $price_eur = number_format($product->price_fiat, 2, '.', '');
+
+        $session = Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => $product->description,
+                    ],
+                    'unit_amount' => intval($price_eur * 100), // en céntimos
+                ],
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => $data['host_to_return'],
+            'cancel_url' => $data['host_to_return'],
+            'metadata' => [
+                'user_id' => $data['user_id'],
+                'product_id' => $data['product_id'],
+                'account' => $data['account'],
+            ],
+        ]);
+
+        echo response()->json($session->url);
+    }
+
+    protected function getProductOrderIdFromStripePaid($sig_header, Request $request)
     {
         // The library needs to be configured with your account's secret key.
         // Ensure the key is kept out of any version control system you might be using.
@@ -397,8 +439,10 @@ class Api extends ResourceController
 
         // Handle the event
         switch ($event->type) {
+            // Deshabilitado, el correo puede no ser el mismo asociado al perfil
+            /*
+            $invoice = $event->data->object;
             case 'invoice.paid':
-                $invoice = $event->data->object;
                 $user = User::where('email', '=', $invoice->customer_email)->first();
                 if (!$user) {
                     return response()->json('Usuario desconocido.', 404);
@@ -413,6 +457,30 @@ class Api extends ResourceController
                     return response()->json('El pedido no se ha podido crear.', 500);
                 }
                 return (int) $productOrder->id;
+            */
+            case 'checkout.session.completed':
+                $session = $event->data->object;
+
+                $userId = $session->metadata->user_id;
+                $productId = $session->metadata->product_id;
+                $account = $session->metadata->account;
+                $connectedToNewAccount = AccountManager::connectToAccount($request, $account);
+
+                if (!$connectedToNewAccount) {
+                    return response()->json('Cuenta no encontrada.', 404);
+                }
+
+                $user = User::find($userId);
+                if (!$user) {
+                    return response()->json('Usuario no encontrado.', 404);
+                }
+
+                $productOrder = $this->saveProductOrder($productId, $user);
+                if (!$productOrder) {
+                    return response()->json('El pedido no se ha podido crear.', 500);
+                }
+
+                return (int) $productOrder->id;
             default:
                 return response()->json('Evento desconocido.', 404);
         }
@@ -424,7 +492,7 @@ class Api extends ResourceController
     {
         $sig_header = (isset($_SERVER['HTTP_STRIPE_SIGNATURE']))? $_SERVER['HTTP_STRIPE_SIGNATURE'] : null;
         if ($sig_header && !empty($sig_header)) {
-            $productOrderId = $this->getProductOrderIdFromStripePaid($sig_header);
+            $productOrderId = $this->getProductOrderIdFromStripePaid($sig_header, $request);
 
             if (gettype($productOrderId) != 'integer') {
                 return response()->json('Pedido de producto no encontrado.', 404);
