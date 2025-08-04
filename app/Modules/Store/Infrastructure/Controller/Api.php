@@ -398,7 +398,7 @@ class Api extends ResourceController
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => $product->description,
+                        'name' => $product->name,
                     ],
                     'unit_amount' => intval($price_eur * 100), // en céntimos
                 ],
