@@ -17,6 +17,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Stripe\Checkout\Session;
+use Stripe\Stripe;
 use Stripe\StripeClient;
 use Stripe\Webhook;
 
@@ -388,6 +389,8 @@ class Api extends ResourceController
             return response()->json('Producto desconocido.', 404);
         }
         $price_eur = number_format($product->price_fiat, 2, '.', '');
+
+        Stripe::setApiKey(env('STRIPE_ACCOUNT_SECRET'));
 
         $session = Session::create([
             'payment_method_types' => ['card'],
