@@ -414,7 +414,7 @@ class Api extends ResourceController
             ],
         ]);
 
-        echo response()->json($session->url);
+        return response()->json($session->url);
     }
 
     protected function getProductOrderIdFromStripePaid($sig_header, Request $request)
