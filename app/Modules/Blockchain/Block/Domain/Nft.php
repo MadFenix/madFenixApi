@@ -13,6 +13,7 @@ class Nft extends BaseDomain
         'subcategory' => ['nullable', 'string'],
         'portrait_image' => ['nullable', 'string'],
         'featured_image' => ['nullable', 'string'],
+        'multiplier' => ['nullable', 'integer'],
         'token_props' => ['required', 'integer'],
         'token_realm' => ['required', 'integer'],
         'token_number' => ['required', 'integer'],
