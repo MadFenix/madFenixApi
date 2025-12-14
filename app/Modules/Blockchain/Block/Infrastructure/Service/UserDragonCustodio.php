@@ -20,11 +20,11 @@ class UserDragonCustodio
 
         $multiplier = $record?->multiplier;
 
-        $toAdd = 0;
+        $multiplierToReturn = 1;
         if ($multiplier) {
-            $toAdd = $multiplier;
+            $multiplierToReturn = $multiplier;
         }
 
-        return 1 + $toAdd;
+        return $multiplierToReturn;
     }
 }
