@@ -27,6 +27,7 @@ class Nft extends BaseDomain
         'subcategory',
         'portrait_image',
         'featured_image',
+        'multiplier',
         'token_props',
         'token_realm',
         'token_number',
