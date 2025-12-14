@@ -29,6 +29,7 @@ class Nft extends BaseTransformer
             'subcategory' => $this->subcategory,
             'portrait_image' => $this->portrait_image,
             'featured_image' => $this->featured_image,
+            'multiplier' => $this->multiplier,
             'token_props' => $this->token_props,
             'token_realm' => $this->token_realm,
             'token_number' => $this->token_number,
