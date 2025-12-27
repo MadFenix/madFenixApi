@@ -89,7 +89,7 @@ class CreateCharacterModuleTables extends Migration
 
         Schema::create('chr_characters', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name', 255);
+            $table->string('name', 191);
             $table->foreignUuid('original_universe_id')->constrained('ref_original_universes');
             $table->foreignUuid('category_id')->constrained('chr_categories');
             $table->foreignUuid('subcategory_type_id')->constrained('chr_subcategory_types');
@@ -129,7 +129,7 @@ class CreateCharacterModuleTables extends Migration
             $table->foreignUuid('character_id')->constrained('chr_characters');
             $table->enum('media_type', ['portrait', 'cover', 'tarot_front', 'tarot_back', 'other']);
             $table->text('url');
-            $table->string('alt_text', 255)->nullable();
+            $table->string('alt_text', 191)->nullable();
             $table->integer('sort_order')->default(0);
             $table->timestamps();
 
@@ -140,7 +140,7 @@ class CreateCharacterModuleTables extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('character_id')->constrained('chr_characters');
             $table->foreignUuid('event_id')->nullable()->constrained('evt_events');
-            $table->string('title', 255);
+            $table->string('title', 191);
             $table->text('description')->nullable();
             $table->date('happened_at')->nullable();
             $table->integer('sort_order')->default(0);
@@ -171,7 +171,7 @@ class CreateCharacterModuleTables extends Migration
         Schema::create('chr_abilities', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('character_id')->constrained('chr_characters');
-            $table->string('name', 255);
+            $table->string('name', 191);
             $table->integer('affinity_base');
             $table->enum('aptitude_type', ['Fisica', 'Magica', 'Cuantica']);
             $table->enum('cone_hint', ['Nucleo', 'ZonaCercana', 'ZonaMedia', 'Periferia'])->nullable();
