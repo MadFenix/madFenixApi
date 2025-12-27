@@ -1,5 +1,7 @@
 # SCHEMA BBDD para personajes
 
+* v0.0.1: 2025-12-27 19:00:00
+
 * **Identificador de dominio**: chr_
 * **Dominios relacionados**: referencias -> ref_, eventos -> evt_, media_,
 * **Tabla principal**: chr_characters

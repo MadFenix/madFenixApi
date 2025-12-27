@@ -12,4 +12,9 @@ class ApiCharacterMedia extends ResourceController
     {
         return 'Universe\\Character\\CharacterMedia';
     }
+
+    protected function getParentIdentificator()
+    {
+        return 'character_id';
+    }
 }

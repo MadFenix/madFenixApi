@@ -12,4 +12,9 @@ class ApiCategoryField extends ResourceController
     {
         return 'Universe\\Character\\CategoryField';
     }
+
+    protected function getParentIdentificator()
+    {
+        return 'character_id';
+    }
 }

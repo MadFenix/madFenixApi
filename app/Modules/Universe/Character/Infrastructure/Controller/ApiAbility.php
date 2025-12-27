@@ -12,4 +12,9 @@ class ApiAbility extends ResourceController
     {
         return 'Universe\\Character\\Ability';
     }
+
+    protected function getParentIdentificator()
+    {
+        return 'character_id';
+    }
 }

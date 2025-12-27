@@ -12,4 +12,9 @@ class ApiExpression extends ResourceController
     {
         return 'Universe\\Character\\Expression';
     }
+
+    protected function getParentIdentificator()
+    {
+        return 'character_id';
+    }
 }

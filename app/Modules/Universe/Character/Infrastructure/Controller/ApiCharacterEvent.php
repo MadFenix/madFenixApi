@@ -12,4 +12,9 @@ class ApiCharacterEvent extends ResourceController
     {
         return 'Universe\\Character\\CharacterEvent';
     }
+
+    protected function getParentIdentificator()
+    {
+        return 'character_id';
+    }
 }

@@ -12,4 +12,9 @@ class ApiStat extends ResourceController
     {
         return 'Universe\\Character\\Stat';
     }
+
+    protected function getParentIdentificator()
+    {
+        return 'character_id';
+    }
 }
