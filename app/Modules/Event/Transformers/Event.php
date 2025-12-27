@@ -25,7 +25,13 @@ class Event extends BaseTransformer
     public function toArray($request)
     {
         return [
-            $this->merge(parent::toArray($request)),
+            'id' => $this->id,
+            'icon' => $this->getIcon(),
+            'description' => $this->description,
+            'short-description' => $this->shortReadable,
+            'long-description' => $this->longReadable,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
             'details' => $this->details,
             'start_at' => $this->start_at,
             'end_at' => $this->end_at,
