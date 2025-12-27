@@ -48,10 +48,7 @@ class Api extends ResourceController
             }
         }
         $metaEvents = ($this->getTransformerClass())::collection(EventMeta::whereNotIn('id', $personalEventsMetaIds)->where('start_at', '<=', $now)->where('end_at', '>=', $now)->orderBy('created_at', 'desc')->get());
-        $allEvents = collect(array_merge(
-            $metaEvents->toArray(),
-            $personalEvents->toArray()
-        ));
+        $allEvents = $personalEvents->concat($metaEvents)->values();
 
         return response()->json($allEvents);
     }
