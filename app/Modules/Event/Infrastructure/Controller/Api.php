@@ -44,6 +44,11 @@ class Api extends ResourceController
         $personalEventsMetaIds = [];
         foreach ($personalEvents as $personalEvent) {
             if ($personalEvent->event_meta_id) {
+                $eventMeta = EventMeta::find($personalEvent->event_meta_id);
+                if ($eventMeta) {
+                    $personalEvent->description = $eventMeta->description;
+                    $personalEvent->details = $eventMeta->details;
+                }
                 $personalEventsMetaIds[] = $personalEvent->event_meta_id;
             }
         }
