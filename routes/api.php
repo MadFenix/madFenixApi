@@ -77,6 +77,142 @@ Route::prefix('/{account}')->group(function () {
             Route::middleware('manager')->group(function () {
                 Route::get('/admin-dashboard', 'Game\\Profile\\Infrastructure\\Controller\\Api@adminDashboard');
 
+                Route::apiResource('character', 'Universe\\Character\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character', 'Universe\\Character\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/character-download', 'Universe\\Character\\Infrastructure\\Controller\\Api@download');
+                Route::get('/character-fields', 'Universe\\Character\\Infrastructure\\Controller\\Api@fields');
+                Route::post('/character-upload', 'Universe\\Character\\Infrastructure\\Controller\\Api@upload');
+                Route::get('/character-upload', 'Universe\\Character\\Infrastructure\\Controller\\Api@uploadStatus');
+                Route::delete('/character-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\Api@deleteUpload');
+
+                Route::apiResource('character-ability', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-ability', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility@destroy');
+                Route::get('/character-ability-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility@download');
+                Route::get('/character-ability-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility@fields');
+                Route::post('/character-ability-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility@upload');
+                Route::get('/character-ability-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility@uploadStatus');
+                Route::delete('/character-ability-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiAbility@deleteUpload');
+
+                Route::apiResource('character-action-result', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-action-result', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult@destroy');
+                Route::get('/character-action-result-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult@download');
+                Route::get('/character-action-result-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult@fields');
+                Route::post('/character-action-result-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult@upload');
+                Route::get('/character-action-result-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult@uploadStatus');
+                Route::delete('/character-action-result-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiActionResult@deleteUpload');
+
+                Route::apiResource('character-archetype', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-archetype', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype@destroy');
+                Route::get('/character-archetype-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype@download');
+                Route::get('/character-archetype-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype@fields');
+                Route::post('/character-archetype-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype@upload');
+                Route::get('/character-archetype-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype@uploadStatus');
+                Route::delete('/character-archetype-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiArchetype@deleteUpload');
+
+                Route::apiResource('character-category', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-category', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory@destroy');
+                Route::get('/character-category-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory@download');
+                Route::get('/character-category-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory@fields');
+                Route::post('/character-category-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory@upload');
+                Route::get('/character-category-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory@uploadStatus');
+                Route::delete('/character-category-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategory@deleteUpload');
+
+                Route::apiResource('character-category-field', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-category-field', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField@destroy');
+                Route::get('/character-category-field-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField@download');
+                Route::get('/character-category-field-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField@fields');
+                Route::post('/character-category-field-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField@upload');
+                Route::get('/character-category-field-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField@uploadStatus');
+                Route::delete('/character-category-field-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiCategoryField@deleteUpload');
+
+                Route::apiResource('character-event', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-event', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent@destroy');
+                Route::get('/character-event-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent@download');
+                Route::get('/character-event-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent@fields');
+                Route::post('/character-event-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent@upload');
+                Route::get('/character-event-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent@uploadStatus');
+                Route::delete('/character-event-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterEvent@deleteUpload');
+
+                Route::apiResource('character-media', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-media', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia@destroy');
+                Route::get('/character-media-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia@download');
+                Route::get('/character-media-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia@fields');
+                Route::post('/character-media-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia@upload');
+                Route::get('/character-media-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia@uploadStatus');
+                Route::delete('/character-media-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiCharacterMedia@deleteUpload');
+
+                Route::apiResource('character-clone-prefix', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-clone-prefix', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix@destroy');
+                Route::get('/character-clone-prefix-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix@download');
+                Route::get('/character-clone-prefix-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix@fields');
+                Route::post('/character-clone-prefix-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix@upload');
+                Route::get('/character-clone-prefix-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix@uploadStatus');
+                Route::delete('/character-clone-prefix-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiClonePrefix@deleteUpload');
+
+                Route::apiResource('character-expression', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-expression', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression@destroy');
+                Route::get('/character-expression-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression@download');
+                Route::get('/character-expression-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression@fields');
+                Route::post('/character-expression-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression@upload');
+                Route::get('/character-expression-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression@uploadStatus');
+                Route::delete('/character-expression-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiExpression@deleteUpload');
+
+                Route::apiResource('character-hierarchy', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-hierarchy', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy@destroy');
+                Route::get('/character-hierarchy-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy@download');
+                Route::get('/character-hierarchy-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy@fields');
+                Route::post('/character-hierarchy-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy@upload');
+                Route::get('/character-hierarchy-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy@uploadStatus');
+                Route::delete('/character-hierarchy-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiHierarchy@deleteUpload');
+
+                Route::apiResource('character-rank', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-rank', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank@destroy');
+                Route::get('/character-rank-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank@download');
+                Route::get('/character-rank-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank@fields');
+                Route::post('/character-rank-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank@upload');
+                Route::get('/character-rank-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank@uploadStatus');
+                Route::delete('/character-rank-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiRank@deleteUpload');
+
+                Route::apiResource('character-role', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-role', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole@destroy');
+                Route::get('/character-role-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole@download');
+                Route::get('/character-role-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole@fields');
+                Route::post('/character-role-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole@upload');
+                Route::get('/character-role-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole@uploadStatus');
+                Route::delete('/character-role-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiRole@deleteUpload');
+
+                Route::apiResource('character-stat', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-stat', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat@destroy');
+                Route::get('/character-stat-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat@download');
+                Route::get('/character-stat-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat@fields');
+                Route::post('/character-stat-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat@upload');
+                Route::get('/character-stat-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat@uploadStatus');
+                Route::delete('/character-stat-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiStat@deleteUpload');
+
+                Route::apiResource('character-subcategory-definition', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-subcategory-definition', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition@destroy');
+                Route::get('/character-subcategory-definition-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition@download');
+                Route::get('/character-subcategory-definition-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition@fields');
+                Route::post('/character-subcategory-definition-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition@upload');
+                Route::get('/character-subcategory-definition-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition@uploadStatus');
+                Route::delete('/character-subcategory-definition-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryDefinition@deleteUpload');
+
+                Route::apiResource('character-subcategory-type', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-subcategory-type', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType@destroy');
+                Route::get('/character-subcategory-type-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType@download');
+                Route::get('/character-subcategory-type-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType@fields');
+                Route::post('/character-subcategory-type-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType@upload');
+                Route::get('/character-subcategory-type-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType@uploadStatus');
+                Route::delete('/character-subcategory-type-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiSubcategoryType@deleteUpload');
+
+                Route::apiResource('character-undead-suffix', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character-undead-suffix', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix@destroy');
+                Route::get('/character-undead-suffix-download', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix@download');
+                Route::get('/character-undead-suffix-fields', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix@fields');
+                Route::post('/character-undead-suffix-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix@upload');
+                Route::get('/character-undead-suffix-upload', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix@uploadStatus');
+                Route::delete('/character-undead-suffix-upload/{id}', 'Universe\\Character\\Infrastructure\\Controller\\ApiUndeadSuffix@deleteUpload');
+
                 Route::apiResource('poll', 'Game\\Poll\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/poll', 'Game\\Poll\\Infrastructure\\Controller\\Api@destroy');
                 Route::get('/poll-download', 'Game\\Poll\\Infrastructure\\Controller\\Api@download');
@@ -167,6 +303,11 @@ Route::prefix('/{account}')->group(function () {
 
                 Route::apiResource('profile', 'Game\\Profile\\Infrastructure\\Controller\\Api')->only(['index', 'show', 'update']);
                 Route::get('/profile-download', 'Game\\Profile\\Infrastructure\\Controller\\Api@download');
+
+                Route::apiResource('character', 'Universe\\Character\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
+                Route::delete('/character', 'Universe\\Character\\Infrastructure\\Controller\\Api@destroy');
+                Route::get('/character-download', 'Universe\\Character\\Infrastructure\\Controller\\Api@download');
+                Route::get('/character-fields', 'Universe\\Character\\Infrastructure\\Controller\\Api@fields');
 
                 Route::apiResource('theme', 'Theme\\Infrastructure\\Controller\\Api')->only(['index', 'store', 'show', 'update', 'destroy']);
                 Route::delete('/theme', 'Theme\\Infrastructure\\Controller\\Api@destroy');
