@@ -17,7 +17,7 @@ class EventMeta extends BaseDomain
         'end_at' => ['required', 'date'],
     ];
 
-    protected $fillable = ['description', 'details', 'creator_id', 'start_at', 'start_at', 'end_at', 'product_gift_id'];
+    protected $fillable = ['description', 'details', 'creator_id', 'start_at', 'end_at', 'product_gift_id'];
 
     /**
      * The attributes that should be cast to native types.

@@ -17,7 +17,7 @@ class Event extends BaseDomain
         'product_gift_id' => ['integer'],
     ];
 
-    protected $fillable = ['description', 'details', 'creator_id', 'destinator_id', 'start_at', 'start_at', 'end_at', 'read_at', 'product_gift_delivered', 'product_gift_id'];
+    protected $fillable = ['event_meta_id', 'description', 'details', 'creator_id', 'destinator_id', 'start_at', 'end_at', 'read_at', 'product_gift_delivered', 'product_gift_id'];
 
     /**
      * The attributes that should be cast to native types.

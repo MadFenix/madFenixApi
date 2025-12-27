@@ -29,11 +29,11 @@ class Event extends BaseTransformer
             'details' => $this->details,
             'start_at' => $this->start_at,
             'end_at' => $this->end_at,
-            'read_at' => $this->read_at,
-            'product_gift_delivered' => $this->product_gift_delivered,
+            'read_at' => (empty($this->read_at))? null : $this->read_at,
+            'product_gift_delivered' => (empty($this->product_gift_delivered))? null : $this->product_gift_delivered,
             'product_gift_id' => $this->product_gift_id,
             'creator' => new UserSummary($this->creator),
-            'destinator' => new UserSummary($this->destinator),
+            'destinator' => (empty($this->destinator))? null : new UserSummary($this->destinator),
         ];
     }
 }

@@ -7,6 +7,7 @@ use App\Modules\Base\Domain\BaseDomain;
 use App\Modules\Base\Infrastructure\Controller\ResourceController;
 use App\Modules\Blockchain\Block\Domain\BlockchainHistorical;
 use App\Modules\Event\Domain\Event;
+use App\Modules\Event\Domain\EventMeta;
 use App\Modules\Store\Domain\Product;
 use App\Modules\Store\Domain\ProductOrder;
 use App\Modules\User\Domain\User;
@@ -39,7 +40,18 @@ class Api extends ResourceController
     public function index(Request $request)
     {
         $now = new Carbon();
-        return response()->json(($this->getTransformerClass())::collection(($this->getModelClass())::where('destinator_id', '=', auth()->user()->id)->where('start_at', '<=', $now)->where('end_at', '>=', $now)->orderBy('created_at', 'desc')->get()));
+        $personalEvents = ($this->getTransformerClass())::collection(($this->getModelClass())::where('destinator_id', '=', auth()->user()->id)->where('start_at', '<=', $now)->where('end_at', '>=', $now)->orderBy('created_at', 'desc')->get());
+        $personalEventsMetaIds = [];
+        foreach ($personalEvents as $personalEvent) {
+            if ($personalEvent->event_meta_id) {
+                $personalEventsMetaIds[] = $personalEvent->event_meta_id;
+            }
+        }
+        $allEvents = $personalEvents;
+        $metaEvents = ($this->getTransformerClass())::collection(EventMeta::whereNotIn('id', $personalEventsMetaIds)->where('start_at', '<=', $now)->where('end_at', '>=', $now)->orderBy('created_at', 'desc')->get());
+        $allEvents->merge($metaEvents);
+
+        return response()->json($allEvents);
     }
 
     /**
@@ -202,9 +214,26 @@ class Api extends ResourceController
         /** @var User $user */
         $user = auth()->user();
 
-        $event = Event::where('id', '=', $data['event_id'])->where('destinator_id', '=', $user->id)->first();
+        $event = Event::
+            where(function ($query) use ($data) {
+                $query->where('id', '=', $data['event_id'])
+                    ->orWhere('event_meta_id', '=', $data['event_id']);
+            })
+            ->where('destinator_id', '=', $user->id)->first();
         if (!$event) {
-            return response()->json('Evento del usuario no encontrado.', 404);
+            $eventMeta = EventMeta::where('id', '=', $data['event_id'])->first();
+            if (!$eventMeta) {
+                return response()->json('Evento del usuario no encontrado.', 404);
+            }
+            $event = new Event();
+            $event->description = 'From event meta';
+            $event->details = 'From event meta';
+            $event->event_meta_id = $eventMeta->id;
+            $event->creator_id = $eventMeta->creator_id;
+            $event->destinator_id = $user->id;
+            $event->start_at = $eventMeta->start_at;
+            $event->end_at = $eventMeta->end_at;
+            $event->product_gift_id = $eventMeta->product_gift_id;
         }
 
         $event->read_at = new Carbon();
