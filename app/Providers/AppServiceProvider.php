@@ -41,8 +41,11 @@ class AppServiceProvider extends ServiceProvider
             $frontend = '';
             if ($account == 'host') {
                 $accountFromHost = AccountManager::getAccountFromHost(request());
-                // $account = $accountFromHost->account;
+                $account = $accountFromHost->account;
                 $frontend = $accountFromHost->host;
+                if ($frontend == 'our.welore.io') {
+                    $frontend = $frontend . '/' . $account;
+                }
             } else {
                 $frontend = env('SPA_WEBSITE') . '/' . $account;
             }
